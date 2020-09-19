@@ -3,6 +3,14 @@ from django.utils import timezone
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser
 
 
+# def update_last_login(sender, user, **kwargs):
+#     """
+#     A signal receiver which updates the last_login date for
+#     the user logging in.
+#     """
+#     user.last_login = timezone.now()
+#     user.save(update_fields=['last_login'])
+
 
 class MyUserManager(BaseUserManager):
     def create_user(self, username, password=None):
@@ -28,26 +36,35 @@ class MyUserManager(BaseUserManager):
 
 
 class MyUser(AbstractBaseUser):
-    username        = models.CharField(max_length=150, unique=True)
-    password        = models.CharField(max_length=128)
-    first_name      = models.CharField(max_length=30, blank=True, null=True)
-    last_name       = models.CharField(max_length=150, blank=True, null=True)
-    is_admin        = models.BooleanField(default=False)
-    is_active       = models.BooleanField(default=True)
-    date_joined     = models.DateTimeField(auto_now_add=True)
-    last_login      = models.DateTimeField(blank=True, null=True)
-    email           = models.EmailField(verbose_name='email address', max_length=255, blank=True, null=True)
-    instagram       = models.CharField(max_length=150, blank=True, null=True)
-    telegram        = models.CharField(max_length=150, blank=True, null=True)
-    bio             = models.CharField(max_length=256, blank=True, null=True)
-    relationship    = models.BooleanField(blank=True, null=True)
-    phone_number    = models.CharField(max_length=32, blank=True, null=True)
-    birth_date      = models.DateField(blank=True, null=True)
-    country         = models.CharField(max_length=256, blank=True, null=True)
-    city            = models.CharField(max_length=256, blank=True, null=True)
-    university      = models.CharField(max_length=256, blank=True, null=True)
-    field           = models.CharField(max_length=256, blank=True, null=True)
-    entrance_year   = models.DateField(blank=True, null=True)
+    username            = models.CharField(max_length=150, unique=True)
+    password            = models.CharField(max_length=128)
+    first_name          = models.CharField(max_length=30, blank=True, null=True)
+    last_name           = models.CharField(max_length=150, blank=True, null=True)
+    is_admin            = models.BooleanField(default=False)
+    is_active           = models.BooleanField(default=True)
+    date_joined         = models.DateTimeField(auto_now_add=True)
+    last_login          = models.DateTimeField(blank=True, null=True)
+    is_male             = models.BooleanField(blank=True, null=True)
+    email               = models.EmailField(verbose_name='email address', max_length=255, blank=True, null=True)
+    instagram           = models.CharField(max_length=150, blank=True, null=True)
+    telegram            = models.CharField(max_length=150, blank=True, null=True)
+    bio                 = models.CharField(max_length=256, blank=True, null=True)
+    relationship        = models.BooleanField(blank=True, null=True)
+    phone_number        = models.CharField(max_length=32, blank=True, null=True)
+    birth_date          = models.DateField(blank=True, null=True)
+    country             = models.CharField(max_length=256, blank=True, null=True)
+    city                = models.CharField(max_length=256, blank=True, null=True)
+    university          = models.CharField(max_length=256, blank=True, null=True)
+    field               = models.CharField(max_length=256, blank=True, null=True)
+    entrance_year       = models.DateField(blank=True, null=True)
+    favorite_sport      = models.CharField(max_length=255, blank=True, null=True)
+    favorite_book       = models.CharField(max_length=255, blank=True, null=True)
+    favorite_movie      = models.CharField(max_length=255, blank=True, null=True)
+    favorite_tv_series  = models.CharField(max_length=255, blank=True, null=True)
+    favorite_game       = models.CharField(max_length=255, blank=True, null=True)
+    favorite_to_travel  = models.CharField(max_length=255, blank=True, null=True)
+    favorite_music      = models.CharField(max_length=255, blank=True, null=True)
+    favorite_color      = models.CharField(max_length=255, blank=True, null=True) # this will be his profile color :)
 
     objects = MyUserManager()
 
