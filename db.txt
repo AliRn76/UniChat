@@ -1,0 +1,77 @@
+Create Database UniChat;
+
+Create Table auth_user(
+	id int Not Null Primary Key Auto_Increment,
+	password varchar(128),
+	last_login datetime(6),
+	is_superuser tinyint(1),
+	username varchar(150),
+	first_name varchar(30),
+	last_name varchar(150),
+	email varchar(254),
+	is_staff tinyint(1),
+	is_active tinyint(1),
+	date_joined datetime(6));
+	
+
+Create Table Client(
+	ID int Not Null Primary Key Auto_Increment,
+	Relationship tinyint(1),
+	PhoneNumber varchar(32),
+	BirthDate date,
+	Country varchar(256),
+	City varchar(256),
+	University varchar(256),
+	Field varchar(256),
+	EntranceYear date,
+	UserID int,
+	Foreign Key (UserID) References auth_user (id));
+
+
+Create Table PV(
+	ID int Not Null Primary Key Auto_Increment,
+	Client1ID int,
+	Client2ID int,
+	Foreign Key (Client1ID) References Client (id),
+	Foreign Key (Client2ID) References Client (id));
+
+Create Table Room(
+	ID int Not Null Primary Key Auto_Increment,
+	MemberCount int,
+	UnreadCount int,
+	AdminID int,
+	Foreign Key (AdminID) References Client (id));
+
+Create Table Message(
+	ID int Not Null Primary Key Auto_Increment,
+	Text text,
+	DateAdded date,
+	DateModified date,
+	DateDeleted date,
+	Deleted boolean,
+	Unread boolean,
+	Image varchar(255),
+	PVID int,
+	RoomID int,
+	ClientID int,
+	Foreign Key (PVID) References PV (ID),
+	Foreign Key (RoomID) References Room (ID),
+	Foreign Key (ClientID) References Client (id));
+
+
+Create Table Member(
+	ID int Not Null Primary Key Auto_Increment,
+	RoomID int,
+	ClientID int,
+	JoidDate date,
+	UnreadCount int,
+	Foreign Key (RoomID) References Room (ID),
+	Foreign Key (ClientID) References Client (ID));
+
+
+
+
+
+
+
+

@@ -1,0 +1,84 @@
+Create Database UniChat;
+
+Create Table auth_user(
+	id int Not Null Primary Key Auto_Increment,
+	username varchar(150),
+	password varchar(127),
+	first_name varchar(30),
+	last_name varchar(150),
+	is_admin boolean,
+	is_active boolean,
+	date_joined datetime(6),
+	last_login datetime(6),
+	email varchar(254),
+	instagram varchar(150),
+	telegram varchar(150),
+	bio varchar(255),
+	relationship boolean,
+	phone_number varchar(32),
+	birth_date date,
+	country varchar(255),
+	city varchar(255),
+	university varchar(255),
+	field varchar(255),
+	entrance_year date);
+
+
+Create Table PVRoom(
+	ID int Not Null Primary Key Auto_Increment,
+	DateCreated datetime,
+	LastMessageDate datetime,
+	IsDeleted boolean,
+	DeletedDate date);
+
+Create Table PublicRoom(
+	ID int Not Null Primary Key Auto_Increment,
+	MemberCount int,
+	Name varchar(127),
+	AdminID int,
+	IsDeleted boolean,
+	DeletedDate datetime,
+	Foreign Key (AdminID) References auth_user (id));
+
+Create Table Message(
+	ID int Not Null Primary Key Auto_Increment,
+	Text text,
+	DateAdded datetime,
+	DateModified datetime,
+	DateDeleted datetime,
+	IsDeleted boolean,
+	Unread boolean,
+	Image varchar(255),
+	PVID int,
+	PublicRoomID int,
+	UserID int,
+	Foreign Key (PVID) References PVRoom (ID),
+	Foreign Key (PublicRoomID) References PublicRoom (ID),
+	Foreign Key (UserID) References auth_user (id));
+
+
+Create Table PublicMember(
+	ID int Not Null Primary Key Auto_Increment,
+	PublicRoomID int,
+	UserID int,
+	UnreadCount int,
+	JoinDate date,
+	Foreign Key (PublicRoomID) References PublicRoom (ID),
+	Foreign Key (UserID) References auth_user (ID));
+
+Create Table PVMember(
+	ID int Not Null Primary Key Auto_Increment,
+	PVRoomID int,
+	UserID int,
+	Blocked boolean,
+	IsFavorite boolean,
+	UnreadCount int,
+	Foreign Key (PVRoomID) References PVRoom (ID),
+	Foreign Key (UserID) References auth_user (ID));
+
+
+
+
+
+
+
