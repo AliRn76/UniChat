@@ -20,7 +20,6 @@ class PublicRoom(models.Model):
     id                  = models.AutoField(db_column='ID', primary_key=True)
     member_count        = models.IntegerField(db_column='MemberCount', blank=True, null=True)
     room_name           = models.CharField(db_column='RoomName', max_length=127, blank=True, null=True)
-    admin_id            = models.ForeignKey(User, models.DO_NOTHING, db_column='AdminID', blank=True, null=True)
     date_created        = models.DateTimeField(db_column='DateCreated', auto_now_add=True)
     is_deleted          = models.BooleanField(db_column='IsDeleted', default=False)
     date_deleted        = models.DateTimeField(db_column='DateDeleted', blank=True, null=True)
@@ -35,7 +34,7 @@ class PublicMember(models.Model):
     user_id             = models.ForeignKey(User, models.DO_NOTHING, db_column='UserID', blank=True, null=True)
     unread_count        = models.IntegerField(db_column='UnreadCount', blank=True, null=True)
     join_date           = models.DateTimeField(db_column='JoinDate', auto_now_add=True)
-
+    is_admin            = models.BooleanField(db_column='IsAdmin', default=False)
     class Meta:
         db_table = 'PublicMember'
 

@@ -21,7 +21,15 @@ Create Table auth_user(
 	city varchar(255),
 	university varchar(255),
 	field varchar(255),
-	entrance_year date);
+	entrance_year date,
+	favorite_sport varchar(255),
+	favorite_book varchar(255),
+	favorite_movie varchar(255),
+	favorite_tv_series varchar(255),
+	favorite_game varchar(255),
+	favorite_to_travel varchar(255),
+	favorite_music varchar(255),
+	favorite_color varchar(255));
 
 
 Create Table PVRoom(
@@ -35,10 +43,8 @@ Create Table PublicRoom(
 	ID int Not Null Primary Key Auto_Increment,
 	MemberCount int,
 	Name varchar(127),
-	AdminID int,
 	IsDeleted boolean,
-	DeletedDate datetime,
-	Foreign Key (AdminID) References auth_user (id));
+	DeletedDate datetime);
 
 Create Table Message(
 	ID int Not Null Primary Key Auto_Increment,
@@ -47,7 +53,6 @@ Create Table Message(
 	DateModified datetime,
 	DateDeleted datetime,
 	IsDeleted boolean,
-	Unread boolean,
 	Image varchar(255),
 	PVID int,
 	PublicRoomID int,
@@ -63,6 +68,7 @@ Create Table PublicMember(
 	UserID int,
 	UnreadCount int,
 	JoinDate date,
+	IsAdmin boolean,
 	Foreign Key (PublicRoomID) References PublicRoom (ID),
 	Foreign Key (UserID) References auth_user (ID));
 
