@@ -1,6 +1,7 @@
 .venv/*
-.idea/*
+**/.idea/
 *.pyc
 **/migrations/**
 !**/migrations
 !**/migrations/__init__.py
+
