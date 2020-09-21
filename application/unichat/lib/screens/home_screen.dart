@@ -48,16 +48,17 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
           TabData(
               iconData: Icons.group,
-              title: "Group Chat"
+              title: "Group Chat",
           ),
         ],
+        activeIconColor: Colors.black,
+        textColor: Colors.black,
+        barBackgroundColor: Colors.white,
+        circleColor: Colors.white,
+        inactiveIconColor: Colors.black.withOpacity(0.5),
         initialSelection: 1,
         key: bottomNavigationKey,
-        onTabChangedListener: (position) {
-          setState(() {
-            currentPage = position;
-          });
-        },
+        onTabChangedListener: (position) => setState(() => currentPage = position),
       ),
     );
   }
