@@ -5,16 +5,12 @@ import 'package:unichat/screens/chat_screen.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 
-class PvScreen extends StatefulWidget {
-//  ConnectionProvider connectionProvider;
-
-//  PvScreen({this.connectionProvider});
-
+class GroupScreen extends StatefulWidget {
   @override
-  _PvScreenState createState() => _PvScreenState();
+  _GroupScreenState createState() => _GroupScreenState();
 }
 
-class _PvScreenState extends State<PvScreen> {
+class _GroupScreenState extends State<GroupScreen> {
   TextEditingController searchController = TextEditingController();
   bool isInSearch = false;
   Widget appBarSearchIcon = Icon(Icons.search);
@@ -26,13 +22,12 @@ class _PvScreenState extends State<PvScreen> {
     ),
   );
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          backgroundColor: Color(0xffe2aff3),
-          elevation: 3.0,
+          backgroundColor: Color(0xfff3e2af),
+          elevation: 0.0,
           centerTitle: true,
           title: _setTitle(),
           actions: [
@@ -51,7 +46,7 @@ class _PvScreenState extends State<PvScreen> {
                   0.7,
                 ],
                 colors: [
-                  Color(0xffe2aff3),
+                  Color(0xfff3e2af),
                   Color(0xfff9f9f9),
                 ]
             )
@@ -74,16 +69,16 @@ class _PvScreenState extends State<PvScreen> {
       return GestureDetector(
         onTap: (){
           Navigator.push(
-            context,
-            MaterialPageRoute(builder:  (context) => ChatScreen()));
+              context,
+              MaterialPageRoute(builder:  (context) => ChatScreen()));
         },
         child: Container(
           margin: EdgeInsets.fromLTRB(10.0, 20.0, 10.0, 0.0),
+          height: size.width * 0.15,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15.0),
-            color: Colors.grey[600].withOpacity(0.1),
+            color: Colors.greenAccent[400].withOpacity(0.0),
           ),
-          height: size.width * 0.15,
           child: Stack(
             children: [
               Positioned(
@@ -120,16 +115,16 @@ class _PvScreenState extends State<PvScreen> {
                       height: size.width * 0.035,
                       width: size.width * 0.035,
                       decoration: BoxDecoration(
-  //                            border: Border.all(color: Colors.white, width: 0.5),
+//                            border: Border.all(color: Colors.white, width: 0.5),
                         border: Border.all(color: Colors.black, width: 0.5),
                         borderRadius: BorderRadius.circular(15.0),
-  //                            color: Colors.green,
+//                            color: Colors.green,
                         color: Colors.grey,
                       ),
                     ),
                     SizedBox(width: 5.0),
                     Text(
-  //                          "Online",
+//                          "Online",
                       "25 min ago",
                       style: TextStyle(
                         fontSize: 10.0,
@@ -155,7 +150,7 @@ class _PvScreenState extends State<PvScreen> {
               ),
             ],
           ),
-    ),
+        ),
       );
     else
       return GestureDetector(
@@ -169,7 +164,7 @@ class _PvScreenState extends State<PvScreen> {
           height: size.width * 0.15,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15.0),
-            color: Colors.greenAccent[400].withOpacity(0.1),
+            color: Colors.greenAccent[400].withOpacity(0.0),
           ),
           child: Stack(
             children: [
@@ -207,10 +202,10 @@ class _PvScreenState extends State<PvScreen> {
                       height: size.width * 0.035,
                       width: size.width * 0.035,
                       decoration: BoxDecoration(
-                        border: Border.all(color: Colors.white, width: 0.4),
+                        border: Border.all(color: Colors.white, width: 0.5),
 //                            border: Border.all(color: Colors.black, width: 0.5),
                         borderRadius: BorderRadius.circular(15.0),
-                        color: Colors.greenAccent[400],
+                        color: Colors.green,
 //                            color: Colors.grey,
                       ),
                     ),
@@ -276,11 +271,11 @@ class _PvScreenState extends State<PvScreen> {
   }
 
   Widget _appbarActionButton(){
-    if (!isInSearch)
+    if (isInSearch)
       return IconButton(
         onPressed: () {
           setState(() {
-            isInSearch = true;
+            isInSearch = false;
             appbarTitle = Padding(
               padding: EdgeInsets.all(0.0),
               child: TextField(
@@ -320,10 +315,10 @@ class _PvScreenState extends State<PvScreen> {
     else
       return IconButton(
         onPressed: () {
-          searchController.clear();
+//          searchController.clear();
           setState(() {
 //            finalList = _logs;
-            isInSearch = false;
+            isInSearch = true;
             appbarTitle = Text(
               "Uni Chat",
               style: TextStyle(

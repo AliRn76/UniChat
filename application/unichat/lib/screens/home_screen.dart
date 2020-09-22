@@ -1,12 +1,13 @@
-import 'dart:ui';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:fancy_bottom_navigation/fancy_bottom_navigation.dart';
-import 'package:flutter_circle_color_picker/flutter_circle_color_picker.dart';
-import 'package:invert_colors/invert_colors.dart';
-import 'package:unichat/screens/group.dart';
-import 'package:unichat/screens/profile_screen.dart';
+import 'package:provider/provider.dart';
+import 'package:unichat/providers/connection_provider.dart';
+
 import 'package:unichat/screens/pv_screen.dart';
+import 'package:unichat/screens/group_screen.dart';
+import 'package:unichat/screens/profile_screen.dart';
+
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -64,6 +65,8 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   _getPage(int page) {
+//    final ConnectionProvider connectionProvider = Provider.of<ConnectionProvider>(context);
+//    print(connectionProvider.connection.toString());
     switch (page) {
       case 0:
         return PvScreen();
