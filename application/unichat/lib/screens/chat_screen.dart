@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:popup_menu/popup_menu.dart';
+import 'package:unichat/screens/contact_profile_screen.dart';
 
 
 class ChatScreen extends StatefulWidget {
@@ -31,30 +32,41 @@ class _ChatScreenState extends State<ChatScreen> {
           backgroundColor: Colors.cyan[300],
           elevation: 0.0,
           centerTitle: true,
-          title: Row(
-            children: [
-              Container(
-                height: size.width * 0.13,
-                width: size.width * 0.13,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(19.0),
-                  image: DecorationImage(
-                    image: AssetImage("assets/images/nature-3807667_1920.jpg"),
-                    fit: BoxFit.cover,
+          title: GestureDetector(
+            onTap: (){
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ContactProfile()),
+              );
+            },
+            child: Container(
+              color: Colors.white.withOpacity(0.0),
+              child: Row(
+                children: [
+                  Container(
+                    height: size.width * 0.13,
+                    width: size.width * 0.13,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(19.0),
+                      image: DecorationImage(
+                        image: AssetImage("assets/images/nature-3807667_1920.jpg"),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
                   ),
-                ),
+                  SizedBox(width: size.width * 0.04),
+                  Flexible(
+                    child: Text(
+                      "Farhad Farhad Farhad Farhad Farhad Farhad",
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      fontSize: 17.0,
+                    ),
+                    ),
+                  ),
+                ],
               ),
-              SizedBox(width: size.width * 0.04),
-              Flexible(
-                child: Text(
-                  "Farhad Farhad Farhad Farhad Farhad Farhad",
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                  fontSize: 17.0,
-                ),
-                ),
-              ),
-            ],
+            ),
           ),
           actions: [
             IconButton(
@@ -90,9 +102,9 @@ class _ChatScreenState extends State<ChatScreen> {
             Align(
               alignment: Alignment(0, 1),
               child: Container(
-                height: size.width * 0.14,
+                height: 40.0,
                 width: double.infinity,
-                margin: EdgeInsets.symmetric(vertical: 2.0, horizontal: 2.0),
+                margin: EdgeInsets.symmetric(vertical: 2.0, horizontal: 5.0),
                 decoration: BoxDecoration(
                   color: Colors.white.withOpacity(0.9),
                   borderRadius: BorderRadius.circular(30.0),
@@ -133,9 +145,12 @@ class _ChatScreenState extends State<ChatScreen> {
                     GestureDetector(
 //                      onLongPressStart: _startPressMic,
 //                      onLongPressEnd: _endPressMic,
-                      child: Icon(
-                        Icons.mic,
-                        color: Colors.grey[700],
+                      child: Padding(
+                        padding: EdgeInsets.only(right: 10),
+                        child: Icon(
+                          Icons.mic,
+                          color: Colors.grey[700],
+                        ),
                       ),
                     )
                   ],
@@ -274,13 +289,14 @@ class _ChatScreenState extends State<ChatScreen> {
         child: Stack(
           children: [
             Container(
-              margin: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 4.0),
+              margin: EdgeInsets.fromLTRB(10.0, 0.0, 20.0, 4.0),
               decoration: BoxDecoration(
               ),
               child: Stack(
                 children: [
                   Container(
                     margin: EdgeInsets.only(right: 8.0),
+//                    width: double.maxFinite,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15.0),
                       color: Colors.pink[300].withOpacity(0.4),
@@ -288,7 +304,7 @@ class _ChatScreenState extends State<ChatScreen> {
                     child: Padding(
                       padding: EdgeInsets.fromLTRB(15.0, 15.0, 45.0, 15.0),
                       child: Text(
-                        "Hello I'm Good  how are you doing babe \n tell me when can I call you",
+                        "Hello I'm Good  how are you doing babe tell I'm Good  how are you doing babe tell me wh I'm Good  how are you doing babe \n tell me wh me when can I call you",
                       ),
                     ),
                   ),

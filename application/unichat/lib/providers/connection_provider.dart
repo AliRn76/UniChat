@@ -27,7 +27,7 @@ class ConnectionProvider extends ChangeNotifier{
     } on PlatformException catch (e) {
       print("Connectivity Error: ${e.toString()}");
     }
-    print("Connectivity Result: ${result.toString()}");
+    print("init Connectivity Result: ${result.toString()}");
     if(result.toString() == "ConnectivityResult.none")
       _connection = false;
     else
@@ -38,7 +38,7 @@ class ConnectionProvider extends ChangeNotifier{
 
   void _invokeNetworkStatusListen() async{
     _subscription = Connectivity().onConnectivityChanged.listen((ConnectivityResult result) {
-      print("Connectivity RESULT: $result");
+      print("Connectivity Result: $result");
       if(result.toString() == "ConnectivityResult.none")
         _connection = false;
       else
