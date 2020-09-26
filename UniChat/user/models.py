@@ -56,7 +56,7 @@ class MyUser(AbstractBaseUser):
     city                = models.CharField(max_length=256, blank=True, null=True)
     university          = models.CharField(max_length=256, blank=True, null=True)
     field               = models.CharField(max_length=256, blank=True, null=True)
-    entrance_year       = models.DateField(blank=True, null=True)
+    entrance_year       = models.IntegerField(blank=True, null=True)
     favorite_sport      = models.CharField(max_length=255, blank=True, null=True)
     favorite_book       = models.CharField(max_length=255, blank=True, null=True)
     favorite_movie      = models.CharField(max_length=255, blank=True, null=True)

@@ -21,7 +21,7 @@ Create Table auth_user(
 	city varchar(255),
 	university varchar(255),
 	field varchar(255),
-	entrance_year date,
+	entrance_year int,
 	favorite_sport varchar(255),
 	favorite_book varchar(255),
 	favorite_movie varchar(255),
@@ -48,19 +48,29 @@ Create Table PublicRoom(
 
 Create Table Message(
 	ID int Not Null Primary Key Auto_Increment,
+	PVRoomID int,
+	PublicRoomID int,
+	UserID int,
+	MessageID int,
 	Text text,
 	DateAdded datetime,
 	DateModified datetime,
 	DateDeleted datetime,
 	IsDeleted boolean,
 	Image varchar(255),
-	PVID int,
-	PublicRoomID int,
-	UserID int,
+	SumScores int,
 	Foreign Key (PVID) References PVRoom (ID),
 	Foreign Key (PublicRoomID) References PublicRoom (ID),
-	Foreign Key (UserID) References auth_user (id));
+	Foreign Key (UserID) References auth_user (id),
+	Foreign Key (MessageID) References Message (ID),);
 
+Create Table MessageScore(
+	ID int Not Null Primary Key Auto_Increment,
+	UserID int,
+	MessageID int,
+	Score boolean,
+	Foreign Key (UserID) References auth_user (id),
+	Foreign Key (MessageID) References Message (ID));
 
 Create Table PublicMember(
 	ID int Not Null Primary Key Auto_Increment,

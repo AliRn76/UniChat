@@ -53,20 +53,27 @@ class PvMember(models.Model):
 
 class Message(models.Model):
     id                  = models.AutoField(db_column='ID', primary_key=True)
+    pv_room_id          = models.ForeignKey(PvRoom, models.DO_NOTHING, db_column='PVRoomID', blank=True, null=True)
+    public_room_id      = models.ForeignKey(PublicRoom, models.DO_NOTHING, db_column='PublicRoomID', blank=True, null=True)
+    user_id             = models.ForeignKey(User, models.DO_NOTHING, db_column='UserID')
+    message_id          = models.ForeignKey('self', models.DO_NOTHING, db_column="MessageID")
     text                = models.TextField(db_column='Text', blank=True, null=True)
     date_added          = models.DateTimeField(db_column='DateAdded', auto_now_add=True)
     date_modified       = models.DateTimeField(db_column='DateModified', blank=True, null=True)
     date_deleted        = models.DateTimeField(db_column='DateDeleted', blank=True, null=True)
     is_deleted          = models.BooleanField(db_column='IsDeleted', default=False)
     image               = models.CharField(db_column='Image', max_length=255, blank=True, null=True)
-    pv_room_id          = models.ForeignKey(PvRoom, models.DO_NOTHING, db_column='PVRoomID', blank=True, null=True)
-    public_room_id      = models.ForeignKey(PublicRoom, models.DO_NOTHING, db_column='PublicRoomID', blank=True, null=True)
-    user_id             = models.ForeignKey(User, models.DO_NOTHING, db_column='UserID')
+    sum_scores          = models.IntegerField(db_column='SumScores', blank=True, null=True)
 
     class Meta:
         db_table = 'Message'
 
 
+class Score(models.Model):
+    id              = models.AutoField(db_column='ID', primary_key=True)
+    message_id      = models.ForeignKey(Message, models.DO_NOTHING, db_column="MessageID")
+    user_id         = models.ForeignKey(User, models.DO_NOTHING, db_column='UserID')
+    score           = models.BooleanField(db_column="Score")
 
 
 
