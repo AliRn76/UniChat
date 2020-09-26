@@ -378,3 +378,4 @@ class _ChatScreenState extends State<ChatScreen> {
 //TODO: icon Add Reaction beshe, icon e last emoji
 //TODO: mishe emoji ro mesle issue haye github ovord ziresh
 //TODO: item ha dragble beshan , baraye Reply
+//TODO: _messagesOptions bug dare, 2 ta hamzaman mishe baz kard, baghiashonm mishe
