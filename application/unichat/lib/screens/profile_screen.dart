@@ -13,10 +13,12 @@ class ProfileScreen extends StatefulWidget {
 
 class _ProfileScreenState extends State<ProfileScreen> {
   bool onEdit = false;
-  bool onChangeColor = false;
+  bool onChangeBackgroundColor = false;
+  bool onChangeFontColor = false;
   bool onPage1 = true;
   bool onPage2 = false;
-  Color customColor = Color(0xA3D1FF);
+  Color backgroundColor = Color(0xA3D1FF);
+  Color fontColor = Colors.black;
   Color lastColor;
 
   @override
@@ -42,13 +44,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 height: size.height * 0.70,
                 margin: EdgeInsets.only(top: 15),
                 decoration: BoxDecoration(
-                  color: customColor.withOpacity(0.3),
-//                    color: Color(0x7fffffff),
+                  color: backgroundColor.withOpacity(0.3),
                   borderRadius: BorderRadius.circular(15.0),
-//                        border: Border.all(
-//                          color: customColor.withOpacity(0.0),
-//                          width: 0.0,
-//                        )
                 ),
                 child: Padding(
                   padding: EdgeInsets.all(20.0),
@@ -75,7 +72,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               SizedBox(height: size.height * 0.03),
                               Text(
                                 "Ali Rn ",
-
+                                style: TextStyle(
+                                  color: fontColor,
+                                ),
                               ),
                               SizedBox(height:10.0),
                               Row(
@@ -84,17 +83,25 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   Icon(
                                     Icons.bubble_chart,
                                     size: 16.0,
+                                    color: fontColor,
                                   ),
                                   Text(
                                     "22",
+                                    style: TextStyle(
+                                      color: fontColor,
+                                    ),
                                   ),
                                   SizedBox(width: 20.0),
                                   Icon(
                                     Icons.pin_drop,
                                     size: 16.0,
+                                    color: fontColor,
                                   ),
                                   Text(
                                     "Tehran",
+                                    style: TextStyle(
+                                      color: fontColor,
+                                    ),
                                   ),
                                 ],
                               ),
@@ -104,9 +111,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   Icon(
                                     Icons.phone,
                                     size: 16.0,
+                                    color: fontColor,
                                   ),
                                   SizedBox(width:10.0),
-                                  Text("09037853055"),
+                                  Text(
+                                    "09037853055",
+                                    style: TextStyle(
+                                      color: fontColor,
+                                    ),
+                                  ),
                                 ],
                               ),
                             ],
@@ -121,7 +134,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             height: 30.0,
                             fit: BoxFit.cover,
                           ),
-                          Text("Ali_Rn_"),
+                          Text(
+                            "Ali_Rn_",
+                            style: TextStyle(
+                              color: fontColor,
+                            ),
+                          ),
                         ],
                       ),
                       Row(
@@ -131,7 +149,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             height: 30.0,
                             fit: BoxFit.cover,
                           ),
-                          Text("Al1Rn"),
+                          Text(
+                            "Al1Rn",
+                            style: TextStyle(
+                              color: fontColor,
+                            ),
+                          ),
                         ],
                       ),
                       SizedBox(height: size.height * 0.02),
@@ -146,9 +169,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   Icon(
                                     Icons.directions_run,
                                     size: 16.0,
+                                    color: fontColor,
                                   ),
                                   SizedBox(width: size.width * 0.02),
-                                  Text("Football"),
+                                  Text(
+                                    "Football",
+                                    style: TextStyle(
+                                      color: fontColor,
+                                    ),),
                                 ],
                               ),
                               SizedBox(height: size.height * 0.02),
@@ -157,9 +185,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   Icon(
                                     Icons.videogame_asset,
                                     size: 16.0,
+                                    color: fontColor,
                                   ),
                                   SizedBox(width: size.width * 0.02),
-                                  Text("Game"),
+                                  Text(
+                                    "Game",
+                                    style: TextStyle(
+                                      color: fontColor,
+                                    ),),
                                 ],
                               ),
                               SizedBox(height: size.height * 0.02),
@@ -168,9 +201,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   Icon(
                                     Icons.tv,
                                     size: 16.0,
+                                    color: fontColor,
                                   ),
                                   SizedBox(width: size.width * 0.02),
-                                  Text("TV Series"),
+                                  Text(
+                                    "TV Series",
+                                    style: TextStyle(
+                                      color: fontColor,
+                                    ),),
                                 ],
                               ),
                             ],
@@ -183,9 +221,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   Icon(
                                     Icons.library_books,
                                     size: 16.0,
+                                    color: fontColor,
                                   ),
                                   SizedBox(width: size.width * 0.02),
-                                  Text("Book"),
+                                  Text(
+                                    "Book",
+                                    style: TextStyle(
+                                      color: fontColor,
+                                    ),),
                                 ],
                               ),
                               SizedBox(height: size.height * 0.02),
@@ -194,9 +237,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   Icon(
                                     Icons.movie,
                                     size: 16.0,
+                                    color: fontColor,
                                   ),
                                   SizedBox(width: size.width * 0.02),
-                                  Text("Movie"),
+                                  Text(
+                                    "Movie",
+                                    style: TextStyle(
+                                      color: fontColor,
+                                    ),),
                                 ],
                               ),
                               SizedBox(height: size.height * 0.02),
@@ -205,9 +253,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   Icon(
                                     Icons.airplanemode_active,
                                     size: 16.0,
+                                    color: fontColor,
                                   ),
                                   SizedBox(width: size.width * 0.02),
-                                  Text("Wants to travel"),
+                                  Text(
+                                    "Wants to travel",
+                                    style: TextStyle(
+                                      color: fontColor,
+                                    ),),
                                 ],
                               ),
                             ],
@@ -227,7 +280,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   width: 30.0,
                   child: MyArc(
                     diameter: 300,
-                    color: customColor.withOpacity(0.3),
+                    color: backgroundColor.withOpacity(0.3),
                   ),
                 ),
               ),
@@ -236,12 +289,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 right: 16.0,
                 child: InvertColors(
                   child: IconButton(
-                    color: customColor.withOpacity(1.0),
+                    color: backgroundColor.withOpacity(1.0),
                     iconSize: 20,
                     icon: Icon(Icons.mode_edit),
                     onPressed: (){
                       setState(() {
-                        lastColor = customColor;
+                        lastColor = backgroundColor;
                         onEdit = true;
                       });
                       print("EDIT");
@@ -258,17 +311,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 height: size.height * 0.70,
                 margin: EdgeInsets.only(top: 15),
                 decoration: BoxDecoration(
-                  color: customColor.withOpacity(0.3),
-//                    color: Color(0x7fffffff),
+                  color: backgroundColor.withOpacity(0.3),
                   borderRadius: BorderRadius.circular(15.0),
-//                        border: Border.all(
-//                          color: customColor.withOpacity(0.0),
-//                          width: 0.0,
-//                        )
                 ),
                 child: Padding(
                   padding: EdgeInsets.all(20.0),
-                  child: !onChangeColor ? Column(
+                  child: !onChangeBackgroundColor && !onChangeFontColor ? Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: <Widget>[
                       Row(
@@ -283,7 +331,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 width: 0.1,
                               ),
                               borderRadius: BorderRadius.circular(50),
-
 //                                  image: DecorationImage(
 //                                    image: AssetImage("assets/images/Michael B Jordan.png"),
 //                                    fit: BoxFit.cover,
@@ -346,42 +393,61 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            FlatButton(
-                              onPressed: (){
-                                setState(() => onChangeColor = true);
-                              },
-                              padding: EdgeInsets.all(0.0),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15.0),
-                              ),
-                              child: InvertColors(
-                                child: Container(
-                                  padding: EdgeInsets.all(4.0),
-                                  decoration: BoxDecoration(
+                            Row(
+                              children: [
+                                FlatButton(
+                                  onPressed: (){
+                                    setState(() => onChangeFontColor = true);
+                                  },
+                                  padding: EdgeInsets.all(0.0),
+                                  shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(15.0),
-                                    border: Border.all(
-                                      color: customColor.withOpacity(1.0),
-                                      width: 1.0,
-                                    ),
-                                    color: customColor.withOpacity(0.15),
                                   ),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        "Change BG Color",
+                                  child: Container(
+                                    padding: EdgeInsets.all(10.0),
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(15.0),
+                                      border: Border.all(color: backgroundColor.withOpacity(1.0)),
+                                      color: backgroundColor.withOpacity(0.6),
+                                    ),
+                                    child: InvertColors(
+                                      child: Text(
+                                        "Font Color",
                                         style: TextStyle(
-                                          color: customColor.withOpacity(1.0),
+                                          fontSize: 12.0,
+                                          color: backgroundColor.withOpacity(1.0),
                                         ),
                                       ),
-                                      Icon(
-                                        Icons.color_lens,
-                                        color: customColor.withOpacity(1.0),
-                                      ),
-                                    ],
+                                    ),
                                   ),
                                 ),
-                              ),
+                                FlatButton(
+                                  onPressed: (){
+                                    setState(() => onChangeBackgroundColor = true);
+                                  },
+                                  padding: EdgeInsets.all(0.0),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(15.0),
+                                  ),
+                                  child: Container(
+                                    padding: EdgeInsets.all(10.0),
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(15.0),
+                                      border: Border.all(color: backgroundColor.withOpacity(1.0)),
+                                      color: backgroundColor.withOpacity(0.6),
+                                    ),
+                                    child: InvertColors(
+                                      child: Text(
+                                        "Background Color",
+                                        style: TextStyle(
+                                          fontSize: 12.0,
+                                          color: backgroundColor.withOpacity(1.0),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
                             SizedBox(height: size.height * 0.02),
                             FlatButton(
@@ -525,7 +591,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           : Text("Third page"),
                     ],
                   )
-                      : Column(
+                      : onChangeFontColor ? Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: <Widget>[
                       Row(
@@ -593,10 +659,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           InvertColors(
                             child: IconButton(
                               icon: Icon(Icons.arrow_back),
-                              color: customColor.withOpacity(1.0),
+                              color: backgroundColor.withOpacity(1.0),
                               onPressed: (){
                                 setState(() {
-                                  onChangeColor = false;
+                                  onChangeFontColor = false;
                                 });
                               },
                             ),
@@ -604,15 +670,108 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ],
                       ),
                       Container(
-//                            color: Colors.red,
                         child: CircleColorPicker(
                           textStyle: TextStyle(
                             fontSize: 15.0,
                             fontWeight: FontWeight.bold,
-                            color: customColor.withOpacity(1.0),
+                            color: backgroundColor.withOpacity(1.0),
                           ),
-                          initialColor: customColor,
-                          onChanged: (color) => setState(() => customColor = color),
+                          initialColor: fontColor,
+                          onChanged: (color) => setState(() => fontColor = color),
+                          size: Size(250, 230),
+                          strokeWidth: 6,
+                          thumbSize: 26,
+                        ),
+                      ),
+                    ],
+                  )
+                      :Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: <Widget>[
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Container(
+                            height: size.width * 0.25,
+                            width: size.width * 0.25,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(50),
+                              image: DecorationImage(
+                                image: AssetImage("assets/images/Michael B Jordan.png"),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              SizedBox(height: size.height * 0.03),
+                              Text(
+                                "Ali Rn ",
+
+                              ),
+                              SizedBox(height:10.0),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: <Widget>[
+                                  Icon(
+                                    Icons.bubble_chart,
+                                    size: 16.0,
+                                  ),
+                                  Text(
+                                    "22",
+                                  ),
+                                  SizedBox(width: 20.0),
+                                  Icon(
+                                    Icons.pin_drop,
+                                    size: 16.0,
+                                  ),
+                                  Text(
+                                    "Tehran",
+                                  ),
+                                ],
+                              ),
+                              SizedBox(height:10.0),
+                              Row(
+                                children: <Widget>[
+                                  Icon(
+                                    Icons.phone,
+                                    size: 16.0,
+                                  ),
+                                  SizedBox(width:10.0),
+                                  Text("09037853055"),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: size.height * 0.02),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          InvertColors(
+                            child: IconButton(
+                              icon: Icon(Icons.arrow_back),
+                              color: backgroundColor.withOpacity(1.0),
+                              onPressed: (){
+                                setState(() {
+                                  onChangeBackgroundColor = false;
+                                });
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
+                      Container(
+                        child: CircleColorPicker(
+                          textStyle: TextStyle(
+                            fontSize: 15.0,
+                            fontWeight: FontWeight.bold,
+                            color: backgroundColor.withOpacity(1.0),
+                          ),
+                          initialColor: backgroundColor,
+                          onChanged: (color) => setState(() => backgroundColor = color),
                           size: Size(250, 230),
                           strokeWidth: 6,
                           thumbSize: 26,
@@ -623,14 +782,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
               ),
               Positioned(
-                top: -0.0,
+                top: 0.0,
                 right: 64.0,
                 child: Container(
                   height: 30.0,
                   width: 30.0,
                   child: MyArc(
                     diameter: 300,
-                    color: customColor.withOpacity(0.3),
+                    color: backgroundColor.withOpacity(0.3),
                   ),
                 ),
               ),
@@ -639,14 +798,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 right: 56.0,
                 child: InvertColors(
                   child: IconButton(
-                    color: customColor.withOpacity(1.0),
+                    color: backgroundColor.withOpacity(1.0),
                     iconSize: 20,
                     icon: Icon(Icons.close),
                     onPressed: (){
                       setState(() {
-                        customColor = lastColor;
+                        backgroundColor = lastColor;
                         onEdit = false;
-                        onChangeColor = false;
+                        onChangeBackgroundColor = false;
+                        onChangeFontColor = false;
                       });
                       print("Cancel");
                     },
@@ -654,14 +814,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
               ),
               Positioned(
-                top: -0.0,
+                top: 0.0,
                 right: 24.0,
                 child: Container(
                   height: 30.0,
                   width: 30.0,
                   child: MyArc(
                     diameter: 300,
-                    color: customColor.withOpacity(0.3),
+                    color: backgroundColor.withOpacity(0.3),
                   ),
                 ),
               ),
@@ -670,14 +830,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 right: 16.0,
                 child: InvertColors(
                   child: IconButton(
-                    color: customColor.withOpacity(1.0),
+                    color: backgroundColor.withOpacity(1.0),
                     iconSize: 20,
 
                     icon: Icon(Icons.check),
                     onPressed: (){
                       setState(() {
                         onEdit = false;
-                        onChangeColor = false;
+                        onChangeBackgroundColor = false;
+                        onChangeFontColor = false;
                       });
                       print("Done");
                     },

@@ -4,14 +4,19 @@ class User{
   String first_name;
   String last_name;
   String email;
+  String phone_number;
+
+  String bio;
   String instagram;
   String telegram;
-  String bio;
-  String phone_number;
+  DateTime birth_date;
+  bool relationship;
+
   String country;
   String city;
   String university;
   String field;
+  int entrance_year;
 
   String favorite_sport;
   String favorite_book;
@@ -22,9 +27,9 @@ class User{
   String favorite_music;
   String favorite_color;
 
-  int entrance_year;
-  DateTime birth_date;
-  bool relationship;
+
+
+
 
   User(
       this.username,

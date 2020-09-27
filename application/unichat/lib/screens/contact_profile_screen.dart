@@ -123,7 +123,7 @@ class _ContactProfileState extends State<ContactProfile> {
                                     width: size.width * 0.25,
                                     padding: EdgeInsets.all(8.0),
                                     decoration: BoxDecoration(
-                                      color: customColor.withOpacity(0.5),
+                                      color: customColor.withOpacity(0.7),
                                       borderRadius: BorderRadius.circular(10.0),
                                       border: Border.all(
                                         color: customColor.withOpacity(1.0),
@@ -149,7 +149,7 @@ class _ContactProfileState extends State<ContactProfile> {
                                     width: size.width * 0.45,
                                     padding: EdgeInsets.all(8.0),
                                     decoration: BoxDecoration(
-                                      color: customColor.withOpacity(0.5),
+                                      color: customColor.withOpacity(0.7),
                                       borderRadius: BorderRadius.circular(10.0),
                                       border: Border.all(
                                           color: customColor.withOpacity(1.0),

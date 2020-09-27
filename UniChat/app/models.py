@@ -56,7 +56,7 @@ class Message(models.Model):
     pv_room_id          = models.ForeignKey(PvRoom, models.DO_NOTHING, db_column='PVRoomID', blank=True, null=True)
     public_room_id      = models.ForeignKey(PublicRoom, models.DO_NOTHING, db_column='PublicRoomID', blank=True, null=True)
     user_id             = models.ForeignKey(User, models.DO_NOTHING, db_column='UserID')
-    message_id          = models.ForeignKey('self', models.DO_NOTHING, db_column="MessageID")
+    message_id          = models.ForeignKey('self', models.DO_NOTHING, db_column="MessageID", blank=True, null=True)
     text                = models.TextField(db_column='Text', blank=True, null=True)
     date_added          = models.DateTimeField(db_column='DateAdded', auto_now_add=True)
     date_modified       = models.DateTimeField(db_column='DateModified', blank=True, null=True)
@@ -74,21 +74,5 @@ class Score(models.Model):
     message_id      = models.ForeignKey(Message, models.DO_NOTHING, db_column="MessageID")
     user_id         = models.ForeignKey(User, models.DO_NOTHING, db_column='UserID')
     score           = models.BooleanField(db_column="Score")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
