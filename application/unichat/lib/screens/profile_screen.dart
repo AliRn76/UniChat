@@ -4,7 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_circle_color_picker/flutter_circle_color_picker.dart';
 import 'package:invert_colors/invert_colors.dart';
 import 'package:unichat/widgets/my_arc.dart';
-
+import 'package:country_pickers/country_pickers.dart';
+import 'package:country_pickers/country.dart';
 
 class ProfileScreen extends StatefulWidget {
   @override
@@ -13,17 +14,20 @@ class ProfileScreen extends StatefulWidget {
 
 class _ProfileScreenState extends State<ProfileScreen> {
   bool onEdit = false;
-  bool onChangeBackgroundColor = false;
+  bool onChangeBackgroundColor = true;
   bool onChangeFontColor = false;
   bool onPage1 = true;
   bool onPage2 = false;
   bool onPage3 = false;
   bool onPage4 = false;
   bool onPage5 = false;
+  bool onPage6 = false;
   Color backgroundColor = Color(0xA3D1FF);
   Color fontColor = Colors.black;
   Color lastColor;
 
+  Country _selectedCupertinoCountry = CountryPickerUtils.getCountryByIsoCode('IR');
+  
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -364,13 +368,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       padding: EdgeInsets.only(bottom: 5.0, left: 5.0),
                                       margin: EdgeInsets.only(bottom: 20),
                                       decoration: BoxDecoration(
-                                        border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
+                                        border: Border(
+                                          bottom: BorderSide(
+                                              color: backgroundColor.withOpacity(1.0),
+                                              width: 2.0
+                                          ),
+                                        ),
                                       ),
                                       child: Text(
                                         "Name: ",
                                         textAlign: TextAlign.start,
                                         style: TextStyle(
                                           fontSize: 11.0,
+                                          color: fontColor.withOpacity(1.0),
                                         ),
                                       ),
                                     ),
@@ -382,13 +392,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       margin: EdgeInsets.only(bottom: 20),
                                       padding: EdgeInsets.only(bottom: 5.0, left: 5.0),
                                       decoration: BoxDecoration(
-                                        border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
+                                        border: Border(
+                                          bottom: BorderSide(
+                                              color: backgroundColor.withOpacity(1.0),
+                                              width: 2.0
+                                          ),
+                                        ),
                                       ),
                                       child: Text(
                                         "Username: ",
                                         textAlign: TextAlign.start,
                                         style: TextStyle(
                                           fontSize: 11.0,
+                                          color: fontColor.withOpacity(1.0),
                                         ),
                                       ),
                                     ),
@@ -400,13 +416,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       margin: EdgeInsets.only(bottom: 20),
                                       padding: EdgeInsets.only(bottom: 5.0, left: 5.0),
                                       decoration: BoxDecoration(
-                                        border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
+                                        border: Border(
+                                          bottom: BorderSide(
+                                              color: backgroundColor.withOpacity(1.0),
+                                              width: 2.0
+                                          ),
+                                        ),
                                       ),
                                       child: Text(
                                         "Phone Number: ",
                                         textAlign: TextAlign.start,
                                         style: TextStyle(
                                           fontSize: 11.0,
+                                          color: fontColor.withOpacity(1.0),
                                         ),
                                       ),
                                     ),
@@ -418,13 +440,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       margin: EdgeInsets.only(bottom: 20),
                                       padding: EdgeInsets.only(bottom: 5.0, left: 5.0),
                                       decoration: BoxDecoration(
-                                        border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
+                                        border: Border(
+                                          bottom: BorderSide(
+                                              color: backgroundColor.withOpacity(1.0),
+                                              width: 2.0
+                                          ),
+                                        ),
                                       ),
                                       child: Text(
                                         "Email: ",
                                         textAlign: TextAlign.start,
                                         style: TextStyle(
                                           fontSize: 11.0,
+                                          color: fontColor.withOpacity(1.0),
                                         ),
                                       ),
                                     ),
@@ -438,7 +466,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                     margin: EdgeInsets.only(bottom: 20),
                                     padding: EdgeInsets.only(left: 10.0, bottom: 5.0),
                                     decoration: BoxDecoration(
-                                      border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
+                                      border: Border(
+                                        bottom: BorderSide(
+                                            color: backgroundColor.withOpacity(1.0),
+                                            width: 2.0
+                                        ),
+                                      ),
                                     ),
                                     child: Text(
                                       "Ali Rajab Nezhad Ali Rajab Nezhad Ali Rajab Nezhad",
@@ -446,6 +479,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       overflow: TextOverflow.ellipsis,
                                       style: TextStyle(
                                         fontSize: 11.0,
+                                        color: fontColor.withOpacity(1.0),
                                       ),
                                     ),
                                   ),
@@ -454,7 +488,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                     margin: EdgeInsets.only(bottom: 20),
                                     padding: EdgeInsets.only(left: 10.0, bottom: 5.0),
                                     decoration: BoxDecoration(
-                                      border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
+                                      border: Border(
+                                        bottom: BorderSide(
+                                            color: backgroundColor.withOpacity(1.0),
+                                            width: 2.0
+                                        ),
+                                      ),
                                     ),
                                     child: Text(
                                       "Ali Rn",
@@ -462,6 +501,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       overflow: TextOverflow.ellipsis,
                                       style: TextStyle(
                                         fontSize: 11.0,
+                                        color: fontColor.withOpacity(1.0),
                                       ),
                                     ),
                                   ),
@@ -470,7 +510,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                     margin: EdgeInsets.only(bottom: 20),
                                     padding: EdgeInsets.only(left: 10.0, bottom: 5.0),
                                     decoration: BoxDecoration(
-                                      border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
+                                      border: Border(
+                                        bottom: BorderSide(
+                                            color: backgroundColor.withOpacity(1.0),
+                                            width: 2.0
+                                        ),
+                                      ),
                                     ),
                                     child: Text(
                                       "+98 903 785 30 55",
@@ -478,6 +523,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       overflow: TextOverflow.ellipsis,
                                       style: TextStyle(
                                         fontSize: 11.0,
+                                        color: fontColor.withOpacity(1.0),
                                       ),
                                     ),
                                   ),
@@ -486,7 +532,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                     padding: EdgeInsets.only(left: 10.0, bottom: 5.0),
                                     margin: EdgeInsets.only(bottom: 20),
                                     decoration: BoxDecoration(
-                                      border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
+                                      border: Border(
+                                        bottom: BorderSide(
+                                            color: backgroundColor.withOpacity(1.0),
+                                            width: 2.0
+                                        ),
+                                      ),
                                     ),
                                     child: Text(
                                       "alirn76@yahoo.com",
@@ -494,6 +545,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       overflow: TextOverflow.ellipsis,
                                       style: TextStyle(
                                         fontSize: 11.0,
+                                        color: fontColor.withOpacity(1.0),
                                       ),
                                     ),
                                   ),
@@ -503,493 +555,35 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ),
                         ],
                       ),
-//                  child: !onChangeBackgroundColor && !onChangeFontColor ? Column(
-//                    mainAxisAlignment: MainAxisAlignment.start,
-//                    children: <Widget>[
-//                      Row(
-//                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                        children: <Widget>[
-//                          Container(
-//                            height: size.width * 0.25,
-//                            width: size.width * 0.25,
-//                            decoration: BoxDecoration(
-//                              border: Border.all(
-//                                color: Colors.black,
-//                                width: 0.1,
-//                              ),
-//                              borderRadius: BorderRadius.circular(50),
-////                                  image: DecorationImage(
-////                                    image: AssetImage("assets/images/Michael B Jordan.png"),
-////                                    fit: BoxFit.cover,
-////                                  ),
-//                            ),
-//                            child: IconButton(
-//                              onPressed: (){
-//                                print("add Picture");
-//                              },
-//                              icon: Icon(Icons.add_photo_alternate),
-//                              color: Colors.black.withOpacity(0.7),
-//                            ),
-//                          ),
-//                          Column(
-//                            crossAxisAlignment: CrossAxisAlignment.start,
-//                            children: <Widget>[
-//                              SizedBox(height: size.height * 0.03),
-//                              Text(
-//                                "Ali Rn ",
-//                              ),
-//                              SizedBox(height:10.0),
-//                              Row(
-//                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                                children: <Widget>[
-//                                  Icon(
-//                                    Icons.bubble_chart,
-//                                    size: 16.0,
-//                                  ),
-//                                  Text(
-//                                    "22",
-//                                  ),
-//                                  SizedBox(width: 20.0),
-//                                  Icon(
-//                                    Icons.pin_drop,
-//                                    size: 16.0,
-//                                  ),
-//                                  Text(
-//                                    "Tehran",
-//                                  ),
-//                                ],
-//                              ),
-//                              SizedBox(height:10.0),
-//                              Row(
-//                                children: <Widget>[
-//                                  Icon(
-//                                    Icons.phone,
-//                                    size: 16.0,
-//                                  ),
-//                                  SizedBox(width:10.0),
-//                                  Text("09037853055"),
-//                                ],
-//                              ),
-//                            ],
-//                          ),
-//                        ],
-//                      ),
-//                      SizedBox(height: size.height * 0.02),
-//                      onPage1 ? Padding(
-//                        padding: EdgeInsets.symmetric(horizontal: size.width * 0.02),
-//                        child: Column(
-//                          crossAxisAlignment: CrossAxisAlignment.start,
-//                          children: [
-//                            Row(
-//                              children: [
-//                                FlatButton(
-//                                  onPressed: (){
-//                                    setState(() => onChangeFontColor = true);
-//                                  },
-//                                  padding: EdgeInsets.all(0.0),
-//                                  shape: RoundedRectangleBorder(
-//                                    borderRadius: BorderRadius.circular(15.0),
-//                                  ),
-//                                  child: Container(
-//                                    padding: EdgeInsets.all(10.0),
-//                                    decoration: BoxDecoration(
-//                                      borderRadius: BorderRadius.circular(15.0),
-//                                      border: Border.all(color: backgroundColor.withOpacity(1.0)),
-//                                      color: backgroundColor.withOpacity(0.6),
-//                                    ),
-//                                    child: InvertColors(
-//                                      child: Text(
-//                                        "Font Color",
-//                                        style: TextStyle(
-//                                          fontSize: 12.0,
-//                                          color: backgroundColor.withOpacity(1.0),
-//                                        ),
-//                                      ),
-//                                    ),
-//                                  ),
-//                                ),
-//                                FlatButton(
-//                                  onPressed: (){
-//                                    setState(() => onChangeBackgroundColor = true);
-//                                  },
-//                                  padding: EdgeInsets.all(0.0),
-//                                  shape: RoundedRectangleBorder(
-//                                    borderRadius: BorderRadius.circular(15.0),
-//                                  ),
-//                                  child: Container(
-//                                    padding: EdgeInsets.all(10.0),
-//                                    decoration: BoxDecoration(
-//                                      borderRadius: BorderRadius.circular(15.0),
-//                                      border: Border.all(color: backgroundColor.withOpacity(1.0)),
-//                                      color: backgroundColor.withOpacity(0.6),
-//                                    ),
-//                                    child: InvertColors(
-//                                      child: Text(
-//                                        "Background Color",
-//                                        style: TextStyle(
-//                                          fontSize: 12.0,
-//                                          color: backgroundColor.withOpacity(1.0),
-//                                        ),
-//                                      ),
-//                                    ),
-//                                  ),
-//                                ),
-//                              ],
-//                            ),
-//                            SizedBox(height: size.height * 0.02),
-//                            FlatButton(
-//                              onPressed: (){
-//                                print("EDIT NAME");
-//                              },
-//                              padding: EdgeInsets.all(0.0),
-//                              child: Container(
-////                                    color: Colors.red,
-//                                child: Text(
-//                                  "Ali RnAli RnAli RnAli RnnAli RnAli RnAnAli RnAli RnAnAli RnAli RnA",
-//                                  maxLines: 1,
-//                                  overflow: TextOverflow.ellipsis,
-//                                  style: TextStyle(
-//                                    fontWeight: FontWeight.w400,
-//                                  ),
-//                                ),
-//                              ),
-//                            ),
-//                            Row(
-//                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                              children: [
-//                                Column(
-//                                  crossAxisAlignment: CrossAxisAlignment.start,
-//                                  children: [
-//                                    Text(
-//                                      "Username",
-//                                    ),
-//                                    SizedBox(height: size.height * 0.02),
-//                                    Text(
-//                                      "Instagram",
-//                                    ),
-//                                    SizedBox(height: size.height * 0.02),
-//                                    Text(
-//                                      "Telegram",
-//                                    ),
-//                                  ],
-//                                ),
-//                                Column(
-//                                  crossAxisAlignment: CrossAxisAlignment.start,
-//                                  children: [
-//                                    Text(
-//                                      "Inception",
-//                                    ),
-//                                    SizedBox(height: size.height * 0.02),
-//                                    Text(
-//                                      "Arrow",
-//                                    ),
-//                                    SizedBox(height: size.height * 0.02),
-//                                    Text(
-//                                      "Lose your self",
-//                                    ),
-//                                    SizedBox(height: size.height * 0.02),
-//                                  ],
-//                                ),
-//                              ],
-//                            ),
-//                            Row(
-//                              mainAxisAlignment: MainAxisAlignment.end,
-//                              children: [
-//                                IconButton(
-//                                  icon: Icon(Icons.arrow_forward),
-//                                  color: Colors.white,
-//                                  onPressed: (){
-//                                    setState(() {
-//                                      onPage1 = false;
-//                                      onPage2 = true;
-//                                    });
-//                                  },
-//                                ),
-//                              ],
-//                            ),
-//                          ],
-//                        ),
-//                      )
-//                          : onPage2 ? Column(
-//                        children: [
-//                          Row(
-//                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-//                            children: [
-//                              Column(
-//                                crossAxisAlignment: CrossAxisAlignment.start,
-//                                children: [
-//                                  Text(
-//                                    "Favorite Sport?",
-//                                  ),
-//                                  SizedBox(height: size.height * 0.02),
-//                                  Text(
-//                                    "Favorite Movie?",
-//                                  ),
-//                                  SizedBox(height: size.height * 0.02),
-//                                  Text(
-//                                    "Favorite TV Series?",
-//                                  ),
-//                                  SizedBox(height: size.height * 0.02),
-//                                  Text(
-//                                    "Favorite Music?",
-//                                  ),
-//                                ],
-//                              ),
-//                              Column(
-//                                crossAxisAlignment: CrossAxisAlignment.start,
-//                                children: [
-//                                  Text(
-//                                    "Taekwondo",
-//                                  ),
-//                                  SizedBox(height: size.height * 0.02),
-//                                  Text(
-//                                    "Inception",
-//                                  ),
-//                                  SizedBox(height: size.height * 0.02),
-//                                  Text(
-//                                    "Arrow",
-//                                  ),
-//                                  SizedBox(height: size.height * 0.02),
-//                                  Text(
-//                                    "Lose your self",
-//                                  ),
-//                                  SizedBox(height: size.height * 0.02),
-//                                ],
-//                              ),
-//                            ],
-//                          ),
-//                          Row(
-//                            mainAxisAlignment: MainAxisAlignment.start,
-//                            children: [
-//                              IconButton(
-//                                icon: Icon(Icons.arrow_back),
-//                                color: Colors.white,
-//                                onPressed: (){
-//                                  setState(() {
-//                                    onPage1 = true;
-//                                    onPage2 = false;
-//                                  });
-//                                },
-//                              ),
-//                            ],
-//                          ),
-//                        ],
-//                      )
-//                          : Text("Third page"),
-//                    ],
-//                  )
-//                      : onChangeFontColor ? Column(
-//                    mainAxisAlignment: MainAxisAlignment.start,
-//                    children: <Widget>[
-//                      Row(
-//                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                        children: <Widget>[
-//                          Container(
-//                            height: size.width * 0.25,
-//                            width: size.width * 0.25,
-//                            decoration: BoxDecoration(
-//                              borderRadius: BorderRadius.circular(50),
-//                              image: DecorationImage(
-//                                image: AssetImage("assets/images/Michael B Jordan.png"),
-//                                fit: BoxFit.cover,
-//                              ),
-//                            ),
-//                          ),
-//                          Column(
-//                            crossAxisAlignment: CrossAxisAlignment.start,
-//                            children: <Widget>[
-//                              SizedBox(height: size.height * 0.03),
-//                              Text(
-//                                "Ali Rn ",
-//
-//                              ),
-//                              SizedBox(height:10.0),
-//                              Row(
-//                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                                children: <Widget>[
-//                                  Icon(
-//                                    Icons.bubble_chart,
-//                                    size: 16.0,
-//                                  ),
-//                                  Text(
-//                                    "22",
-//                                  ),
-//                                  SizedBox(width: 20.0),
-//                                  Icon(
-//                                    Icons.pin_drop,
-//                                    size: 16.0,
-//                                  ),
-//                                  Text(
-//                                    "Tehran",
-//                                  ),
-//                                ],
-//                              ),
-//                              SizedBox(height:10.0),
-//                              Row(
-//                                children: <Widget>[
-//                                  Icon(
-//                                    Icons.phone,
-//                                    size: 16.0,
-//                                  ),
-//                                  SizedBox(width:10.0),
-//                                  Text("09037853055"),
-//                                ],
-//                              ),
-//                            ],
-//                          ),
-//                        ],
-//                      ),
-//                      SizedBox(height: size.height * 0.02),
-//                      Row(
-//                        mainAxisAlignment: MainAxisAlignment.start,
-//                        children: [
-//                          InvertColors(
-//                            child: IconButton(
-//                              icon: Icon(Icons.arrow_back),
-//                              color: backgroundColor.withOpacity(1.0),
-//                              onPressed: (){
-//                                setState(() {
-//                                  onChangeFontColor = false;
-//                                });
-//                              },
-//                            ),
-//                          ),
-//                        ],
-//                      ),
-//                      Container(
-//                        child: CircleColorPicker(
-//                          textStyle: TextStyle(
-//                            fontSize: 15.0,
-//                            fontWeight: FontWeight.bold,
-//                            color: backgroundColor.withOpacity(1.0),
-//                          ),
-//                          initialColor: fontColor,
-//                          onChanged: (color) => setState(() => fontColor = color),
-//                          size: Size(250, 230),
-//                          strokeWidth: 6,
-//                          thumbSize: 26,
-//                        ),
-//                      ),
-//                    ],
-//                  )
-//                      :Column(
-//                    mainAxisAlignment: MainAxisAlignment.start,
-//                    children: <Widget>[
-//                      Row(
-//                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                        children: <Widget>[
-//                          Container(
-//                            height: size.width * 0.25,
-//                            width: size.width * 0.25,
-//                            decoration: BoxDecoration(
-//                              borderRadius: BorderRadius.circular(50),
-//                              image: DecorationImage(
-//                                image: AssetImage("assets/images/Michael B Jordan.png"),
-//                                fit: BoxFit.cover,
-//                              ),
-//                            ),
-//                          ),
-//                          Column(
-//                            crossAxisAlignment: CrossAxisAlignment.start,
-//                            children: <Widget>[
-//                              SizedBox(height: size.height * 0.03),
-//                              Text(
-//                                "Ali Rn ",
-//
-//                              ),
-//                              SizedBox(height:10.0),
-//                              Row(
-//                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                                children: <Widget>[
-//                                  Icon(
-//                                    Icons.bubble_chart,
-//                                    size: 16.0,
-//                                  ),
-//                                  Text(
-//                                    "22",
-//                                  ),
-//                                  SizedBox(width: 20.0),
-//                                  Icon(
-//                                    Icons.pin_drop,
-//                                    size: 16.0,
-//                                  ),
-//                                  Text(
-//                                    "Tehran",
-//                                  ),
-//                                ],
-//                              ),
-//                              SizedBox(height:10.0),
-//                              Row(
-//                                children: <Widget>[
-//                                  Icon(
-//                                    Icons.phone,
-//                                    size: 16.0,
-//                                  ),
-//                                  SizedBox(width:10.0),
-//                                  Text("09037853055"),
-//                                ],
-//                              ),
-//                            ],
-//                          ),
-//                        ],
-//                      ),
-//                      SizedBox(height: size.height * 0.02),
-//                      Row(
-//                        mainAxisAlignment: MainAxisAlignment.start,
-//                        children: [
-//                          InvertColors(
-//                            child: IconButton(
-//                              icon: Icon(Icons.arrow_back),
-//                              color: backgroundColor.withOpacity(1.0),
-//                              onPressed: (){
-//                                setState(() {
-//                                  onChangeBackgroundColor = false;
-//                                });
-//                              },
-//                            ),
-//                          ),
-//                        ],
-//                      ),
-//                      Container(
-//                        child: CircleColorPicker(
-//                          textStyle: TextStyle(
-//                            fontSize: 15.0,
-//                            fontWeight: FontWeight.bold,
-//                            color: backgroundColor.withOpacity(1.0),
-//                          ),
-//                          initialColor: backgroundColor,
-//                          onChanged: (color) => setState(() => backgroundColor = color),
-//                          size: Size(250, 230),
-//                          strokeWidth: 6,
-//                          thumbSize: 26,
-//                        ),
-//                      ),
-//                    ],
-//                  ),
                     ),
-                    Align(
-                      alignment: Alignment(0, 1),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          IconButton(
-                            icon: Icon(null),
-                          ),
-                          Text(
-                            "1/5",
-                          ),
-                          IconButton(
-                            onPressed: (){
-                              print("Go To Page 2");
-                              setState(() {
-                                onPage1 = false;
-                                onPage2 = true;
-                              });
-                            },
-                            icon: Icon(Icons.arrow_forward),
-                            color: fontColor,
-                          ),
-                        ],
+                    InvertColors(
+                      child: Align(
+                        alignment: Alignment(0, 1),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            IconButton(
+                              icon: Icon(null),
+                            ),
+                            Text(
+                              "1/5",
+                              style: TextStyle(
+                                color: backgroundColor,
+                              ),
+                            ),
+                            IconButton(
+                              onPressed: (){
+                                print("Go To Page 2");
+                                setState(() {
+                                  onPage1 = false;
+                                  onPage2 = true;
+                                });
+                              },
+                              icon: Icon(Icons.arrow_forward),
+                              color: backgroundColor,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ],
@@ -997,15 +591,36 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     : onPage2 ? Stack(
                   children: [
                     Padding(
-                      padding: EdgeInsets.all(20.0),
+                      padding: EdgeInsets.all(0.0),
                       child: ListView(
                         padding: EdgeInsets.all(0.0),
                         children: [
                           SizedBox(height: size.width * 0.05),
                           Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Column(
                                 children: [
+                                  SizedBox(height: size.width * 0.08),
+                                  Transform.rotate(
+                                    angle: -0.3,
+                                    child: Container(
+                                      width: size.width * 0.27,
+                                      height: size.width * 0.15,
+                                      margin: EdgeInsets.only(bottom: 20.0, top:20.0),
+                                      padding: EdgeInsets.only(top: 5.0, left: 5.0),
+                                      decoration: BoxDecoration(
+                                        border: Border(top: BorderSide(color: backgroundColor.withOpacity(1.0))),
+                                      ),
+                                      child: Text(
+                                        "Bio: ",
+                                        textAlign: TextAlign.start,
+                                        style: TextStyle(
+                                          fontSize: 11.0,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
                                   SizedBox(height: size.width * 0.08),
                                   Transform.rotate(
                                     angle: -0.3,
@@ -1016,8 +631,69 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       decoration: BoxDecoration(
                                         border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
                                       ),
+                                      child: Row(
+                                        children: [
+                                          Container(
+                                            width: size.width * 0.06,
+                                            height: size.width * 0.04,
+                                            child: Image.asset(
+                                              "assets/images/instagram icon.png",
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                          Text(
+                                            "Instagram: ",
+                                            textAlign: TextAlign.start,
+                                            style: TextStyle(
+                                              fontSize: 11.0,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                  Transform.rotate(
+                                    angle: -0.3,
+                                    child: Container(
+                                      width: size.width * 0.27,
+                                      margin: EdgeInsets.only(bottom: 20),
+                                      padding: EdgeInsets.only(bottom: 5.0, left: 5.0),
+                                      decoration: BoxDecoration(
+                                        border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
+                                      ),
+                                      child: Row(
+                                        children: [
+                                          Container(
+                                            width: size.width * 0.06,
+                                            height: size.width * 0.04,
+                                            child: Image.asset(
+                                              "assets/images/instagram icon.png",
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                          Text(
+                                            "Telegram: ",
+                                            textAlign: TextAlign.start,
+                                            style: TextStyle(
+                                              fontSize: 11.0,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(height: size.width * 0.08),
+                                  Transform.rotate(
+                                    angle: -0.3,
+                                    child: Container(
+                                      width: size.width * 0.27,
+                                      margin: EdgeInsets.only(bottom: 20),
+                                      padding: EdgeInsets.only(bottom: 5.0, left: 5.0),
+                                      decoration: BoxDecoration(
+                                        border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
+                                      ),
                                       child: Text(
-                                        "Name: ",
+                                        "Birth Date: ",
                                         textAlign: TextAlign.start,
                                         style: TextStyle(
                                           fontSize: 11.0,
@@ -1035,43 +711,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                         border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
                                       ),
                                       child: Text(
-                                        "Username: ",
-                                        textAlign: TextAlign.start,
-                                        style: TextStyle(
-                                          fontSize: 11.0,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Transform.rotate(
-                                    angle: -0.3,
-                                    child: Container(
-                                      width: size.width * 0.27,
-                                      margin: EdgeInsets.only(bottom: 20),
-                                      padding: EdgeInsets.only(bottom: 5.0, left: 5.0),
-                                      decoration: BoxDecoration(
-                                        border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
-                                      ),
-                                      child: Text(
-                                        "Phone Number: ",
-                                        textAlign: TextAlign.start,
-                                        style: TextStyle(
-                                          fontSize: 11.0,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Transform.rotate(
-                                    angle: -0.3,
-                                    child: Container(
-                                      width: size.width * 0.27,
-                                      margin: EdgeInsets.only(bottom: 20),
-                                      padding: EdgeInsets.only(bottom: 5.0, left: 5.0),
-                                      decoration: BoxDecoration(
-                                        border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
-                                      ),
-                                      child: Text(
-                                        "Email: ",
+                                        "Relationship: ",
                                         textAlign: TextAlign.start,
                                         style: TextStyle(
                                           fontSize: 11.0,
@@ -1085,13 +725,31 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 children: [
                                   Container(
                                     width: size.width * 0.45,
+                                    height: size.width * 0.15,
+                                    margin: EdgeInsets.only(bottom: 20.0, top: 20.0),
+                                    padding: EdgeInsets.only(left: 10.0, top: 5.0),
+                                    decoration: BoxDecoration(
+                                      border: Border(top: BorderSide(color: backgroundColor.withOpacity(1.0))),
+                                    ),
+                                    child: Text(
+                                      "Ali Rajab Nezhad Ali Rajab Nezhad Ali Rajab Nezhad Ali Rajab Nezhad Ali Rajab Nezhad Ali Rajab Nezhad",
+                                      maxLines: 3,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                        fontSize: 10.0,
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(height: size.width * 0.08),
+                                  Container(
+                                    width: size.width * 0.45,
                                     margin: EdgeInsets.only(bottom: 20),
                                     padding: EdgeInsets.only(left: 10.0, bottom: 5.0),
                                     decoration: BoxDecoration(
                                       border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
                                     ),
                                     child: Text(
-                                      "Ali Rajab Nezhad Ali Rajab Nezhad Ali Rajab Nezhad",
+                                      "Ali_Rn_",
                                       maxLines: 1,
                                       overflow: TextOverflow.ellipsis,
                                       style: TextStyle(
@@ -1107,7 +765,24 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
                                     ),
                                     child: Text(
-                                      "Ali Rn",
+                                      "Al1Rn",
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                        fontSize: 11.0,
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(height: size.width * 0.08),
+                                  Container(
+                                    width: size.width * 0.45,
+                                    padding: EdgeInsets.only(left: 10.0, bottom: 5.0),
+                                    margin: EdgeInsets.only(bottom: 20),
+                                    decoration: BoxDecoration(
+                                      border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
+                                    ),
+                                    child: Text(
+                                      "1997/12/25",
                                       maxLines: 1,
                                       overflow: TextOverflow.ellipsis,
                                       style: TextStyle(
@@ -1117,29 +792,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   ),
                                   Container(
                                     width: size.width * 0.45,
-                                    margin: EdgeInsets.only(bottom: 20),
-                                    padding: EdgeInsets.only(left: 10.0, bottom: 5.0),
-                                    decoration: BoxDecoration(
-                                      border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
-                                    ),
-                                    child: Text(
-                                      "+98 903 785 30 55",
-                                      maxLines: 1,
-                                      overflow: TextOverflow.ellipsis,
-                                      style: TextStyle(
-                                        fontSize: 11.0,
-                                      ),
-                                    ),
-                                  ),
-                                  Container(
-                                    width: size.width * 0.45,
                                     padding: EdgeInsets.only(left: 10.0, bottom: 5.0),
                                     margin: EdgeInsets.only(bottom: 20),
                                     decoration: BoxDecoration(
                                       border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
                                     ),
                                     child: Text(
-                                      "alirn76@yahoo.com",
+                                      "Single",
                                       maxLines: 1,
                                       overflow: TextOverflow.ellipsis,
                                       style: TextStyle(
@@ -1153,501 +812,43 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ),
                         ],
                       ),
-//                  child: !onChangeBackgroundColor && !onChangeFontColor ? Column(
-//                    mainAxisAlignment: MainAxisAlignment.start,
-//                    children: <Widget>[
-//                      Row(
-//                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                        children: <Widget>[
-//                          Container(
-//                            height: size.width * 0.25,
-//                            width: size.width * 0.25,
-//                            decoration: BoxDecoration(
-//                              border: Border.all(
-//                                color: Colors.black,
-//                                width: 0.1,
-//                              ),
-//                              borderRadius: BorderRadius.circular(50),
-////                                  image: DecorationImage(
-////                                    image: AssetImage("assets/images/Michael B Jordan.png"),
-////                                    fit: BoxFit.cover,
-////                                  ),
-//                            ),
-//                            child: IconButton(
-//                              onPressed: (){
-//                                print("add Picture");
-//                              },
-//                              icon: Icon(Icons.add_photo_alternate),
-//                              color: Colors.black.withOpacity(0.7),
-//                            ),
-//                          ),
-//                          Column(
-//                            crossAxisAlignment: CrossAxisAlignment.start,
-//                            children: <Widget>[
-//                              SizedBox(height: size.height * 0.03),
-//                              Text(
-//                                "Ali Rn ",
-//                              ),
-//                              SizedBox(height:10.0),
-//                              Row(
-//                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                                children: <Widget>[
-//                                  Icon(
-//                                    Icons.bubble_chart,
-//                                    size: 16.0,
-//                                  ),
-//                                  Text(
-//                                    "22",
-//                                  ),
-//                                  SizedBox(width: 20.0),
-//                                  Icon(
-//                                    Icons.pin_drop,
-//                                    size: 16.0,
-//                                  ),
-//                                  Text(
-//                                    "Tehran",
-//                                  ),
-//                                ],
-//                              ),
-//                              SizedBox(height:10.0),
-//                              Row(
-//                                children: <Widget>[
-//                                  Icon(
-//                                    Icons.phone,
-//                                    size: 16.0,
-//                                  ),
-//                                  SizedBox(width:10.0),
-//                                  Text("09037853055"),
-//                                ],
-//                              ),
-//                            ],
-//                          ),
-//                        ],
-//                      ),
-//                      SizedBox(height: size.height * 0.02),
-//                      onPage1 ? Padding(
-//                        padding: EdgeInsets.symmetric(horizontal: size.width * 0.02),
-//                        child: Column(
-//                          crossAxisAlignment: CrossAxisAlignment.start,
-//                          children: [
-//                            Row(
-//                              children: [
-//                                FlatButton(
-//                                  onPressed: (){
-//                                    setState(() => onChangeFontColor = true);
-//                                  },
-//                                  padding: EdgeInsets.all(0.0),
-//                                  shape: RoundedRectangleBorder(
-//                                    borderRadius: BorderRadius.circular(15.0),
-//                                  ),
-//                                  child: Container(
-//                                    padding: EdgeInsets.all(10.0),
-//                                    decoration: BoxDecoration(
-//                                      borderRadius: BorderRadius.circular(15.0),
-//                                      border: Border.all(color: backgroundColor.withOpacity(1.0)),
-//                                      color: backgroundColor.withOpacity(0.6),
-//                                    ),
-//                                    child: InvertColors(
-//                                      child: Text(
-//                                        "Font Color",
-//                                        style: TextStyle(
-//                                          fontSize: 12.0,
-//                                          color: backgroundColor.withOpacity(1.0),
-//                                        ),
-//                                      ),
-//                                    ),
-//                                  ),
-//                                ),
-//                                FlatButton(
-//                                  onPressed: (){
-//                                    setState(() => onChangeBackgroundColor = true);
-//                                  },
-//                                  padding: EdgeInsets.all(0.0),
-//                                  shape: RoundedRectangleBorder(
-//                                    borderRadius: BorderRadius.circular(15.0),
-//                                  ),
-//                                  child: Container(
-//                                    padding: EdgeInsets.all(10.0),
-//                                    decoration: BoxDecoration(
-//                                      borderRadius: BorderRadius.circular(15.0),
-//                                      border: Border.all(color: backgroundColor.withOpacity(1.0)),
-//                                      color: backgroundColor.withOpacity(0.6),
-//                                    ),
-//                                    child: InvertColors(
-//                                      child: Text(
-//                                        "Background Color",
-//                                        style: TextStyle(
-//                                          fontSize: 12.0,
-//                                          color: backgroundColor.withOpacity(1.0),
-//                                        ),
-//                                      ),
-//                                    ),
-//                                  ),
-//                                ),
-//                              ],
-//                            ),
-//                            SizedBox(height: size.height * 0.02),
-//                            FlatButton(
-//                              onPressed: (){
-//                                print("EDIT NAME");
-//                              },
-//                              padding: EdgeInsets.all(0.0),
-//                              child: Container(
-////                                    color: Colors.red,
-//                                child: Text(
-//                                  "Ali RnAli RnAli RnAli RnnAli RnAli RnAnAli RnAli RnAnAli RnAli RnA",
-//                                  maxLines: 1,
-//                                  overflow: TextOverflow.ellipsis,
-//                                  style: TextStyle(
-//                                    fontWeight: FontWeight.w400,
-//                                  ),
-//                                ),
-//                              ),
-//                            ),
-//                            Row(
-//                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                              children: [
-//                                Column(
-//                                  crossAxisAlignment: CrossAxisAlignment.start,
-//                                  children: [
-//                                    Text(
-//                                      "Username",
-//                                    ),
-//                                    SizedBox(height: size.height * 0.02),
-//                                    Text(
-//                                      "Instagram",
-//                                    ),
-//                                    SizedBox(height: size.height * 0.02),
-//                                    Text(
-//                                      "Telegram",
-//                                    ),
-//                                  ],
-//                                ),
-//                                Column(
-//                                  crossAxisAlignment: CrossAxisAlignment.start,
-//                                  children: [
-//                                    Text(
-//                                      "Inception",
-//                                    ),
-//                                    SizedBox(height: size.height * 0.02),
-//                                    Text(
-//                                      "Arrow",
-//                                    ),
-//                                    SizedBox(height: size.height * 0.02),
-//                                    Text(
-//                                      "Lose your self",
-//                                    ),
-//                                    SizedBox(height: size.height * 0.02),
-//                                  ],
-//                                ),
-//                              ],
-//                            ),
-//                            Row(
-//                              mainAxisAlignment: MainAxisAlignment.end,
-//                              children: [
-//                                IconButton(
-//                                  icon: Icon(Icons.arrow_forward),
-//                                  color: Colors.white,
-//                                  onPressed: (){
-//                                    setState(() {
-//                                      onPage1 = false;
-//                                      onPage2 = true;
-//                                    });
-//                                  },
-//                                ),
-//                              ],
-//                            ),
-//                          ],
-//                        ),
-//                      )
-//                          : onPage2 ? Column(
-//                        children: [
-//                          Row(
-//                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-//                            children: [
-//                              Column(
-//                                crossAxisAlignment: CrossAxisAlignment.start,
-//                                children: [
-//                                  Text(
-//                                    "Favorite Sport?",
-//                                  ),
-//                                  SizedBox(height: size.height * 0.02),
-//                                  Text(
-//                                    "Favorite Movie?",
-//                                  ),
-//                                  SizedBox(height: size.height * 0.02),
-//                                  Text(
-//                                    "Favorite TV Series?",
-//                                  ),
-//                                  SizedBox(height: size.height * 0.02),
-//                                  Text(
-//                                    "Favorite Music?",
-//                                  ),
-//                                ],
-//                              ),
-//                              Column(
-//                                crossAxisAlignment: CrossAxisAlignment.start,
-//                                children: [
-//                                  Text(
-//                                    "Taekwondo",
-//                                  ),
-//                                  SizedBox(height: size.height * 0.02),
-//                                  Text(
-//                                    "Inception",
-//                                  ),
-//                                  SizedBox(height: size.height * 0.02),
-//                                  Text(
-//                                    "Arrow",
-//                                  ),
-//                                  SizedBox(height: size.height * 0.02),
-//                                  Text(
-//                                    "Lose your self",
-//                                  ),
-//                                  SizedBox(height: size.height * 0.02),
-//                                ],
-//                              ),
-//                            ],
-//                          ),
-//                          Row(
-//                            mainAxisAlignment: MainAxisAlignment.start,
-//                            children: [
-//                              IconButton(
-//                                icon: Icon(Icons.arrow_back),
-//                                color: Colors.white,
-//                                onPressed: (){
-//                                  setState(() {
-//                                    onPage1 = true;
-//                                    onPage2 = false;
-//                                  });
-//                                },
-//                              ),
-//                            ],
-//                          ),
-//                        ],
-//                      )
-//                          : Text("Third page"),
-//                    ],
-//                  )
-//                      : onChangeFontColor ? Column(
-//                    mainAxisAlignment: MainAxisAlignment.start,
-//                    children: <Widget>[
-//                      Row(
-//                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                        children: <Widget>[
-//                          Container(
-//                            height: size.width * 0.25,
-//                            width: size.width * 0.25,
-//                            decoration: BoxDecoration(
-//                              borderRadius: BorderRadius.circular(50),
-//                              image: DecorationImage(
-//                                image: AssetImage("assets/images/Michael B Jordan.png"),
-//                                fit: BoxFit.cover,
-//                              ),
-//                            ),
-//                          ),
-//                          Column(
-//                            crossAxisAlignment: CrossAxisAlignment.start,
-//                            children: <Widget>[
-//                              SizedBox(height: size.height * 0.03),
-//                              Text(
-//                                "Ali Rn ",
-//
-//                              ),
-//                              SizedBox(height:10.0),
-//                              Row(
-//                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                                children: <Widget>[
-//                                  Icon(
-//                                    Icons.bubble_chart,
-//                                    size: 16.0,
-//                                  ),
-//                                  Text(
-//                                    "22",
-//                                  ),
-//                                  SizedBox(width: 20.0),
-//                                  Icon(
-//                                    Icons.pin_drop,
-//                                    size: 16.0,
-//                                  ),
-//                                  Text(
-//                                    "Tehran",
-//                                  ),
-//                                ],
-//                              ),
-//                              SizedBox(height:10.0),
-//                              Row(
-//                                children: <Widget>[
-//                                  Icon(
-//                                    Icons.phone,
-//                                    size: 16.0,
-//                                  ),
-//                                  SizedBox(width:10.0),
-//                                  Text("09037853055"),
-//                                ],
-//                              ),
-//                            ],
-//                          ),
-//                        ],
-//                      ),
-//                      SizedBox(height: size.height * 0.02),
-//                      Row(
-//                        mainAxisAlignment: MainAxisAlignment.start,
-//                        children: [
-//                          InvertColors(
-//                            child: IconButton(
-//                              icon: Icon(Icons.arrow_back),
-//                              color: backgroundColor.withOpacity(1.0),
-//                              onPressed: (){
-//                                setState(() {
-//                                  onChangeFontColor = false;
-//                                });
-//                              },
-//                            ),
-//                          ),
-//                        ],
-//                      ),
-//                      Container(
-//                        child: CircleColorPicker(
-//                          textStyle: TextStyle(
-//                            fontSize: 15.0,
-//                            fontWeight: FontWeight.bold,
-//                            color: backgroundColor.withOpacity(1.0),
-//                          ),
-//                          initialColor: fontColor,
-//                          onChanged: (color) => setState(() => fontColor = color),
-//                          size: Size(250, 230),
-//                          strokeWidth: 6,
-//                          thumbSize: 26,
-//                        ),
-//                      ),
-//                    ],
-//                  )
-//                      :Column(
-//                    mainAxisAlignment: MainAxisAlignment.start,
-//                    children: <Widget>[
-//                      Row(
-//                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                        children: <Widget>[
-//                          Container(
-//                            height: size.width * 0.25,
-//                            width: size.width * 0.25,
-//                            decoration: BoxDecoration(
-//                              borderRadius: BorderRadius.circular(50),
-//                              image: DecorationImage(
-//                                image: AssetImage("assets/images/Michael B Jordan.png"),
-//                                fit: BoxFit.cover,
-//                              ),
-//                            ),
-//                          ),
-//                          Column(
-//                            crossAxisAlignment: CrossAxisAlignment.start,
-//                            children: <Widget>[
-//                              SizedBox(height: size.height * 0.03),
-//                              Text(
-//                                "Ali Rn ",
-//
-//                              ),
-//                              SizedBox(height:10.0),
-//                              Row(
-//                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                                children: <Widget>[
-//                                  Icon(
-//                                    Icons.bubble_chart,
-//                                    size: 16.0,
-//                                  ),
-//                                  Text(
-//                                    "22",
-//                                  ),
-//                                  SizedBox(width: 20.0),
-//                                  Icon(
-//                                    Icons.pin_drop,
-//                                    size: 16.0,
-//                                  ),
-//                                  Text(
-//                                    "Tehran",
-//                                  ),
-//                                ],
-//                              ),
-//                              SizedBox(height:10.0),
-//                              Row(
-//                                children: <Widget>[
-//                                  Icon(
-//                                    Icons.phone,
-//                                    size: 16.0,
-//                                  ),
-//                                  SizedBox(width:10.0),
-//                                  Text("09037853055"),
-//                                ],
-//                              ),
-//                            ],
-//                          ),
-//                        ],
-//                      ),
-//                      SizedBox(height: size.height * 0.02),
-//                      Row(
-//                        mainAxisAlignment: MainAxisAlignment.start,
-//                        children: [
-//                          InvertColors(
-//                            child: IconButton(
-//                              icon: Icon(Icons.arrow_back),
-//                              color: backgroundColor.withOpacity(1.0),
-//                              onPressed: (){
-//                                setState(() {
-//                                  onChangeBackgroundColor = false;
-//                                });
-//                              },
-//                            ),
-//                          ),
-//                        ],
-//                      ),
-//                      Container(
-//                        child: CircleColorPicker(
-//                          textStyle: TextStyle(
-//                            fontSize: 15.0,
-//                            fontWeight: FontWeight.bold,
-//                            color: backgroundColor.withOpacity(1.0),
-//                          ),
-//                          initialColor: backgroundColor,
-//                          onChanged: (color) => setState(() => backgroundColor = color),
-//                          size: Size(250, 230),
-//                          strokeWidth: 6,
-//                          thumbSize: 26,
-//                        ),
-//                      ),
-//                    ],
-//                  ),
                     ),
-                    Align(
-                      alignment: Alignment(0, 1),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          IconButton(
-                            icon: Icon(Icons.arrow_back),
-                            color: fontColor,
-                            onPressed: (){
-                              print("Go To Page 1");
-                              setState(() {
-                                onPage2 = false;
-                                onPage1 = true;
-                              });
-                            },
-                          ),
-                          Text(
-                            "2/5",
-                          ),
-                          IconButton(
-                            onPressed: (){
-                              print("Go To Page 3");
-                              setState(() {
-                                onPage2 = false;
-                                onPage3 = true;
-                              });
-                            },
-                            icon: Icon(Icons.arrow_forward),
-                            color: fontColor,
-                          ),
-                        ],
+                    InvertColors(
+                      child: Align(
+                        alignment: Alignment(0, 1),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            IconButton(
+                              icon: Icon(Icons.arrow_back),
+                              color: backgroundColor,
+                              onPressed: (){
+                                print("Go To Page 1");
+                                setState(() {
+                                  onPage2 = false;
+                                  onPage1 = true;
+                                });
+                              },
+                            ),
+                            Text(
+                              "2/5",
+                              style: TextStyle(
+                                color: backgroundColor,
+                              ),
+                            ),
+                            IconButton(
+                              onPressed: (){
+                                print("Go To Page 3");
+                                setState(() {
+                                  onPage2 = false;
+                                  onPage3 = true;
+                                });
+                              },
+                              icon: Icon(Icons.arrow_forward),
+                              color: backgroundColor,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ],
@@ -1659,12 +860,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       child: ListView(
                         padding: EdgeInsets.all(0.0),
                         children: [
-                          SizedBox(height: size.width * 0.05),
+                          SizedBox(height: size.width * 0.1),
                           Row(
                             children: [
                               Column(
                                 children: [
-                                  SizedBox(height: size.width * 0.08),
+                                  SizedBox(height: size.width * 0.18),
                                   Transform.rotate(
                                     angle: -0.3,
                                     child: Container(
@@ -1675,7 +876,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                         border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
                                       ),
                                       child: Text(
-                                        "Name: ",
+                                        "Country: ",
                                         textAlign: TextAlign.start,
                                         style: TextStyle(
                                           fontSize: 11.0,
@@ -1693,7 +894,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                         border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
                                       ),
                                       child: Text(
-                                        "Username: ",
+                                        "City: ",
                                         textAlign: TextAlign.start,
                                         style: TextStyle(
                                           fontSize: 11.0,
@@ -1711,7 +912,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                         border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
                                       ),
                                       child: Text(
-                                        "Phone Number: ",
+                                        "University: ",
                                         textAlign: TextAlign.start,
                                         style: TextStyle(
                                           fontSize: 11.0,
@@ -1729,7 +930,25 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                         border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
                                       ),
                                       child: Text(
-                                        "Email: ",
+                                        "Field Of Study: ",
+                                        textAlign: TextAlign.start,
+                                        style: TextStyle(
+                                          fontSize: 11.0,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Transform.rotate(
+                                    angle: -0.3,
+                                    child: Container(
+                                      width: size.width * 0.27,
+                                      margin: EdgeInsets.only(bottom: 20),
+                                      padding: EdgeInsets.only(bottom: 5.0, left: 5.0),
+                                      decoration: BoxDecoration(
+                                        border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
+                                      ),
+                                      child: Text(
+                                        "Entrance Year: ",
                                         textAlign: TextAlign.start,
                                         style: TextStyle(
                                           fontSize: 11.0,
@@ -1744,12 +963,26 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   Container(
                                     width: size.width * 0.45,
                                     margin: EdgeInsets.only(bottom: 20),
+                                    padding: EdgeInsets.only(left: 10.0,),
+                                    decoration: BoxDecoration(
+//                                      color: Colors.white,
+                                      border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
+                                    ),
+                                    child: FlatButton(
+                                      padding: EdgeInsets.all(0.0),
+                                      child: _buildCupertinoSelectedItem(_selectedCupertinoCountry),
+                                      onPressed: _openCupertinoCountryPicker,
+                                    ),
+                                  ),
+                                  Container(
+                                    width: size.width * 0.45,
+                                    margin: EdgeInsets.only(bottom: 20),
                                     padding: EdgeInsets.only(left: 10.0, bottom: 5.0),
                                     decoration: BoxDecoration(
                                       border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
                                     ),
                                     child: Text(
-                                      "Ali Rajab Nezhad Ali Rajab Nezhad Ali Rajab Nezhad",
+                                      "Tehran",
                                       maxLines: 1,
                                       overflow: TextOverflow.ellipsis,
                                       style: TextStyle(
@@ -1765,23 +998,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
                                     ),
                                     child: Text(
-                                      "Ali Rn",
-                                      maxLines: 1,
-                                      overflow: TextOverflow.ellipsis,
-                                      style: TextStyle(
-                                        fontSize: 11.0,
-                                      ),
-                                    ),
-                                  ),
-                                  Container(
-                                    width: size.width * 0.45,
-                                    margin: EdgeInsets.only(bottom: 20),
-                                    padding: EdgeInsets.only(left: 10.0, bottom: 5.0),
-                                    decoration: BoxDecoration(
-                                      border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
-                                    ),
-                                    child: Text(
-                                      "+98 903 785 30 55",
+                                      "Azad TNB",
                                       maxLines: 1,
                                       overflow: TextOverflow.ellipsis,
                                       style: TextStyle(
@@ -1797,7 +1014,23 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
                                     ),
                                     child: Text(
-                                      "alirn76@yahoo.com",
+                                      "IT",
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                        fontSize: 11.0,
+                                      ),
+                                    ),
+                                  ),
+                                  Container(
+                                    width: size.width * 0.45,
+                                    padding: EdgeInsets.only(left: 10.0, bottom: 5.0),
+                                    margin: EdgeInsets.only(bottom: 20),
+                                    decoration: BoxDecoration(
+                                      border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
+                                    ),
+                                    child: Text(
+                                      "1395 / 2016",
                                       maxLines: 1,
                                       overflow: TextOverflow.ellipsis,
                                       style: TextStyle(
@@ -1811,501 +1044,43 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ),
                         ],
                       ),
-//                  child: !onChangeBackgroundColor && !onChangeFontColor ? Column(
-//                    mainAxisAlignment: MainAxisAlignment.start,
-//                    children: <Widget>[
-//                      Row(
-//                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                        children: <Widget>[
-//                          Container(
-//                            height: size.width * 0.25,
-//                            width: size.width * 0.25,
-//                            decoration: BoxDecoration(
-//                              border: Border.all(
-//                                color: Colors.black,
-//                                width: 0.1,
-//                              ),
-//                              borderRadius: BorderRadius.circular(50),
-////                                  image: DecorationImage(
-////                                    image: AssetImage("assets/images/Michael B Jordan.png"),
-////                                    fit: BoxFit.cover,
-////                                  ),
-//                            ),
-//                            child: IconButton(
-//                              onPressed: (){
-//                                print("add Picture");
-//                              },
-//                              icon: Icon(Icons.add_photo_alternate),
-//                              color: Colors.black.withOpacity(0.7),
-//                            ),
-//                          ),
-//                          Column(
-//                            crossAxisAlignment: CrossAxisAlignment.start,
-//                            children: <Widget>[
-//                              SizedBox(height: size.height * 0.03),
-//                              Text(
-//                                "Ali Rn ",
-//                              ),
-//                              SizedBox(height:10.0),
-//                              Row(
-//                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                                children: <Widget>[
-//                                  Icon(
-//                                    Icons.bubble_chart,
-//                                    size: 16.0,
-//                                  ),
-//                                  Text(
-//                                    "22",
-//                                  ),
-//                                  SizedBox(width: 20.0),
-//                                  Icon(
-//                                    Icons.pin_drop,
-//                                    size: 16.0,
-//                                  ),
-//                                  Text(
-//                                    "Tehran",
-//                                  ),
-//                                ],
-//                              ),
-//                              SizedBox(height:10.0),
-//                              Row(
-//                                children: <Widget>[
-//                                  Icon(
-//                                    Icons.phone,
-//                                    size: 16.0,
-//                                  ),
-//                                  SizedBox(width:10.0),
-//                                  Text("09037853055"),
-//                                ],
-//                              ),
-//                            ],
-//                          ),
-//                        ],
-//                      ),
-//                      SizedBox(height: size.height * 0.02),
-//                      onPage1 ? Padding(
-//                        padding: EdgeInsets.symmetric(horizontal: size.width * 0.02),
-//                        child: Column(
-//                          crossAxisAlignment: CrossAxisAlignment.start,
-//                          children: [
-//                            Row(
-//                              children: [
-//                                FlatButton(
-//                                  onPressed: (){
-//                                    setState(() => onChangeFontColor = true);
-//                                  },
-//                                  padding: EdgeInsets.all(0.0),
-//                                  shape: RoundedRectangleBorder(
-//                                    borderRadius: BorderRadius.circular(15.0),
-//                                  ),
-//                                  child: Container(
-//                                    padding: EdgeInsets.all(10.0),
-//                                    decoration: BoxDecoration(
-//                                      borderRadius: BorderRadius.circular(15.0),
-//                                      border: Border.all(color: backgroundColor.withOpacity(1.0)),
-//                                      color: backgroundColor.withOpacity(0.6),
-//                                    ),
-//                                    child: InvertColors(
-//                                      child: Text(
-//                                        "Font Color",
-//                                        style: TextStyle(
-//                                          fontSize: 12.0,
-//                                          color: backgroundColor.withOpacity(1.0),
-//                                        ),
-//                                      ),
-//                                    ),
-//                                  ),
-//                                ),
-//                                FlatButton(
-//                                  onPressed: (){
-//                                    setState(() => onChangeBackgroundColor = true);
-//                                  },
-//                                  padding: EdgeInsets.all(0.0),
-//                                  shape: RoundedRectangleBorder(
-//                                    borderRadius: BorderRadius.circular(15.0),
-//                                  ),
-//                                  child: Container(
-//                                    padding: EdgeInsets.all(10.0),
-//                                    decoration: BoxDecoration(
-//                                      borderRadius: BorderRadius.circular(15.0),
-//                                      border: Border.all(color: backgroundColor.withOpacity(1.0)),
-//                                      color: backgroundColor.withOpacity(0.6),
-//                                    ),
-//                                    child: InvertColors(
-//                                      child: Text(
-//                                        "Background Color",
-//                                        style: TextStyle(
-//                                          fontSize: 12.0,
-//                                          color: backgroundColor.withOpacity(1.0),
-//                                        ),
-//                                      ),
-//                                    ),
-//                                  ),
-//                                ),
-//                              ],
-//                            ),
-//                            SizedBox(height: size.height * 0.02),
-//                            FlatButton(
-//                              onPressed: (){
-//                                print("EDIT NAME");
-//                              },
-//                              padding: EdgeInsets.all(0.0),
-//                              child: Container(
-////                                    color: Colors.red,
-//                                child: Text(
-//                                  "Ali RnAli RnAli RnAli RnnAli RnAli RnAnAli RnAli RnAnAli RnAli RnA",
-//                                  maxLines: 1,
-//                                  overflow: TextOverflow.ellipsis,
-//                                  style: TextStyle(
-//                                    fontWeight: FontWeight.w400,
-//                                  ),
-//                                ),
-//                              ),
-//                            ),
-//                            Row(
-//                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                              children: [
-//                                Column(
-//                                  crossAxisAlignment: CrossAxisAlignment.start,
-//                                  children: [
-//                                    Text(
-//                                      "Username",
-//                                    ),
-//                                    SizedBox(height: size.height * 0.02),
-//                                    Text(
-//                                      "Instagram",
-//                                    ),
-//                                    SizedBox(height: size.height * 0.02),
-//                                    Text(
-//                                      "Telegram",
-//                                    ),
-//                                  ],
-//                                ),
-//                                Column(
-//                                  crossAxisAlignment: CrossAxisAlignment.start,
-//                                  children: [
-//                                    Text(
-//                                      "Inception",
-//                                    ),
-//                                    SizedBox(height: size.height * 0.02),
-//                                    Text(
-//                                      "Arrow",
-//                                    ),
-//                                    SizedBox(height: size.height * 0.02),
-//                                    Text(
-//                                      "Lose your self",
-//                                    ),
-//                                    SizedBox(height: size.height * 0.02),
-//                                  ],
-//                                ),
-//                              ],
-//                            ),
-//                            Row(
-//                              mainAxisAlignment: MainAxisAlignment.end,
-//                              children: [
-//                                IconButton(
-//                                  icon: Icon(Icons.arrow_forward),
-//                                  color: Colors.white,
-//                                  onPressed: (){
-//                                    setState(() {
-//                                      onPage1 = false;
-//                                      onPage2 = true;
-//                                    });
-//                                  },
-//                                ),
-//                              ],
-//                            ),
-//                          ],
-//                        ),
-//                      )
-//                          : onPage2 ? Column(
-//                        children: [
-//                          Row(
-//                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-//                            children: [
-//                              Column(
-//                                crossAxisAlignment: CrossAxisAlignment.start,
-//                                children: [
-//                                  Text(
-//                                    "Favorite Sport?",
-//                                  ),
-//                                  SizedBox(height: size.height * 0.02),
-//                                  Text(
-//                                    "Favorite Movie?",
-//                                  ),
-//                                  SizedBox(height: size.height * 0.02),
-//                                  Text(
-//                                    "Favorite TV Series?",
-//                                  ),
-//                                  SizedBox(height: size.height * 0.02),
-//                                  Text(
-//                                    "Favorite Music?",
-//                                  ),
-//                                ],
-//                              ),
-//                              Column(
-//                                crossAxisAlignment: CrossAxisAlignment.start,
-//                                children: [
-//                                  Text(
-//                                    "Taekwondo",
-//                                  ),
-//                                  SizedBox(height: size.height * 0.02),
-//                                  Text(
-//                                    "Inception",
-//                                  ),
-//                                  SizedBox(height: size.height * 0.02),
-//                                  Text(
-//                                    "Arrow",
-//                                  ),
-//                                  SizedBox(height: size.height * 0.02),
-//                                  Text(
-//                                    "Lose your self",
-//                                  ),
-//                                  SizedBox(height: size.height * 0.02),
-//                                ],
-//                              ),
-//                            ],
-//                          ),
-//                          Row(
-//                            mainAxisAlignment: MainAxisAlignment.start,
-//                            children: [
-//                              IconButton(
-//                                icon: Icon(Icons.arrow_back),
-//                                color: Colors.white,
-//                                onPressed: (){
-//                                  setState(() {
-//                                    onPage1 = true;
-//                                    onPage2 = false;
-//                                  });
-//                                },
-//                              ),
-//                            ],
-//                          ),
-//                        ],
-//                      )
-//                          : Text("Third page"),
-//                    ],
-//                  )
-//                      : onChangeFontColor ? Column(
-//                    mainAxisAlignment: MainAxisAlignment.start,
-//                    children: <Widget>[
-//                      Row(
-//                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                        children: <Widget>[
-//                          Container(
-//                            height: size.width * 0.25,
-//                            width: size.width * 0.25,
-//                            decoration: BoxDecoration(
-//                              borderRadius: BorderRadius.circular(50),
-//                              image: DecorationImage(
-//                                image: AssetImage("assets/images/Michael B Jordan.png"),
-//                                fit: BoxFit.cover,
-//                              ),
-//                            ),
-//                          ),
-//                          Column(
-//                            crossAxisAlignment: CrossAxisAlignment.start,
-//                            children: <Widget>[
-//                              SizedBox(height: size.height * 0.03),
-//                              Text(
-//                                "Ali Rn ",
-//
-//                              ),
-//                              SizedBox(height:10.0),
-//                              Row(
-//                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                                children: <Widget>[
-//                                  Icon(
-//                                    Icons.bubble_chart,
-//                                    size: 16.0,
-//                                  ),
-//                                  Text(
-//                                    "22",
-//                                  ),
-//                                  SizedBox(width: 20.0),
-//                                  Icon(
-//                                    Icons.pin_drop,
-//                                    size: 16.0,
-//                                  ),
-//                                  Text(
-//                                    "Tehran",
-//                                  ),
-//                                ],
-//                              ),
-//                              SizedBox(height:10.0),
-//                              Row(
-//                                children: <Widget>[
-//                                  Icon(
-//                                    Icons.phone,
-//                                    size: 16.0,
-//                                  ),
-//                                  SizedBox(width:10.0),
-//                                  Text("09037853055"),
-//                                ],
-//                              ),
-//                            ],
-//                          ),
-//                        ],
-//                      ),
-//                      SizedBox(height: size.height * 0.02),
-//                      Row(
-//                        mainAxisAlignment: MainAxisAlignment.start,
-//                        children: [
-//                          InvertColors(
-//                            child: IconButton(
-//                              icon: Icon(Icons.arrow_back),
-//                              color: backgroundColor.withOpacity(1.0),
-//                              onPressed: (){
-//                                setState(() {
-//                                  onChangeFontColor = false;
-//                                });
-//                              },
-//                            ),
-//                          ),
-//                        ],
-//                      ),
-//                      Container(
-//                        child: CircleColorPicker(
-//                          textStyle: TextStyle(
-//                            fontSize: 15.0,
-//                            fontWeight: FontWeight.bold,
-//                            color: backgroundColor.withOpacity(1.0),
-//                          ),
-//                          initialColor: fontColor,
-//                          onChanged: (color) => setState(() => fontColor = color),
-//                          size: Size(250, 230),
-//                          strokeWidth: 6,
-//                          thumbSize: 26,
-//                        ),
-//                      ),
-//                    ],
-//                  )
-//                      :Column(
-//                    mainAxisAlignment: MainAxisAlignment.start,
-//                    children: <Widget>[
-//                      Row(
-//                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                        children: <Widget>[
-//                          Container(
-//                            height: size.width * 0.25,
-//                            width: size.width * 0.25,
-//                            decoration: BoxDecoration(
-//                              borderRadius: BorderRadius.circular(50),
-//                              image: DecorationImage(
-//                                image: AssetImage("assets/images/Michael B Jordan.png"),
-//                                fit: BoxFit.cover,
-//                              ),
-//                            ),
-//                          ),
-//                          Column(
-//                            crossAxisAlignment: CrossAxisAlignment.start,
-//                            children: <Widget>[
-//                              SizedBox(height: size.height * 0.03),
-//                              Text(
-//                                "Ali Rn ",
-//
-//                              ),
-//                              SizedBox(height:10.0),
-//                              Row(
-//                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                                children: <Widget>[
-//                                  Icon(
-//                                    Icons.bubble_chart,
-//                                    size: 16.0,
-//                                  ),
-//                                  Text(
-//                                    "22",
-//                                  ),
-//                                  SizedBox(width: 20.0),
-//                                  Icon(
-//                                    Icons.pin_drop,
-//                                    size: 16.0,
-//                                  ),
-//                                  Text(
-//                                    "Tehran",
-//                                  ),
-//                                ],
-//                              ),
-//                              SizedBox(height:10.0),
-//                              Row(
-//                                children: <Widget>[
-//                                  Icon(
-//                                    Icons.phone,
-//                                    size: 16.0,
-//                                  ),
-//                                  SizedBox(width:10.0),
-//                                  Text("09037853055"),
-//                                ],
-//                              ),
-//                            ],
-//                          ),
-//                        ],
-//                      ),
-//                      SizedBox(height: size.height * 0.02),
-//                      Row(
-//                        mainAxisAlignment: MainAxisAlignment.start,
-//                        children: [
-//                          InvertColors(
-//                            child: IconButton(
-//                              icon: Icon(Icons.arrow_back),
-//                              color: backgroundColor.withOpacity(1.0),
-//                              onPressed: (){
-//                                setState(() {
-//                                  onChangeBackgroundColor = false;
-//                                });
-//                              },
-//                            ),
-//                          ),
-//                        ],
-//                      ),
-//                      Container(
-//                        child: CircleColorPicker(
-//                          textStyle: TextStyle(
-//                            fontSize: 15.0,
-//                            fontWeight: FontWeight.bold,
-//                            color: backgroundColor.withOpacity(1.0),
-//                          ),
-//                          initialColor: backgroundColor,
-//                          onChanged: (color) => setState(() => backgroundColor = color),
-//                          size: Size(250, 230),
-//                          strokeWidth: 6,
-//                          thumbSize: 26,
-//                        ),
-//                      ),
-//                    ],
-//                  ),
                     ),
-                    Align(
-                      alignment: Alignment(0, 1),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          IconButton(
-                            icon: Icon(Icons.arrow_back),
-                            color: fontColor,
-                            onPressed: (){
-                              print("Go To Page 2");
-                              setState(() {
-                                onPage3 = false;
-                                onPage2 = true;
-                              });
-                            },
-                          ),
-                          Text(
-                            "3/5",
-                          ),
-                          IconButton(
-                            onPressed: (){
-                              print("Go To Page 4");
-                              setState(() {
-                                onPage3 = false;
-                                onPage4 = true;
-                              });
-                            },
-                            icon: Icon(Icons.arrow_forward),
-                            color: fontColor,
-                          ),
-                        ],
+                    InvertColors(
+                      child: Align(
+                        alignment: Alignment(0, 1),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            IconButton(
+                              icon: Icon(Icons.arrow_back),
+                              color: backgroundColor,
+                              onPressed: (){
+                                print("Go To Page 2");
+                                setState(() {
+                                  onPage3 = false;
+                                  onPage2 = true;
+                                });
+                              },
+                            ),
+                            Text(
+                              "3/5",
+                              style: TextStyle(
+                                color: backgroundColor,
+                              ),
+                            ),
+                            IconButton(
+                              onPressed: (){
+                                print("Go To Page 4");
+                                setState(() {
+                                  onPage3 = false;
+                                  onPage4 = true;
+                                });
+                              },
+                              icon: Icon(Icons.arrow_forward),
+                              color: backgroundColor,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ],
@@ -2317,7 +1092,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       child: ListView(
                         padding: EdgeInsets.all(0.0),
                         children: [
-                          SizedBox(height: size.width * 0.05),
+                          Text(
+                            "Favorites: ",
+                          ),
+                          SizedBox(height: size.width * 0.01),
                           Row(
                             children: [
                               Column(
@@ -2327,17 +1105,28 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                     angle: -0.3,
                                     child: Container(
                                       width: size.width * 0.27,
+                                      height: size.width * 0.07,
                                       padding: EdgeInsets.only(bottom: 5.0, left: 5.0),
                                       margin: EdgeInsets.only(bottom: 20),
                                       decoration: BoxDecoration(
                                         border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
                                       ),
-                                      child: Text(
-                                        "Name: ",
-                                        textAlign: TextAlign.start,
-                                        style: TextStyle(
-                                          fontSize: 11.0,
-                                        ),
+                                      child: Row(
+                                        children: [
+                                          Icon(
+                                            Icons.directions_run,
+                                            size: 15.0,
+                                            color: fontColor,
+                                          ),
+                                          Text(
+                                            "Sport: ",
+                                            textAlign: TextAlign.start,
+                                            style: TextStyle(
+                                              fontSize: 11.0,
+                                              color: fontColor,
+                                            ),
+                                          ),
+                                        ],
                                       ),
                                     ),
                                   ),
@@ -2345,17 +1134,28 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                     angle: -0.3,
                                     child: Container(
                                       width: size.width * 0.27,
-                                      margin: EdgeInsets.only(bottom: 20),
+                                      height: size.width * 0.07,
                                       padding: EdgeInsets.only(bottom: 5.0, left: 5.0),
+                                      margin: EdgeInsets.only(bottom: 20),
                                       decoration: BoxDecoration(
                                         border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
                                       ),
-                                      child: Text(
-                                        "Username: ",
-                                        textAlign: TextAlign.start,
-                                        style: TextStyle(
-                                          fontSize: 11.0,
-                                        ),
+                                      child: Row(
+                                        children: [
+                                          Icon(
+                                            Icons.book,
+                                            size: 15.0,
+                                            color: fontColor,
+                                          ),
+                                          Text(
+                                            "Book: ",
+                                            textAlign: TextAlign.start,
+                                            style: TextStyle(
+                                              fontSize: 11.0,
+                                              color: fontColor,
+                                            ),
+                                          ),
+                                        ],
                                       ),
                                     ),
                                   ),
@@ -2363,17 +1163,28 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                     angle: -0.3,
                                     child: Container(
                                       width: size.width * 0.27,
-                                      margin: EdgeInsets.only(bottom: 20),
+                                      height: size.width * 0.07,
                                       padding: EdgeInsets.only(bottom: 5.0, left: 5.0),
+                                      margin: EdgeInsets.only(bottom: 20),
                                       decoration: BoxDecoration(
                                         border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
                                       ),
-                                      child: Text(
-                                        "Phone Number: ",
-                                        textAlign: TextAlign.start,
-                                        style: TextStyle(
-                                          fontSize: 11.0,
-                                        ),
+                                      child: Row(
+                                        children: [
+                                          Icon(
+                                            Icons.local_movies,
+                                            size: 15.0,
+                                            color: fontColor,
+                                          ),
+                                          Text(
+                                            "Movie: ",
+                                            textAlign: TextAlign.start,
+                                            style: TextStyle(
+                                              fontSize: 11.0,
+                                              color: fontColor,
+                                            ),
+                                          ),
+                                        ],
                                       ),
                                     ),
                                   ),
@@ -2381,17 +1192,115 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                     angle: -0.3,
                                     child: Container(
                                       width: size.width * 0.27,
-                                      margin: EdgeInsets.only(bottom: 20),
+                                      height: size.width * 0.07,
                                       padding: EdgeInsets.only(bottom: 5.0, left: 5.0),
+                                      margin: EdgeInsets.only(bottom: 20),
                                       decoration: BoxDecoration(
                                         border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
                                       ),
-                                      child: Text(
-                                        "Email: ",
-                                        textAlign: TextAlign.start,
-                                        style: TextStyle(
-                                          fontSize: 11.0,
-                                        ),
+                                      child: Row(
+                                        children: [
+                                          Icon(
+                                            Icons.tv,
+                                            size: 15.0,
+                                            color: fontColor,
+                                          ),
+                                          Text(
+                                            "TV Series: ",
+                                            textAlign: TextAlign.start,
+                                            style: TextStyle(
+                                              fontSize: 11.0,
+                                              color: fontColor,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                  Transform.rotate(
+                                    angle: -0.3,
+                                    child: Container(
+                                      width: size.width * 0.27,
+                                      height: size.width * 0.07,
+                                      padding: EdgeInsets.only(bottom: 5.0, left: 5.0),
+                                      margin: EdgeInsets.only(bottom: 20),
+                                      decoration: BoxDecoration(
+                                        border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
+                                      ),
+                                      child: Row(
+                                        children: [
+                                          Icon(
+                                            Icons.music_note,
+                                            size: 15.0,
+                                            color: fontColor,
+                                          ),
+                                          Text(
+                                            "Music: ",
+                                            textAlign: TextAlign.start,
+                                            style: TextStyle(
+                                              fontSize: 11.0,
+                                              color: fontColor,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                  Transform.rotate(
+                                    angle: -0.3,
+                                    child: Container(
+                                      width: size.width * 0.27,
+                                      height: size.width * 0.07,
+                                      padding: EdgeInsets.only(bottom: 5.0, left: 5.0),
+                                      margin: EdgeInsets.only(bottom: 20),
+                                      decoration: BoxDecoration(
+                                        border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
+                                      ),
+                                      child: Row(
+                                        children: [
+                                          Icon(
+                                            Icons.videogame_asset,
+                                            size: 15.0,
+                                            color: fontColor,
+                                          ),
+                                          Text(
+                                            "Game: ",
+                                            textAlign: TextAlign.start,
+                                            style: TextStyle(
+                                              fontSize: 11.0,
+                                              color: fontColor,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                  Transform.rotate(
+                                    angle: -0.3,
+                                    child: Container(
+                                      width: size.width * 0.27,
+                                      height: size.width * 0.07,
+                                      padding: EdgeInsets.only(bottom: 5.0, left: 5.0),
+                                      margin: EdgeInsets.only(bottom: 20),
+                                      decoration: BoxDecoration(
+                                        border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
+                                      ),
+                                      child: Row(
+                                        children: [
+                                          Icon(
+                                            Icons.airplanemode_active,
+                                            size: 15.0,
+                                            color: fontColor,
+                                          ),
+                                          Text(
+                                            "To Travel: ",
+                                            textAlign: TextAlign.start,
+                                            style: TextStyle(
+                                              fontSize: 11.0,
+                                              color: fontColor,
+                                            ),
+                                          ),
+                                        ],
                                       ),
                                     ),
                                   ),
@@ -2401,13 +1310,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 children: [
                                   Container(
                                     width: size.width * 0.45,
+                                    height: size.width * 0.07,
                                     margin: EdgeInsets.only(bottom: 20),
                                     padding: EdgeInsets.only(left: 10.0, bottom: 5.0),
                                     decoration: BoxDecoration(
                                       border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
                                     ),
                                     child: Text(
-                                      "Ali Rajab Nezhad Ali Rajab Nezhad Ali Rajab Nezhad",
+                                      "Taekwondo",
                                       maxLines: 1,
                                       overflow: TextOverflow.ellipsis,
                                       style: TextStyle(
@@ -2417,13 +1327,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   ),
                                   Container(
                                     width: size.width * 0.45,
+                                    height: size.width * 0.07,
                                     margin: EdgeInsets.only(bottom: 20),
                                     padding: EdgeInsets.only(left: 10.0, bottom: 5.0),
                                     decoration: BoxDecoration(
                                       border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
                                     ),
                                     child: Text(
-                                      "Ali Rn",
+                                      "",
                                       maxLines: 1,
                                       overflow: TextOverflow.ellipsis,
                                       style: TextStyle(
@@ -2433,13 +1344,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   ),
                                   Container(
                                     width: size.width * 0.45,
+                                    height: size.width * 0.07,
                                     margin: EdgeInsets.only(bottom: 20),
                                     padding: EdgeInsets.only(left: 10.0, bottom: 5.0),
                                     decoration: BoxDecoration(
                                       border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
                                     ),
                                     child: Text(
-                                      "+98 903 785 30 55",
+                                      "Hunger games",
                                       maxLines: 1,
                                       overflow: TextOverflow.ellipsis,
                                       style: TextStyle(
@@ -2449,13 +1361,65 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   ),
                                   Container(
                                     width: size.width * 0.45,
-                                    padding: EdgeInsets.only(left: 10.0, bottom: 5.0),
+                                    height: size.width * 0.07,
                                     margin: EdgeInsets.only(bottom: 20),
+                                    padding: EdgeInsets.only(left: 10.0, bottom: 5.0),
                                     decoration: BoxDecoration(
                                       border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
                                     ),
                                     child: Text(
-                                      "alirn76@yahoo.com",
+                                      "The Flash",
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                        fontSize: 11.0,
+                                      ),
+                                    ),
+                                  ),
+                                  Container(
+                                    width: size.width * 0.45,
+                                    height: size.width * 0.07,
+                                    margin: EdgeInsets.only(bottom: 20),
+                                    padding: EdgeInsets.only(left: 10.0, bottom: 5.0),
+                                    decoration: BoxDecoration(
+                                      border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
+                                    ),
+                                    child: Text(
+                                      "Little Sister - Jean Philippe",
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                        fontSize: 11.0,
+                                      ),
+                                    ),
+                                  ),
+                                  Container(
+                                    width: size.width * 0.45,
+                                    height: size.width * 0.07,
+                                    margin: EdgeInsets.only(bottom: 20),
+                                    padding: EdgeInsets.only(left: 10.0, bottom: 5.0),
+                                    decoration: BoxDecoration(
+                                      border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
+                                    ),
+                                    child: Text(
+                                      "",
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                        fontSize: 11.0,
+                                      ),
+                                    ),
+                                  ),
+                                  Container(
+                                    width: size.width * 0.45,
+                                    height: size.width * 0.07,
+                                    margin: EdgeInsets.only(bottom: 20),
+                                    padding: EdgeInsets.only(left: 10.0, bottom: 5.0),
+                                    decoration: BoxDecoration(
+                                      border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
+                                    ),
+                                    child: Text(
+                                      "Silicon Valey",
                                       maxLines: 1,
                                       overflow: TextOverflow.ellipsis,
                                       style: TextStyle(
@@ -2469,1157 +1433,190 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ),
                         ],
                       ),
-//                  child: !onChangeBackgroundColor && !onChangeFontColor ? Column(
-//                    mainAxisAlignment: MainAxisAlignment.start,
-//                    children: <Widget>[
-//                      Row(
-//                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                        children: <Widget>[
-//                          Container(
-//                            height: size.width * 0.25,
-//                            width: size.width * 0.25,
-//                            decoration: BoxDecoration(
-//                              border: Border.all(
-//                                color: Colors.black,
-//                                width: 0.1,
-//                              ),
-//                              borderRadius: BorderRadius.circular(50),
-////                                  image: DecorationImage(
-////                                    image: AssetImage("assets/images/Michael B Jordan.png"),
-////                                    fit: BoxFit.cover,
-////                                  ),
-//                            ),
-//                            child: IconButton(
-//                              onPressed: (){
-//                                print("add Picture");
-//                              },
-//                              icon: Icon(Icons.add_photo_alternate),
-//                              color: Colors.black.withOpacity(0.7),
-//                            ),
-//                          ),
-//                          Column(
-//                            crossAxisAlignment: CrossAxisAlignment.start,
-//                            children: <Widget>[
-//                              SizedBox(height: size.height * 0.03),
-//                              Text(
-//                                "Ali Rn ",
-//                              ),
-//                              SizedBox(height:10.0),
-//                              Row(
-//                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                                children: <Widget>[
-//                                  Icon(
-//                                    Icons.bubble_chart,
-//                                    size: 16.0,
-//                                  ),
-//                                  Text(
-//                                    "22",
-//                                  ),
-//                                  SizedBox(width: 20.0),
-//                                  Icon(
-//                                    Icons.pin_drop,
-//                                    size: 16.0,
-//                                  ),
-//                                  Text(
-//                                    "Tehran",
-//                                  ),
-//                                ],
-//                              ),
-//                              SizedBox(height:10.0),
-//                              Row(
-//                                children: <Widget>[
-//                                  Icon(
-//                                    Icons.phone,
-//                                    size: 16.0,
-//                                  ),
-//                                  SizedBox(width:10.0),
-//                                  Text("09037853055"),
-//                                ],
-//                              ),
-//                            ],
-//                          ),
-//                        ],
-//                      ),
-//                      SizedBox(height: size.height * 0.02),
-//                      onPage1 ? Padding(
-//                        padding: EdgeInsets.symmetric(horizontal: size.width * 0.02),
-//                        child: Column(
-//                          crossAxisAlignment: CrossAxisAlignment.start,
-//                          children: [
-//                            Row(
-//                              children: [
-//                                FlatButton(
-//                                  onPressed: (){
-//                                    setState(() => onChangeFontColor = true);
-//                                  },
-//                                  padding: EdgeInsets.all(0.0),
-//                                  shape: RoundedRectangleBorder(
-//                                    borderRadius: BorderRadius.circular(15.0),
-//                                  ),
-//                                  child: Container(
-//                                    padding: EdgeInsets.all(10.0),
-//                                    decoration: BoxDecoration(
-//                                      borderRadius: BorderRadius.circular(15.0),
-//                                      border: Border.all(color: backgroundColor.withOpacity(1.0)),
-//                                      color: backgroundColor.withOpacity(0.6),
-//                                    ),
-//                                    child: InvertColors(
-//                                      child: Text(
-//                                        "Font Color",
-//                                        style: TextStyle(
-//                                          fontSize: 12.0,
-//                                          color: backgroundColor.withOpacity(1.0),
-//                                        ),
-//                                      ),
-//                                    ),
-//                                  ),
-//                                ),
-//                                FlatButton(
-//                                  onPressed: (){
-//                                    setState(() => onChangeBackgroundColor = true);
-//                                  },
-//                                  padding: EdgeInsets.all(0.0),
-//                                  shape: RoundedRectangleBorder(
-//                                    borderRadius: BorderRadius.circular(15.0),
-//                                  ),
-//                                  child: Container(
-//                                    padding: EdgeInsets.all(10.0),
-//                                    decoration: BoxDecoration(
-//                                      borderRadius: BorderRadius.circular(15.0),
-//                                      border: Border.all(color: backgroundColor.withOpacity(1.0)),
-//                                      color: backgroundColor.withOpacity(0.6),
-//                                    ),
-//                                    child: InvertColors(
-//                                      child: Text(
-//                                        "Background Color",
-//                                        style: TextStyle(
-//                                          fontSize: 12.0,
-//                                          color: backgroundColor.withOpacity(1.0),
-//                                        ),
-//                                      ),
-//                                    ),
-//                                  ),
-//                                ),
-//                              ],
-//                            ),
-//                            SizedBox(height: size.height * 0.02),
-//                            FlatButton(
-//                              onPressed: (){
-//                                print("EDIT NAME");
-//                              },
-//                              padding: EdgeInsets.all(0.0),
-//                              child: Container(
-////                                    color: Colors.red,
-//                                child: Text(
-//                                  "Ali RnAli RnAli RnAli RnnAli RnAli RnAnAli RnAli RnAnAli RnAli RnA",
-//                                  maxLines: 1,
-//                                  overflow: TextOverflow.ellipsis,
-//                                  style: TextStyle(
-//                                    fontWeight: FontWeight.w400,
-//                                  ),
-//                                ),
-//                              ),
-//                            ),
-//                            Row(
-//                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                              children: [
-//                                Column(
-//                                  crossAxisAlignment: CrossAxisAlignment.start,
-//                                  children: [
-//                                    Text(
-//                                      "Username",
-//                                    ),
-//                                    SizedBox(height: size.height * 0.02),
-//                                    Text(
-//                                      "Instagram",
-//                                    ),
-//                                    SizedBox(height: size.height * 0.02),
-//                                    Text(
-//                                      "Telegram",
-//                                    ),
-//                                  ],
-//                                ),
-//                                Column(
-//                                  crossAxisAlignment: CrossAxisAlignment.start,
-//                                  children: [
-//                                    Text(
-//                                      "Inception",
-//                                    ),
-//                                    SizedBox(height: size.height * 0.02),
-//                                    Text(
-//                                      "Arrow",
-//                                    ),
-//                                    SizedBox(height: size.height * 0.02),
-//                                    Text(
-//                                      "Lose your self",
-//                                    ),
-//                                    SizedBox(height: size.height * 0.02),
-//                                  ],
-//                                ),
-//                              ],
-//                            ),
-//                            Row(
-//                              mainAxisAlignment: MainAxisAlignment.end,
-//                              children: [
-//                                IconButton(
-//                                  icon: Icon(Icons.arrow_forward),
-//                                  color: Colors.white,
-//                                  onPressed: (){
-//                                    setState(() {
-//                                      onPage1 = false;
-//                                      onPage2 = true;
-//                                    });
-//                                  },
-//                                ),
-//                              ],
-//                            ),
-//                          ],
-//                        ),
-//                      )
-//                          : onPage2 ? Column(
-//                        children: [
-//                          Row(
-//                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-//                            children: [
-//                              Column(
-//                                crossAxisAlignment: CrossAxisAlignment.start,
-//                                children: [
-//                                  Text(
-//                                    "Favorite Sport?",
-//                                  ),
-//                                  SizedBox(height: size.height * 0.02),
-//                                  Text(
-//                                    "Favorite Movie?",
-//                                  ),
-//                                  SizedBox(height: size.height * 0.02),
-//                                  Text(
-//                                    "Favorite TV Series?",
-//                                  ),
-//                                  SizedBox(height: size.height * 0.02),
-//                                  Text(
-//                                    "Favorite Music?",
-//                                  ),
-//                                ],
-//                              ),
-//                              Column(
-//                                crossAxisAlignment: CrossAxisAlignment.start,
-//                                children: [
-//                                  Text(
-//                                    "Taekwondo",
-//                                  ),
-//                                  SizedBox(height: size.height * 0.02),
-//                                  Text(
-//                                    "Inception",
-//                                  ),
-//                                  SizedBox(height: size.height * 0.02),
-//                                  Text(
-//                                    "Arrow",
-//                                  ),
-//                                  SizedBox(height: size.height * 0.02),
-//                                  Text(
-//                                    "Lose your self",
-//                                  ),
-//                                  SizedBox(height: size.height * 0.02),
-//                                ],
-//                              ),
-//                            ],
-//                          ),
-//                          Row(
-//                            mainAxisAlignment: MainAxisAlignment.start,
-//                            children: [
-//                              IconButton(
-//                                icon: Icon(Icons.arrow_back),
-//                                color: Colors.white,
-//                                onPressed: (){
-//                                  setState(() {
-//                                    onPage1 = true;
-//                                    onPage2 = false;
-//                                  });
-//                                },
-//                              ),
-//                            ],
-//                          ),
-//                        ],
-//                      )
-//                          : Text("Third page"),
-//                    ],
-//                  )
-//                      : onChangeFontColor ? Column(
-//                    mainAxisAlignment: MainAxisAlignment.start,
-//                    children: <Widget>[
-//                      Row(
-//                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                        children: <Widget>[
-//                          Container(
-//                            height: size.width * 0.25,
-//                            width: size.width * 0.25,
-//                            decoration: BoxDecoration(
-//                              borderRadius: BorderRadius.circular(50),
-//                              image: DecorationImage(
-//                                image: AssetImage("assets/images/Michael B Jordan.png"),
-//                                fit: BoxFit.cover,
-//                              ),
-//                            ),
-//                          ),
-//                          Column(
-//                            crossAxisAlignment: CrossAxisAlignment.start,
-//                            children: <Widget>[
-//                              SizedBox(height: size.height * 0.03),
-//                              Text(
-//                                "Ali Rn ",
-//
-//                              ),
-//                              SizedBox(height:10.0),
-//                              Row(
-//                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                                children: <Widget>[
-//                                  Icon(
-//                                    Icons.bubble_chart,
-//                                    size: 16.0,
-//                                  ),
-//                                  Text(
-//                                    "22",
-//                                  ),
-//                                  SizedBox(width: 20.0),
-//                                  Icon(
-//                                    Icons.pin_drop,
-//                                    size: 16.0,
-//                                  ),
-//                                  Text(
-//                                    "Tehran",
-//                                  ),
-//                                ],
-//                              ),
-//                              SizedBox(height:10.0),
-//                              Row(
-//                                children: <Widget>[
-//                                  Icon(
-//                                    Icons.phone,
-//                                    size: 16.0,
-//                                  ),
-//                                  SizedBox(width:10.0),
-//                                  Text("09037853055"),
-//                                ],
-//                              ),
-//                            ],
-//                          ),
-//                        ],
-//                      ),
-//                      SizedBox(height: size.height * 0.02),
-//                      Row(
-//                        mainAxisAlignment: MainAxisAlignment.start,
-//                        children: [
-//                          InvertColors(
-//                            child: IconButton(
-//                              icon: Icon(Icons.arrow_back),
-//                              color: backgroundColor.withOpacity(1.0),
-//                              onPressed: (){
-//                                setState(() {
-//                                  onChangeFontColor = false;
-//                                });
-//                              },
-//                            ),
-//                          ),
-//                        ],
-//                      ),
-//                      Container(
-//                        child: CircleColorPicker(
-//                          textStyle: TextStyle(
-//                            fontSize: 15.0,
-//                            fontWeight: FontWeight.bold,
-//                            color: backgroundColor.withOpacity(1.0),
-//                          ),
-//                          initialColor: fontColor,
-//                          onChanged: (color) => setState(() => fontColor = color),
-//                          size: Size(250, 230),
-//                          strokeWidth: 6,
-//                          thumbSize: 26,
-//                        ),
-//                      ),
-//                    ],
-//                  )
-//                      :Column(
-//                    mainAxisAlignment: MainAxisAlignment.start,
-//                    children: <Widget>[
-//                      Row(
-//                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                        children: <Widget>[
-//                          Container(
-//                            height: size.width * 0.25,
-//                            width: size.width * 0.25,
-//                            decoration: BoxDecoration(
-//                              borderRadius: BorderRadius.circular(50),
-//                              image: DecorationImage(
-//                                image: AssetImage("assets/images/Michael B Jordan.png"),
-//                                fit: BoxFit.cover,
-//                              ),
-//                            ),
-//                          ),
-//                          Column(
-//                            crossAxisAlignment: CrossAxisAlignment.start,
-//                            children: <Widget>[
-//                              SizedBox(height: size.height * 0.03),
-//                              Text(
-//                                "Ali Rn ",
-//
-//                              ),
-//                              SizedBox(height:10.0),
-//                              Row(
-//                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                                children: <Widget>[
-//                                  Icon(
-//                                    Icons.bubble_chart,
-//                                    size: 16.0,
-//                                  ),
-//                                  Text(
-//                                    "22",
-//                                  ),
-//                                  SizedBox(width: 20.0),
-//                                  Icon(
-//                                    Icons.pin_drop,
-//                                    size: 16.0,
-//                                  ),
-//                                  Text(
-//                                    "Tehran",
-//                                  ),
-//                                ],
-//                              ),
-//                              SizedBox(height:10.0),
-//                              Row(
-//                                children: <Widget>[
-//                                  Icon(
-//                                    Icons.phone,
-//                                    size: 16.0,
-//                                  ),
-//                                  SizedBox(width:10.0),
-//                                  Text("09037853055"),
-//                                ],
-//                              ),
-//                            ],
-//                          ),
-//                        ],
-//                      ),
-//                      SizedBox(height: size.height * 0.02),
-//                      Row(
-//                        mainAxisAlignment: MainAxisAlignment.start,
-//                        children: [
-//                          InvertColors(
-//                            child: IconButton(
-//                              icon: Icon(Icons.arrow_back),
-//                              color: backgroundColor.withOpacity(1.0),
-//                              onPressed: (){
-//                                setState(() {
-//                                  onChangeBackgroundColor = false;
-//                                });
-//                              },
-//                            ),
-//                          ),
-//                        ],
-//                      ),
-//                      Container(
-//                        child: CircleColorPicker(
-//                          textStyle: TextStyle(
-//                            fontSize: 15.0,
-//                            fontWeight: FontWeight.bold,
-//                            color: backgroundColor.withOpacity(1.0),
-//                          ),
-//                          initialColor: backgroundColor,
-//                          onChanged: (color) => setState(() => backgroundColor = color),
-//                          size: Size(250, 230),
-//                          strokeWidth: 6,
-//                          thumbSize: 26,
-//                        ),
-//                      ),
-//                    ],
-//                  ),
                     ),
-                    Align(
-                      alignment: Alignment(0, 1),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          IconButton(
-                            icon: Icon(Icons.arrow_back),
-                            color: fontColor,
-                            onPressed: (){
-                              print("Go To Page 3");
-                              setState(() {
-                                onPage4 = false;
-                                onPage3 = true;
-                              });
-                            },
-                          ),
-                          Text(
-                            "4/5",
-                          ),
-                          IconButton(
-                            onPressed: (){
-                              print("Go To Page 5");
-                              setState(() {
-                                onPage4 = false;
-                                onPage5 = true;
-                              });
-                            },
-                            icon: Icon(Icons.arrow_forward),
-                            color: fontColor,
-                          ),
-                        ],
+                    InvertColors(
+                      child: Align(
+                        alignment: Alignment(0, 1),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            IconButton(
+                              icon: Icon(Icons.arrow_back),
+                              color: backgroundColor,
+                              onPressed: (){
+                                print("Go To Page 3");
+                                setState(() {
+                                  onPage4 = false;
+                                  onPage3 = true;
+                                });
+                              },
+                            ),
+                            Text(
+                              "4/5",
+                              style: TextStyle(
+                                color: backgroundColor,
+                              ),
+                            ),
+                            IconButton(
+                              onPressed: (){
+                                print("Go To Page 5");
+                                setState(() {
+                                  onPage4 = false;
+                                  onPage5 = true;
+                                });
+                              },
+                              icon: Icon(Icons.arrow_forward),
+                              color: backgroundColor,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ],
                 )
                     : onPage5 ? Stack(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.all(20.0),
-                      child: ListView(
+                    children: <Widget>[
+                      ListView(
                         padding: EdgeInsets.all(0.0),
                         children: [
-                          SizedBox(height: size.width * 0.05),
+                          Padding(
+                            padding: EdgeInsets.all(20.0),
+                            child: Text(
+                              "Change Profile Colors: ",
+                              style: TextStyle(
+                                color: fontColor,
+                              ),
+                            ),
+                          ),
+                          SizedBox(height: size.width * 0.04),
                           Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Column(
-                                children: [
-                                  SizedBox(height: size.width * 0.08),
-                                  Transform.rotate(
-                                    angle: -0.3,
-                                    child: Container(
-                                      width: size.width * 0.27,
-                                      padding: EdgeInsets.only(bottom: 5.0, left: 5.0),
-                                      margin: EdgeInsets.only(bottom: 20),
-                                      decoration: BoxDecoration(
-                                        border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
-                                      ),
-                                      child: Text(
-                                        "Name: ",
-                                        textAlign: TextAlign.start,
-                                        style: TextStyle(
-                                          fontSize: 11.0,
-                                        ),
-                                      ),
+                              GestureDetector(
+                                onTap: () => setState(() {
+                                  onChangeBackgroundColor = true;
+                                  onChangeFontColor = false;
+                                }),
+                                child: Container(
+                                  margin: EdgeInsets.all(5.0),
+                                  padding: EdgeInsets.all(10.0),
+                                  width: size.width * 0.40,
+                                  decoration: BoxDecoration(
+                                    color: onChangeBackgroundColor ? backgroundColor.withOpacity(0.8) : null,
+                                    border: Border.all(
+                                      color: backgroundColor.withOpacity(1.0),
+                                      width: 2.0,
                                     ),
+                                    borderRadius: BorderRadius.circular(15.0),
                                   ),
-                                  Transform.rotate(
-                                    angle: -0.3,
-                                    child: Container(
-                                      width: size.width * 0.27,
-                                      margin: EdgeInsets.only(bottom: 20),
-                                      padding: EdgeInsets.only(bottom: 5.0, left: 5.0),
-                                      decoration: BoxDecoration(
-                                        border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
-                                      ),
-                                      child: Text(
-                                        "Username: ",
-                                        textAlign: TextAlign.start,
-                                        style: TextStyle(
-                                          fontSize: 11.0,
-                                        ),
-                                      ),
+                                  child: Text(
+                                    "Background Color",
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 12.0,
+                                      color: fontColor.withOpacity(1.0),
                                     ),
-                                  ),
-                                  Transform.rotate(
-                                    angle: -0.3,
-                                    child: Container(
-                                      width: size.width * 0.27,
-                                      margin: EdgeInsets.only(bottom: 20),
-                                      padding: EdgeInsets.only(bottom: 5.0, left: 5.0),
-                                      decoration: BoxDecoration(
-                                        border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
-                                      ),
-                                      child: Text(
-                                        "Phone Number: ",
-                                        textAlign: TextAlign.start,
-                                        style: TextStyle(
-                                          fontSize: 11.0,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Transform.rotate(
-                                    angle: -0.3,
-                                    child: Container(
-                                      width: size.width * 0.27,
-                                      margin: EdgeInsets.only(bottom: 20),
-                                      padding: EdgeInsets.only(bottom: 5.0, left: 5.0),
-                                      decoration: BoxDecoration(
-                                        border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
-                                      ),
-                                      child: Text(
-                                        "Email: ",
-                                        textAlign: TextAlign.start,
-                                        style: TextStyle(
-                                          fontSize: 11.0,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
+                                  )
+                                ),
                               ),
-                              Column(
-                                children: [
-                                  Container(
-                                    width: size.width * 0.45,
-                                    margin: EdgeInsets.only(bottom: 20),
-                                    padding: EdgeInsets.only(left: 10.0, bottom: 5.0),
-                                    decoration: BoxDecoration(
-                                      border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
+                              GestureDetector(
+                                onTap: () => setState(() {
+                                  onChangeFontColor = true;
+                                  onChangeBackgroundColor = false;
+                                }),
+                                child: Container(
+                                  margin: EdgeInsets.all(5.0),
+                                  padding: EdgeInsets.all(10.0),
+                                  width: size.width * 0.30,
+                                  decoration: BoxDecoration(
+                                    color: onChangeFontColor ? backgroundColor.withOpacity(0.8) : null,
+                                    border: Border.all(
+                                      color: backgroundColor.withOpacity(1.0),
+                                      width: 2.0,
                                     ),
-                                    child: Text(
-                                      "Ali Rajab Nezhad Ali Rajab Nezhad Ali Rajab Nezhad",
-                                      maxLines: 1,
-                                      overflow: TextOverflow.ellipsis,
-                                      style: TextStyle(
-                                        fontSize: 11.0,
-                                      ),
-                                    ),
+                                    borderRadius: BorderRadius.circular(15.0),
                                   ),
-                                  Container(
-                                    width: size.width * 0.45,
-                                    margin: EdgeInsets.only(bottom: 20),
-                                    padding: EdgeInsets.only(left: 10.0, bottom: 5.0),
-                                    decoration: BoxDecoration(
-                                      border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
+                                  child: Text(
+                                    "Font Color",
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 12.0,
+                                      color: fontColor.withOpacity(1.0),
                                     ),
-                                    child: Text(
-                                      "Ali Rn",
-                                      maxLines: 1,
-                                      overflow: TextOverflow.ellipsis,
-                                      style: TextStyle(
-                                        fontSize: 11.0,
-                                      ),
-                                    ),
-                                  ),
-                                  Container(
-                                    width: size.width * 0.45,
-                                    margin: EdgeInsets.only(bottom: 20),
-                                    padding: EdgeInsets.only(left: 10.0, bottom: 5.0),
-                                    decoration: BoxDecoration(
-                                      border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
-                                    ),
-                                    child: Text(
-                                      "+98 903 785 30 55",
-                                      maxLines: 1,
-                                      overflow: TextOverflow.ellipsis,
-                                      style: TextStyle(
-                                        fontSize: 11.0,
-                                      ),
-                                    ),
-                                  ),
-                                  Container(
-                                    width: size.width * 0.45,
-                                    padding: EdgeInsets.only(left: 10.0, bottom: 5.0),
-                                    margin: EdgeInsets.only(bottom: 20),
-                                    decoration: BoxDecoration(
-                                      border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
-                                    ),
-                                    child: Text(
-                                      "alirn76@yahoo.com",
-                                      maxLines: 1,
-                                      overflow: TextOverflow.ellipsis,
-                                      style: TextStyle(
-                                        fontSize: 11.0,
-                                      ),
-                                    ),
-                                  ),
-                                ],
+                                  )
+                                ),
                               ),
+                            ],
+                          ),
+                          SizedBox(height: size.width * 0.04),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              onChangeBackgroundColor
+                              ? CircleColorPicker(
+                                textStyle: TextStyle(
+                                  fontSize: 15.0,
+                                  fontWeight: FontWeight.bold,
+                                  color: backgroundColor.withOpacity(1.0),
+                                ),
+                                initialColor: backgroundColor,
+                                onChanged: (color) => setState(() => backgroundColor = color),
+                                size: Size(250, 230),
+                                strokeWidth: 6,
+                                thumbSize: 26,
+                              )
+                            : CircleColorPicker(
+                              textStyle: TextStyle(
+                                fontSize: 15.0,
+                                fontWeight: FontWeight.bold,
+                                color: fontColor.withOpacity(1.0),
+                              ),
+                              initialColor: fontColor,
+                              onChanged: (color) => setState(() => fontColor = color),
+                              size: Size(250, 230),
+                              strokeWidth: 6,
+                              thumbSize: 26,
+                              ),
+
                             ],
                           ),
                         ],
                       ),
-//                  child: !onChangeBackgroundColor && !onChangeFontColor ? Column(
-//                    mainAxisAlignment: MainAxisAlignment.start,
-//                    children: <Widget>[
-//                      Row(
-//                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                        children: <Widget>[
-//                          Container(
-//                            height: size.width * 0.25,
-//                            width: size.width * 0.25,
-//                            decoration: BoxDecoration(
-//                              border: Border.all(
-//                                color: Colors.black,
-//                                width: 0.1,
-//                              ),
-//                              borderRadius: BorderRadius.circular(50),
-////                                  image: DecorationImage(
-////                                    image: AssetImage("assets/images/Michael B Jordan.png"),
-////                                    fit: BoxFit.cover,
-////                                  ),
-//                            ),
-//                            child: IconButton(
-//                              onPressed: (){
-//                                print("add Picture");
-//                              },
-//                              icon: Icon(Icons.add_photo_alternate),
-//                              color: Colors.black.withOpacity(0.7),
-//                            ),
-//                          ),
-//                          Column(
-//                            crossAxisAlignment: CrossAxisAlignment.start,
-//                            children: <Widget>[
-//                              SizedBox(height: size.height * 0.03),
-//                              Text(
-//                                "Ali Rn ",
-//                              ),
-//                              SizedBox(height:10.0),
-//                              Row(
-//                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                                children: <Widget>[
-//                                  Icon(
-//                                    Icons.bubble_chart,
-//                                    size: 16.0,
-//                                  ),
-//                                  Text(
-//                                    "22",
-//                                  ),
-//                                  SizedBox(width: 20.0),
-//                                  Icon(
-//                                    Icons.pin_drop,
-//                                    size: 16.0,
-//                                  ),
-//                                  Text(
-//                                    "Tehran",
-//                                  ),
-//                                ],
-//                              ),
-//                              SizedBox(height:10.0),
-//                              Row(
-//                                children: <Widget>[
-//                                  Icon(
-//                                    Icons.phone,
-//                                    size: 16.0,
-//                                  ),
-//                                  SizedBox(width:10.0),
-//                                  Text("09037853055"),
-//                                ],
-//                              ),
-//                            ],
-//                          ),
-//                        ],
-//                      ),
-//                      SizedBox(height: size.height * 0.02),
-//                      onPage1 ? Padding(
-//                        padding: EdgeInsets.symmetric(horizontal: size.width * 0.02),
-//                        child: Column(
-//                          crossAxisAlignment: CrossAxisAlignment.start,
-//                          children: [
-//                            Row(
-//                              children: [
-//                                FlatButton(
-//                                  onPressed: (){
-//                                    setState(() => onChangeFontColor = true);
-//                                  },
-//                                  padding: EdgeInsets.all(0.0),
-//                                  shape: RoundedRectangleBorder(
-//                                    borderRadius: BorderRadius.circular(15.0),
-//                                  ),
-//                                  child: Container(
-//                                    padding: EdgeInsets.all(10.0),
-//                                    decoration: BoxDecoration(
-//                                      borderRadius: BorderRadius.circular(15.0),
-//                                      border: Border.all(color: backgroundColor.withOpacity(1.0)),
-//                                      color: backgroundColor.withOpacity(0.6),
-//                                    ),
-//                                    child: InvertColors(
-//                                      child: Text(
-//                                        "Font Color",
-//                                        style: TextStyle(
-//                                          fontSize: 12.0,
-//                                          color: backgroundColor.withOpacity(1.0),
-//                                        ),
-//                                      ),
-//                                    ),
-//                                  ),
-//                                ),
-//                                FlatButton(
-//                                  onPressed: (){
-//                                    setState(() => onChangeBackgroundColor = true);
-//                                  },
-//                                  padding: EdgeInsets.all(0.0),
-//                                  shape: RoundedRectangleBorder(
-//                                    borderRadius: BorderRadius.circular(15.0),
-//                                  ),
-//                                  child: Container(
-//                                    padding: EdgeInsets.all(10.0),
-//                                    decoration: BoxDecoration(
-//                                      borderRadius: BorderRadius.circular(15.0),
-//                                      border: Border.all(color: backgroundColor.withOpacity(1.0)),
-//                                      color: backgroundColor.withOpacity(0.6),
-//                                    ),
-//                                    child: InvertColors(
-//                                      child: Text(
-//                                        "Background Color",
-//                                        style: TextStyle(
-//                                          fontSize: 12.0,
-//                                          color: backgroundColor.withOpacity(1.0),
-//                                        ),
-//                                      ),
-//                                    ),
-//                                  ),
-//                                ),
-//                              ],
-//                            ),
-//                            SizedBox(height: size.height * 0.02),
-//                            FlatButton(
-//                              onPressed: (){
-//                                print("EDIT NAME");
-//                              },
-//                              padding: EdgeInsets.all(0.0),
-//                              child: Container(
-////                                    color: Colors.red,
-//                                child: Text(
-//                                  "Ali RnAli RnAli RnAli RnnAli RnAli RnAnAli RnAli RnAnAli RnAli RnA",
-//                                  maxLines: 1,
-//                                  overflow: TextOverflow.ellipsis,
-//                                  style: TextStyle(
-//                                    fontWeight: FontWeight.w400,
-//                                  ),
-//                                ),
-//                              ),
-//                            ),
-//                            Row(
-//                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                              children: [
-//                                Column(
-//                                  crossAxisAlignment: CrossAxisAlignment.start,
-//                                  children: [
-//                                    Text(
-//                                      "Username",
-//                                    ),
-//                                    SizedBox(height: size.height * 0.02),
-//                                    Text(
-//                                      "Instagram",
-//                                    ),
-//                                    SizedBox(height: size.height * 0.02),
-//                                    Text(
-//                                      "Telegram",
-//                                    ),
-//                                  ],
-//                                ),
-//                                Column(
-//                                  crossAxisAlignment: CrossAxisAlignment.start,
-//                                  children: [
-//                                    Text(
-//                                      "Inception",
-//                                    ),
-//                                    SizedBox(height: size.height * 0.02),
-//                                    Text(
-//                                      "Arrow",
-//                                    ),
-//                                    SizedBox(height: size.height * 0.02),
-//                                    Text(
-//                                      "Lose your self",
-//                                    ),
-//                                    SizedBox(height: size.height * 0.02),
-//                                  ],
-//                                ),
-//                              ],
-//                            ),
-//                            Row(
-//                              mainAxisAlignment: MainAxisAlignment.end,
-//                              children: [
-//                                IconButton(
-//                                  icon: Icon(Icons.arrow_forward),
-//                                  color: Colors.white,
-//                                  onPressed: (){
-//                                    setState(() {
-//                                      onPage1 = false;
-//                                      onPage2 = true;
-//                                    });
-//                                  },
-//                                ),
-//                              ],
-//                            ),
-//                          ],
-//                        ),
-//                      )
-//                          : onPage2 ? Column(
-//                        children: [
-//                          Row(
-//                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-//                            children: [
-//                              Column(
-//                                crossAxisAlignment: CrossAxisAlignment.start,
-//                                children: [
-//                                  Text(
-//                                    "Favorite Sport?",
-//                                  ),
-//                                  SizedBox(height: size.height * 0.02),
-//                                  Text(
-//                                    "Favorite Movie?",
-//                                  ),
-//                                  SizedBox(height: size.height * 0.02),
-//                                  Text(
-//                                    "Favorite TV Series?",
-//                                  ),
-//                                  SizedBox(height: size.height * 0.02),
-//                                  Text(
-//                                    "Favorite Music?",
-//                                  ),
-//                                ],
-//                              ),
-//                              Column(
-//                                crossAxisAlignment: CrossAxisAlignment.start,
-//                                children: [
-//                                  Text(
-//                                    "Taekwondo",
-//                                  ),
-//                                  SizedBox(height: size.height * 0.02),
-//                                  Text(
-//                                    "Inception",
-//                                  ),
-//                                  SizedBox(height: size.height * 0.02),
-//                                  Text(
-//                                    "Arrow",
-//                                  ),
-//                                  SizedBox(height: size.height * 0.02),
-//                                  Text(
-//                                    "Lose your self",
-//                                  ),
-//                                  SizedBox(height: size.height * 0.02),
-//                                ],
-//                              ),
-//                            ],
-//                          ),
-//                          Row(
-//                            mainAxisAlignment: MainAxisAlignment.start,
-//                            children: [
-//                              IconButton(
-//                                icon: Icon(Icons.arrow_back),
-//                                color: Colors.white,
-//                                onPressed: (){
-//                                  setState(() {
-//                                    onPage1 = true;
-//                                    onPage2 = false;
-//                                  });
-//                                },
-//                              ),
-//                            ],
-//                          ),
-//                        ],
-//                      )
-//                          : Text("Third page"),
-//                    ],
-//                  )
-//                      : onChangeFontColor ? Column(
-//                    mainAxisAlignment: MainAxisAlignment.start,
-//                    children: <Widget>[
-//                      Row(
-//                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                        children: <Widget>[
-//                          Container(
-//                            height: size.width * 0.25,
-//                            width: size.width * 0.25,
-//                            decoration: BoxDecoration(
-//                              borderRadius: BorderRadius.circular(50),
-//                              image: DecorationImage(
-//                                image: AssetImage("assets/images/Michael B Jordan.png"),
-//                                fit: BoxFit.cover,
-//                              ),
-//                            ),
-//                          ),
-//                          Column(
-//                            crossAxisAlignment: CrossAxisAlignment.start,
-//                            children: <Widget>[
-//                              SizedBox(height: size.height * 0.03),
-//                              Text(
-//                                "Ali Rn ",
-//
-//                              ),
-//                              SizedBox(height:10.0),
-//                              Row(
-//                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                                children: <Widget>[
-//                                  Icon(
-//                                    Icons.bubble_chart,
-//                                    size: 16.0,
-//                                  ),
-//                                  Text(
-//                                    "22",
-//                                  ),
-//                                  SizedBox(width: 20.0),
-//                                  Icon(
-//                                    Icons.pin_drop,
-//                                    size: 16.0,
-//                                  ),
-//                                  Text(
-//                                    "Tehran",
-//                                  ),
-//                                ],
-//                              ),
-//                              SizedBox(height:10.0),
-//                              Row(
-//                                children: <Widget>[
-//                                  Icon(
-//                                    Icons.phone,
-//                                    size: 16.0,
-//                                  ),
-//                                  SizedBox(width:10.0),
-//                                  Text("09037853055"),
-//                                ],
-//                              ),
-//                            ],
-//                          ),
-//                        ],
-//                      ),
-//                      SizedBox(height: size.height * 0.02),
-//                      Row(
-//                        mainAxisAlignment: MainAxisAlignment.start,
-//                        children: [
-//                          InvertColors(
-//                            child: IconButton(
-//                              icon: Icon(Icons.arrow_back),
-//                              color: backgroundColor.withOpacity(1.0),
-//                              onPressed: (){
-//                                setState(() {
-//                                  onChangeFontColor = false;
-//                                });
-//                              },
-//                            ),
-//                          ),
-//                        ],
-//                      ),
-//                      Container(
-//                        child: CircleColorPicker(
-//                          textStyle: TextStyle(
-//                            fontSize: 15.0,
-//                            fontWeight: FontWeight.bold,
-//                            color: backgroundColor.withOpacity(1.0),
-//                          ),
-//                          initialColor: fontColor,
-//                          onChanged: (color) => setState(() => fontColor = color),
-//                          size: Size(250, 230),
-//                          strokeWidth: 6,
-//                          thumbSize: 26,
-//                        ),
-//                      ),
-//                    ],
-//                  )
-//                      :Column(
-//                    mainAxisAlignment: MainAxisAlignment.start,
-//                    children: <Widget>[
-//                      Row(
-//                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                        children: <Widget>[
-//                          Container(
-//                            height: size.width * 0.25,
-//                            width: size.width * 0.25,
-//                            decoration: BoxDecoration(
-//                              borderRadius: BorderRadius.circular(50),
-//                              image: DecorationImage(
-//                                image: AssetImage("assets/images/Michael B Jordan.png"),
-//                                fit: BoxFit.cover,
-//                              ),
-//                            ),
-//                          ),
-//                          Column(
-//                            crossAxisAlignment: CrossAxisAlignment.start,
-//                            children: <Widget>[
-//                              SizedBox(height: size.height * 0.03),
-//                              Text(
-//                                "Ali Rn ",
-//
-//                              ),
-//                              SizedBox(height:10.0),
-//                              Row(
-//                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                                children: <Widget>[
-//                                  Icon(
-//                                    Icons.bubble_chart,
-//                                    size: 16.0,
-//                                  ),
-//                                  Text(
-//                                    "22",
-//                                  ),
-//                                  SizedBox(width: 20.0),
-//                                  Icon(
-//                                    Icons.pin_drop,
-//                                    size: 16.0,
-//                                  ),
-//                                  Text(
-//                                    "Tehran",
-//                                  ),
-//                                ],
-//                              ),
-//                              SizedBox(height:10.0),
-//                              Row(
-//                                children: <Widget>[
-//                                  Icon(
-//                                    Icons.phone,
-//                                    size: 16.0,
-//                                  ),
-//                                  SizedBox(width:10.0),
-//                                  Text("09037853055"),
-//                                ],
-//                              ),
-//                            ],
-//                          ),
-//                        ],
-//                      ),
-//                      SizedBox(height: size.height * 0.02),
-//                      Row(
-//                        mainAxisAlignment: MainAxisAlignment.start,
-//                        children: [
-//                          InvertColors(
-//                            child: IconButton(
-//                              icon: Icon(Icons.arrow_back),
-//                              color: backgroundColor.withOpacity(1.0),
-//                              onPressed: (){
-//                                setState(() {
-//                                  onChangeBackgroundColor = false;
-//                                });
-//                              },
-//                            ),
-//                          ),
-//                        ],
-//                      ),
-//                      Container(
-//                        child: CircleColorPicker(
-//                          textStyle: TextStyle(
-//                            fontSize: 15.0,
-//                            fontWeight: FontWeight.bold,
-//                            color: backgroundColor.withOpacity(1.0),
-//                          ),
-//                          initialColor: backgroundColor,
-//                          onChanged: (color) => setState(() => backgroundColor = color),
-//                          size: Size(250, 230),
-//                          strokeWidth: 6,
-//                          thumbSize: 26,
-//                        ),
-//                      ),
-//                    ],
-//                  ),
-                    ),
-                    Align(
-                      alignment: Alignment(0, 1),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          IconButton(
-                            icon: Icon(Icons.arrow_back),
-                            color: fontColor,
-                            onPressed: (){
-                              print("Go To Page 4");
-                              setState(() {
-                                onPage5 = false;
-                                onPage4 = true;
-                              });
-                            },
+                      InvertColors(
+                        child: Align(
+                          alignment: Alignment(0, 1),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              IconButton(
+                                icon: Icon(Icons.arrow_back),
+                                color: backgroundColor,
+                                onPressed: (){
+                                  print("Go To Page 4");
+                                  setState(() {
+                                    onPage5 = false;
+                                    onPage4 = true;
+                                  });
+                                },
+                              ),
+                              Text(
+                                "5/5",
+                                style: TextStyle(
+                                  color: backgroundColor,
+                                ),
+                              ),
+                              IconButton(
+                                icon: Icon(null),
+                              ),
+                            ],
                           ),
-                          Text(
-                            "5/5",
-                          ),
-                          IconButton(
-                            icon: Icon(null),
-                            color: fontColor,
-                          ),
-                        ],
+                        ),
                       ),
-                    ),
-                  ],
-                )
-                    : Text("There is no more page :)"),
+                    ],
+                  )
+                    : Text("There is no page 6"),
               ),
               Positioned(
                 top: 0.0,
@@ -3645,8 +1642,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       setState(() {
                         backgroundColor = lastColor;
                         onEdit = false;
-                        onChangeBackgroundColor = false;
-                        onChangeFontColor = false;
+                        onPage1 = true;
+                        onPage2 = false;
+                        onPage3 = false;
+                        onPage4 = false;
+                        onPage5 = false;
                       });
                       print("Cancel");
                     },
@@ -3677,8 +1677,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     onPressed: (){
                       setState(() {
                         onEdit = false;
-                        onChangeBackgroundColor = false;
-                        onChangeFontColor = false;
+                        onEdit = false;
+                        onPage1 = true;
+                        onPage2 = false;
+                        onPage3 = false;
+                        onPage4 = false;
+                        onPage5 = false;
                       });
                       print("Done");
                     },
@@ -3691,4 +1695,65 @@ class _ProfileScreenState extends State<ProfileScreen> {
       ),
     );
   }
+
+
+
+
+  void _openCupertinoCountryPicker() => showCupertinoModalPopup<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return CountryPickerCupertino(
+          backgroundColor: Colors.black.withOpacity(0.6),
+          itemBuilder: _buildCupertinoItem,
+          pickerSheetHeight: 300.0,
+          pickerItemHeight: 75,
+          initialCountry: _selectedCupertinoCountry,
+          onValuePicked: (Country country) =>
+              setState(() => _selectedCupertinoCountry = country),
+          priorityList: [
+            CountryPickerUtils.getCountryByIsoCode('IR'),
+          ],
+        );
+      });
+
+  Widget _buildCupertinoSelectedItem(Country country) {
+    Size size = MediaQuery.of(context).size;
+    return Row(
+      children: <Widget>[
+        CountryPickerUtils.getDefaultFlagImage(country),
+        SizedBox(width: size.width * 0.01),
+        Flexible(
+          child: Text(
+            country.name,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            style: TextStyle(
+              fontSize: 11.0,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildCupertinoItem(Country country) {
+    Size size = MediaQuery.of(context).size;
+    return DefaultTextStyle(
+      style: TextStyle(
+        color: CupertinoColors.white,
+        fontSize: 16.0,
+      ),
+      child: Row(
+        children: <Widget>[
+          SizedBox(width: size.width * 0.01),
+          CountryPickerUtils.getDefaultFlagImage(country),
+          SizedBox(width: size.width * 0.01),
+          Flexible(child: Text(country.name))
+        ],
+      ),
+    );
+  }
 }
+
+
+//TODO: age esme ahang o ina toolani bood ye fekri barash bokonm
