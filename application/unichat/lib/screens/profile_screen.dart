@@ -281,7 +281,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
               ),
               Positioned(
-                top: -0.0,
+                top: 0.0,
                 right: 24.0,
                 child: Container(
                   height: 30.0,
@@ -298,7 +298,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 child: InvertColors(
                   child: IconButton(
                     color: backgroundColor.withOpacity(1.0),
-                    iconSize: 20,
+                    iconSize: 18,
                     icon: Icon(Icons.mode_edit),
                     onPressed: (){
                       setState(() {
@@ -307,6 +307,84 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         onEdit = true;
                       });
                       print("EDIT");
+                    },
+                  ),
+                ),
+              ),
+              Positioned(
+                top: 0.0,
+                right: 64.0,
+                child: Container(
+                  height: 30.0,
+                  width: 30.0,
+                  child: MyArc(
+                    diameter: 300,
+                    color: backgroundColor.withOpacity(0.3),
+                  ),
+                ),
+              ),
+              Positioned(
+                top: -8.0,
+                right: 56.0,
+                child: InvertColors(
+                  child: IconButton(
+                    color: backgroundColor.withOpacity(1.0),
+                    iconSize: 18,
+                    icon: Icon(Icons.lock_outline),
+                    onPressed: (){
+                      print("Security (Change Password)");
+                    },
+                  ),
+                ),
+              ),
+              Positioned(
+                top: 0.0,
+                left: 64.0,
+                child: Container(
+                  height: 30.0,
+                  width: 30.0,
+                  child: MyArc(
+                    diameter: 300,
+                    color: backgroundColor.withOpacity(0.3),
+                  ),
+                ),
+              ),
+              Positioned(
+                top: -8.0,
+                left: 56.0,
+                child: InvertColors(
+                  child: IconButton(
+                    color: backgroundColor.withOpacity(1.0),
+                    iconSize: 18,
+                    icon: Icon(Icons.settings),
+                    onPressed: (){
+                      print("Setting");
+                    },
+                  ),
+                ),
+              ),
+              Positioned(
+                top: 0.0,
+                left: 24.0,
+                child: Container(
+                  height: 30.0,
+                  width: 30.0,
+                  child: MyArc(
+                    diameter: 300,
+                    color: backgroundColor.withOpacity(0.3),
+                  ),
+                ),
+              ),
+              Positioned(
+                top: -8.0,
+                left: 16.0,
+                child: InvertColors(
+                  child: IconButton(
+                    color: backgroundColor.withOpacity(1.0),
+                    iconSize: 18,
+                    icon: Icon(Icons.info_outline),
+                    onPressed: (){
+                      print("About Us");
                     },
                   ),
                 ),
@@ -326,7 +404,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 child: onPage1 ? Stack(
                   children: [
                     Padding(
-                      padding: EdgeInsets.all(20.0),
+                      padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 10.0),
                       child: ListView(
                         padding: EdgeInsets.all(0.0),
                         children: [
@@ -371,18 +449,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       margin: EdgeInsets.only(bottom: 20),
                                       decoration: BoxDecoration(
                                         border: Border(
-                                          bottom: BorderSide(
-                                              color: backgroundColor.withOpacity(1.0),
-                                              width: 2.0
-                                          ),
+                                          bottom: BorderSide(color: backgroundColor.withOpacity(1.0)),
                                         ),
                                       ),
-                                      child: Text(
-                                        "Name: ",
-                                        textAlign: TextAlign.start,
-                                        style: TextStyle(
-                                          fontSize: 11.0,
-                                          color: fontColor.withOpacity(1.0),
+                                      child: InvertColors(
+                                        child: Text(
+                                          "Name: ",
+                                          textAlign: TextAlign.start,
+                                          style: TextStyle(
+                                            fontSize: 11.0,
+                                            color: backgroundColor.withOpacity(1.0),
+                                            fontWeight: FontWeight.bold,
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -395,18 +473,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       padding: EdgeInsets.only(bottom: 5.0, left: 5.0),
                                       decoration: BoxDecoration(
                                         border: Border(
-                                          bottom: BorderSide(
-                                              color: backgroundColor.withOpacity(1.0),
-                                              width: 2.0
-                                          ),
+                                          bottom: BorderSide(color: backgroundColor.withOpacity(1.0)),
                                         ),
                                       ),
-                                      child: Text(
-                                        "Username: ",
-                                        textAlign: TextAlign.start,
-                                        style: TextStyle(
-                                          fontSize: 11.0,
-                                          color: fontColor.withOpacity(1.0),
+                                      child: InvertColors(
+                                        child: Text(
+                                          "Username: ",
+                                          textAlign: TextAlign.start,
+                                          style: TextStyle(
+                                            fontSize: 11.0,
+                                            color: backgroundColor.withOpacity(1.0),
+                                            fontWeight: FontWeight.bold,
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -419,18 +497,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       padding: EdgeInsets.only(bottom: 5.0, left: 5.0),
                                       decoration: BoxDecoration(
                                         border: Border(
-                                          bottom: BorderSide(
-                                              color: backgroundColor.withOpacity(1.0),
-                                              width: 2.0
-                                          ),
+                                          bottom: BorderSide(color: backgroundColor.withOpacity(1.0)),
                                         ),
                                       ),
-                                      child: Text(
-                                        "Phone Number: ",
-                                        textAlign: TextAlign.start,
-                                        style: TextStyle(
-                                          fontSize: 11.0,
-                                          color: fontColor.withOpacity(1.0),
+                                      child: InvertColors(
+                                        child: Text(
+                                          "Phone Number: ",
+                                          textAlign: TextAlign.start,
+                                          style: TextStyle(
+                                            fontSize: 11.0,
+                                            color: backgroundColor.withOpacity(1.0),
+                                            fontWeight: FontWeight.bold,
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -443,18 +521,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       padding: EdgeInsets.only(bottom: 5.0, left: 5.0),
                                       decoration: BoxDecoration(
                                         border: Border(
-                                          bottom: BorderSide(
-                                              color: backgroundColor.withOpacity(1.0),
-                                              width: 2.0
-                                          ),
+                                          bottom: BorderSide(color: backgroundColor.withOpacity(1.0)),
                                         ),
                                       ),
-                                      child: Text(
-                                        "Email: ",
-                                        textAlign: TextAlign.start,
-                                        style: TextStyle(
-                                          fontSize: 11.0,
-                                          color: fontColor.withOpacity(1.0),
+                                      child: InvertColors(
+                                        child: Text(
+                                          "Email: ",
+                                          textAlign: TextAlign.start,
+                                          style: TextStyle(
+                                            fontSize: 11.0,
+                                            color: backgroundColor.withOpacity(1.0),
+                                            fontWeight: FontWeight.bold,
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -464,15 +542,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               Column(
                                 children: [
                                   Container(
-                                    width: size.width * 0.45,
+                                    width: size.width * 0.5,
                                     margin: EdgeInsets.only(bottom: 20),
                                     padding: EdgeInsets.only(left: 10.0, bottom: 5.0),
                                     decoration: BoxDecoration(
                                       border: Border(
-                                        bottom: BorderSide(
-                                            color: backgroundColor.withOpacity(1.0),
-                                            width: 2.0
-                                        ),
+                                        bottom: BorderSide(color: backgroundColor.withOpacity(1.0)),
                                       ),
                                     ),
                                     child: Text(
@@ -482,19 +557,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       style: TextStyle(
                                         fontSize: 11.0,
                                         color: fontColor.withOpacity(1.0),
+                                        fontWeight: FontWeight.w500,
                                       ),
                                     ),
                                   ),
                                   Container(
-                                    width: size.width * 0.45,
+                                    width: size.width * 0.5,
                                     margin: EdgeInsets.only(bottom: 20),
                                     padding: EdgeInsets.only(left: 10.0, bottom: 5.0),
                                     decoration: BoxDecoration(
                                       border: Border(
-                                        bottom: BorderSide(
-                                            color: backgroundColor.withOpacity(1.0),
-                                            width: 2.0
-                                        ),
+                                        bottom: BorderSide(color: backgroundColor.withOpacity(1.0)),
                                       ),
                                     ),
                                     child: Text(
@@ -504,19 +577,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       style: TextStyle(
                                         fontSize: 11.0,
                                         color: fontColor.withOpacity(1.0),
+                                        fontWeight: FontWeight.w500,
                                       ),
                                     ),
                                   ),
                                   Container(
-                                    width: size.width * 0.45,
+                                    width: size.width * 0.5,
                                     margin: EdgeInsets.only(bottom: 20),
                                     padding: EdgeInsets.only(left: 10.0, bottom: 5.0),
                                     decoration: BoxDecoration(
                                       border: Border(
-                                        bottom: BorderSide(
-                                            color: backgroundColor.withOpacity(1.0),
-                                            width: 2.0
-                                        ),
+                                        bottom: BorderSide(color: backgroundColor.withOpacity(1.0)),
                                       ),
                                     ),
                                     child: Text(
@@ -526,19 +597,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       style: TextStyle(
                                         fontSize: 11.0,
                                         color: fontColor.withOpacity(1.0),
+                                        fontWeight: FontWeight.w500,
                                       ),
                                     ),
                                   ),
                                   Container(
-                                    width: size.width * 0.45,
+                                    width: size.width * 0.5,
                                     padding: EdgeInsets.only(left: 10.0, bottom: 5.0),
                                     margin: EdgeInsets.only(bottom: 20),
                                     decoration: BoxDecoration(
                                       border: Border(
-                                        bottom: BorderSide(
-                                            color: backgroundColor.withOpacity(1.0),
-                                            width: 2.0
-                                        ),
+                                        bottom: BorderSide(color: backgroundColor.withOpacity(1.0)),
                                       ),
                                     ),
                                     child: Text(
@@ -548,6 +617,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       style: TextStyle(
                                         fontSize: 11.0,
                                         color: fontColor.withOpacity(1.0),
+                                        fontWeight: FontWeight.w500,
                                       ),
                                     ),
                                   ),
@@ -571,6 +641,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               "1/5",
                               style: TextStyle(
                                 color: backgroundColor.withOpacity(1.0),
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
                             IconButton(
@@ -615,11 +686,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       decoration: BoxDecoration(
                                         border: Border(top: BorderSide(color: backgroundColor.withOpacity(1.0))),
                                       ),
-                                      child: Text(
-                                        "Bio: ",
-                                        textAlign: TextAlign.start,
-                                        style: TextStyle(
-                                          fontSize: 11.0,
+                                      child: InvertColors(
+                                        child: Text(
+                                          "Bio: ",
+                                          textAlign: TextAlign.start,
+                                          style: TextStyle(
+                                            fontSize: 11.0,
+                                            color: backgroundColor.withOpacity(1.0),
+                                            fontWeight: FontWeight.bold,
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -645,11 +720,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                               fit: BoxFit.cover,
                                             ),
                                           ),
-                                          Text(
-                                            "Instagram: ",
-                                            textAlign: TextAlign.start,
-                                            style: TextStyle(
-                                              fontSize: 11.0,
+                                          InvertColors(
+                                            child: Text(
+                                              "Instagram: ",
+                                              textAlign: TextAlign.start,
+                                              style: TextStyle(
+                                                fontSize: 11.0,
+                                                color: backgroundColor.withOpacity(1.0),
+                                                fontWeight: FontWeight.bold,
+                                              ),
                                             ),
                                           ),
                                         ],
@@ -676,11 +755,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                               fit: BoxFit.fitHeight,
                                             ),
                                           ),
-                                          Text(
-                                            "Telegram: ",
-                                            textAlign: TextAlign.start,
-                                            style: TextStyle(
-                                              fontSize: 11.0,
+                                          InvertColors(
+                                            child: Text(
+                                              "Telegram: ",
+                                              textAlign: TextAlign.start,
+                                              style: TextStyle(
+                                                fontSize: 11.0,
+                                                color: backgroundColor.withOpacity(1.0),
+                                                fontWeight: FontWeight.bold,
+                                              ),
                                             ),
                                           ),
                                         ],
@@ -698,11 +781,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       decoration: BoxDecoration(
                                         border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
                                       ),
-                                      child: Text(
-                                        "Birth Date: ",
-                                        textAlign: TextAlign.start,
-                                        style: TextStyle(
-                                          fontSize: 11.0,
+                                      child: InvertColors(
+                                        child: Text(
+                                          "Birth Date: ",
+                                          textAlign: TextAlign.start,
+                                          style: TextStyle(
+                                            fontSize: 11.0,
+                                            color: backgroundColor.withOpacity(1.0),
+                                            fontWeight: FontWeight.bold,
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -717,11 +804,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       decoration: BoxDecoration(
                                         border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
                                       ),
-                                      child: Text(
-                                        "Relationship: ",
-                                        textAlign: TextAlign.start,
-                                        style: TextStyle(
-                                          fontSize: 11.0,
+                                      child: InvertColors(
+                                        child: Text(
+                                          "Relationship: ",
+                                          textAlign: TextAlign.start,
+                                          style: TextStyle(
+                                            fontSize: 11.0,
+                                            color: backgroundColor.withOpacity(1.0),
+                                            fontWeight: FontWeight.bold,
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -744,6 +835,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       overflow: TextOverflow.ellipsis,
                                       style: TextStyle(
                                         fontSize: 10.0,
+                                        color: fontColor.withOpacity(1.0),
+                                        fontWeight: FontWeight.w500,
                                       ),
                                     ),
                                   ),
@@ -762,6 +855,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       overflow: TextOverflow.ellipsis,
                                       style: TextStyle(
                                         fontSize: 11.0,
+                                        color: fontColor.withOpacity(1.0),
+                                        fontWeight: FontWeight.w500,
                                       ),
                                     ),
                                   ),
@@ -779,6 +874,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       overflow: TextOverflow.ellipsis,
                                       style: TextStyle(
                                         fontSize: 11.0,
+                                        color: fontColor.withOpacity(1.0),
+                                        fontWeight: FontWeight.w500,
                                       ),
                                     ),
                                   ),
@@ -797,6 +894,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       overflow: TextOverflow.ellipsis,
                                       style: TextStyle(
                                         fontSize: 11.0,
+                                        color: fontColor.withOpacity(1.0),
+                                        fontWeight: FontWeight.w500,
                                       ),
                                     ),
                                   ),
@@ -814,6 +913,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       overflow: TextOverflow.ellipsis,
                                       style: TextStyle(
                                         fontSize: 11.0,
+                                        color: fontColor.withOpacity(1.0),
+                                        fontWeight: FontWeight.w500,
                                       ),
                                     ),
                                   ),
@@ -845,6 +946,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               "2/5",
                               style: TextStyle(
                                 color: backgroundColor.withOpacity(1.0),
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
                             IconButton(
@@ -887,11 +989,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       decoration: BoxDecoration(
                                         border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
                                       ),
-                                      child: Text(
-                                        "Country: ",
-                                        textAlign: TextAlign.start,
-                                        style: TextStyle(
-                                          fontSize: 11.0,
+                                      child: InvertColors(
+                                        child: Text(
+                                          "Country: ",
+                                          textAlign: TextAlign.start,
+                                          style: TextStyle(
+                                            fontSize: 11.0,
+                                            color: backgroundColor.withOpacity(1.0),
+                                            fontWeight: FontWeight.bold,
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -906,11 +1012,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       decoration: BoxDecoration(
                                         border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
                                       ),
-                                      child: Text(
-                                        "City: ",
-                                        textAlign: TextAlign.start,
-                                        style: TextStyle(
-                                          fontSize: 11.0,
+                                      child: InvertColors(
+                                        child: Text(
+                                          "City: ",
+                                          textAlign: TextAlign.start,
+                                          style: TextStyle(
+                                            fontSize: 11.0,
+                                            color: backgroundColor.withOpacity(1.0),
+                                            fontWeight: FontWeight.bold,
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -925,11 +1035,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       decoration: BoxDecoration(
                                         border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
                                       ),
-                                      child: Text(
-                                        "University: ",
-                                        textAlign: TextAlign.start,
-                                        style: TextStyle(
-                                          fontSize: 11.0,
+                                      child: InvertColors(
+                                        child: Text(
+                                          "University: ",
+                                          textAlign: TextAlign.start,
+                                          style: TextStyle(
+                                            fontSize: 11.0,
+                                            color: backgroundColor.withOpacity(1.0),
+                                            fontWeight: FontWeight.bold,
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -944,11 +1058,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       decoration: BoxDecoration(
                                         border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
                                       ),
-                                      child: Text(
-                                        "Field Of Study: ",
-                                        textAlign: TextAlign.start,
-                                        style: TextStyle(
-                                          fontSize: 11.0,
+                                      child: InvertColors(
+                                        child: Text(
+                                          "Field Of Study: ",
+                                          textAlign: TextAlign.start,
+                                          style: TextStyle(
+                                            fontSize: 11.0,
+                                            color: backgroundColor.withOpacity(1.0),
+                                            fontWeight: FontWeight.bold,
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -963,11 +1081,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       decoration: BoxDecoration(
                                         border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
                                       ),
-                                      child: Text(
-                                        "Entrance Year: ",
-                                        textAlign: TextAlign.start,
-                                        style: TextStyle(
-                                          fontSize: 11.0,
+                                      child: InvertColors(
+                                        child: Text(
+                                          "Entrance Year: ",
+                                          textAlign: TextAlign.start,
+                                          style: TextStyle(
+                                            fontSize: 11.0,
+                                            color: backgroundColor.withOpacity(1.0),
+                                            fontWeight: FontWeight.bold,
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -982,7 +1104,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                     margin: EdgeInsets.only(bottom: 20),
                                     padding: EdgeInsets.only(left: 10.0,),
                                     decoration: BoxDecoration(
-//                                      color: Colors.white,
                                       border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
                                     ),
                                     child: FlatButton(
@@ -1005,6 +1126,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       overflow: TextOverflow.ellipsis,
                                       style: TextStyle(
                                         fontSize: 11.0,
+                                        color: fontColor.withOpacity(1.0),
+                                        fontWeight: FontWeight.w500,
                                       ),
                                     ),
                                   ),
@@ -1022,6 +1145,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       overflow: TextOverflow.ellipsis,
                                       style: TextStyle(
                                         fontSize: 11.0,
+                                        color: fontColor.withOpacity(1.0),
+                                        fontWeight: FontWeight.w500,
                                       ),
                                     ),
                                   ),
@@ -1039,6 +1164,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       overflow: TextOverflow.ellipsis,
                                       style: TextStyle(
                                         fontSize: 11.0,
+                                        color: fontColor.withOpacity(1.0),
+                                        fontWeight: FontWeight.w500,
                                       ),
                                     ),
                                   ),
@@ -1056,6 +1183,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       overflow: TextOverflow.ellipsis,
                                       style: TextStyle(
                                         fontSize: 11.0,
+                                        color: fontColor.withOpacity(1.0),
+                                        fontWeight: FontWeight.w500,
                                       ),
                                     ),
                                   ),
@@ -1087,6 +1216,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               "3/5",
                               style: TextStyle(
                                 color: backgroundColor.withOpacity(1.0),
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
                             IconButton(
@@ -1113,8 +1243,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       child: ListView(
                         padding: EdgeInsets.all(0.0),
                         children: [
-                          Text(
-                            "Favorites: ",
+                          InvertColors(
+                            child: Text(
+                              "Favorites: ",
+                              style: TextStyle(
+                                color: backgroundColor.withOpacity(1.0),
+                                fontWeight: FontWeight.w500,
+                                fontSize: 14.0,
+                              ),
+                            ),
                           ),
                           SizedBox(height: size.width * 0.01),
                           Row(
@@ -1139,12 +1276,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                             size: 15.0,
                                             color: fontColor,
                                           ),
-                                          Text(
-                                            "Sport: ",
-                                            textAlign: TextAlign.start,
-                                            style: TextStyle(
-                                              fontSize: 11.0,
-                                              color: fontColor,
+                                          InvertColors(
+                                            child: Text(
+                                              "Sport: ",
+                                              textAlign: TextAlign.start,
+                                              style: TextStyle(
+                                                fontSize: 11.0,
+                                                color: backgroundColor.withOpacity(1.0),
+                                                fontWeight: FontWeight.bold,
+                                              ),
                                             ),
                                           ),
                                         ],
@@ -1168,12 +1308,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                             size: 15.0,
                                             color: fontColor,
                                           ),
-                                          Text(
-                                            "Book: ",
-                                            textAlign: TextAlign.start,
-                                            style: TextStyle(
-                                              fontSize: 11.0,
-                                              color: fontColor,
+                                          InvertColors(
+                                            child: Text(
+                                              "Book: ",
+                                              textAlign: TextAlign.start,
+                                              style: TextStyle(
+                                                fontSize: 11.0,
+                                                color: backgroundColor.withOpacity(1.0),
+                                                fontWeight: FontWeight.bold,
+                                              ),
                                             ),
                                           ),
                                         ],
@@ -1197,12 +1340,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                             size: 15.0,
                                             color: fontColor,
                                           ),
-                                          Text(
-                                            "Movie: ",
-                                            textAlign: TextAlign.start,
-                                            style: TextStyle(
-                                              fontSize: 11.0,
-                                              color: fontColor,
+                                          InvertColors(
+                                            child: Text(
+                                              "Movie: ",
+                                              textAlign: TextAlign.start,
+                                              style: TextStyle(
+                                                fontSize: 11.0,
+                                                color: backgroundColor.withOpacity(1.0),
+                                                fontWeight: FontWeight.bold,
+                                              ),
                                             ),
                                           ),
                                         ],
@@ -1226,12 +1372,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                             size: 15.0,
                                             color: fontColor,
                                           ),
-                                          Text(
-                                            "TV Series: ",
-                                            textAlign: TextAlign.start,
-                                            style: TextStyle(
-                                              fontSize: 11.0,
-                                              color: fontColor,
+                                          InvertColors(
+                                            child: Text(
+                                              "TV Series: ",
+                                              textAlign: TextAlign.start,
+                                              style: TextStyle(
+                                                fontSize: 11.0,
+                                                color: backgroundColor.withOpacity(1.0),
+                                                fontWeight: FontWeight.bold,
+                                              ),
                                             ),
                                           ),
                                         ],
@@ -1255,12 +1404,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                             size: 15.0,
                                             color: fontColor,
                                           ),
-                                          Text(
-                                            "Music: ",
-                                            textAlign: TextAlign.start,
-                                            style: TextStyle(
-                                              fontSize: 11.0,
-                                              color: fontColor,
+                                          InvertColors(
+                                            child: Text(
+                                              "Music: ",
+                                              textAlign: TextAlign.start,
+                                              style: TextStyle(
+                                                fontSize: 11.0,
+                                                color: backgroundColor.withOpacity(1.0),
+                                                fontWeight: FontWeight.bold,
+                                              ),
                                             ),
                                           ),
                                         ],
@@ -1284,12 +1436,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                             size: 15.0,
                                             color: fontColor,
                                           ),
-                                          Text(
-                                            "Game: ",
-                                            textAlign: TextAlign.start,
-                                            style: TextStyle(
-                                              fontSize: 11.0,
-                                              color: fontColor,
+                                          InvertColors(
+                                            child: Text(
+                                              "Game: ",
+                                              textAlign: TextAlign.start,
+                                              style: TextStyle(
+                                                fontSize: 11.0,
+                                                color: backgroundColor.withOpacity(1.0),
+                                                fontWeight: FontWeight.bold,
+                                              ),
                                             ),
                                           ),
                                         ],
@@ -1313,12 +1468,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                             size: 15.0,
                                             color: fontColor,
                                           ),
-                                          Text(
-                                            "To Travel: ",
-                                            textAlign: TextAlign.start,
-                                            style: TextStyle(
-                                              fontSize: 11.0,
-                                              color: fontColor,
+                                          InvertColors(
+                                            child: Text(
+                                              "To Travel: ",
+                                              textAlign: TextAlign.start,
+                                              style: TextStyle(
+                                                fontSize: 11.0,
+                                                color: backgroundColor.withOpacity(1.0),
+                                                fontWeight: FontWeight.bold,
+                                              ),
                                             ),
                                           ),
                                         ],
@@ -1343,6 +1501,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       overflow: TextOverflow.ellipsis,
                                       style: TextStyle(
                                         fontSize: 11.0,
+                                        color: fontColor.withOpacity(1.0),
+                                        fontWeight: FontWeight.w500,
                                       ),
                                     ),
                                   ),
@@ -1360,6 +1520,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       overflow: TextOverflow.ellipsis,
                                       style: TextStyle(
                                         fontSize: 11.0,
+                                        color: fontColor.withOpacity(1.0),
+                                        fontWeight: FontWeight.w500,
                                       ),
                                     ),
                                   ),
@@ -1377,6 +1539,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       overflow: TextOverflow.ellipsis,
                                       style: TextStyle(
                                         fontSize: 11.0,
+                                        color: fontColor.withOpacity(1.0),
+                                        fontWeight: FontWeight.w500,
                                       ),
                                     ),
                                   ),
@@ -1394,6 +1558,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       overflow: TextOverflow.ellipsis,
                                       style: TextStyle(
                                         fontSize: 11.0,
+                                        color: fontColor.withOpacity(1.0),
+                                        fontWeight: FontWeight.w500,
                                       ),
                                     ),
                                   ),
@@ -1411,6 +1577,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       overflow: TextOverflow.ellipsis,
                                       style: TextStyle(
                                         fontSize: 11.0,
+                                        color: fontColor.withOpacity(1.0),
+                                        fontWeight: FontWeight.w500,
                                       ),
                                     ),
                                   ),
@@ -1428,6 +1596,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       overflow: TextOverflow.ellipsis,
                                       style: TextStyle(
                                         fontSize: 11.0,
+                                        color: fontColor.withOpacity(1.0),
+                                        fontWeight: FontWeight.w500,
                                       ),
                                     ),
                                   ),
@@ -1445,6 +1615,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       overflow: TextOverflow.ellipsis,
                                       style: TextStyle(
                                         fontSize: 11.0,
+                                        color: fontColor.withOpacity(1.0),
+                                        fontWeight: FontWeight.w500,
                                       ),
                                     ),
                                   ),
@@ -1476,6 +1648,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               "4/5",
                               style: TextStyle(
                                 color: backgroundColor.withOpacity(1.0),
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
                             IconButton(
@@ -1503,10 +1676,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             children: [
                               Padding(
                                 padding: EdgeInsets.all(20.0),
-                                child: Text(
-                                  "Change Profile Colors: ",
-                                  style: TextStyle(
-                                    color: fontColor,
+                                child: InvertColors(
+                                  child: Text(
+                                    "Change Profile Colors: ",
+                                    style: TextStyle(
+                                      color: backgroundColor.withOpacity(1.0),
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -1732,12 +1908,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
           itemBuilder: _buildCupertinoItem,
           pickerSheetHeight: 300.0,
           pickerItemHeight: 75,
+          useMagnifier: true,
           initialCountry: _selectedCupertinoCountry,
           onValuePicked: (Country country) =>
               setState(() => _selectedCupertinoCountry = country),
-          priorityList: [
-            CountryPickerUtils.getCountryByIsoCode('IR'),
-          ],
+//          priorityList: [
+//            CountryPickerUtils.getCountryByIsoCode('IR'),
+//          ],
         );
       });
 
@@ -1754,6 +1931,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
             overflow: TextOverflow.ellipsis,
             style: TextStyle(
               fontSize: 11.0,
+              color: fontColor.withOpacity(1.0),
+              fontWeight: FontWeight.w500,
             ),
           ),
         ),
