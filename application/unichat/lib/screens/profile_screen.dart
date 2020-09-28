@@ -24,7 +24,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
   bool onPage6 = false;
   Color backgroundColor = Color(0xA3D1FF);
   Color fontColor = Colors.black;
-  Color lastColor;
+  Color lastBackgroundColor;
+  Color lastFontColor;
 
   Country _selectedCupertinoCountry = CountryPickerUtils.getCountryByIsoCode('IR');
   
@@ -137,7 +138,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       Row(
                         children: <Widget>[
                           Image.asset(
-                            "assets/images/instagram icon.png",
+                            "assets/images/instagram.png",
                             height: 30.0,
                             fit: BoxFit.cover,
                           ),
@@ -152,7 +153,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       Row(
                         children: <Widget>[
                           Image.asset(
-                            "assets/images/instagram icon.png",
+                            "assets/images/instagram.png",
                             height: 30.0,
                             fit: BoxFit.cover,
                           ),
@@ -301,7 +302,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     icon: Icon(Icons.mode_edit),
                     onPressed: (){
                       setState(() {
-                        lastColor = backgroundColor;
+                        lastBackgroundColor = backgroundColor;
+                        lastFontColor = fontColor;
                         onEdit = true;
                       });
                       print("EDIT");
@@ -568,7 +570,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             Text(
                               "1/5",
                               style: TextStyle(
-                                color: backgroundColor,
+                                color: backgroundColor.withOpacity(1.0),
                               ),
                             ),
                             IconButton(
@@ -580,7 +582,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 });
                               },
                               icon: Icon(Icons.arrow_forward),
-                              color: backgroundColor,
+                              color: backgroundColor.withOpacity(1.0),
                             ),
                           ],
                         ),
@@ -604,11 +606,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   SizedBox(height: size.width * 0.08),
                                   Transform.rotate(
                                     angle: -0.3,
+                                    origin: Offset(0.0, -15),
                                     child: Container(
                                       width: size.width * 0.27,
                                       height: size.width * 0.15,
-                                      margin: EdgeInsets.only(bottom: 20.0, top:20.0),
                                       padding: EdgeInsets.only(top: 5.0, left: 5.0),
+                                      margin: EdgeInsets.only(bottom: 5.0, top:20),
                                       decoration: BoxDecoration(
                                         border: Border(top: BorderSide(color: backgroundColor.withOpacity(1.0))),
                                       ),
@@ -626,6 +629,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                     angle: -0.3,
                                     child: Container(
                                       width: size.width * 0.27,
+                                      height: size.width * 0.08,
                                       padding: EdgeInsets.only(bottom: 5.0, left: 5.0),
                                       margin: EdgeInsets.only(bottom: 20),
                                       decoration: BoxDecoration(
@@ -635,9 +639,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                         children: [
                                           Container(
                                             width: size.width * 0.06,
-                                            height: size.width * 0.04,
+                                            height: size.width * 0.05,
                                             child: Image.asset(
-                                              "assets/images/instagram icon.png",
+                                              "assets/images/instagram.png",
                                               fit: BoxFit.cover,
                                             ),
                                           ),
@@ -656,6 +660,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                     angle: -0.3,
                                     child: Container(
                                       width: size.width * 0.27,
+                                      height: size.width * 0.08,
                                       margin: EdgeInsets.only(bottom: 20),
                                       padding: EdgeInsets.only(bottom: 5.0, left: 5.0),
                                       decoration: BoxDecoration(
@@ -665,10 +670,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                         children: [
                                           Container(
                                             width: size.width * 0.06,
-                                            height: size.width * 0.04,
+                                            height: size.width * 0.05,
                                             child: Image.asset(
-                                              "assets/images/instagram icon.png",
-                                              fit: BoxFit.cover,
+                                              "assets/images/telegram.png",
+                                              fit: BoxFit.fitHeight,
                                             ),
                                           ),
                                           Text(
@@ -687,6 +692,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                     angle: -0.3,
                                     child: Container(
                                       width: size.width * 0.27,
+                                      height: size.width * 0.08,
                                       margin: EdgeInsets.only(bottom: 20),
                                       padding: EdgeInsets.only(bottom: 5.0, left: 5.0),
                                       decoration: BoxDecoration(
@@ -705,6 +711,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                     angle: -0.3,
                                     child: Container(
                                       width: size.width * 0.27,
+                                      height: size.width * 0.08,
                                       margin: EdgeInsets.only(bottom: 20),
                                       padding: EdgeInsets.only(bottom: 5.0, left: 5.0),
                                       decoration: BoxDecoration(
@@ -726,8 +733,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   Container(
                                     width: size.width * 0.45,
                                     height: size.width * 0.15,
-                                    margin: EdgeInsets.only(bottom: 20.0, top: 20.0),
                                     padding: EdgeInsets.only(left: 10.0, top: 5.0),
+                                    margin: EdgeInsets.only(bottom: 5.0, top:20),
                                     decoration: BoxDecoration(
                                       border: Border(top: BorderSide(color: backgroundColor.withOpacity(1.0))),
                                     ),
@@ -743,6 +750,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   SizedBox(height: size.width * 0.08),
                                   Container(
                                     width: size.width * 0.45,
+                                    height: size.width * 0.08,
                                     margin: EdgeInsets.only(bottom: 20),
                                     padding: EdgeInsets.only(left: 10.0, bottom: 5.0),
                                     decoration: BoxDecoration(
@@ -759,6 +767,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   ),
                                   Container(
                                     width: size.width * 0.45,
+                                    height: size.width * 0.08,
                                     margin: EdgeInsets.only(bottom: 20),
                                     padding: EdgeInsets.only(left: 10.0, bottom: 5.0),
                                     decoration: BoxDecoration(
@@ -776,6 +785,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   SizedBox(height: size.width * 0.08),
                                   Container(
                                     width: size.width * 0.45,
+                                    height: size.width * 0.08,
                                     padding: EdgeInsets.only(left: 10.0, bottom: 5.0),
                                     margin: EdgeInsets.only(bottom: 20),
                                     decoration: BoxDecoration(
@@ -792,6 +802,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   ),
                                   Container(
                                     width: size.width * 0.45,
+                                    height: size.width * 0.08,
                                     padding: EdgeInsets.only(left: 10.0, bottom: 5.0),
                                     margin: EdgeInsets.only(bottom: 20),
                                     decoration: BoxDecoration(
@@ -821,7 +832,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           children: [
                             IconButton(
                               icon: Icon(Icons.arrow_back),
-                              color: backgroundColor,
+                              color: backgroundColor.withOpacity(1.0),
                               onPressed: (){
                                 print("Go To Page 1");
                                 setState(() {
@@ -833,7 +844,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             Text(
                               "2/5",
                               style: TextStyle(
-                                color: backgroundColor,
+                                color: backgroundColor.withOpacity(1.0),
                               ),
                             ),
                             IconButton(
@@ -845,7 +856,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 });
                               },
                               icon: Icon(Icons.arrow_forward),
-                              color: backgroundColor,
+                              color: backgroundColor.withOpacity(1.0),
                             ),
                           ],
                         ),
@@ -870,6 +881,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                     angle: -0.3,
                                     child: Container(
                                       width: size.width * 0.27,
+                                      height: size.width * 0.06,
                                       padding: EdgeInsets.only(bottom: 5.0, left: 5.0),
                                       margin: EdgeInsets.only(bottom: 20),
                                       decoration: BoxDecoration(
@@ -888,6 +900,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                     angle: -0.3,
                                     child: Container(
                                       width: size.width * 0.27,
+                                      height: size.width * 0.06,
                                       margin: EdgeInsets.only(bottom: 20),
                                       padding: EdgeInsets.only(bottom: 5.0, left: 5.0),
                                       decoration: BoxDecoration(
@@ -906,6 +919,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                     angle: -0.3,
                                     child: Container(
                                       width: size.width * 0.27,
+                                      height: size.width * 0.06,
                                       margin: EdgeInsets.only(bottom: 20),
                                       padding: EdgeInsets.only(bottom: 5.0, left: 5.0),
                                       decoration: BoxDecoration(
@@ -924,6 +938,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                     angle: -0.3,
                                     child: Container(
                                       width: size.width * 0.27,
+                                      height: size.width * 0.06,
                                       margin: EdgeInsets.only(bottom: 20),
                                       padding: EdgeInsets.only(bottom: 5.0, left: 5.0),
                                       decoration: BoxDecoration(
@@ -942,6 +957,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                     angle: -0.3,
                                     child: Container(
                                       width: size.width * 0.27,
+                                      height: size.width * 0.06,
                                       margin: EdgeInsets.only(bottom: 20),
                                       padding: EdgeInsets.only(bottom: 5.0, left: 5.0),
                                       decoration: BoxDecoration(
@@ -962,6 +978,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 children: [
                                   Container(
                                     width: size.width * 0.45,
+                                    height: size.width * 0.16,
                                     margin: EdgeInsets.only(bottom: 20),
                                     padding: EdgeInsets.only(left: 10.0,),
                                     decoration: BoxDecoration(
@@ -976,6 +993,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   ),
                                   Container(
                                     width: size.width * 0.45,
+                                    height: size.width * 0.06,
                                     margin: EdgeInsets.only(bottom: 20),
                                     padding: EdgeInsets.only(left: 10.0, bottom: 5.0),
                                     decoration: BoxDecoration(
@@ -992,6 +1010,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   ),
                                   Container(
                                     width: size.width * 0.45,
+                                    height: size.width * 0.06,
                                     margin: EdgeInsets.only(bottom: 20),
                                     padding: EdgeInsets.only(left: 10.0, bottom: 5.0),
                                     decoration: BoxDecoration(
@@ -1008,6 +1027,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   ),
                                   Container(
                                     width: size.width * 0.45,
+                                    height: size.width * 0.06,
                                     padding: EdgeInsets.only(left: 10.0, bottom: 5.0),
                                     margin: EdgeInsets.only(bottom: 20),
                                     decoration: BoxDecoration(
@@ -1024,6 +1044,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   ),
                                   Container(
                                     width: size.width * 0.45,
+                                    height: size.width * 0.06,
                                     padding: EdgeInsets.only(left: 10.0, bottom: 5.0),
                                     margin: EdgeInsets.only(bottom: 20),
                                     decoration: BoxDecoration(
@@ -1053,7 +1074,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           children: [
                             IconButton(
                               icon: Icon(Icons.arrow_back),
-                              color: backgroundColor,
+                              color: backgroundColor.withOpacity(1.0),
                               onPressed: (){
                                 print("Go To Page 2");
                                 setState(() {
@@ -1065,7 +1086,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             Text(
                               "3/5",
                               style: TextStyle(
-                                color: backgroundColor,
+                                color: backgroundColor.withOpacity(1.0),
                               ),
                             ),
                             IconButton(
@@ -1077,7 +1098,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 });
                               },
                               icon: Icon(Icons.arrow_forward),
-                              color: backgroundColor,
+                              color: backgroundColor.withOpacity(1.0),
                             ),
                           ],
                         ),
@@ -1442,7 +1463,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           children: [
                             IconButton(
                               icon: Icon(Icons.arrow_back),
-                              color: backgroundColor,
+                              color: backgroundColor.withOpacity(1.0),
                               onPressed: (){
                                 print("Go To Page 3");
                                 setState(() {
@@ -1454,7 +1475,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             Text(
                               "4/5",
                               style: TextStyle(
-                                color: backgroundColor,
+                                color: backgroundColor.withOpacity(1.0),
                               ),
                             ),
                             IconButton(
@@ -1466,7 +1487,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 });
                               },
                               icon: Icon(Icons.arrow_forward),
-                              color: backgroundColor,
+                              color: backgroundColor.withOpacity(1.0),
                             ),
                           ],
                         ),
@@ -1476,17 +1497,20 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 )
                     : onPage5 ? Stack(
                     children: <Widget>[
-                      ListView(
-                        padding: EdgeInsets.all(0.0),
+                      Column(
                         children: [
-                          Padding(
-                            padding: EdgeInsets.all(20.0),
-                            child: Text(
-                              "Change Profile Colors: ",
-                              style: TextStyle(
-                                color: fontColor,
+                          Row(
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.all(20.0),
+                                child: Text(
+                                  "Change Profile Colors: ",
+                                  style: TextStyle(
+                                    color: fontColor,
+                                  ),
+                                ),
                               ),
-                            ),
+                            ],
                           ),
                           SizedBox(height: size.width * 0.04),
                           Row(
@@ -1592,7 +1616,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             children: [
                               IconButton(
                                 icon: Icon(Icons.arrow_back),
-                                color: backgroundColor,
+                                color: backgroundColor.withOpacity(1.0),
                                 onPressed: (){
                                   print("Go To Page 4");
                                   setState(() {
@@ -1604,7 +1628,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               Text(
                                 "5/5",
                                 style: TextStyle(
-                                  color: backgroundColor,
+                                  color: backgroundColor.withOpacity(1.0),
                                 ),
                               ),
                               IconButton(
@@ -1616,7 +1640,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                     ],
                   )
-                    : Text("There is no page 6"),
+                    : null,
               ),
               Positioned(
                 top: 0.0,
@@ -1640,7 +1664,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     icon: Icon(Icons.close),
                     onPressed: (){
                       setState(() {
-                        backgroundColor = lastColor;
+                        backgroundColor = lastBackgroundColor;
+                        fontColor = lastFontColor;
                         onEdit = false;
                         onPage1 = true;
                         onPage2 = false;
