@@ -58,11 +58,13 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/images/nature-3807667_1920.jpg
+    - assets/images/nature-background.jpg
     - assets/images/Michael B Jordan.png
-    - assets/images/instagram.png
-    - assets/images/telegram.png
-  #   - images/a_dot_ham.jpeg
+    - assets/images/icons/instagram-icon.png
+    - assets/images/icons/telegram-icon.png
+    - assets/images/icons/couple in love.png
+    - assets/images/icons/couple romantic.png
+    - assets/images/icons/couple want to kiss.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

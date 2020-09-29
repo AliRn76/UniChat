@@ -23,7 +23,7 @@ class _ContactProfileState extends State<ContactProfile> {
         height: double.infinity,
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/images/nature-3807667_1920.jpg"),
+            image: AssetImage("assets/images/nature-background.jpg"),
             fit: BoxFit.cover,
           ),
         ),
@@ -169,7 +169,7 @@ class _ContactProfileState extends State<ContactProfile> {
                             Row(
                               children: <Widget>[
                                 Image.asset(
-                                  "assets/images/instagram.png",
+                                  "assets/images/instagram-icon.png",
                                   height: 30.0,
                                   fit: BoxFit.cover,
                                 ),
@@ -179,7 +179,7 @@ class _ContactProfileState extends State<ContactProfile> {
                             Row(
                               children: <Widget>[
                                 Image.asset(
-                                  "assets/images/instagram.png",
+                                  "assets/images/instagram-icon.png",
                                   height: 30.0,
                                   fit: BoxFit.cover,
                                 ),

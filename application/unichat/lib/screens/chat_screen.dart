@@ -49,7 +49,7 @@ class _ChatScreenState extends State<ChatScreen> {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(19.0),
                       image: DecorationImage(
-                        image: AssetImage("assets/images/nature-3807667_1920.jpg"),
+                        image: AssetImage("assets/images/nature-background.jpg"),
                         fit: BoxFit.cover,
                       ),
                     ),

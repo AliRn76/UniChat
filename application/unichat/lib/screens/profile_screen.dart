@@ -38,7 +38,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       height: double.infinity,
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage("assets/images/nature-3807667_1920.jpg"),
+          image: AssetImage("assets/images/nature-background.jpg"),
           fit: BoxFit.cover,
         ),
       ),
@@ -56,9 +56,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   borderRadius: BorderRadius.circular(15.0),
                 ),
                 child: Padding(
-                  padding: EdgeInsets.all(20.0),
+                  padding: EdgeInsets.all(size.width * 0.06),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
+//                    primary: true,
+//                    padding: EdgeInsets.all(0.0),
                     children: <Widget>[
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -66,7 +68,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           Container(
                             height: size.width * 0.25,
                             width: size.width * 0.25,
+                            margin: EdgeInsets.only(right: size.width * 0.03),
                             decoration: BoxDecoration(
+//                              color: Colors.red,
                               borderRadius: BorderRadius.circular(50),
                               image: DecorationImage(
                                 image: AssetImage("assets/images/Michael B Jordan.png"),
@@ -74,208 +78,320 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               ),
                             ),
                           ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              SizedBox(height: size.height * 0.03),
-                              Text(
-                                "Ali Rn ",
-                                style: TextStyle(
-                                  color: fontColor,
+                          Stack(
+                            children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  SizedBox(height: size.width * 0.07),
+                                  Text(
+                                    "Ali Rn ",
+                                    style: TextStyle(
+                                      color: fontColor.withOpacity(1.0),
+                                    ),
+                                  ),
+                                  SizedBox(height: size.width * 0.03),
+                                  Container(
+                                    width: size.width * 0.45,
+//                                    color: Colors.blue,
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: <Widget>[
+                                        Icon(
+                                          Icons.bubble_chart,
+                                          size: 16.0,
+                                          color: fontColor.withOpacity(1.0),
+                                        ),
+                                        Text(
+                                          "22",
+                                          style: TextStyle(
+                                            color: fontColor,
+                                          ),
+                                        ),
+                                        SizedBox(width: size.width * 0.04),
+                                        Icon(
+                                          Icons.pin_drop,
+                                          size: 16.0,
+                                          color: fontColor,
+                                        ),
+                                        Container(
+                                          width: size.width * 0.25,
+                                          child: Text(
+                                            "Tehran ",
+                                            overflow: TextOverflow.ellipsis,
+                                            maxLines: 1,
+                                            style: TextStyle(
+                                              color: fontColor,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  SizedBox(height: size.width * 0.03),
+                                  Row(
+                                    children: <Widget>[
+                                      Icon(
+                                        Icons.phone,
+                                        size: 16.0,
+                                        color: fontColor,
+                                      ),
+                                      SizedBox(width:size.width * 0.01),
+                                      Container(
+                                        width: size.width * 0.35,
+                                        child: Text(
+                                          "0903785305509",
+                                          maxLines: 1,
+                                          overflow: TextOverflow.ellipsis,
+                                          style: TextStyle(
+                                            color: fontColor,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                              Positioned(
+                                bottom: 0.0,
+                                child: Image.asset(
+                                  "assets/images/icons/couple want to kiss.png",
+                                  height: size.width * 0.25,
+                                  width: size.width * 0.3,
+                                  fit: BoxFit.cover,
                                 ),
                               ),
-                              SizedBox(height:10.0),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: <Widget>[
-                                  Icon(
-                                    Icons.bubble_chart,
-                                    size: 16.0,
-                                    color: fontColor,
-                                  ),
-                                  Text(
-                                    "22",
-                                    style: TextStyle(
-                                      color: fontColor,
-                                    ),
-                                  ),
-                                  SizedBox(width: 20.0),
-                                  Icon(
-                                    Icons.pin_drop,
-                                    size: 16.0,
-                                    color: fontColor,
-                                  ),
-                                  Text(
-                                    "Tehran",
-                                    style: TextStyle(
-                                      color: fontColor,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(height:10.0),
-                              Row(
-                                children: <Widget>[
-                                  Icon(
-                                    Icons.phone,
-                                    size: 16.0,
-                                    color: fontColor,
-                                  ),
-                                  SizedBox(width:10.0),
-                                  Text(
-                                    "09037853055",
-                                    style: TextStyle(
-                                      color: fontColor,
-                                    ),
-                                  ),
-                                ],
-                              ),
                             ],
                           ),
                         ],
                       ),
-                      SizedBox(height: size.height * 0.02),
-                      Row(
-                        children: <Widget>[
-                          Image.asset(
-                            "assets/images/instagram.png",
-                            height: 30.0,
-                            fit: BoxFit.cover,
-                          ),
-                          Text(
-                            "Ali_Rn_",
-                            style: TextStyle(
-                              color: fontColor,
+                      Expanded(
+//                        width: size.width * 0.85,
+//                        height: size.height * 0.48,
+                        child: ListView(
+//                          primary: false,
+                          padding: EdgeInsets.all(0.0),
+                          children: [
+                            SizedBox(height: size.width * 0.04),
+                            Container(
+                              width: size.width * 0.7,
+                              height: size.width * 0.2,
+                              padding: EdgeInsets.all(size.width * 0.03,),
+                              decoration: BoxDecoration(
+                                color: backgroundColor.withOpacity(0.4),
+                                borderRadius: BorderRadius.circular(15.0),
+                                border: Border.all(color: backgroundColor.withOpacity(1.0)),
+                              ),
+                              child: Text(
+                                "Ali Rajab Nezhad Ali Rajab Nezhad Ali Rajab Nezhad Ali Rajab Nezhad Ali Rajab Nezhad",
+                                maxLines: 3,
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                  fontSize: 11.0,
+                                  color: fontColor.withOpacity(1.0),
+                                ),
+                              ),
                             ),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        children: <Widget>[
-                          Image.asset(
-                            "assets/images/instagram.png",
-                            height: 30.0,
-                            fit: BoxFit.cover,
-                          ),
-                          Text(
-                            "Al1Rn",
-                            style: TextStyle(
-                              color: fontColor,
+                            SizedBox(height: size.width * 0.04),
+                            Row(
+                              children: <Widget>[
+                                Image.asset(
+                                  "assets/images/icons/instagram-icon.png",
+                                  width: size.width * 0.08,
+                                  height: size.width * 0.08,
+                                  fit: BoxFit.cover,
+                                ),
+                                Text(
+                                  "Admin",
+                                  style: TextStyle(
+                                    color: fontColor,
+                                  ),
+                                ),
+                              ],
                             ),
-                          ),
-                        ],
+//                      SizedBox(height: size.width * 0.02),
+                            Row(
+                              children: <Widget>[
+                                Image.asset(
+                                  "assets/images/icons/instagram-icon.png",
+                                  width: size.width * 0.08,
+                                  height: size.width * 0.08,
+                                  fit: BoxFit.cover,
+                                ),
+                                Text(
+                                  "Ali_Rn_",
+                                  style: TextStyle(
+                                    color: fontColor,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: size.width * 0.02),
+                            Row(
+                              children: <Widget>[
+                                Padding(
+                                  padding: EdgeInsets.only(left:3.0),
+                                  child: Image.asset(
+                                    "assets/images/icons/telegram-icon.png",
+                                    width: size.width * 0.06,
+                                    height: size.width * 0.06,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                                Text(
+                                  " Al1Rn",
+                                  style: TextStyle(
+                                    color: fontColor,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: size.width * 0.04),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    Row(
+                                      children: <Widget>[
+                                        Icon(
+                                          Icons.directions_run,
+                                          size: 16.0,
+                                          color: fontColor,
+                                        ),
+                                        SizedBox(width: size.width * 0.02),
+                                        Text(
+                                          "Football",
+                                          style: TextStyle(
+                                            color: fontColor,
+                                          ),),
+                                      ],
+                                    ),
+                                    SizedBox(height: size.width * 0.04),
+                                    Row(
+                                      children: <Widget>[
+                                        Icon(
+                                          Icons.videogame_asset,
+                                          size: 16.0,
+                                          color: fontColor,
+                                        ),
+                                        SizedBox(width: size.width * 0.02),
+                                        Text(
+                                          "Game",
+                                          style: TextStyle(
+                                            color: fontColor,
+                                          ),),
+                                      ],
+                                    ),
+                                    SizedBox(height: size.width * 0.04),
+                                    Row(
+                                      children: <Widget>[
+                                        Icon(
+                                          Icons.tv,
+                                          size: 16.0,
+                                          color: fontColor,
+                                        ),
+                                        SizedBox(width: size.width * 0.02),
+                                        Text(
+                                          "TV Series",
+                                          style: TextStyle(
+                                            color: fontColor,
+                                          ),),
+                                      ],
+                                    ),
+                                    SizedBox(height: size.width * 0.04),
+                                    Row(
+                                      children: <Widget>[
+                                        Icon(
+                                          Icons.tv,
+                                          size: 16.0,
+                                          color: fontColor,
+                                        ),
+                                        SizedBox(width: size.width * 0.02),
+                                        Text(
+                                          "TV Series",
+                                          style: TextStyle(
+                                            color: fontColor,
+                                          ),),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    Row(
+                                      children: <Widget>[
+                                        Icon(
+                                          Icons.library_books,
+                                          size: 16.0,
+                                          color: fontColor,
+                                        ),
+                                        SizedBox(width: size.width * 0.02),
+                                        Text(
+                                          "Book",
+                                          style: TextStyle(
+                                            color: fontColor,
+                                          ),),
+                                      ],
+                                    ),
+                                    SizedBox(height: size.width * 0.04),
+                                    Row(
+                                      children: <Widget>[
+                                        Icon(
+                                          Icons.movie,
+                                          size: 16.0,
+                                          color: fontColor,
+                                        ),
+                                        SizedBox(width: size.width * 0.02),
+                                        Text(
+                                          "Movie",
+                                          style: TextStyle(
+                                            color: fontColor,
+                                          ),),
+                                      ],
+                                    ),
+                                    SizedBox(height: size.width * 0.04),
+                                    Row(
+                                      children: <Widget>[
+                                        Icon(
+                                          Icons.airplanemode_active,
+                                          size: 16.0,
+                                          color: fontColor,
+                                        ),
+                                        SizedBox(width: size.width * 0.02),
+                                        Text(
+                                          "Wants to travel",
+                                          style: TextStyle(
+                                            color: fontColor,
+                                          ),),
+                                      ],
+                                    ),
+                                    SizedBox(height: size.width * 0.04),
+                                    Row(
+                                      children: <Widget>[
+                                        Icon(
+                                          Icons.airplanemode_active,
+                                          size: 16.0,
+                                          color: fontColor,
+                                        ),
+                                        SizedBox(width: size.width * 0.02),
+                                        Text(
+                                          "Wants to travel",
+                                          style: TextStyle(
+                                            color: fontColor,
+                                          ),),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: size.width * 0.04),
+                          ],
+                        ),
                       ),
-                      SizedBox(height: size.height * 0.02),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Row(
-                                children: <Widget>[
-                                  Icon(
-                                    Icons.directions_run,
-                                    size: 16.0,
-                                    color: fontColor,
-                                  ),
-                                  SizedBox(width: size.width * 0.02),
-                                  Text(
-                                    "Football",
-                                    style: TextStyle(
-                                      color: fontColor,
-                                    ),),
-                                ],
-                              ),
-                              SizedBox(height: size.height * 0.02),
-                              Row(
-                                children: <Widget>[
-                                  Icon(
-                                    Icons.videogame_asset,
-                                    size: 16.0,
-                                    color: fontColor,
-                                  ),
-                                  SizedBox(width: size.width * 0.02),
-                                  Text(
-                                    "Game",
-                                    style: TextStyle(
-                                      color: fontColor,
-                                    ),),
-                                ],
-                              ),
-                              SizedBox(height: size.height * 0.02),
-                              Row(
-                                children: <Widget>[
-                                  Icon(
-                                    Icons.tv,
-                                    size: 16.0,
-                                    color: fontColor,
-                                  ),
-                                  SizedBox(width: size.width * 0.02),
-                                  Text(
-                                    "TV Series",
-                                    style: TextStyle(
-                                      color: fontColor,
-                                    ),),
-                                ],
-                              ),
-                            ],
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Row(
-                                children: <Widget>[
-                                  Icon(
-                                    Icons.library_books,
-                                    size: 16.0,
-                                    color: fontColor,
-                                  ),
-                                  SizedBox(width: size.width * 0.02),
-                                  Text(
-                                    "Book",
-                                    style: TextStyle(
-                                      color: fontColor,
-                                    ),),
-                                ],
-                              ),
-                              SizedBox(height: size.height * 0.02),
-                              Row(
-                                children: <Widget>[
-                                  Icon(
-                                    Icons.movie,
-                                    size: 16.0,
-                                    color: fontColor,
-                                  ),
-                                  SizedBox(width: size.width * 0.02),
-                                  Text(
-                                    "Movie",
-                                    style: TextStyle(
-                                      color: fontColor,
-                                    ),),
-                                ],
-                              ),
-                              SizedBox(height: size.height * 0.02),
-                              Row(
-                                children: <Widget>[
-                                  Icon(
-                                    Icons.airplanemode_active,
-                                    size: 16.0,
-                                    color: fontColor,
-                                  ),
-                                  SizedBox(width: size.width * 0.02),
-                                  Text(
-                                    "Wants to travel",
-                                    style: TextStyle(
-                                      color: fontColor,
-                                    ),),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: size.height * 0.02),
                     ],
                   ),
                 ),
@@ -716,7 +832,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                             width: size.width * 0.06,
                                             height: size.width * 0.05,
                                             child: Image.asset(
-                                              "assets/images/instagram.png",
+                                              "assets/images/instagram-icon.png",
                                               fit: BoxFit.cover,
                                             ),
                                           ),
@@ -751,7 +867,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                             width: size.width * 0.06,
                                             height: size.width * 0.05,
                                             child: Image.asset(
-                                              "assets/images/telegram.png",
+                                              "assets/images/telegram-icon.png",
                                               fit: BoxFit.fitHeight,
                                             ),
                                           ),
