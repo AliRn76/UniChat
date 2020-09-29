@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:unichat/providers/connection_provider.dart';
+import 'package:unichat/providers/profile_states_provider.dart';
 import 'package:unichat/screens/home_screen.dart';
 
 void main() {
@@ -14,6 +15,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<ConnectionProvider>.value(value: ConnectionProvider()),
+        ChangeNotifierProvider<ProfileStateProvider>.value(value: ProfileStateProvider()),
       ],
       child: MaterialApp(
         title: 'Uni Chat',
