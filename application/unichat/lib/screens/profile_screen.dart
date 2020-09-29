@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_circle_color_picker/flutter_circle_color_picker.dart';
 import 'package:invert_colors/invert_colors.dart';
 import 'package:provider/provider.dart';
-import 'package:unichat/widgets/my_arc.dart';
+import 'package:unichat/widgets/myArc.dart';
 import 'package:country_pickers/country_pickers.dart';
 import 'package:country_pickers/country.dart';
 import 'package:unichat/widgets/profile_aboutUs.dart';
@@ -23,8 +23,8 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen> {
   Color backgroundColor = Color(0xA3D1FF);
   Color fontColor = Colors.black;
-  Color lastBackgroundColor;
-  Color lastFontColor;
+//  Color lastBackgroundColor;
+//  Color lastFontColor;
 
 
   @override
@@ -36,7 +36,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    final ProfileStateProvider profileStateProvider = Provider.of<ProfileStateProvider>(context);
+    final ProfileStatesProvider profileStateProvider = Provider.of<ProfileStatesProvider>(context);
 
     return Container(
       width: double.infinity,

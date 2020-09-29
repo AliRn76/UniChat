@@ -5,11 +5,16 @@ import 'package:flutter/material.dart';
 import 'package:unichat/models/user_model.dart';
 import 'package:unichat/sqlite/database_helper.dart';
 
-class ProfileProvider extends ChangeNotifier {
+class ProfileDataProvider extends ChangeNotifier {
 
-  ProfileProvider(){}
+  ProfileDataProvider(){}
 
-  User _user;
+  User _user = User(
+    "Admin", "Ali", "Rn", "alirn76@yahoo.com", "09037853055", "assets/images/Michael B Jordan.png",
+      "There is no bio", "Ali_Rn_", "Al1Rn", DateTime.now(), false,
+      "Iran", "Tehran", "IAU TNB", "IT", 1395,
+      "Taekwondo", "Harry Potter", "Warrior", "The Flash", "HoN", "No Where", "Dar Vaghe", "0xA3D1FF", "0x000000"
+  );
 
   User get user => _user;
 

@@ -5,7 +5,7 @@ import 'package:flutter_circle_color_picker/flutter_circle_color_picker.dart';
 import 'package:invert_colors/invert_colors.dart';
 import 'package:provider/provider.dart';
 import 'package:unichat/providers/profile_states_provider.dart';
-import 'package:unichat/widgets/my_arc.dart';
+import 'package:unichat/widgets/myArc.dart';
 import 'package:country_pickers/country_pickers.dart';
 import 'package:country_pickers/country.dart';
 
@@ -23,7 +23,7 @@ class _ProfileSettingState extends State<ProfileSetting> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    final ProfileStateProvider profileStateProvider = Provider.of<ProfileStateProvider>(context);
+    final ProfileStatesProvider profileStateProvider = Provider.of<ProfileStatesProvider>(context);
 
     return Stack(
       children: [

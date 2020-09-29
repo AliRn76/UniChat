@@ -5,7 +5,7 @@ import 'package:flutter_circle_color_picker/flutter_circle_color_picker.dart';
 import 'package:invert_colors/invert_colors.dart';
 import 'package:provider/provider.dart';
 import 'package:unichat/providers/profile_states_provider.dart';
-import 'package:unichat/widgets/my_arc.dart';
+import 'package:unichat/widgets/myArc.dart';
 
 class ProfileMain extends StatefulWidget {
   @override
@@ -15,14 +15,14 @@ class ProfileMain extends StatefulWidget {
 class _ProfileMainState extends State<ProfileMain> {
   Color backgroundColor = Color(0xA3D1FF);
   Color fontColor = Colors.black;
-  Color lastBackgroundColor;
-  Color lastFontColor;
+//  Color lastBackgroundColor;
+//  Color lastFontColor;
 
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    final ProfileStateProvider profileStateProvider = Provider.of<ProfileStateProvider>(context);
+    final ProfileStatesProvider statesProvider = Provider.of<ProfileStatesProvider>(context);
 
     return Stack(
       children: <Widget>[
@@ -395,9 +395,9 @@ class _ProfileMainState extends State<ProfileMain> {
               icon: Icon(Icons.mode_edit),
               onPressed: (){
                 setState(() {
-                  lastBackgroundColor = backgroundColor;
-                  lastFontColor = fontColor;
-                  profileStateProvider.setEdit(true);
+                  statesProvider.lastBackgroundColor = backgroundColor;
+                  statesProvider.lastFontColor = fontColor;
+                  statesProvider.setEdit(true);
                 });
                 print("EDIT");
               },
@@ -427,7 +427,7 @@ class _ProfileMainState extends State<ProfileMain> {
               onPressed: (){
                 print("Security (Change Password)");
                 setState(() {
-                  profileStateProvider.setSecurity(true);
+                  statesProvider.setSecurity(true);
                 });
               },
             ),
@@ -456,7 +456,7 @@ class _ProfileMainState extends State<ProfileMain> {
               onPressed: (){
                 print("Setting");
                 setState(() {
-                  profileStateProvider.setSetting(true);
+                  statesProvider.setSetting(true);
                 });
               },
             ),
@@ -485,7 +485,7 @@ class _ProfileMainState extends State<ProfileMain> {
               onPressed: (){
                 print("About Us");
                 setState(() {
-                  profileStateProvider.setAboutUs(true);
+                  statesProvider.setAboutUs(true);
                 });
               },
             ),
@@ -517,7 +517,7 @@ class _ProfileMainState extends State<ProfileMain> {
               onPressed: (){
                 print("Contact");
                 setState(() {
-                  profileStateProvider.setContact(true);
+                  statesProvider.setContact(true);
                 });
               },
             ),

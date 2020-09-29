@@ -16,6 +16,7 @@ class DatabaseHelper{
   String col_last_name            = "last_name";
   String col_email                = "email";
   String col_phone_number         = "phone_number";
+  String col_profile_picture      = "profile_picture";
 
   String col_bio                  = "bio";
   String col_instagram            = "instagram";
@@ -36,7 +37,8 @@ class DatabaseHelper{
   String col_favorite_game        = "favorite_game";
   String col_favorite_to_travel   = "favorite_to_travel";
   String col_favorite_music       = "favorite_music";
-  String col_favorite_color       = "favorite_color";
+  String col_background_color     = "background_color";
+  String col_font_color           = "font_color";
 
   /// Table Token
   // String col_id    = "ID";
@@ -79,6 +81,7 @@ class DatabaseHelper{
             '$col_last_name TEXT,'
             '$col_email TEXT,'
             '$col_phone_number TEXT,'
+            '$col_profile_picture TEXT,'
             '$col_bio TEXT,'
             '$col_instagram TEXT,'
             '$col_telegram TEXT,'
@@ -99,7 +102,8 @@ class DatabaseHelper{
             '$col_favorite_game TEXT,'
             '$col_favorite_to_travel TEXT,'
             '$col_favorite_music TEXT,'
-            '$col_favorite_color TEXT)'
+            '$col_background_color TEXT,'
+            '$col_font_color TEXT)'
     );
     await db.execute(
         'CREATE TABLE IF NOT EXISTS $tbl_token ('
@@ -126,15 +130,15 @@ class DatabaseHelper{
     var result;
     result = await db.rawQuery(
         "Insert Into $tbl_user"
-            "($col_username, $col_first_name, $col_last_name, $col_email, $col_phone_number, "
+            "($col_username, $col_first_name, $col_last_name, $col_email, $col_phone_number, $col_profile_picture"
             "$col_bio, $col_instagram, $col_telegram, $col_birth_date, $col_relationship, "
             "$col_country, $col_city, $col_university, $col_field, $col_entrance_year, "
-            "$col_favorite_sport, $col_favorite_book, $col_favorite_movie, $col_favorite_tv_series, $col_favorite_game, $col_favorite_to_travel, $col_favorite_music, $col_favorite_color)"
+            "$col_favorite_sport, $col_favorite_book, $col_favorite_movie, $col_favorite_tv_series, $col_favorite_game, $col_favorite_to_travel, $col_favorite_music, $col_background_color, $col_font_color)"
             "Values "
-            "('${user.username}', '${user.first_name}', '${user.last_name}', '${user.email}', '${user.phone_number}', "
+            "('${user.username}', '${user.first_name}', '${user.last_name}', '${user.email}', '${user.phone_number}',  '${user.profile_picture}', "
             "'${user.bio}', '${user.instagram}', '${user.telegram}', '${user.birth_date}', '${user.relationship}', "
             "'${user.country}', '${user.city}', '${user.university}', '${user.field}', ${user.entrance_year}, "
-            "'${user.favorite_sport}', '${user.favorite_book}', '${user.favorite_movie}', '${user.favorite_tv_series}', '${user.favorite_game}', '${user.favorite_to_travel}', '${user.favorite_music}', '${user.favorite_color}');"
+            "'${user.favorite_sport}', '${user.favorite_book}', '${user.favorite_movie}', '${user.favorite_tv_series}', '${user.favorite_game}', '${user.favorite_to_travel}', '${user.favorite_music}', '${user.background_color}', '${user.font_color}');"
     );
     print("Insert User Into DB Result: $result");
     return result;
@@ -154,10 +158,10 @@ class DatabaseHelper{
     var result = await db.rawQuery(
         "UPDATE $tbl_user "
             "SET "
-            "$col_username = '${user.username}', $col_first_name = '${user.first_name}', $col_last_name = '${user.last_name}', $col_email = '${user.email}', $col_phone_number = '${user.phone_number}', "
+            "$col_username = '${user.username}', $col_first_name = '${user.first_name}', $col_last_name = '${user.last_name}', $col_email = '${user.email}', $col_phone_number = '${user.phone_number}', $col_profile_picture = '${user.profile_picture}', "
             "$col_bio = '${user.bio}', $col_instagram = '${user.instagram}', $col_telegram = '${user.telegram}', $col_birth_date = '${user.birth_date}', $col_relationship = '${user.relationship}', "
             "$col_country = '${user.country}', $col_city = '${user.city}', $col_university = '${user.university}', $col_field = '${user.field}', $col_entrance_year = ${user.entrance_year}, "
-            "$col_favorite_sport = '${user.favorite_sport}', $col_favorite_book = '${user.favorite_book}', $col_favorite_movie = '${user.favorite_movie}', $col_favorite_tv_series = '${user.favorite_tv_series}', $col_favorite_game = '${user.favorite_game}', $col_favorite_to_travel = '${user.favorite_to_travel}', $col_favorite_music = '${user.favorite_music}', $col_favorite_color = '${user.favorite_color}'"
+            "$col_favorite_sport = '${user.favorite_sport}', $col_favorite_book = '${user.favorite_book}', $col_favorite_movie = '${user.favorite_movie}', $col_favorite_tv_series = '${user.favorite_tv_series}', $col_favorite_game = '${user.favorite_game}', $col_favorite_to_travel = '${user.favorite_to_travel}', $col_favorite_music = '${user.favorite_music}', $col_background_color = '${user.background_color}', $col_font_color = '${user.font_color}'"
             "WHERE $col_id = '$id'; ");
     print("Update User In DB Result: $result");
     return result;

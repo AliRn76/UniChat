@@ -5,6 +5,7 @@ class User{
   String last_name;
   String email;
   String phone_number;
+  String profile_picture;
 
   String bio;
   String instagram;
@@ -25,10 +26,8 @@ class User{
   String favorite_game;
   String favorite_to_travel;
   String favorite_music;
-  String favorite_color;
-
-
-
+  String background_color;
+  String font_color;
 
 
   User(
@@ -36,14 +35,18 @@ class User{
       this.first_name,
       this.last_name,
       this.email,
+      this.phone_number,
+      this.profile_picture,
+      this.bio,
       this.instagram,
       this.telegram,
-      this.bio,
-      this.phone_number,
+      this.birth_date,
+      this.relationship,
       this.country,
       this.city,
       this.university,
       this.field,
+      this.entrance_year,
       this.favorite_sport,
       this.favorite_book,
       this.favorite_movie,
@@ -51,10 +54,11 @@ class User{
       this.favorite_game,
       this.favorite_to_travel,
       this.favorite_music,
-      this.favorite_color,
-      this.entrance_year,
-      this.birth_date,
-      this.relationship,
+      this.background_color,
+      this.font_color,
+
+
+
       );
 
   User.fromJson(Map<String, dynamic> json){
@@ -62,14 +66,18 @@ class User{
     first_name          = json['first_name'];
     last_name           = json['last_name'];
     email               = json['email'];
+    phone_number        = json['phone_number'];
+    profile_picture     = json['profile_picture'];
+    bio                 = json['bio'];
     instagram           = json['instagram'];
     telegram            = json['telegram'];
-    bio                 = json['bio'];
-    phone_number        = json['phone_number'];
+    birth_date          = json['birth_date'];
+    relationship        = json['relationship'];
     country             = json['country'];
     city                = json['city'];
     university          = json['university'];
     field               = json['field'];
+    entrance_year       = json['entrance_year'];
     favorite_sport      = json['favorite_sport'];
     favorite_book       = json['favorite_book'];
     favorite_movie      = json['favorite_movie'];
@@ -77,10 +85,8 @@ class User{
     favorite_game       = json['favorite_game'];
     favorite_to_travel  = json['favorite_to_travel'];
     favorite_music      = json['favorite_music'];
-    favorite_color      = json['favorite_color'];
-    entrance_year       = json['entrance_year'];
-    birth_date          = json['birth_date'];
-    relationship        = json['relationship'];
+    background_color    = json['background_color'];
+    font_color          = json['font_color'];
   }
 
   Map<String, dynamic> toJson(){
@@ -89,13 +95,18 @@ class User{
     map['first_name']         = first_name;
     map['last_name']          = last_name;
     map['email']              = email;
-    map['telegram']           = telegram;
-    map['bio']                = bio;
     map['phone_number']       = phone_number;
+    map['profile_picture']    = profile_picture;
+    map['bio']                = bio;
+    map['instagram']          = instagram;
+    map['telegram']           = telegram;
+    map['birth_date']         = birth_date;
+    map['relationship']       = relationship;
     map['country']            = country;
     map['city']               = city;
     map['university']         = university;
     map['field']              = field;
+    map['entrance_year']      = entrance_year;
     map['favorite_sport']     = favorite_sport;
     map['favorite_book']      = favorite_book;
     map['favorite_movie']     = favorite_movie;
@@ -103,10 +114,8 @@ class User{
     map['favorite_game']      = favorite_game;
     map['favorite_to_travel'] = favorite_to_travel;
     map['favorite_music']     = favorite_music;
-    map['favorite_color']     = favorite_color;
-    map['entrance_year']      = entrance_year;
-    map['birth_date']         = birth_date;
-    map['relationship']       = relationship;
+    map['background_color']   = background_color;
+    map['font_color']         = font_color;
     return map;
   }
 
