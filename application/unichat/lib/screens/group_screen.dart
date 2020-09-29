@@ -13,15 +13,16 @@ class GroupScreen extends StatefulWidget {
 class _GroupScreenState extends State<GroupScreen> {
   TextEditingController searchController = TextEditingController();
   bool isInSearch = false;
+  bool isLeftItem = true;
   Widget appBarSearchIcon = Icon(Icons.search);
   Widget appbarTitle = Text(
-    "Uni Chat",
+    "Group Chat",
     style: TextStyle(
       fontSize: 16.0,
       letterSpacing: 2.5,
     ),
   );
-
+  List<String> list = ['Ali', 'Erfan', 'Farhad', 'Nima', 'Ehsan', 'Mamad', 'Sadegh', 'Hamid'];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,9 +54,10 @@ class _GroupScreenState extends State<GroupScreen> {
         ),
         child: SafeArea(
           child: ListView.builder(
-            itemCount: 40,
+            itemCount: list.length,
             itemBuilder: (context, index){
-              return _buildChatPreview(index);
+              if(index+1 < list.length)
+                return _buildGroupChatPreview(list[index], list[index+1]);
             },
           ),
         ),
@@ -63,7 +65,29 @@ class _GroupScreenState extends State<GroupScreen> {
     );
   }
 
-  Widget _buildChatPreview(int index){
+  Widget _buildGroupChatPreview(String str1, String str2){
+    Size size = MediaQuery.of(context).size;
+
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: 5.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Container(
+            color: Colors.red,
+            width: size.width * 0.6,
+            height: size.width * 0.25,
+            child: Stack(
+
+            ),
+          ),
+        ],
+      ),
+    );
+
+  }
+
+  Widget _buildGroupChatPreview2(int index){
     Size size = MediaQuery.of(context).size;
     if(index % 2 == 0)
       return GestureDetector(
@@ -320,7 +344,7 @@ class _GroupScreenState extends State<GroupScreen> {
 //            finalList = _logs;
             isInSearch = true;
             appbarTitle = Text(
-              "Uni Chat",
+              "Group Chat",
               style: TextStyle(
                 fontSize: 16.0,
                 letterSpacing: 2.5,
