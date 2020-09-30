@@ -35,9 +35,12 @@ dependencies:
   invert_colors: ^0.0.2
   country_pickers: ^1.3.0
   cupertino_icons: ^0.1.3
+  clay_containers: ^0.2.2
   flutter_spinkit: ^4.1.2
+  font_awesome_flutter: ^8.8.1
   fancy_bottom_navigation: ^0.3.2
   flutter_circle_color_picker: ^0.2.0
+
 
 
 

@@ -34,41 +34,41 @@ class _ProfileSecurityState extends State<ProfileSecurity> {
             color: backgroundColor.withOpacity(0.3),
             borderRadius: BorderRadius.circular(15.0),
           ),
-          child: Center(
-            child: Text(
-              "On Security",
+          child: Padding(
+            padding: EdgeInsets.all(20.0),
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Current Password: ",
+                        ),
+                        Text(
+                          "New Password: ",
+                        ),
+                      ],
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "xxxxalixxx1234",
+                        ),
+                        Text(
+                          "newXXX2123",
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ],
             ),
           ),
         ),
-        Positioned(
-          top: 0.0,
-          right: 64.0,
-          child: Container(
-            height: 30.0,
-            width: 30.0,
-            child: MyArc(
-              diameter: 300,
-              color: backgroundColor.withOpacity(0.3),
-            ),
-          ),
-        ),
-        Positioned(
-          top: -8.0,
-          right: 56.0,
-          child: InvertColors(
-            child: IconButton(
-              color: backgroundColor.withOpacity(1.0),
-              iconSize: 20,
-              icon: Icon(Icons.close),
-              onPressed: (){
-                setState(() {
-                  profileStateProvider.setSecurity(false);
-                });
-                print("Cancel");
-              },
-            ),
-          ),
-        ),
+
         Positioned(
           top: 0.0,
           right: 24.0,
@@ -89,12 +89,12 @@ class _ProfileSecurityState extends State<ProfileSecurity> {
               color: backgroundColor.withOpacity(1.0),
               iconSize: 20,
 
-              icon: Icon(Icons.check),
+              icon: Icon(Icons.home),
               onPressed: (){
                 setState(() {
                   profileStateProvider.setSecurity(false);
                 });
-                print("Done");
+                print("Home");
               },
             ),
           ),

@@ -9,6 +9,7 @@ import 'package:unichat/providers/profile_states_provider.dart';
 import 'package:unichat/widgets/myArc.dart';
 import 'package:country_pickers/country_pickers.dart';
 import 'package:country_pickers/country.dart';
+import 'package:unichat/widgets/profile_edit_page6.dart';
 import 'package:unichat/widgets/profile_edit_page1.dart';
 import 'package:unichat/widgets/profile_edit_page2.dart';
 import 'package:unichat/widgets/profile_edit_page3.dart';
@@ -47,6 +48,7 @@ class _ProfileEditState extends State<ProfileEdit> {
               : profileStatesProvider.profileEditState.page3 ? ProfileEditPage3()
               : profileStatesProvider.profileEditState.page4 ? ProfileEditPage4()
               : profileStatesProvider.profileEditState.page5 ? ProfileEditPage5()
+              : profileStatesProvider.profileEditState.page6 ? ProfileEditPage6()
               : null,
         ),
         Positioned(

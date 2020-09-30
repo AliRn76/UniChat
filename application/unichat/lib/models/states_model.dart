@@ -22,6 +22,7 @@ class ProfileEditState{
   bool page3;
   bool page4;
   bool page5;
+  bool page6;
 
   ProfileEditState(
       this.page1,
@@ -29,5 +30,6 @@ class ProfileEditState{
       this.page3,
       this.page4,
       this.page5,
+      this.page6,
       );
 }

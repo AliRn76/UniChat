@@ -7,9 +7,10 @@ import 'package:unichat/widgets/profile_edit.dart';
 class ProfileStatesProvider extends ChangeNotifier {
 
   ProfileStatesProvider(){}
-
+  // OnEdit, OnSecurity, OnSetting, OnAboutUs, OnContact
   ProfileMainState _profileMainState = ProfileMainState(false, false, false, false, false);
-  ProfileEditState _profileEditState = ProfileEditState(true, false, false, false, false);
+  // Page1, Page2, Page3, Page4, Page5
+  ProfileEditState _profileEditState = ProfileEditState(true, false, false, false, false, false);
   Color _lastBackgroundColor = Color(0xA3D1FF);
   Color _lastFontColor = Colors.black;
 
@@ -74,6 +75,10 @@ class ProfileStatesProvider extends ChangeNotifier {
   }
   void setPage5(bool value){
     _profileEditState.page5 = value;
+    notifyListeners();
+  }
+  void setPage6(bool value){
+    _profileEditState.page6 = value;
     notifyListeners();
   }
 

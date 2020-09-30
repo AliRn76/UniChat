@@ -23,7 +23,7 @@ class _ProfileSettingState extends State<ProfileSetting> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    final ProfileStatesProvider profileStateProvider = Provider.of<ProfileStatesProvider>(context);
+    final ProfileStatesProvider profileStatesProvider = Provider.of<ProfileStatesProvider>(context);
 
     return Stack(
       children: [
@@ -63,7 +63,7 @@ class _ProfileSettingState extends State<ProfileSetting> {
               icon: Icon(Icons.close),
               onPressed: (){
                 setState(() {
-                  profileStateProvider.profileState.onSetting = false;
+                  profileStatesProvider.setSetting(false);
                 });
                 print("Cancel");
               },
@@ -93,7 +93,7 @@ class _ProfileSettingState extends State<ProfileSetting> {
               icon: Icon(Icons.check),
               onPressed: (){
                 setState(() {
-                  profileStateProvider.profileState.onSetting = false;
+                  profileStatesProvider.setSetting(false);
                 });
                 print("Done");
               },

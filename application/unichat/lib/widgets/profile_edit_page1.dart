@@ -265,7 +265,7 @@ class _ProfileEditPage1State extends State<ProfileEditPage1> {
                   icon: Icon(null),
                 ),
                 Text(
-                  "1/5",
+                  "1/6",
                   style: TextStyle(
                     color: backgroundColor.withOpacity(1.0),
                     fontWeight: FontWeight.bold,

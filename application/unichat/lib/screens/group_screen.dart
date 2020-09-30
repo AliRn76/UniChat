@@ -14,14 +14,12 @@ class _GroupScreenState extends State<GroupScreen> {
   TextEditingController searchController = TextEditingController();
   bool isInSearch = false;
   bool isLeftItem = true;
+  Color fontColor = Colors.black;
+  Color borderColor = Colors.grey;
+  Color backgroundColor = Colors.white;
   Widget appBarSearchIcon = Icon(Icons.search);
-  Widget appbarTitle = Text(
-    "Group Chat",
-    style: TextStyle(
-      fontSize: 16.0,
-      letterSpacing: 2.5,
-    ),
-  );
+  Widget appbarTitle = Text("Group Chat", style: TextStyle(fontSize: 16.0, letterSpacing: 2.5));
+
   List<String> list = ['Ali', 'Erfan', 'Farhad', 'Nima', 'Ehsan', 'Mamad', 'Sadegh', 'Hamid'];
   @override
   Widget build(BuildContext context) {
@@ -74,11 +72,63 @@ class _GroupScreenState extends State<GroupScreen> {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Container(
-            color: Colors.red,
             width: size.width * 0.6,
-            height: size.width * 0.25,
+            height: size.width * 0.3,
+            padding: EdgeInsets.all(size.width * 0.02),
+            decoration: BoxDecoration(
+              color: backgroundColor.withOpacity(0.5),
+              borderRadius: BorderRadius.circular(15.0),
+              border: Border.all(color: borderColor),
+            ),
             child: Stack(
-
+              children: [
+                Align(
+                  alignment: Alignment(0, -1),
+                  child: Text(
+                    "Group Name",
+                    style: TextStyle(
+                      fontSize: 13.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                Align(
+                  alignment: Alignment(-1, -0.6),
+                  child: Text(
+                    "Member",
+                    style: TextStyle(
+                      fontSize: 11.0,
+                    ),
+                  ),
+                ),
+                Align(
+                  alignment: Alignment(-1, -0.2),
+                  child: Text(
+                    "offline",
+                    style: TextStyle(
+                      fontSize: 11.0,
+                    ),
+                  ),
+                ),
+                Align(
+                  alignment: Alignment(1, -0.4),
+                  child: Text(
+                    "Unread",
+                    style: TextStyle(
+                      fontSize: 11.0,
+                    ),
+                  ),
+                ),
+                Align(
+                  alignment: Alignment(0, 1),
+                  child: Text(
+                    "This is the actual text message , so work with it",
+                    style: TextStyle(
+                      fontSize: 12.0,
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
         ],

@@ -304,7 +304,7 @@ class _ProfileEditPage2State extends State<ProfileEditPage2> {
                   },
                 ),
                 Text(
-                  "2/5",
+                  "2/6",
                   style: TextStyle(
                     color: backgroundColor.withOpacity(1.0),
                     fontWeight: FontWeight.bold,

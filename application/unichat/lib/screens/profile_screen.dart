@@ -48,7 +48,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ),
       ),
       child: BackdropFilter(
-        filter: ImageFilter.blur(sigmaX: 0.0, sigmaY: 0.0),
+        filter: ImageFilter.blur(sigmaX: 6.0, sigmaY: 6.0),
         child: Center(
           child: profileStateProvider.profileState.onEdit ? ProfileEdit()
               : profileStateProvider.profileState.onSecurity ? ProfileSecurity()

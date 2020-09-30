@@ -436,7 +436,7 @@ class _ProfileEditPage4State extends State<ProfileEditPage4> {
                   },
                 ),
                 Text(
-                  "4/5",
+                  "4/6",
                   style: TextStyle(
                     color: backgroundColor.withOpacity(1.0),
                     fontWeight: FontWeight.bold,

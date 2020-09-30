@@ -163,13 +163,22 @@ class _ProfileEditPage5State extends State<ProfileEditPage5> {
                   },
                 ),
                 Text(
-                  "5/5",
+                  "5/6",
                   style: TextStyle(
                     color: backgroundColor.withOpacity(1.0),
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
                 IconButton(
-                  icon: Icon(null),
+                  icon: Icon(Icons.arrow_forward),
+                  color: backgroundColor.withOpacity(1.0),
+                  onPressed: (){
+                    print("Go To Page 6");
+                    setState(() {
+                      profileStatesProvider.setPage5(false);
+                      profileStatesProvider.setPage6(true);
+                    });
+                  },
                 ),
               ],
             ),
