@@ -18,8 +18,6 @@ class ProfileEditPage5 extends StatefulWidget {
 }
 
 class _ProfileEditPage5State extends State<ProfileEditPage5> {
-  Color backgroundColor = Color(0xA3D1FF);
-  Color fontColor = Colors.black;
   bool onChangeBackgroundColor = true;
   bool onChangeFontColor = false;
 
@@ -28,6 +26,9 @@ class _ProfileEditPage5State extends State<ProfileEditPage5> {
     Size size = MediaQuery.of(context).size;
     final ProfileStatesProvider profileStatesProvider = Provider.of<ProfileStatesProvider>(context);
     final ProfileDataProvider profileDataProvider = Provider.of<ProfileDataProvider>(context);
+
+    Color backgroundColor = profileDataProvider.user.background_color;
+    Color fontColor = profileDataProvider.user.font_color;
 
     return Stack(
       children: <Widget>[
@@ -115,32 +116,31 @@ class _ProfileEditPage5State extends State<ProfileEditPage5> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                onChangeBackgroundColor
-                    ? CircleColorPicker(
+                onChangeBackgroundColor ?
+                CircleColorPicker(
                   textStyle: TextStyle(
                     fontSize: 15.0,
                     fontWeight: FontWeight.bold,
                     color: backgroundColor.withOpacity(1.0),
                   ),
                   initialColor: backgroundColor,
-                  onChanged: (color) => setState(() => backgroundColor = color),
+                  onChanged: (color) => setState(() => profileDataProvider.setBackgroundColor(color)),
                   size: Size(250, 230),
                   strokeWidth: 6,
                   thumbSize: 26,
-                )
-                    : CircleColorPicker(
+                ) :
+                CircleColorPicker(
                   textStyle: TextStyle(
                     fontSize: 15.0,
                     fontWeight: FontWeight.bold,
                     color: fontColor.withOpacity(1.0),
                   ),
                   initialColor: fontColor,
-                  onChanged: (color) => setState(() => fontColor = color),
+                  onChanged: (color) => setState(() => profileDataProvider.setFontColor(color)),
                   size: Size(250, 230),
                   strokeWidth: 6,
                   thumbSize: 26,
                 ),
-
               ],
             ),
           ],

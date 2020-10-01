@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_circle_color_picker/flutter_circle_color_picker.dart';
 import 'package:invert_colors/invert_colors.dart';
 import 'package:provider/provider.dart';
+import 'package:unichat/providers/profile_data_provider.dart';
 import 'package:unichat/providers/profile_states_provider.dart';
 import 'package:unichat/widgets/myArc.dart';
 
@@ -13,16 +14,16 @@ class ProfileMain extends StatefulWidget {
 }
 
 class _ProfileMainState extends State<ProfileMain> {
-  Color backgroundColor = Color(0xA3D1FF);
-  Color fontColor = Colors.black;
-//  Color lastBackgroundColor;
-//  Color lastFontColor;
 
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     final ProfileStatesProvider statesProvider = Provider.of<ProfileStatesProvider>(context);
+    final ProfileDataProvider profileDataProvider = Provider.of<ProfileDataProvider>(context);
+
+    Color backgroundColor = profileDataProvider.user.background_color;
+    Color fontColor = profileDataProvider.user.font_color;
 
     return Stack(
       children: <Widget>[
@@ -82,14 +83,14 @@ class _ProfileMainState extends State<ProfileMain> {
                                   Text(
                                     "22",
                                     style: TextStyle(
-                                      color: fontColor,
+                                      color: fontColor.withOpacity(1.0),
                                     ),
                                   ),
                                   SizedBox(width: size.width * 0.04),
                                   Icon(
                                     Icons.pin_drop,
                                     size: 16.0,
-                                    color: fontColor,
+                                    color: fontColor.withOpacity(1.0),
                                   ),
                                   Container(
                                     width: size.width * 0.25,
@@ -98,7 +99,7 @@ class _ProfileMainState extends State<ProfileMain> {
                                       overflow: TextOverflow.ellipsis,
                                       maxLines: 1,
                                       style: TextStyle(
-                                        color: fontColor,
+                                        color: fontColor.withOpacity(1.0),
                                       ),
                                     ),
                                   ),
@@ -111,7 +112,7 @@ class _ProfileMainState extends State<ProfileMain> {
                                 Icon(
                                   Icons.phone,
                                   size: 16.0,
-                                  color: fontColor,
+                                  color: fontColor.withOpacity(1.0),
                                 ),
                                 SizedBox(width:size.width * 0.01),
                                 Container(
@@ -121,7 +122,7 @@ class _ProfileMainState extends State<ProfileMain> {
                                     maxLines: 1,
                                     overflow: TextOverflow.ellipsis,
                                     style: TextStyle(
-                                      color: fontColor,
+                                      color: fontColor.withOpacity(1.0),
                                     ),
                                   ),
                                 ),
@@ -181,7 +182,7 @@ class _ProfileMainState extends State<ProfileMain> {
                           Text(
                             "Admin",
                             style: TextStyle(
-                              color: fontColor,
+                              color: fontColor.withOpacity(1.0),
                             ),
                           ),
                         ],
@@ -198,7 +199,7 @@ class _ProfileMainState extends State<ProfileMain> {
                           Text(
                             "Ali_Rn_",
                             style: TextStyle(
-                              color: fontColor,
+                              color: fontColor.withOpacity(1.0),
                             ),
                           ),
                         ],
@@ -218,7 +219,7 @@ class _ProfileMainState extends State<ProfileMain> {
                           Text(
                             " Al1Rn",
                             style: TextStyle(
-                              color: fontColor,
+                              color: fontColor.withOpacity(1.0),
                             ),
                           ),
                         ],
@@ -235,13 +236,13 @@ class _ProfileMainState extends State<ProfileMain> {
                                   Icon(
                                     Icons.directions_run,
                                     size: 16.0,
-                                    color: fontColor,
+                                    color: fontColor.withOpacity(1.0),
                                   ),
                                   SizedBox(width: size.width * 0.02),
                                   Text(
                                     "Football",
                                     style: TextStyle(
-                                      color: fontColor,
+                                      color: fontColor.withOpacity(1.0),
                                     ),),
                                 ],
                               ),
@@ -251,13 +252,13 @@ class _ProfileMainState extends State<ProfileMain> {
                                   Icon(
                                     Icons.videogame_asset,
                                     size: 16.0,
-                                    color: fontColor,
+                                    color: fontColor.withOpacity(1.0),
                                   ),
                                   SizedBox(width: size.width * 0.02),
                                   Text(
                                     "Game",
                                     style: TextStyle(
-                                      color: fontColor,
+                                      color: fontColor.withOpacity(1.0),
                                     ),),
                                 ],
                               ),
@@ -267,13 +268,13 @@ class _ProfileMainState extends State<ProfileMain> {
                                   Icon(
                                     Icons.tv,
                                     size: 16.0,
-                                    color: fontColor,
+                                    color: fontColor.withOpacity(1.0),
                                   ),
                                   SizedBox(width: size.width * 0.02),
                                   Text(
                                     "TV Series",
                                     style: TextStyle(
-                                      color: fontColor,
+                                      color: fontColor.withOpacity(1.0),
                                     ),),
                                 ],
                               ),
@@ -283,13 +284,13 @@ class _ProfileMainState extends State<ProfileMain> {
                                   Icon(
                                     Icons.tv,
                                     size: 16.0,
-                                    color: fontColor,
+                                    color: fontColor.withOpacity(1.0),
                                   ),
                                   SizedBox(width: size.width * 0.02),
                                   Text(
                                     "TV Series",
                                     style: TextStyle(
-                                      color: fontColor,
+                                      color: fontColor.withOpacity(1.0),
                                     ),),
                                 ],
                               ),
@@ -303,13 +304,13 @@ class _ProfileMainState extends State<ProfileMain> {
                                   Icon(
                                     Icons.library_books,
                                     size: 16.0,
-                                    color: fontColor,
+                                    color: fontColor.withOpacity(1.0),
                                   ),
                                   SizedBox(width: size.width * 0.02),
                                   Text(
                                     "Book",
                                     style: TextStyle(
-                                      color: fontColor,
+                                      color: fontColor.withOpacity(1.0),
                                     ),),
                                 ],
                               ),
@@ -319,13 +320,13 @@ class _ProfileMainState extends State<ProfileMain> {
                                   Icon(
                                     Icons.movie,
                                     size: 16.0,
-                                    color: fontColor,
+                                    color: fontColor.withOpacity(1.0),
                                   ),
                                   SizedBox(width: size.width * 0.02),
                                   Text(
                                     "Movie",
                                     style: TextStyle(
-                                      color: fontColor,
+                                      color: fontColor.withOpacity(1.0),
                                     ),),
                                 ],
                               ),
@@ -335,13 +336,13 @@ class _ProfileMainState extends State<ProfileMain> {
                                   Icon(
                                     Icons.airplanemode_active,
                                     size: 16.0,
-                                    color: fontColor,
+                                    color: fontColor.withOpacity(1.0),
                                   ),
                                   SizedBox(width: size.width * 0.02),
                                   Text(
                                     "Wants to travel",
                                     style: TextStyle(
-                                      color: fontColor,
+                                      color: fontColor.withOpacity(1.0),
                                     ),),
                                 ],
                               ),
@@ -351,13 +352,13 @@ class _ProfileMainState extends State<ProfileMain> {
                                   Icon(
                                     Icons.airplanemode_active,
                                     size: 16.0,
-                                    color: fontColor,
+                                    color: fontColor.withOpacity(1.0),
                                   ),
                                   SizedBox(width: size.width * 0.02),
                                   Text(
                                     "Wants to travel",
                                     style: TextStyle(
-                                      color: fontColor,
+                                      color: fontColor.withOpacity(1.0),
                                     ),),
                                 ],
                               ),

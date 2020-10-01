@@ -18,16 +18,16 @@ class ProfileEditPage3 extends StatefulWidget {
 }
 
 class _ProfileEditPage3State extends State<ProfileEditPage3> {
-  Color backgroundColor = Color(0xA3D1FF);
-  Color fontColor = Colors.black;
   Country _selectedCupertinoCountry = CountryPickerUtils.getCountryByIsoCode('IR');
-
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     final ProfileStatesProvider profileStatesProvider = Provider.of<ProfileStatesProvider>(context);
     final ProfileDataProvider profileDataProvider = Provider.of<ProfileDataProvider>(context);
+
+    Color backgroundColor = profileDataProvider.user.background_color;
+    Color fontColor = profileDataProvider.user.font_color;
 
     return Stack(
       children: [
@@ -171,7 +171,7 @@ class _ProfileEditPage3State extends State<ProfileEditPage3> {
                         ),
                         child: FlatButton(
                           padding: EdgeInsets.all(0.0),
-                          child: _buildCupertinoSelectedItem(_selectedCupertinoCountry),
+                          child: _buildCupertinoSelectedItem(_selectedCupertinoCountry, fontColor),
                           onPressed: _openCupertinoCountryPicker,
                         ),
                       ),
@@ -320,7 +320,7 @@ class _ProfileEditPage3State extends State<ProfileEditPage3> {
         );
       });
 
-  Widget _buildCupertinoSelectedItem(Country country) {
+  Widget _buildCupertinoSelectedItem(Country country, Color fontColor) {
     Size size = MediaQuery.of(context).size;
     return Row(
       children: <Widget>[

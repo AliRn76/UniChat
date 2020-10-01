@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 
 class User{
   String username;
@@ -19,6 +21,7 @@ class User{
   String field;
   int entrance_year;
 
+  String job;
   String favorite_sport;
   String favorite_book;
   String favorite_movie;
@@ -26,8 +29,10 @@ class User{
   String favorite_game;
   String favorite_to_travel;
   String favorite_music;
-  String background_color;
-  String font_color;
+  Color background_color;
+  Color font_color;
+  String background_image;
+  int background_opacity;
 
 
   User(
@@ -50,6 +55,7 @@ class User{
       this.field,
       this.entrance_year,
 
+      this.job,
       this.favorite_sport,
       this.favorite_book,
       this.favorite_movie,
@@ -59,9 +65,8 @@ class User{
       this.favorite_music,
       this.background_color,
       this.font_color,
-
-
-
+      this.background_image,
+      this.background_opacity,
       );
 
   User.fromJson(Map<String, dynamic> json){
@@ -81,6 +86,7 @@ class User{
     university          = json['university'];
     field               = json['field'];
     entrance_year       = json['entrance_year'];
+    job                 = json['job'];
     favorite_sport      = json['favorite_sport'];
     favorite_book       = json['favorite_book'];
     favorite_movie      = json['favorite_movie'];
@@ -90,6 +96,8 @@ class User{
     favorite_music      = json['favorite_music'];
     background_color    = json['background_color'];
     font_color          = json['font_color'];
+    background_image    = json['background_image'];
+    background_opacity  = json['background_opacity'];
   }
 
   Map<String, dynamic> toJson(){
@@ -110,6 +118,7 @@ class User{
     map['university']         = university;
     map['field']              = field;
     map['entrance_year']      = entrance_year;
+    map['job']                = job;
     map['favorite_sport']     = favorite_sport;
     map['favorite_book']      = favorite_book;
     map['favorite_movie']     = favorite_movie;
@@ -119,6 +128,8 @@ class User{
     map['favorite_music']     = favorite_music;
     map['background_color']   = background_color;
     map['font_color']         = font_color;
+    map['background_image']   = background_image;
+    map['background_opacity'] = background_opacity;
     return map;
   }
 

@@ -37,238 +37,173 @@ class _ProfileAboutUsState extends State<ProfileAboutUs> {
             color: backgroundColor.withOpacity(0.3),
             borderRadius: BorderRadius.circular(15.0),
           ),
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  Container(
+          child: Center(child: Text("About Us")),
+//          child: Column(
+//            children: [
+//              Row(
+//                children: [
+//                  Container(
 //                    width: 8.0,
-//                    height: size.height * 0.6,
-//                      color: Colors.red,
-                  ),
-//                  SizedBox(width: size.width * 0.12),
-                  Container(
-//                    width: size.width * 0.7,
-//                    height: size.height * 0.6,
-                    child: Align(
-                      alignment: Alignment(-0.4,0),
-                      child: Text(
-                        "There is no us \n             It's me  :)",
-                        style: TextStyle(
-                          fontSize: 25.0,
-                          fontFamily: "Milton",
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              Row(
-                children: <Widget>[
-                  Container(
+//                    height: size.height * 0.06,
+//                    color: Colors.red,
+//                  ),
+////                  SizedBox(width: size.width * 0.12),
+//                  Container(
+////                    width: size.width * 0.7,
+////                    height: size.height * 0.6,
+//                    child: Align(
+//                      alignment: Alignment(-0.4,0),
+//                      child: Text(
+//                        "There is no us \n             It's me  :)",
+//                        style: TextStyle(
+//                          fontSize: 25.0,
+//                          fontFamily: "Milton",
+//                        ),
+//                      ),
+//                    ),
+//                  ),
+//                ],
+//              ),
+//              Row(
+//                children: <Widget>[
+//                  Container(
 //                    width: 8.0,
 //                    height: size.height * 0.11,
-//                    color: Theme.of(context).accentColor,
-                  ),
-//                  SizedBox(width: size.width * 0.8),
-                  Align(
-                    alignment: Alignment(-1, 0),
-                    child: Container(
-//                      width: size.width * 0.2,
-//                      height: size.height * 0.11,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: <Widget>[
-                          Text(
-                            "Hi !   I'm Ali",
-                            style: TextStyle(
-                              fontFamily: "Milton",
-                              fontSize: 20.0,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              Row(
-                children: <Widget>[
-                  Container(
+//                    color: Colors.grey,
+//                  ),
+////                  SizedBox(width: size.width * 0.8),
+//                  Align(
+//                    alignment: Alignment(-1, 0),
+//                    child: Container(
+////                      width: size.width * 0.2,
+////                      height: size.height * 0.11,
+//                      child: Row(
+//                        mainAxisAlignment: MainAxisAlignment.start,
+//                        children: <Widget>[
+//                          Text(
+//                            "Hi !   I'm Ali",
+//                            style: TextStyle(
+//                              fontFamily: "Milton",
+//                              fontSize: 20.0,
+//                            ),
+//                          ),
+//                        ],
+//                      ),
+//                    ),
+//                  ),
+//                ],
+//              ),
+//              Row(
+//                children: <Widget>[
+//                  Container(
 //                    width: 8.0,
-//                    height: height()/4,
-                    color: Colors.greenAccent[200],
-                  ),
-//                  SizedBox(width: width()/8),
-                  Container(
-//                    width: width() - width()/8 - 8,
-//                    height: height()/4,
-                    child: Align(
-                      alignment: Alignment(-1.0, 0.0),
-                      child: Text(
-                        "I work with:\n\n"
-                            "    1.   Flutter in Client-Side\n"
-                            "    2.   Django in Server-Side",
-                        style: TextStyle(
-                          fontFamily: "Milton",
-                          fontSize: 20.0,
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              Row(
-                children: <Widget>[
-                  Container(
+//                    height: size.height * 0.09,
+//                    color: Colors.greenAccent[200],
+//                  ),
+////                  SizedBox(width: width()/8),
+//                  Container(
+////                    width: width() - width()/8 - 8,
+////                    height: height()/4,
+//                    child: Align(
+//                      alignment: Alignment(-1.0, 0.0),
+//                      child: Text(
+//                        "I work with:\n\n"
+//                            "    1.   Flutter in Client-Side\n"
+//                            "    2.   Django in Server-Side",
+//                        style: TextStyle(
+//                          fontFamily: "Milton",
+//                          fontSize: 20.0,
+//                        ),
+//                      ),
+//                    ),
+//                  ),
+//                ],
+//              ),
+//              Row(
+//                children: <Widget>[
+//                  Container(
 //                    width: 8.0,
-//                    height: height()/6,
-                    color: Colors.blue,
-                  ),
-//                  SizedBox(width: width()/8),
-                  Container(
-//                    width: width() - width()/8 - 8,
-//                    height: height()/6,
-                    child: Align(
-                      alignment: Alignment(-1, 0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: <Widget>[
-//                    SizedBox(width: width()/16),
-                          Text(
-                            "Donate Me  ",
-                            style: TextStyle(
-                              fontFamily: "Milton",
-                              fontSize: 20.0,
-                            ),
-                          ),
-                          Icon(
-                            Icons.arrow_forward,
-                            size: 22.0,
-                          ),
-                          SizedBox(width: 10.0),
-                          Center(
-                            child: ClayContainer(
-//                              color: Theme.of(context).scaffoldBackgroundColor,
-                              height: 85,
-                              width: 85,
-                              borderRadius: 200,
-                              curveType: CurveType.convex,
-//                              spread: 10,
-//                              depth: calculatedFirstDepth.toInt(),
-                              child: Center(
-//                                child: ClayContainer(
-//                                  height: 75,
-//                                  width: 75,
-//                                  borderRadius: 200,
-////                                  depth: calculatedSecondDepth.toInt(),
-//                                  curveType: CurveType.convex,
-//                                  color: Theme.of(context).scaffoldBackgroundColor,
-//                                  child: Center(
-//                                    child: ClayContainer(
-//                                        height: 60,
-//                                        width: 60,
-//                                        borderRadius: 200,
-//                                        color: Theme.of(context).scaffoldBackgroundColor,
-////                                        depth: calculatedThirdDepth.toInt(),
-//                                        curveType: CurveType.concave,
-//                                        child: Center(
-//                                            child: ClayContainer(
-//                                              height: 50,
-//                                              width: 50,
-//                                              borderRadius: 200,
-//                                              color: Theme.of(context).scaffoldBackgroundColor,
-////                                              depth: calculatedFourthDepth.toInt(),
-//                                              curveType: CurveType.convex,
-//                                              child: IconButton(
-//                                                icon: FaIcon(FontAwesomeIcons.handHoldingUsd),
-////                                                onPressed: () => launch('https://idpay.ir/alirn'),
-//                                                color: Colors.blue[600],
-//                                                splashColor: Colors.blue,
-//                                                hoverColor: Colors.blue,
-//                                              ),
-//                                            )
-//                                        )
+//                    height: size.height * 0.06,
+//                    color: Colors.blue,
+//                  ),
+////                  SizedBox(width: width()/8),
+//                  Container(
+////                    width: width() - width()/8 - 8,
+////                    height: height()/6,
+//                    child: Align(
+//                      alignment: Alignment(-1, 0),
+//                    ),
+//                  ),
+//                ],
+//              ),
+//              Row(
+//                children: <Widget>[
+//                  Container(
+//                    width: 8.0,
+//                    height: size.height * 0.07,
+//                    color: Colors.blue,
+//                  ),
+////                  SizedBox(width: width()/8),
+//                  Container(
+////                    width: width() - width()/8 - 8,
+////                    height: height()/7,
+//                    child: Column(
+//                      mainAxisAlignment: MainAxisAlignment.center,
+//                      children: <Widget>[
+//                        Row(
+//                          mainAxisAlignment: MainAxisAlignment.start,
+//                          children: <Widget>[
+////                            SizedBox(width: width()/10),
+//                            FaIcon(
+//                              FontAwesomeIcons.github,
+//                              size: 25.0,
+//                            ),
+//                            RichText(
+//                              text: TextSpan(
+//                                  children: [
+//                                    TextSpan(
+//                                      text: '     Github.com/AliRn76',
+//                                      style: TextStyle(color: Colors.blue),
+////                                      recognizer: TapGestureRecognizer()
+////                                        ..onTap = () { launch('https://github.com/AliRn76');
+////                                        },
 //                                    ),
-//                                  ),
-//                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              Row(
-                children: <Widget>[
-                  Container(
-                    width: 8.0,
-//                    height: height()/7,
-//                color: Colors.blue,
-                  ),
-//                  SizedBox(width: width()/8),
-                  Container(
-//                    width: width() - width()/8 - 8,
-//                    height: height()/7,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: <Widget>[
-//                            SizedBox(width: width()/10),
-                            FaIcon(
-                              FontAwesomeIcons.github,
-                              size: 25.0,
-                            ),
-                            RichText(
-                              text: TextSpan(
-                                  children: [
-                                    TextSpan(
-                                      text: '     Github.com/AliRn76',
-                                      style: TextStyle(color: Colors.blue),
-//                                      recognizer: TapGestureRecognizer()
-//                                        ..onTap = () { launch('https://github.com/AliRn76');
-//                                        },
-                                    ),
-                                  ]
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: 5.0),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: <Widget>[
-//                            SizedBox(width: width()/10),
-                            FaIcon(
-                              FontAwesomeIcons.userAlt,
-                              size: 25.0,
-                            ),
-                            RichText(
-                              text: TextSpan(
-                                  children: [
-                                    TextSpan(
-                                      text: '     Contact Me',
-                                      style: TextStyle(color: Colors.blue),
-//                                      recognizer: TapGestureRecognizer()
-//                                        ..onTap = () { launch('http://Alirn.ir');
-//                                        },
-                                    ),
-                                  ]
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
+//                                  ]
+//                              ),
+//                            ),
+//                          ],
+//                        ),
+//                        SizedBox(height: 5.0),
+//                        Row(
+//                          mainAxisAlignment: MainAxisAlignment.start,
+//                          children: <Widget>[
+////                            SizedBox(width: width()/10),
+//                            FaIcon(
+//                              FontAwesomeIcons.userAlt,
+//                              size: 25.0,
+//                            ),
+//                            RichText(
+//                              text: TextSpan(
+//                                  children: [
+//                                    TextSpan(
+//                                      text: '     Contact Me',
+//                                      style: TextStyle(color: Colors.blue),
+////                                      recognizer: TapGestureRecognizer()
+////                                        ..onTap = () { launch('http://Alirn.ir');
+////                                        },
+//                                    ),
+//                                  ]
+//                              ),
+//                            ),
+//                          ],
+//                        ),
+//                      ],
+//                    ),
+//                  ),
+//                ],
+//              ),
+//            ],
+//          ),
         ),
         Positioned(
           top: 0.0,

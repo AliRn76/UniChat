@@ -13,8 +13,7 @@ class ProfileDataProvider extends ChangeNotifier {
     "Admin", "Ali", "Rn", "alirn76@yahoo.com", "09037853055", "assets/images/Michael B Jordan.png",
       "There is no bio", "Ali_Rn_", "Al1Rn", DateTime.now(), false,
       "Iran", "Tehran", "IAU TNB", "IT", 1395,
-      "Taekwondo", "Harry Potter", "Warrior", "The Flash", "HoN", "No Where", "Dar Vaghe", "0xA3D1FF", "0x000000"
-  );
+      "Programmer", "Taekwondo", "Harry Potter", "Warrior", "The Flash", "HoN", "No Where", "Dar Vaghe", Color(0xA3D1FF), Color(0x000000), "assets/images/nature-background.jpg", 6  );
 
   User get user => _user;
 
@@ -28,6 +27,15 @@ class ProfileDataProvider extends ChangeNotifier {
     var result = await DatabaseHelper().selectUser();
     print("In Provider, Select User From DB Result: $result");
     user = User.fromJson(result[0]);
+  }
+
+  void setBackgroundColor(Color value){
+    _user.background_color = value;
+    notifyListeners();
+  }
+  void setFontColor(Color value){
+    _user.font_color = value;
+    notifyListeners();
   }
 }
 

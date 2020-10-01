@@ -19,14 +19,15 @@ class ProfileEditPage1 extends StatefulWidget {
 }
 
 class _ProfileEditPage1State extends State<ProfileEditPage1> {
-  Color backgroundColor = Color(0xA3D1FF);
-  Color fontColor = Colors.black;
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     final ProfileStatesProvider profileStatesProvider = Provider.of<ProfileStatesProvider>(context);
     final ProfileDataProvider profileDataProvider = Provider.of<ProfileDataProvider>(context);
+
+    Color backgroundColor = profileDataProvider.user.background_color;
+    Color fontColor = profileDataProvider.user.font_color;
 
     return Stack(
       children: [

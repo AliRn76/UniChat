@@ -24,14 +24,16 @@ class ProfileEdit extends StatefulWidget {
 }
 
 class _ProfileEditState extends State<ProfileEdit> {
-  Color backgroundColor = Color(0xA3D1FF);
-  Color fontColor = Colors.black;
-
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     final ProfileStatesProvider profileStatesProvider = Provider.of<ProfileStatesProvider>(context);
+    final ProfileDataProvider profileDataProvider = Provider.of<ProfileDataProvider>(context);
+
+    Color backgroundColor = profileDataProvider.user.background_color;
+    Color fontColor = profileDataProvider.user.font_color;
+
 
     return Stack(
       children: <Widget>[
@@ -73,8 +75,8 @@ class _ProfileEditState extends State<ProfileEdit> {
               icon: Icon(Icons.close),
               onPressed: (){
                 setState(() {
-                  backgroundColor = profileStatesProvider.lastBackgroundColor;
-                  fontColor = profileStatesProvider.lastFontColor;
+                  profileDataProvider.setBackgroundColor(profileStatesProvider.lastBackgroundColor);
+                  profileDataProvider.setFontColor(profileStatesProvider.lastFontColor);
                   profileStatesProvider.setEdit(false);
                   profileStatesProvider.setPage1(true);
                   profileStatesProvider.setPage2(false);
@@ -110,11 +112,6 @@ class _ProfileEditState extends State<ProfileEdit> {
               onPressed: (){
                 setState(() {
                   profileStatesProvider.setEdit(false);
-//                  profileStateProvider.profileEditState.page1 = true;
-//                  profileStateProvider.profileEditState.page2 = false;
-//                  profileStateProvider.profileEditState.page3 = false;
-//                  profileStateProvider.profileEditState.page4 = false;
-//                  profileStateProvider.profileEditState.page5 = false;
                   profileStatesProvider.setPage1(true);
                   profileStatesProvider.setPage2(false);
                   profileStatesProvider.setPage3(false);

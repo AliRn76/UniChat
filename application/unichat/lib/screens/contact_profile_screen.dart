@@ -188,7 +188,7 @@ class _ContactProfileState extends State<ContactProfile> {
                             Row(
                               children: <Widget>[
                                 Image.asset(
-                                  "assets/images/instagram-icon.png",
+                                  "assets/images/icons/instagram-icon.png",
                                   height: 30.0,
                                   fit: BoxFit.cover,
                                 ),
@@ -198,7 +198,7 @@ class _ContactProfileState extends State<ContactProfile> {
                             Row(
                               children: <Widget>[
                                 Image.asset(
-                                  "assets/images/instagram-icon.png",
+                                  "assets/images/icons/instagram-icon.png",
                                   height: 30.0,
                                   fit: BoxFit.cover,
                                 ),

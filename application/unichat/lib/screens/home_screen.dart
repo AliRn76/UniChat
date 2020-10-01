@@ -21,13 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-
-
     return Scaffold(
-///      Color(0xffe2aff3), purple
-///      Color(0xffafd1f3), blue
-///      Color(0xfff3e2af), yellow
-///      Color(0xffdbe1e5), grey
       body: Container(
         child: Center(
           child: _getPage(currentPage),
@@ -65,8 +59,6 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   _getPage(int page) {
-//    final ConnectionProvider connectionProvider = Provider.of<ConnectionProvider>(context);
-//    print(connectionProvider.connection.toString());
     switch (page) {
       case 0:
         return PvScreen();
