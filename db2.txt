@@ -10,6 +10,8 @@ Create Table auth_user(
 	is_active boolean,
 	date_joined datetime(6),
 	last_login datetime(6),
+	is_male boolean,
+	profile_picture varchar(255),
 	email varchar(254),
 	instagram varchar(150),
 	telegram varchar(150),
@@ -22,6 +24,7 @@ Create Table auth_user(
 	university varchar(255),
 	field varchar(255),
 	entrance_year int,
+	job varchar(255),
 	favorite_sport varchar(255),
 	favorite_book varchar(255),
 	favorite_movie varchar(255),
@@ -29,7 +32,10 @@ Create Table auth_user(
 	favorite_game varchar(255),
 	favorite_to_travel varchar(255),
 	favorite_music varchar(255),
-	favorite_color varchar(255));
+	background_color varchar(255),
+	font_color varchar(255),
+	background_image varchar(255),
+	background_opacity int);
 
 
 Create Table PVRoom(

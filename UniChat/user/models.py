@@ -45,6 +45,7 @@ class MyUser(AbstractBaseUser):
     date_joined         = models.DateTimeField(auto_now_add=True)
     last_login          = models.DateTimeField(blank=True, null=True)
     is_male             = models.BooleanField(blank=True, null=True)
+    profile_picture     = models.ImageField(upload_to='profile_pictures/', max_length=255, blank=True, null=True)
     email               = models.EmailField(verbose_name='email address', max_length=255, blank=True, null=True)
     instagram           = models.CharField(max_length=150, blank=True, null=True)
     telegram            = models.CharField(max_length=150, blank=True, null=True)
@@ -57,6 +58,7 @@ class MyUser(AbstractBaseUser):
     university          = models.CharField(max_length=256, blank=True, null=True)
     field               = models.CharField(max_length=256, blank=True, null=True)
     entrance_year       = models.IntegerField(blank=True, null=True)
+    job                 = models.CharField(max_length=255, blank=True, null=True)
     favorite_sport      = models.CharField(max_length=255, blank=True, null=True)
     favorite_book       = models.CharField(max_length=255, blank=True, null=True)
     favorite_movie      = models.CharField(max_length=255, blank=True, null=True)
@@ -64,7 +66,10 @@ class MyUser(AbstractBaseUser):
     favorite_game       = models.CharField(max_length=255, blank=True, null=True)
     favorite_to_travel  = models.CharField(max_length=255, blank=True, null=True)
     favorite_music      = models.CharField(max_length=255, blank=True, null=True)
-    favorite_color      = models.CharField(max_length=255, blank=True, null=True) # this will be his profile color :)
+    background_color    = models.CharField(max_length=255, blank=True, null=True)
+    font_color          = models.CharField(max_length=255, blank=True, null=True)
+    background_image    = models.ImageField(upload_to='background_images/', max_length=255, blank=True, null=True)
+    background_opacity  = models.IntegerField(blank=True, null=True)
 
     objects = MyUserManager()
 
