@@ -6,6 +6,7 @@ import 'package:invert_colors/invert_colors.dart';
 import 'package:provider/provider.dart';
 import 'package:unichat/providers/profile_data_provider.dart';
 import 'package:unichat/providers/profile_states_provider.dart';
+import 'package:unichat/utils/profile_edit_utils.dart';
 import 'package:unichat/widgets/myArc.dart';
 import 'package:country_pickers/country_pickers.dart';
 import 'package:country_pickers/country.dart';
@@ -92,37 +93,7 @@ class _ProfileEditPage6State extends State<ProfileEditPage6> {
             ),
           ],
         ),
-        InvertColors(
-          child: Align(
-            alignment: Alignment(0, 1),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                IconButton(
-                  icon: Icon(Icons.arrow_back),
-                  color: backgroundColor.withOpacity(1.0),
-                  onPressed: (){
-                    print("Go To Page 5");
-                    setState(() {
-                      profileStatesProvider.setPage6(false);
-                      profileStatesProvider.setPage5(true);
-                    });
-                  },
-                ),
-                Text(
-                  "6/6",
-                  style: TextStyle(
-                    color: backgroundColor.withOpacity(1.0),
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                IconButton(
-                  icon: Icon(null),
-                ),
-              ],
-            ),
-          ),
-        ),
+        ProfileEditUtils.pageNumber(context, 6, setState),
       ],
     );
   }

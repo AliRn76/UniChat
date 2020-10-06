@@ -6,6 +6,7 @@ import 'package:invert_colors/invert_colors.dart';
 import 'package:provider/provider.dart';
 import 'package:unichat/providers/profile_data_provider.dart';
 import 'package:unichat/providers/profile_states_provider.dart';
+import 'package:unichat/utils/profile_edit_utils.dart';
 import 'package:unichat/widgets/myArc.dart';
 import 'package:country_pickers/country_pickers.dart';
 import 'package:country_pickers/country.dart';
@@ -44,7 +45,7 @@ class _ProfileEditPage2State extends State<ProfileEditPage2> {
                       origin: Offset(0.0, -15),
                       child: Container(
                         width: size.width * 0.27,
-                        height: size.width * 0.15,
+                        height: size.width * 0.14,
                         padding: EdgeInsets.only(top: 5.0, left: 5.0),
                         margin: EdgeInsets.only(bottom: 5.0, top:20),
                         decoration: BoxDecoration(
@@ -64,130 +65,18 @@ class _ProfileEditPage2State extends State<ProfileEditPage2> {
                       ),
                     ),
                     SizedBox(height: size.width * 0.08),
-                    Transform.rotate(
-                      angle: -0.3,
-                      child: Container(
-                        width: size.width * 0.27,
-                        height: size.width * 0.08,
-                        padding: EdgeInsets.only(bottom: 5.0, left: 5.0),
-                        margin: EdgeInsets.only(bottom: 20),
-                        decoration: BoxDecoration(
-                          border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
-                        ),
-                        child: Row(
-                          children: [
-                            Container(
-                              width: size.width * 0.06,
-                              height: size.width * 0.05,
-                              child: Image.asset(
-                                "assets/images/icons/instagram-icon.png",
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                            InvertColors(
-                              child: Text(
-                                "Instagram: ",
-                                textAlign: TextAlign.start,
-                                style: TextStyle(
-                                  fontSize: 11.0,
-                                  color: backgroundColor.withOpacity(1.0),
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Transform.rotate(
-                      angle: -0.3,
-                      child: Container(
-                        width: size.width * 0.27,
-                        height: size.width * 0.08,
-                        margin: EdgeInsets.only(bottom: 20),
-                        padding: EdgeInsets.only(bottom: 5.0, left: 5.0),
-                        decoration: BoxDecoration(
-                          border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
-                        ),
-                        child: Row(
-                          children: [
-                            Container(
-                              width: size.width * 0.06,
-                              height: size.width * 0.05,
-                              child: Image.asset(
-                                "assets/images/icons/telegram-icon.png",
-                                fit: BoxFit.fitHeight,
-                              ),
-                            ),
-                            InvertColors(
-                              child: Text(
-                                "Telegram: ",
-                                textAlign: TextAlign.start,
-                                style: TextStyle(
-                                  fontSize: 11.0,
-                                  color: backgroundColor.withOpacity(1.0),
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
+                    ProfileEditUtils.transformImageText(context, "assets/images/icons/instagram-icon.png", "Instagram: "),
+                    ProfileEditUtils.transformImageText(context, "assets/images/icons/telegram-icon.png", "Telegram: "),
                     SizedBox(height: size.width * 0.08),
-                    Transform.rotate(
-                      angle: -0.3,
-                      child: Container(
-                        width: size.width * 0.27,
-                        height: size.width * 0.08,
-                        margin: EdgeInsets.only(bottom: 20),
-                        padding: EdgeInsets.only(bottom: 5.0, left: 5.0),
-                        decoration: BoxDecoration(
-                          border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
-                        ),
-                        child: InvertColors(
-                          child: Text(
-                            "Birth Date: ",
-                            textAlign: TextAlign.start,
-                            style: TextStyle(
-                              fontSize: 11.0,
-                              color: backgroundColor.withOpacity(1.0),
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    Transform.rotate(
-                      angle: -0.3,
-                      child: Container(
-                        width: size.width * 0.27,
-                        height: size.width * 0.08,
-                        margin: EdgeInsets.only(bottom: 20),
-                        padding: EdgeInsets.only(bottom: 5.0, left: 5.0),
-                        decoration: BoxDecoration(
-                          border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
-                        ),
-                        child: InvertColors(
-                          child: Text(
-                            "Relationship: ",
-                            textAlign: TextAlign.start,
-                            style: TextStyle(
-                              fontSize: 11.0,
-                              color: backgroundColor.withOpacity(1.0),
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
+                    ProfileEditUtils.transformedText(context, "Birth Date: "),
+                    ProfileEditUtils.transformedText(context, "Relationship: "),
                   ],
                 ),
                 Column(
                   children: [
                     Container(
                       width: size.width * 0.45,
-                      height: size.width * 0.15,
+                      height: size.width * 0.14,
                       padding: EdgeInsets.only(left: 10.0, top: 5.0),
                       margin: EdgeInsets.only(bottom: 5.0, top:20),
                       decoration: BoxDecoration(
@@ -205,128 +94,18 @@ class _ProfileEditPage2State extends State<ProfileEditPage2> {
                       ),
                     ),
                     SizedBox(height: size.width * 0.08),
-                    Container(
-                      width: size.width * 0.45,
-                      height: size.width * 0.08,
-                      margin: EdgeInsets.only(bottom: 20),
-                      padding: EdgeInsets.only(left: 10.0, bottom: 5.0),
-                      decoration: BoxDecoration(
-                        border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
-                      ),
-                      child: Text(
-                        profileDataProvider.user.instagram,
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                          fontSize: 11.0,
-                          color: fontColor.withOpacity(1.0),
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ),
-                    Container(
-                      width: size.width * 0.45,
-                      height: size.width * 0.08,
-                      margin: EdgeInsets.only(bottom: 20),
-                      padding: EdgeInsets.only(left: 10.0, bottom: 5.0),
-                      decoration: BoxDecoration(
-                        border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
-                      ),
-                      child: Text(
-                        profileDataProvider.user.telegram,
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                          fontSize: 11.0,
-                          color: fontColor.withOpacity(1.0),
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ),
+                    ProfileEditUtils.alignedText(context, profileDataProvider.user.instagram),
+                    ProfileEditUtils.alignedText(context, profileDataProvider.user.telegram),
                     SizedBox(height: size.width * 0.08),
-                    Container(
-                      width: size.width * 0.45,
-                      height: size.width * 0.08,
-                      padding: EdgeInsets.only(left: 10.0, bottom: 5.0),
-                      margin: EdgeInsets.only(bottom: 20),
-                      decoration: BoxDecoration(
-                        border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
-                      ),
-                      child: Text(
-                        profileDataProvider.user.birth_date.toString(),
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                          fontSize: 11.0,
-                          color: fontColor.withOpacity(1.0),
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ),
-                    Container(
-                      width: size.width * 0.45,
-                      height: size.width * 0.08,
-                      padding: EdgeInsets.only(left: 10.0, bottom: 5.0),
-                      margin: EdgeInsets.only(bottom: 20),
-                      decoration: BoxDecoration(
-                        border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
-                      ),
-                      child: Text(
-                        profileDataProvider.user.relationship.toString(),
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                          fontSize: 11.0,
-                          color: fontColor.withOpacity(1.0),
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ),
+                    ProfileEditUtils.alignedText(context, profileDataProvider.user.birth_date.toString()),
+                    ProfileEditUtils.alignedText(context, profileDataProvider.user.telegram),
                   ],
                 ),
               ],
             ),
           ],
         ),
-        InvertColors(
-          child: Align(
-            alignment: Alignment(0, 1),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                IconButton(
-                  icon: Icon(Icons.arrow_back),
-                  color: backgroundColor.withOpacity(1.0),
-                  onPressed: (){
-                    print("Go To Page 1");
-                    setState(() {
-                      profileStatesProvider.setPage2(false);
-                      profileStatesProvider.setPage1(true);
-                    });
-                  },
-                ),
-                Text(
-                  "2/6",
-                  style: TextStyle(
-                    color: backgroundColor.withOpacity(1.0),
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                IconButton(
-                  onPressed: (){
-                    print("Go To Page 3");
-                    setState(() {
-                      profileStatesProvider.setPage2(false);
-                      profileStatesProvider.setPage3(true);
-                    });
-                  },
-                  icon: Icon(Icons.arrow_forward),
-                  color: backgroundColor.withOpacity(1.0),
-                ),
-              ],
-            ),
-          ),
-        ),
+        ProfileEditUtils.pageNumber(context, 2, setState),
       ],
     );
   }

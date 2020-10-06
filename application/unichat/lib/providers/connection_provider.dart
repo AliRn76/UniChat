@@ -9,7 +9,7 @@ import 'package:connectivity/connectivity.dart';
 class ConnectionProvider extends ChangeNotifier{
 
   ConnectionProvider(){
-    initConnectivity();
+//    initConnectivity();
     _invokeNetworkStatusListen();
   }
 

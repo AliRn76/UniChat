@@ -6,6 +6,7 @@ import 'package:invert_colors/invert_colors.dart';
 import 'package:provider/provider.dart';
 import 'package:unichat/providers/profile_data_provider.dart';
 import 'package:unichat/providers/profile_states_provider.dart';
+import 'package:unichat/utils/profile_edit_utils.dart';
 import 'package:unichat/widgets/myArc.dart';
 import 'package:country_pickers/country_pickers.dart';
 import 'package:country_pickers/country.dart';
@@ -23,10 +24,8 @@ class _ProfileEditPage5State extends State<ProfileEditPage5> {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    final ProfileStatesProvider profileStatesProvider = Provider.of<ProfileStatesProvider>(context);
     final ProfileDataProvider profileDataProvider = Provider.of<ProfileDataProvider>(context);
-
+    Size size = MediaQuery.of(context).size;
     Color backgroundColor = profileDataProvider.user.background_color;
     Color fontColor = profileDataProvider.user.font_color;
 
@@ -145,45 +144,7 @@ class _ProfileEditPage5State extends State<ProfileEditPage5> {
             ),
           ],
         ),
-        InvertColors(
-          child: Align(
-            alignment: Alignment(0, 1),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                IconButton(
-                  icon: Icon(Icons.arrow_back),
-                  color: backgroundColor.withOpacity(1.0),
-                  onPressed: (){
-                    print("Go To Page 4");
-                    setState(() {
-                      profileStatesProvider.setPage5(false);
-                      profileStatesProvider.setPage4(true);
-                    });
-                  },
-                ),
-                Text(
-                  "5/6",
-                  style: TextStyle(
-                    color: backgroundColor.withOpacity(1.0),
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                IconButton(
-                  icon: Icon(Icons.arrow_forward),
-                  color: backgroundColor.withOpacity(1.0),
-                  onPressed: (){
-                    print("Go To Page 6");
-                    setState(() {
-                      profileStatesProvider.setPage5(false);
-                      profileStatesProvider.setPage6(true);
-                    });
-                  },
-                ),
-              ],
-            ),
-          ),
-        ),
+        ProfileEditUtils.pageNumber(context, 5, setState),
       ],
     );
   }

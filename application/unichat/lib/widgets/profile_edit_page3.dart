@@ -6,6 +6,7 @@ import 'package:invert_colors/invert_colors.dart';
 import 'package:provider/provider.dart';
 import 'package:unichat/providers/profile_data_provider.dart';
 import 'package:unichat/providers/profile_states_provider.dart';
+import 'package:unichat/utils/profile_edit_utils.dart';
 import 'package:unichat/widgets/myArc.dart';
 import 'package:country_pickers/country_pickers.dart';
 import 'package:country_pickers/country.dart';
@@ -42,128 +43,18 @@ class _ProfileEditPage3State extends State<ProfileEditPage3> {
                   Column(
                     children: [
                       SizedBox(height: size.width * 0.18),
-                      Transform.rotate(
-                        angle: -0.3,
-                        child: Container(
-                          width: size.width * 0.27,
-                          height: size.width * 0.06,
-                          padding: EdgeInsets.only(bottom: 5.0, left: 5.0),
-                          margin: EdgeInsets.only(bottom: 20),
-                          decoration: BoxDecoration(
-                            border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
-                          ),
-                          child: InvertColors(
-                            child: Text(
-                              "Country: ",
-                              textAlign: TextAlign.start,
-                              style: TextStyle(
-                                fontSize: 11.0,
-                                color: backgroundColor.withOpacity(1.0),
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      Transform.rotate(
-                        angle: -0.3,
-                        child: Container(
-                          width: size.width * 0.27,
-                          height: size.width * 0.06,
-                          margin: EdgeInsets.only(bottom: 20),
-                          padding: EdgeInsets.only(bottom: 5.0, left: 5.0),
-                          decoration: BoxDecoration(
-                            border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
-                          ),
-                          child: InvertColors(
-                            child: Text(
-                              "City: ",
-                              textAlign: TextAlign.start,
-                              style: TextStyle(
-                                fontSize: 11.0,
-                                color: backgroundColor.withOpacity(1.0),
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      Transform.rotate(
-                        angle: -0.3,
-                        child: Container(
-                          width: size.width * 0.27,
-                          height: size.width * 0.06,
-                          margin: EdgeInsets.only(bottom: 20),
-                          padding: EdgeInsets.only(bottom: 5.0, left: 5.0),
-                          decoration: BoxDecoration(
-                            border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
-                          ),
-                          child: InvertColors(
-                            child: Text(
-                              "University: ",
-                              textAlign: TextAlign.start,
-                              style: TextStyle(
-                                fontSize: 11.0,
-                                color: backgroundColor.withOpacity(1.0),
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      Transform.rotate(
-                        angle: -0.3,
-                        child: Container(
-                          width: size.width * 0.27,
-                          height: size.width * 0.06,
-                          margin: EdgeInsets.only(bottom: 20),
-                          padding: EdgeInsets.only(bottom: 5.0, left: 5.0),
-                          decoration: BoxDecoration(
-                            border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
-                          ),
-                          child: InvertColors(
-                            child: Text(
-                              "Field Of Study: ",
-                              textAlign: TextAlign.start,
-                              style: TextStyle(
-                                fontSize: 11.0,
-                                color: backgroundColor.withOpacity(1.0),
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      Transform.rotate(
-                        angle: -0.3,
-                        child: Container(
-                          width: size.width * 0.27,
-                          height: size.width * 0.06,
-                          margin: EdgeInsets.only(bottom: 20),
-                          padding: EdgeInsets.only(bottom: 5.0, left: 5.0),
-                          decoration: BoxDecoration(
-                            border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
-                          ),
-                          child: InvertColors(
-                            child: Text(
-                              "Entrance Year: ",
-                              textAlign: TextAlign.start,
-                              style: TextStyle(
-                                fontSize: 11.0,
-                                color: backgroundColor.withOpacity(1.0),
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
+                      ProfileEditUtils.transformedText(context, "Country: "),
+                      ProfileEditUtils.transformedText(context, "City: "),
+                      ProfileEditUtils.transformedText(context, "University: "),
+                      ProfileEditUtils.transformedText(context, "Field Of Study: "),
+                      ProfileEditUtils.transformedText(context, "Entrance Year: "),
                     ],
                   ),
                   Column(
                     children: [
                       Container(
                         width: size.width * 0.45,
-                        height: size.width * 0.16,
+                        height: size.width * 0.17,
                         margin: EdgeInsets.only(bottom: 20),
                         padding: EdgeInsets.only(left: 10.0,),
                         decoration: BoxDecoration(
@@ -175,82 +66,10 @@ class _ProfileEditPage3State extends State<ProfileEditPage3> {
                           onPressed: _openCupertinoCountryPicker,
                         ),
                       ),
-                      Container(
-                        width: size.width * 0.45,
-                        height: size.width * 0.06,
-                        margin: EdgeInsets.only(bottom: 20),
-                        padding: EdgeInsets.only(left: 10.0, bottom: 5.0),
-                        decoration: BoxDecoration(
-                          border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
-                        ),
-                        child: Text(
-                          profileDataProvider.user.city,
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
-                            fontSize: 11.0,
-                            color: fontColor.withOpacity(1.0),
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ),
-                      Container(
-                        width: size.width * 0.45,
-                        height: size.width * 0.06,
-                        margin: EdgeInsets.only(bottom: 20),
-                        padding: EdgeInsets.only(left: 10.0, bottom: 5.0),
-                        decoration: BoxDecoration(
-                          border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
-                        ),
-                        child: Text(
-                          profileDataProvider.user.university,
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
-                            fontSize: 11.0,
-                            color: fontColor.withOpacity(1.0),
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ),
-                      Container(
-                        width: size.width * 0.45,
-                        height: size.width * 0.06,
-                        padding: EdgeInsets.only(left: 10.0, bottom: 5.0),
-                        margin: EdgeInsets.only(bottom: 20),
-                        decoration: BoxDecoration(
-                          border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
-                        ),
-                        child: Text(
-                          profileDataProvider.user.field,
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
-                            fontSize: 11.0,
-                            color: fontColor.withOpacity(1.0),
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ),
-                      Container(
-                        width: size.width * 0.45,
-                        height: size.width * 0.06,
-                        padding: EdgeInsets.only(left: 10.0, bottom: 5.0),
-                        margin: EdgeInsets.only(bottom: 20),
-                        decoration: BoxDecoration(
-                          border: Border(bottom: BorderSide(color: backgroundColor.withOpacity(1.0))),
-                        ),
-                        child: Text(
-                          profileDataProvider.user.entrance_year.toString(),
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
-                            fontSize: 11.0,
-                            color: fontColor.withOpacity(1.0),
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ),
+                      ProfileEditUtils.alignedText(context, profileDataProvider.user.city),
+                      ProfileEditUtils.alignedText(context, profileDataProvider.user.university),
+                      ProfileEditUtils.alignedText(context, profileDataProvider.user.field),
+                      ProfileEditUtils.alignedText(context, profileDataProvider.user.entrance_year.toString()),
                     ],
                   ),
                 ],
@@ -258,45 +77,7 @@ class _ProfileEditPage3State extends State<ProfileEditPage3> {
             ],
           ),
         ),
-        InvertColors(
-          child: Align(
-            alignment: Alignment(0, 1),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                IconButton(
-                  icon: Icon(Icons.arrow_back),
-                  color: backgroundColor.withOpacity(1.0),
-                  onPressed: (){
-                    print("Go To Page 2");
-                    setState(() {
-                      profileStatesProvider.setPage3(false);
-                      profileStatesProvider.setPage2(true);
-                    });
-                  },
-                ),
-                Text(
-                  "3/6",
-                  style: TextStyle(
-                    color: backgroundColor.withOpacity(1.0),
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                IconButton(
-                  onPressed: (){
-                    print("Go To Page 4");
-                    setState(() {
-                      profileStatesProvider.setPage3(false);
-                      profileStatesProvider.setPage4(true);
-                    });
-                  },
-                  icon: Icon(Icons.arrow_forward),
-                  color: backgroundColor.withOpacity(1.0),
-                ),
-              ],
-            ),
-          ),
-        ),
+        ProfileEditUtils.pageNumber(context, 3, setState),
       ],
     );
   }
