@@ -4,9 +4,9 @@ import 'package:fancy_bottom_navigation/fancy_bottom_navigation.dart';
 import 'package:provider/provider.dart';
 import 'package:unichat/providers/connection_provider.dart';
 
-import 'package:unichat/screens/pv_screen.dart';
-import 'package:unichat/screens/group_screen.dart';
-import 'package:unichat/screens/profile_screen.dart';
+import 'package:unichat/screens/home_pv_screen.dart';
+import 'package:unichat/screens/home_group_screen.dart';
+import 'package:unichat/screens/home_profile_screen.dart';
 
 
 class HomeScreen extends StatefulWidget {

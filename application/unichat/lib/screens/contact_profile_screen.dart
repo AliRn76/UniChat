@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:ui';
 
 import 'package:invert_colors/invert_colors.dart';
-import 'package:unichat/screens/chat_screen.dart';
+import 'package:unichat/screens/pv_chat_screen.dart';
 
 class ContactProfile extends StatefulWidget {
   @override

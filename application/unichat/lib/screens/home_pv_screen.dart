@@ -1,32 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:unichat/providers/connection_provider.dart';
-import 'package:unichat/screens/chat_screen.dart';
+import 'package:unichat/screens/pv_chat_screen.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 
-class GroupScreen extends StatefulWidget {
+class PvScreen extends StatefulWidget {
+//  ConnectionProvider connectionProvider;
+
+//  PvScreen({this.connectionProvider});
+
   @override
-  _GroupScreenState createState() => _GroupScreenState();
+  _PvScreenState createState() => _PvScreenState();
 }
 
-class _GroupScreenState extends State<GroupScreen> {
+class _PvScreenState extends State<PvScreen> {
   TextEditingController searchController = TextEditingController();
   bool isInSearch = false;
-  bool isLeftItem = true;
-  Color fontColor = Colors.black;
-  Color borderColor = Colors.grey;
-  Color backgroundColor = Colors.white;
   Widget appBarSearchIcon = Icon(Icons.search);
-  Widget appbarTitle = Text("Group Chat", style: TextStyle(fontSize: 16.0, letterSpacing: 2.5));
+  Widget appbarTitle = Text(
+    "Uni Chat",
+    style: TextStyle(
+      fontSize: 16.0,
+      letterSpacing: 2.5,
+      color: Colors.black,
+    ),
+  );
 
-  List<String> list = ['Ali', 'Erfan', 'Farhad', 'Nima', 'Ehsan', 'Mamad', 'Sadegh', 'Hamid'];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          backgroundColor: Color(0xfff3e2af),
-          elevation: 0.0,
+          backgroundColor: Color(0xffe2aff3),
+          elevation: 3.0,
           centerTitle: true,
           title: _setTitle(),
           actions: [
@@ -34,28 +41,27 @@ class _GroupScreenState extends State<GroupScreen> {
           ]
       ),
       body: Container(
-        width: double.infinity,
-        height: double.infinity,
+//        width: double.infinity,
+//        height: double.infinity,
         decoration: BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                stops: [
-                  0.3,
-                  0.7,
-                ],
-                colors: [
-                  Color(0xfff3e2af),
-                  Color(0xfff9f9f9),
-                ]
-            )
+//            gradient: LinearGradient(
+//                begin: Alignment.topLeft,
+//                end: Alignment.bottomRight,
+//                stops: [
+//                  0.3,
+//                  0.7,
+//                ],
+//                colors: [
+//                  Color(0xffe2aff3),
+//                  Color(0xfff9f9f9),
+//                ]
+//            )
         ),
         child: SafeArea(
           child: ListView.builder(
-            itemCount: list.length,
+            itemCount: 40,
             itemBuilder: (context, index){
-              if(index+1 < list.length)
-                return _buildGroupChatPreview(list[index], list[index+1]);
+              return _buildChatPreview(index);
             },
           ),
         ),
@@ -63,96 +69,22 @@ class _GroupScreenState extends State<GroupScreen> {
     );
   }
 
-  Widget _buildGroupChatPreview(String str1, String str2){
-    Size size = MediaQuery.of(context).size;
-
-    return Padding(
-      padding: EdgeInsets.symmetric(vertical: 5.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Container(
-            width: size.width * 0.6,
-            height: size.width * 0.3,
-            padding: EdgeInsets.all(size.width * 0.02),
-            decoration: BoxDecoration(
-              color: backgroundColor.withOpacity(0.5),
-              borderRadius: BorderRadius.circular(15.0),
-              border: Border.all(color: borderColor),
-            ),
-            child: Stack(
-              children: [
-                Align(
-                  alignment: Alignment(0, -1),
-                  child: Text(
-                    "Group Name",
-                    style: TextStyle(
-                      fontSize: 13.0,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                Align(
-                  alignment: Alignment(-1, -0.6),
-                  child: Text(
-                    "Member",
-                    style: TextStyle(
-                      fontSize: 11.0,
-                    ),
-                  ),
-                ),
-                Align(
-                  alignment: Alignment(-1, -0.2),
-                  child: Text(
-                    "offline",
-                    style: TextStyle(
-                      fontSize: 11.0,
-                    ),
-                  ),
-                ),
-                Align(
-                  alignment: Alignment(1, -0.4),
-                  child: Text(
-                    "Unread",
-                    style: TextStyle(
-                      fontSize: 11.0,
-                    ),
-                  ),
-                ),
-                Align(
-                  alignment: Alignment(0, 1),
-                  child: Text(
-                    "This is the actual text message , so work with it",
-                    style: TextStyle(
-                      fontSize: 12.0,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-
-  }
-
-  Widget _buildGroupChatPreview2(int index){
+  Widget _buildChatPreview(int index){
     Size size = MediaQuery.of(context).size;
     if(index % 2 == 0)
       return GestureDetector(
         onTap: (){
           Navigator.push(
-              context,
-              MaterialPageRoute(builder:  (context) => ChatScreen()));
+            context,
+            MaterialPageRoute(builder:  (context) => ChatScreen()));
         },
         child: Container(
           margin: EdgeInsets.fromLTRB(10.0, 20.0, 10.0, 0.0),
-          height: size.width * 0.15,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15.0),
-            color: Colors.greenAccent[400].withOpacity(0.0),
+//            color: Colors.grey[600].withOpacity(0.1),
           ),
+          height: size.width * 0.15,
           child: Stack(
             children: [
               Positioned(
@@ -189,16 +121,16 @@ class _GroupScreenState extends State<GroupScreen> {
                       height: size.width * 0.035,
                       width: size.width * 0.035,
                       decoration: BoxDecoration(
-//                            border: Border.all(color: Colors.white, width: 0.5),
-                        border: Border.all(color: Colors.black, width: 0.5),
+  //                            border: Border.all(color: Colors.white, width: 0.5),
+//                        border: Border.all(color: Colors.black, width: 0.5),
                         borderRadius: BorderRadius.circular(15.0),
-//                            color: Colors.green,
+  //                            color: Colors.green,
                         color: Colors.grey,
                       ),
                     ),
                     SizedBox(width: 5.0),
                     Text(
-//                          "Online",
+  //                          "Online",
                       "25 min ago",
                       style: TextStyle(
                         fontSize: 10.0,
@@ -224,7 +156,7 @@ class _GroupScreenState extends State<GroupScreen> {
               ),
             ],
           ),
-        ),
+    ),
       );
     else
       return GestureDetector(
@@ -238,7 +170,7 @@ class _GroupScreenState extends State<GroupScreen> {
           height: size.width * 0.15,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15.0),
-            color: Colors.greenAccent[400].withOpacity(0.0),
+//            color: Colors.greenAccent[400].withOpacity(0.1),
           ),
           child: Stack(
             children: [
@@ -276,10 +208,10 @@ class _GroupScreenState extends State<GroupScreen> {
                       height: size.width * 0.035,
                       width: size.width * 0.035,
                       decoration: BoxDecoration(
-                        border: Border.all(color: Colors.white, width: 0.5),
-//                            border: Border.all(color: Colors.black, width: 0.5),
+//                        border: Border.all(color: Colors.white, width: 0.4),
+//                            border: Border.all(color: Colors.black, width: 0  .5),
                         borderRadius: BorderRadius.circular(15.0),
-                        color: Colors.green,
+                        color: Colors.greenAccent[400],
 //                            color: Colors.grey,
                       ),
                     ),
@@ -345,11 +277,11 @@ class _GroupScreenState extends State<GroupScreen> {
   }
 
   Widget _appbarActionButton(){
-    if (isInSearch)
+    if (!isInSearch)
       return IconButton(
         onPressed: () {
           setState(() {
-            isInSearch = false;
+            isInSearch = true;
             appbarTitle = Padding(
               padding: EdgeInsets.all(0.0),
               child: TextField(
@@ -389,12 +321,12 @@ class _GroupScreenState extends State<GroupScreen> {
     else
       return IconButton(
         onPressed: () {
-//          searchController.clear();
+          searchController.clear();
           setState(() {
 //            finalList = _logs;
-            isInSearch = true;
+            isInSearch = false;
             appbarTitle = Text(
-              "Group Chat",
+              "Uni Chat",
               style: TextStyle(
                 fontSize: 16.0,
                 letterSpacing: 2.5,
