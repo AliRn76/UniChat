@@ -28,15 +28,18 @@ class PvChatUtils{
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15.0),
                         border: Border.all(
-                          color: seen ? Colors.greenAccent[400] : Colors.white.withOpacity(0.0),
+                          color: seen ? Colors.white.withOpacity(0.0)
+                              : Colors.greenAccent[400],
                           width: 0.5,
                         ),
                         color: Colors.greenAccent[100],
                           boxShadow: [
                             BoxShadow(
-                                offset: seen ? Offset(1.5, 1.5) : Offset(1.0, 1.0),
-                                blurRadius: seen ? 2.0 : 1.0,
-                                color: seen ? Colors.greenAccent[700] : Colors.grey[700]
+                                offset: seen ? Offset(0.5, 0.5)
+                                    : Offset(1.5, 1.5),
+                                blurRadius: seen ? 2.0 : 5.0,
+                                color: seen ? Colors.grey[700].withOpacity(0.0)
+                                    : Colors.greenAccent[700],
                             ),
                           ]
                       ),
@@ -63,7 +66,7 @@ class PvChatUtils{
                     right: 15,
                     child:  ClayText(
                       "00:00",
-                      emboss: seen ? false : true,
+                      emboss: seen ? true : false,
                       size: 11.0,
                       depth: 100,
                     ),
@@ -76,7 +79,7 @@ class PvChatUtils{
     );
   }
 
-  static messageYou(BuildContext context, bool liked){
+  static messageYou(BuildContext context, bool liked, StateSetter setState){
     return Stack(
       children: [
         Container(

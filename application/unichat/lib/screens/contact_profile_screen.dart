@@ -3,6 +3,7 @@ import 'dart:ui';
 
 import 'package:invert_colors/invert_colors.dart';
 import 'package:unichat/screens/pv_chat_screen.dart';
+import 'package:unichat/utils/contact_profile.dart';
 
 class ContactProfile extends StatefulWidget {
   @override
@@ -115,70 +116,56 @@ class _ContactProfileState extends State<ContactProfile> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                GestureDetector(
-                                  onTap: (){
-                                    print("Watch Media");
-                                  },
-                                  child: Container(
-                                    width: size.width * 0.25,
-                                    padding: EdgeInsets.all(8.0),
-                                    decoration: BoxDecoration(
-                                      color: customColor.withOpacity(0.7),
-                                      borderRadius: BorderRadius.circular(10.0),
-                                      border: Border.all(
-                                        color: customColor.withOpacity(1.0),
-                                        width: 1.0
+                                Flexible(
+                                  flex: 1,
+                                  child: InkWell(
+                                    onTap: (){
+                                      Navigator.pop(context);
+                                      Navigator.pushReplacement(
+                                        context,
+                                        MaterialPageRoute(builder:  (context) => ChatScreen()),
+                                      );
+                                    },
+                                    child: Container(
+                                      padding: EdgeInsets.all(8.0),
+                                      decoration: BoxDecoration(
+                                        color: customColor.withOpacity(0.7),
+                                        borderRadius: BorderRadius.circular(10.0),
+                                        border: Border.all(
+                                            color: customColor.withOpacity(1.0),
+                                            width: 1.0
+                                        ),
                                       ),
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                          "Media"
+                                      child: Center(
+                                        child: Text(
+                                            "Call"
+                                        ),
                                       ),
                                     ),
                                   ),
                                 ),
-                                GestureDetector(
-                                  onTap: (){
-                                    Navigator.pop(context);
-                                    Navigator.pushReplacement(
-                                      context,
-                                      MaterialPageRoute(builder:  (context) => ChatScreen()),
-                                    );
-                                  },
-                                  child: Container(
-                                    width: size.width * 0.27,
-//                                    width: size.width * 0.45,
-                                    padding: EdgeInsets.all(8.0),
-                                    decoration: BoxDecoration(
-                                      color: customColor.withOpacity(0.7),
-                                      borderRadius: BorderRadius.circular(10.0),
-                                      border: Border.all(
-                                          color: customColor.withOpacity(1.0),
-                                          width: 1.0
+                                SizedBox(width: size.width * 0.01),
+                                Flexible(
+                                  flex: 2,
+                                  child: InkWell(
+                                    onTap: (){
+                                      print("Call him");
+                                    },
+                                    child: Container(
+                                      padding: EdgeInsets.all(8.0),
+                                      decoration: BoxDecoration(
+                                        color: customColor.withOpacity(0.7),
+                                        borderRadius: BorderRadius.circular(10.0),
+                                        border: Border.all(
+                                            color: customColor.withOpacity(1.0),
+                                            width: 1.0
+                                        ),
                                       ),
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                          "Message"
+                                      child: Center(
+                                        child: Text(
+                                            "Message"
+                                        ),
                                       ),
-                                    ),
-                                  ),
-
-                                ),
-                                Container(
-                                  width: size.width * 0.15,
-                                  padding: EdgeInsets.all(8.0),
-                                  decoration: BoxDecoration(
-                                    color: customColor.withOpacity(0.7),
-                                    borderRadius: BorderRadius.circular(10.0),
-                                    border: Border.all(
-                                        color: customColor.withOpacity(1.0),
-                                        width: 1.0
-                                    ),
-                                  ),
-                                  child: Center(
-                                    child: Text(
-                                        "Call"
                                     ),
                                   ),
                                 ),
@@ -286,9 +273,16 @@ class _ContactProfileState extends State<ContactProfile> {
                               ],
                             ),
                             SizedBox(height: size.width * 0.05),
+
                           ],
                         ),
                       ),
+                    ),
+                    Container(
+                      width: size.width * 0.85,
+                      height: size.height * 0.70,
+//                      margin: EdgeInsets.only(top: 20),
+                      child: ContactProfileUtils.contactProfileScrollMedia(context),
                     ),
                     Positioned(
                       top: -5.0,

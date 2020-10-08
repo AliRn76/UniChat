@@ -18,7 +18,7 @@ class _ChatScreenState extends State<ChatScreen> {
 
 //  PopupMenu screen;
 
-  Color textControllerBackgroundColor = Colors.white.withOpacity(0.4);
+  Color textControllerBackgroundColor = Colors.white.withOpacity(0.0);
   Color iconColor = Colors.black;
   bool condi = true;
   bool itHasLike = false;
@@ -155,7 +155,7 @@ class _ChatScreenState extends State<ChatScreen> {
                           onChanged: (text){
                             if(text == '')
                               setState(() => typed = false);
-                            else
+                            else if(typed == false)
                               setState(() => typed = true);
                             print(text);
                           },
@@ -319,8 +319,8 @@ class _ChatScreenState extends State<ChatScreen> {
         onDoubleTap: (){
           print("add like on it");
         },
-        child: index % 2 == 0 ? PvChatUtils.messageYou(context, false)
-            : PvChatUtils.messageYou(context, true),
+        child: index % 2 == 0 ? PvChatUtils.messageYou(context, false, setState)
+            : PvChatUtils.messageYou(context, true, setState),
       );
     }
     else{

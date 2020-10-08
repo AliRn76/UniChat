@@ -45,12 +45,22 @@ class _ProfileScreenState extends State<ProfileScreen> {
       child: BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 6.0, sigmaY: 6.0),
         child: Center(
-          child: profileStateProvider.profileState.onEdit ? ProfileEdit()
-              : profileStateProvider.profileState.onSecurity ? ProfileSecurity()
-              : profileStateProvider.profileState.onSetting ? ProfileSetting()
-              : profileStateProvider.profileState.onAboutUs ? ProfileAboutUs()
-              : profileStateProvider.profileState.onContact ? ProfileContact()
-              : ProfileMain(),
+          child: AnimatedSwitcher(
+//            duration: Duration(milliseconds: 0),
+            duration: Duration(milliseconds: 500),
+            transitionBuilder: (widget, animation) => ScaleTransition(
+              scale: animation,
+              child: widget,
+            ) ,
+            switchOutCurve: Curves.easeInOutCubic,
+//            switchOutCurve: Curves.fastLinearToSlowEaseIn,
+            child: profileStateProvider.profileState.onEdit ? ProfileEdit()
+                : profileStateProvider.profileState.onSecurity ? ProfileSecurity()
+                : profileStateProvider.profileState.onSetting ? ProfileSetting()
+                : profileStateProvider.profileState.onAboutUs ? ProfileAboutUs()
+                : profileStateProvider.profileState.onContact ? ProfileContact()
+                : ProfileMain(),
+          ),
         ),
       ),
     );
