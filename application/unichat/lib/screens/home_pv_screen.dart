@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:provider/provider.dart';
 import 'package:unichat/providers/connection_provider.dart';
 import 'package:unichat/screens/pv_chat_screen.dart';
@@ -61,7 +62,60 @@ class _PvScreenState extends State<PvScreen> {
           child: ListView.builder(
             itemCount: 40,
             itemBuilder: (context, index){
-              return _buildChatPreview(index);
+//              return _buildChatPreview(index);
+              return Slidable(
+//          actionPane: SlidableScrollActionPane(),
+//          actionPane: SlidableBehindActionPane(),
+//          actionPane: SlidableStrechActionPane(),
+                actionPane: SlidableDrawerActionPane(),
+                closeOnScroll: true,
+                actionExtentRatio: 0.2,
+                child: _buildChatPreview(index),
+                secondaryActions: <Widget>[
+                  IconSlideAction(
+                    color: Colors.yellow.withOpacity(0.0),
+                    iconWidget: Icon(
+                      Icons.volume_off,
+                      color: Colors.blue[700],
+                    ),
+                    closeOnTap: true,
+                    onTap: () => print('mute'),
+                  ),
+                  IconSlideAction(
+                    color: Colors.red.withOpacity(0.0),
+                    iconWidget: Icon(
+                      Icons.star,
+                      color: Colors.green[700],
+                    ),
+                    closeOnTap: true,
+                    onTap: () => print('favorited'),
+                  ),
+//            InkWell(
+//              onTap: (){print("Liked");},
+//              child: Center(
+//                child: Text(
+//                  "Like",
+//                  style: TextStyle(
+//                    color: Colors.lightBlue,
+//                    fontWeight: FontWeight.bold,
+//                  ),
+//                ),
+//              ),
+//            ),
+//            InkWell(
+//              onTap: (){print("Disliked");},
+//              child: Center(
+//                child: Text(
+//                  "Dislike",
+//                  style: TextStyle(
+//                    color: Colors.redAccent,
+//                    fontWeight: FontWeight.bold,
+//                  ),
+//                ),
+//              ),
+//            ),
+                ],
+              );
             },
           ),
         ),

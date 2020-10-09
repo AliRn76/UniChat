@@ -24,8 +24,7 @@ class ProfileEdit extends StatefulWidget {
 }
 
 class _ProfileEditState extends State<ProfileEdit> {
-  int currentPage = 1;
-  bool forwardPage = true;
+
 
   @override
   Widget build(BuildContext context) {
@@ -45,49 +44,13 @@ class _ProfileEditState extends State<ProfileEdit> {
             color: backgroundColor.withOpacity(0.3),
             borderRadius: BorderRadius.circular(15.0),
           ),
-          child: AnimatedSwitcher(
-            duration: Duration(milliseconds: 300),
-            transitionBuilder: (Widget child, Animation<double> animation) {
-              final inAnimation =
-              Tween<Offset>(begin: Offset(1.0, 0.0), end: Offset(0.0, 0.0))
-                  .animate(animation);
-              final outAnimation =
-              Tween<Offset>(begin: Offset(-1.0, 0.0), end: Offset(0.0, 0.0))
-                  .animate(animation);
-
-
-
-              if (setAxisTransition()) {
-                return ClipRect(
-                  child: SlideTransition(
-                    position: inAnimation,
-                    child: Padding(
-                      padding: const EdgeInsets.all(0.0),
-                      child: child,
-                    ),
-                  ),
-                );
-
-              } else {
-                return ClipRect(
-                  child: SlideTransition(
-                    position: outAnimation,
-                    child: Padding(
-                      padding: const EdgeInsets.all(0.0),
-                      child: child,
-                    ),
-                  ),
-                );
-              }
-            },
-            child: profileStatesProvider.profileEditState.page1 ? ProfileEditPage1()
-                : profileStatesProvider.profileEditState.page2 ? ProfileEditPage2()
-                : profileStatesProvider.profileEditState.page3 ? ProfileEditPage3()
-                : profileStatesProvider.profileEditState.page4 ? ProfileEditPage4()
-                : profileStatesProvider.profileEditState.page5 ? ProfileEditPage5()
-                : profileStatesProvider.profileEditState.page6 ? ProfileEditPage6()
-                : null,
-          ),
+          child: profileStatesProvider.profileEditState.page1 ? ProfileEditPage1()
+              : profileStatesProvider.profileEditState.page2 ? ProfileEditPage2()
+              : profileStatesProvider.profileEditState.page3 ? ProfileEditPage3()
+              : profileStatesProvider.profileEditState.page4 ? ProfileEditPage4()
+              : profileStatesProvider.profileEditState.page5 ? ProfileEditPage5()
+              : profileStatesProvider.profileEditState.page6 ? ProfileEditPage6()
+              : null,
         ),
         Positioned(
           top: 0.0,
@@ -161,23 +124,6 @@ class _ProfileEditState extends State<ProfileEdit> {
         ),
       ],
     );
-  }
-
-  bool setAxisTransition(){
-    final ProfileStatesProvider profileStatesProvider = Provider.of<ProfileStatesProvider>(context);
-    currentPage == 1 && profileStatesProvider.profileEditState.page2 ? {forwardPage = true, currentPage = 2 }
-        : currentPage == 2 && profileStatesProvider.profileEditState.page3 ? {forwardPage = true, currentPage = 3}
-        : currentPage == 3 && profileStatesProvider.profileEditState.page4 ? {forwardPage = true, currentPage = 4}
-        : currentPage == 4 && profileStatesProvider.profileEditState.page5 ? {forwardPage = true, currentPage = 5}
-        : currentPage == 5 && profileStatesProvider.profileEditState.page6 ? {forwardPage = true, currentPage = 6}
-
-        : currentPage == 6 && profileStatesProvider.profileEditState.page5 ? {forwardPage = false, currentPage = 5}
-        : currentPage == 5 && profileStatesProvider.profileEditState.page4 ? {forwardPage = false, currentPage = 4}
-        : currentPage == 4 && profileStatesProvider.profileEditState.page3 ? {forwardPage = false, currentPage = 3}
-        : currentPage == 3 && profileStatesProvider.profileEditState.page2 ? {forwardPage = false, currentPage = 2}
-        : currentPage == 2 && profileStatesProvider.profileEditState.page1 ? {forwardPage = false, currentPage = 1}
-        : null;
-    return forwardPage;
   }
 
 

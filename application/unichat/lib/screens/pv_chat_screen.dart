@@ -3,7 +3,7 @@ import 'package:popup_menu/popup_menu.dart';
 import 'package:unichat/screens/contact_profile_screen.dart';
 import 'package:clay_containers/clay_containers.dart';
 import 'package:unichat/utils/pv_chat_utils.dart';
-
+import 'package:flutter_slidable/flutter_slidable.dart';
 
 class ChatScreen extends StatefulWidget {
   @override
@@ -21,8 +21,8 @@ class _ChatScreenState extends State<ChatScreen> {
   Color textControllerBackgroundColor = Colors.white.withOpacity(0.0);
   Color iconColor = Colors.black;
   bool condi = true;
-  bool itHasLike = false;
-  bool micPressed = false;
+//  bool itHasLike = false;
+//  bool micPressed = false;
   bool typed = false;
 //  int numb = 0;
 
@@ -319,8 +319,63 @@ class _ChatScreenState extends State<ChatScreen> {
         onDoubleTap: (){
           print("add like on it");
         },
-        child: index % 2 == 0 ? PvChatUtils.messageYou(context, false, setState)
-            : PvChatUtils.messageYou(context, true, setState),
+        child: Slidable(
+//          actionPane: SlidableScrollActionPane(),
+//          actionPane: SlidableBehindActionPane(),
+//          actionPane: SlidableStrechActionPane(),
+          actionPane: SlidableDrawerActionPane(),
+          closeOnScroll: true,
+          actionExtentRatio: 0.2,
+            child: index % 2 == 0 ? PvChatUtils.messageYou(context, false, false, setState)
+            : PvChatUtils.messageYou(context, true, true, setState),
+          actions: <Widget>[
+            Text("Reply"),
+          ],
+          secondaryActions: <Widget>[
+            IconSlideAction(
+              color: Colors.yellow.withOpacity(0.0),
+              iconWidget: Icon(
+                Icons.insert_emoticon,
+                color: Colors.yellow[700],
+              ),
+              closeOnTap: true,
+              onTap: () => print('laughed'),
+            ),
+            IconSlideAction(
+              color: Colors.red.withOpacity(0.0),
+              iconWidget: Icon(
+                Icons.favorite,
+                color: Colors.red[700],
+              ),
+              closeOnTap: true,
+              onTap: () => print('loved'),
+            ),
+//            InkWell(
+//              onTap: (){print("Liked");},
+//              child: Center(
+//                child: Text(
+//                  "Like",
+//                  style: TextStyle(
+//                    color: Colors.lightBlue,
+//                    fontWeight: FontWeight.bold,
+//                  ),
+//                ),
+//              ),
+//            ),
+//            InkWell(
+//              onTap: (){print("Disliked");},
+//              child: Center(
+//                child: Text(
+//                  "Dislike",
+//                  style: TextStyle(
+//                    color: Colors.redAccent,
+//                    fontWeight: FontWeight.bold,
+//                  ),
+//                ),
+//              ),
+//            ),
+          ],
+        ),
       );
     }
     else{

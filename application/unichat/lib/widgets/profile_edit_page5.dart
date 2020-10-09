@@ -53,7 +53,7 @@ class _ProfileEditPage5State extends State<ProfileEditPage5> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                GestureDetector(
+                InkWell(
                   onTap: () => setState(() {
                     onChangeBackgroundColor = true;
                     onChangeFontColor = false;
@@ -81,7 +81,7 @@ class _ProfileEditPage5State extends State<ProfileEditPage5> {
                       )
                   ),
                 ),
-                GestureDetector(
+                InkWell(
                   onTap: () => setState(() {
                     onChangeFontColor = true;
                     onChangeBackgroundColor = false;

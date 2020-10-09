@@ -5,6 +5,7 @@ import 'package:unichat/providers/connection_provider.dart';
 import 'package:unichat/providers/profile_data_provider.dart';
 import 'package:unichat/providers/profile_states_provider.dart';
 import 'package:unichat/screens/home_screen.dart';
+import 'package:unichat/screens/signup_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
 //        scaffoldBackgroundColor:
         ),
-        home: HomeScreen(),
+        home: SignupScreen(),
       ),
     );
   }
