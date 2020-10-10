@@ -1,11 +1,7 @@
-from django.contrib import admin
 from django.urls import path, include
-
-from .views import MessageAPIView, roboHash
+from app.views import api_view
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('icon/<slug:slug>/', roboHash, name='roboHash'),
-    path('messages/<int:id>/', MessageAPIView.as_view(), name='message'),
-    path('messages/', MessageAPIView.as_view(), name='messages'),
+    path('', api_view, name='api_view'),
+    path('api/', include('app.api.urls')),
 ]

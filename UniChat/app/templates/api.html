@@ -1,0 +1,94 @@
+<html>
+{% load static %}
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'api_view.css' %}">
+</head>
+<body>
+    <h1 style="text-align:center">SportHub Documentation</h1>
+    <br>
+<!------------------------------------------------------------------------------->
+
+    <h2><p><small>[POST]</small>   <ins>user/api/signup/</ins></p></h2>
+    <pre><b>Send In Body:</b>
+        {
+            "username":"USERNAME",
+            "password":"PASSWORD"
+        }
+
+<b>Receive (Status Code: 200):</b>
+        {
+            "success": true,
+            "username": "USERNAME",
+            "token": "b29b9edd5101c692239cecc569586f4bf62d2863"
+        }
+    </pre>
+    <hr>
+<!------------------------------------------------------------------------------->
+
+    <h2><p><small>[POST]</small>   <ins>user/api/login/</ins></p></h2>
+    <pre><b>Send In Body:</b>
+        {
+            "username":"USERNAME",
+            "password":"PASSWORD"
+        }
+
+<b>Receive (Status Code: 200):</b>
+        {
+            "token" : "b29b9edd5101c692239cecc569586f4bf62d2863"
+        }
+    </pre>
+    <hr>
+<!------------------------------------------------------------------------------->
+
+    <h2><p><small>[GET]</small>   <ins>api/messages/</ins></p></h2>
+    <pre><b>Send In Header:</b>
+        {
+            "Authorization":"Token fc2fbb08bc9123fg9ad7ff67fe0df75e719b2f16"
+        }
+
+<b>Receive:</b>
+        [
+            {
+                "": "",
+                "": "",
+                "": "",
+                "": ""
+            },
+            {
+                "": "",
+                "": "",
+                "": "",
+                "": ""
+            }
+        ]
+    </pre>
+    <hr>
+<!------------------------------------------------------------------------------->
+
+    <h2><p><small>[GET]</small>   <ins>api/messages/</ins></p></h2>
+    <pre><b>Send In Header:</b>
+        {
+            "Authorization":"Token fc2fbb08bc9123fg9ad7ff67fe0df75e719b2f16"
+        }
+
+<b>Receive:</b>
+        [
+            {
+                "": "",
+                "": "",
+                "": "",
+                "": ""
+            },
+            {
+                "": "",
+                "": "",
+                "": "",
+                "": ""
+            }
+        ]
+    </pre>
+    <hr>
+<!------------------------------------------------------------------------------->
+
+</body>
+</html>

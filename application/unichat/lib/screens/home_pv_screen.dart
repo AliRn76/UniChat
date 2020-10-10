@@ -156,7 +156,7 @@ class _PvScreenState extends State<PvScreen> {
                   height: size.width * 0.15,
                   width: size.width * 0.15,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15.0),
+                    borderRadius: BorderRadius.circular(25.0),
                     image: DecorationImage(
                       image: AssetImage("assets/images/nature-background.jpg"),
                       fit: BoxFit.cover,
@@ -243,7 +243,7 @@ class _PvScreenState extends State<PvScreen> {
                   height: size.width * 0.15,
                   width: size.width * 0.15,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15.0),
+                    borderRadius: BorderRadius.circular(25.0),
                     image: DecorationImage(
                       image: AssetImage("assets/images/nature-background.jpg"),
                       fit: BoxFit.cover,
