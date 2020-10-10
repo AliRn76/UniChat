@@ -17,6 +17,7 @@ class PvScreen extends StatefulWidget {
 
 class _PvScreenState extends State<PvScreen> {
   TextEditingController searchController = TextEditingController();
+//  SlidableController slidableController = SlidableController();
   bool isInSearch = false;
   Widget appBarSearchIcon = Icon(Icons.search);
   Widget appbarTitle = Text(
@@ -27,6 +28,12 @@ class _PvScreenState extends State<PvScreen> {
       color: Colors.black,
     ),
   );
+
+
+  @override
+  void initState(){
+    super.initState();
+  }
 
 
   @override
@@ -69,8 +76,10 @@ class _PvScreenState extends State<PvScreen> {
 //          actionPane: SlidableStrechActionPane(),
                 actionPane: SlidableDrawerActionPane(),
                 closeOnScroll: true,
+//                controller: slidableController,
                 actionExtentRatio: 0.2,
                 child: _buildChatPreview(index),
+
                 secondaryActions: <Widget>[
                   IconSlideAction(
                     color: Colors.yellow.withOpacity(0.0),

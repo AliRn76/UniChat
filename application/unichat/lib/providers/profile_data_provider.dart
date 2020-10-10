@@ -37,6 +37,10 @@ class ProfileDataProvider extends ChangeNotifier {
     _user.font_color = value;
     notifyListeners();
   }
+  void setOpacity(int value){
+    _user.background_opacity = value;
+    notifyListeners();
+  }
 }
 
 

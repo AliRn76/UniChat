@@ -132,10 +132,10 @@ class _SignupScreenState extends State<SignupScreen> {
                       ),
                       child: FlatButton(
                         onPressed: (){
-                          Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(builder:  (context) => HomeScreen())
-                          );
+                          setState(() {
+                            isSignup = true;
+                            isLogin = false;
+                          });
                         },
                         child: Text("Sing up"),
                       ),
@@ -149,22 +149,122 @@ class _SignupScreenState extends State<SignupScreen> {
       )
     )
       : isSignup ?  Scaffold(
-      body: Center(
-        child: Column(
-          children: [
-            Text("Sign Up"),
-            FlatButton(
-              onPressed: (){
-                Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(builder:  (context) => HomeScreen())
-                );
-              },
-              child: Text("Welcome"),
-            )
-          ],
-        ),
-      ),
+        body: SafeArea(
+          child: Padding(
+            padding: EdgeInsets.all(20.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Create Account",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+
+                  ),
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    TextField(
+                      textInputAction: TextInputAction.done,
+                      onChanged: (value) => setState(() => username = value),
+                      cursorColor: kPrimaryColor,
+                      decoration: InputDecoration(
+                        icon: Icon(
+                          Icons.person,
+                          color: kPrimaryColor,
+                        ),
+                        hintText: "Username",
+                        labelText: "username",
+                        border: InputBorder.none,
+                      ),
+                    ),
+                    TextField(
+                      textInputAction: TextInputAction.done,
+                      obscureText: obscureText,
+//                    controller: usernameController,
+                      onChanged: (value) => setState(() => password = value),
+                      cursorColor: kPrimaryColor,
+                      decoration: InputDecoration(
+                        hintText: "Password",
+                        icon: Icon(
+                          Icons.lock,
+                          color: kPrimaryColor,
+                        ),
+                        suffixIcon: IconButton(
+                          icon: Icon(
+                            Icons.visibility,
+                            color: kPrimaryColor,
+                          ),
+                          onPressed: () => showPassword(),
+                        ),
+                        border: InputBorder.none,
+                      ),
+                    ),
+                    SizedBox(height: size.width * 0.07),
+                    Center(
+                      child: Container(
+                        width: size.width * 0.9,
+                        height: size.width * 0.13,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10.0),
+                          border: Border.all(),
+                        ),
+                        child: FlatButton(
+                          onPressed: (){
+                            print("Sign Up");
+                          },
+                          child: Text("Sign up"),
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: size.width * 0.02),
+                    Row(
+                      children: [
+                        Flexible(
+                            flex: 4,
+                            child: Divider(thickness: 2,)
+                        ),
+                        Flexible(
+                            flex: 1,
+                            child: Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: Text("or"),
+                            )
+                        ),
+                        Flexible(
+                            flex: 4,
+                            child: Divider(thickness: 2,)
+                        ),
+                      ],
+                    ),
+                    Center(
+                      child: Container(
+                        width: size.width * 0.9,
+                        height: size.width * 0.13,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10.0),
+                          border: Border.all(),
+                        ),
+                        child: FlatButton(
+                          onPressed: (){
+                            setState(() {
+                              isLogin = true;
+                              isSignup = false;
+                            });
+                          },
+                          child: Text("Login"),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        )
     )
         : Scaffold(
       body: SafeArea(
@@ -244,9 +344,8 @@ class _SignupScreenState extends State<SignupScreen> {
 
   void showPassword(){
     setState(() => obscureText = false);
-    Future.delayed(Duration(seconds: 1), () {
-      setState(() => obscureText = true);
-    });
+    Future.delayed(Duration(seconds: 1), () =>
+      setState(() => obscureText = true));
   }
 
 }

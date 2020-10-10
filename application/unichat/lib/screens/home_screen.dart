@@ -15,32 +15,17 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  PageController pageController = PageController(initialPage: 1);
-
-
-  @override
-  void dispose() {
-    pageController.dispose();
-    super.dispose();
-  }
+  int currentPage = 1;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
         child: Center(
-          child: PageView(
-            controller: pageController,
-            children: <Widget>[
-              PvScreen(),
-              ProfileScreen(),
-              GroupScreen(),
-            ],
-          )
+          child: _getPage(currentPage),
         ),
       ),
       bottomNavigationBar: FancyBottomNavigation(
-        pageController: pageController,
         tabs: [
           TabData(
               iconData: Icons.person,
@@ -64,9 +49,22 @@ class _HomeScreenState extends State<HomeScreen> {
         barBackgroundColor: Colors.white,
         circleColor: Colors.white,
         inactiveIconColor: Colors.black.withOpacity(0.5),
+        onTabChangedListener: (position) =>
+            setState(() => currentPage = position),
         initialSelection: 1,
       ),
     );
+  }
+
+  _getPage(int page) {
+    switch (page) {
+      case 0:
+        return PvScreen();
+      case 1:
+        return ProfileScreen();
+      case 2:
+        return GroupScreen();
+    }
   }
 }
 

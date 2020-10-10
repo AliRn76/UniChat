@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_circle_color_picker/flutter_circle_color_picker.dart';
 import 'package:invert_colors/invert_colors.dart';
 import 'package:provider/provider.dart';
+import 'package:unichat/providers/profile_data_provider.dart';
 import 'package:unichat/providers/profile_states_provider.dart';
 import 'package:unichat/widgets/myArc.dart';
 import 'package:country_pickers/country_pickers.dart';
@@ -16,13 +17,14 @@ class ProfileSecurity extends StatefulWidget {
 
 class _ProfileSecurityState extends State<ProfileSecurity> {
 
-  Color backgroundColor = Color(0xA3D1FF);
-  Color fontColor = Colors.black;
-
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     final ProfileStatesProvider profileStateProvider = Provider.of<ProfileStatesProvider>(context);
+    final ProfileDataProvider profileDataProvider = Provider.of<ProfileDataProvider>(context);
+
+    Color backgroundColor = profileDataProvider.user.background_color;
+    Color fontColor = profileDataProvider.user.font_color;
 
     return Stack(
       children: [

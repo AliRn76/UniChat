@@ -6,7 +6,9 @@ import 'package:invert_colors/invert_colors.dart';
 import 'package:provider/provider.dart';
 import 'package:unichat/providers/profile_data_provider.dart';
 import 'package:unichat/providers/profile_states_provider.dart';
+import 'package:unichat/screens/signup_screen.dart';
 import 'package:unichat/widgets/myArc.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class ProfileMain extends StatefulWidget {
   @override
@@ -240,7 +242,7 @@ class _ProfileMainState extends State<ProfileMain> {
                                   ),
                                   SizedBox(width: size.width * 0.02),
                                   Text(
-                                    "Football",
+                                    "Taekwondo",
                                     style: TextStyle(
                                       color: fontColor.withOpacity(1.0),
                                     ),),
@@ -256,7 +258,7 @@ class _ProfileMainState extends State<ProfileMain> {
                                   ),
                                   SizedBox(width: size.width * 0.02),
                                   Text(
-                                    "Game",
+                                    "War Thunder",
                                     style: TextStyle(
                                       color: fontColor.withOpacity(1.0),
                                     ),),
@@ -272,7 +274,7 @@ class _ProfileMainState extends State<ProfileMain> {
                                   ),
                                   SizedBox(width: size.width * 0.02),
                                   Text(
-                                    "TV Series",
+                                    "The Flash",
                                     style: TextStyle(
                                       color: fontColor.withOpacity(1.0),
                                     ),),
@@ -282,13 +284,13 @@ class _ProfileMainState extends State<ProfileMain> {
                               Row(
                                 children: <Widget>[
                                   Icon(
-                                    Icons.tv,
+                                    Icons.music_note,
                                     size: 16.0,
                                     color: fontColor.withOpacity(1.0),
                                   ),
                                   SizedBox(width: size.width * 0.02),
                                   Text(
-                                    "TV Series",
+                                    "Color",
                                     style: TextStyle(
                                       color: fontColor.withOpacity(1.0),
                                     ),),
@@ -308,7 +310,7 @@ class _ProfileMainState extends State<ProfileMain> {
                                   ),
                                   SizedBox(width: size.width * 0.02),
                                   Text(
-                                    "Book",
+                                    "Hunger Games",
                                     style: TextStyle(
                                       color: fontColor.withOpacity(1.0),
                                     ),),
@@ -324,7 +326,7 @@ class _ProfileMainState extends State<ProfileMain> {
                                   ),
                                   SizedBox(width: size.width * 0.02),
                                   Text(
-                                    "Movie",
+                                    "Warrior",
                                     style: TextStyle(
                                       color: fontColor.withOpacity(1.0),
                                     ),),
@@ -340,7 +342,7 @@ class _ProfileMainState extends State<ProfileMain> {
                                   ),
                                   SizedBox(width: size.width * 0.02),
                                   Text(
-                                    "Wants to travel",
+                                    "Paris",
                                     style: TextStyle(
                                       color: fontColor.withOpacity(1.0),
                                     ),),
@@ -350,13 +352,13 @@ class _ProfileMainState extends State<ProfileMain> {
                               Row(
                                 children: <Widget>[
                                   Icon(
-                                    Icons.airplanemode_active,
+                                    Icons.work,
                                     size: 16.0,
                                     color: fontColor.withOpacity(1.0),
                                   ),
                                   SizedBox(width: size.width * 0.02),
                                   Text(
-                                    "Wants to travel",
+                                    "Programmer",
                                     style: TextStyle(
                                       color: fontColor.withOpacity(1.0),
                                     ),),
@@ -510,6 +512,43 @@ class _ProfileMainState extends State<ProfileMain> {
         Positioned(
           top: 31.0,
           left: -9.0,
+          child: InvertColors(
+            child: Transform.rotate(
+              angle: 3.155,
+              child: IconButton(
+                color: backgroundColor.withOpacity(1.0),
+                iconSize: 18,
+                icon: FaIcon(FontAwesomeIcons.signOutAlt),
+                onPressed: (){
+                  print("Exit");
+                  setState(() {
+                    Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(builder: (context) => SignupScreen())
+                    );
+                  });
+                },
+              ),
+            ),
+          ),
+        ),
+        Positioned(
+          top: 40.0,
+          right: 0.0,
+          child: Transform.rotate(
+            angle: -4.71,
+            child: Container(
+              height: 30.0,
+              width: 30.0,
+              child: MyArc(
+                diameter: 300,
+                color: backgroundColor.withOpacity(0.3),
+              ),
+            ),
+          ),
+        ),
+        Positioned(
+          top: 31.0,
+          right: -9.0,
           child: InvertColors(
             child: IconButton(
               color: backgroundColor.withOpacity(1.0),

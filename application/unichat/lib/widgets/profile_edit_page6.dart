@@ -24,12 +24,17 @@ class _ProfileEditPage6State extends State<ProfileEditPage6> {
   Color fontColor = Colors.black;
   bool onChangeBackgroundColor = true;
   bool onChangeFontColor = false;
+  bool opacityCheckedValue;
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     final ProfileStatesProvider profileStatesProvider = Provider.of<ProfileStatesProvider>(context);
     final ProfileDataProvider profileDataProvider = Provider.of<ProfileDataProvider>(context);
+
+    profileDataProvider.user.background_opacity == 6
+        ? opacityCheckedValue = true : opacityCheckedValue = false;
+
 
     return Stack(
       children: <Widget>[
@@ -52,6 +57,52 @@ class _ProfileEditPage6State extends State<ProfileEditPage6> {
               ],
             ),
             SizedBox(height: size.width * 0.04),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Background Opacity:",
+                  style: TextStyle(
+                    color: fontColor.withOpacity(1.0),
+                  ),
+                ),
+                SizedBox(width: size.width * 0.05),
+                InvertColors(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: (opacityCheckedValue)
+                            ? backgroundColor.withOpacity(1.0)
+                            : fontColor.withOpacity(1.0),
+                        width: 1,
+                      ),
+                      borderRadius: BorderRadius.all(Radius.circular(10))
+                    ),
+                    width: 22,
+                    height: 22,
+                    child: Theme(
+                      data: ThemeData(
+                        unselectedWidgetColor: Colors.transparent,
+                      ),
+                      child: Checkbox(
+                        activeColor: Colors.transparent,
+                        checkColor: backgroundColor.withOpacity(1.0),
+                        value: opacityCheckedValue,
+                        tristate: false,
+                        onChanged: (bool isChecked) {
+                          setState(() {
+//                            opacityCheckedValue = isChecked;
+                            isChecked ? profileDataProvider.setOpacity(6)
+                                : profileDataProvider.setOpacity(0);
+                          });
+                        },
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: size.width * 0.1),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -80,17 +131,6 @@ class _ProfileEditPage6State extends State<ProfileEditPage6> {
               ],
             ),
 
-            SizedBox(height: size.width * 0.04),
-            Container(
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: Colors.black,
-                  width: 1,
-                ),
-                borderRadius: BorderRadius.circular(50),
-              ),
-              child: Text("On"),
-            ),
           ],
         ),
         ProfileEditUtils.pageNumber(context, 6, setState),

@@ -22,6 +22,7 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+  int opacity;
 
   @override
   void initState(){
@@ -32,6 +33,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     final ProfileStatesProvider profileStateProvider = Provider.of<ProfileStatesProvider>(context);
+    final ProfileDataProvider profileDataProvider = Provider.of<ProfileDataProvider>(context);
+    opacity = profileDataProvider.user.background_opacity;
 
     return Container(
       width: double.infinity,
@@ -43,24 +46,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ),
       ),
       child: BackdropFilter(
-        filter: ImageFilter.blur(sigmaX: 6.0, sigmaY: 6.0),
+        filter: ImageFilter.blur(sigmaX: opacity.toDouble(), sigmaY: opacity.toDouble()),
         child: Center(
-          child: AnimatedSwitcher(
-//            duration: Duration(milliseconds: 0),
-            duration: Duration(milliseconds: 500),
-            transitionBuilder: (widget, animation) => ScaleTransition(
-              scale: animation,
-              child: widget,
-            ) ,
-            switchOutCurve: Curves.easeInOutCubic,
-//            switchOutCurve: Curves.fastLinearToSlowEaseIn,
-            child: profileStateProvider.profileState.onEdit ? ProfileEdit()
-                : profileStateProvider.profileState.onSecurity ? ProfileSecurity()
-                : profileStateProvider.profileState.onSetting ? ProfileSetting()
-                : profileStateProvider.profileState.onAboutUs ? ProfileAboutUs()
-                : profileStateProvider.profileState.onContact ? ProfileContact()
-                : ProfileMain(),
-          ),
+          child: profileStateProvider.profileState.onEdit ? ProfileEdit()
+              : profileStateProvider.profileState.onSecurity ? ProfileSecurity()
+              : profileStateProvider.profileState.onSetting ? ProfileSetting()
+              : profileStateProvider.profileState.onAboutUs ? ProfileAboutUs()
+              : profileStateProvider.profileState.onContact ? ProfileContact()
+              : ProfileMain(),
         ),
       ),
     );
