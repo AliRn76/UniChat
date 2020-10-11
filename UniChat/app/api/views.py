@@ -1,33 +1,19 @@
 from django.shortcuts import HttpResponse
 from rest_framework.mixins import ListModelMixin, RetrieveModelMixin
 from rest_framework.generics import GenericAPIView
-from rest_framework.permissions import AllowAny
-from robohash import Robohash
-
-from app.models import Message
-from app.api.serializers import MessageSerializer
-
-
-def roboHash(request, slug):
-    set = request.GET.get('set', None)
-    hash = slug
-    rh = Robohash(hash)
-    rh.assemble(roboset="set" + set)
-    with open("file.png", "wb") as f:
-        rh.img.save(f, format="png")
-    image_data = open("file.png", "rb").read()
-    return HttpResponse(image_data, content_type="image/png")
-
-    # def my_image(request):
-    #     image_data = open("/path/to/my/image.png", "rb").read()
-    #     return HttpResponse(image_data, mimetype="image/png")
+from rest_framework.permissions import AllowAny, IsAuthenticated
+from django.db.models import Q
+from user.models import MyUser
+from app.models import Message, PvRoom, PvMember
+from app.api.serializers import MessageSerializer, PvMemberSerializer
+from rest_framework.response import Response
 
 class MessageAPIView(GenericAPIView, ListModelMixin, RetrieveModelMixin):
-    serializer_class = MessageSerializer
-    queryset = Message.objects.all()
-    lookup_field = 'id'
+    serializer_class    = MessageSerializer
+    queryset            = Message.objects.all()
+    permission_classes  = [AllowAny]
+    lookup_field        = 'id'
 
-    permission_classes = [AllowAny]
     def get(self, request, id=None):
         if id:
             return self.retrieve(request)
@@ -38,6 +24,20 @@ class MessageAPIView(GenericAPIView, ListModelMixin, RetrieveModelMixin):
         # return Response(serializer.data, status=status.HTTP_200_OK)
 
 
-
-
+class PvRoomsAPIVIew(GenericAPIView, ListModelMixin):
+    serializer_class    = PvMemberSerializer
+    permission_classes  = [IsAuthenticated]
+#
+#     def get_queryset(self, username):
+#         rooms = PvMember.objects.filter(user_id__username=username).values_list('id')
+#         print(rooms)
+#         return rooms
+#
+    def get(self, request, username):
+        pass
+#         print(self.get_queryset)
+#         return Response(data={
+#             "response": "OK",
+#             "username": username
+#         })
 

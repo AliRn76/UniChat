@@ -6,8 +6,8 @@ from user.models import MyUser
 
 class SignupUserSerializer(serializers.ModelSerializer):
     class Meta:
-        model = MyUser
-        fields = ('username', 'password',)
+        model   = MyUser
+        fields  = ('username', 'password',)
         extra_kwargs = {
             "password": {'write_only': True}
         }
@@ -24,13 +24,18 @@ class SignupUserSerializer(serializers.ModelSerializer):
         return user
 
 
-class LoginUserSerializer(serializers.ModelSerializer):
+# class ProfileSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model   = MyUser
+#         fields  = ('username', 'first_name', 'last_name', 'profile_picture', 'email', 'instagram', 'telegram', 'bio',
+#                    'relationship', 'phone_number', 'birth_date', 'country', 'city', 'job','favorite_sport', 'favorite_book',
+#                    'favorite_movie', 'favorite_tv_series', 'favorite_game', 'favorite_to_travel', 'favorite_music',
+#                    'background_color', 'font_color', 'background_image', 'background_opacity')
 
+class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
-        model = MyUser
-        fields = ('username', 'token')
-        extra_kwargs = {
-            "token": {'read_only': True}
-        }
-
-
+        model   = MyUser
+        fields  = ('username', 'first_name', 'last_name', 'email', 'instagram', 'telegram', 'bio',
+                   'relationship', 'phone_number', 'birth_date', 'country', 'city', 'job','favorite_sport', 'favorite_book',
+                   'favorite_movie', 'favorite_tv_series', 'favorite_game', 'favorite_to_travel', 'favorite_music',
+                   'background_color', 'font_color', 'background_opacity')

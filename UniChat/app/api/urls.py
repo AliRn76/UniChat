@@ -1,9 +1,11 @@
 from django.urls import path
 
-from app.api.views import MessageAPIView, roboHash
+from app.views import api_view
+from app.api.views import MessageAPIView, PvRoomsAPIVIew
 
 urlpatterns = [
-    path('icon/<slug:slug>/', roboHash, name='roboHash'),
+    path('', api_view, name='api_view'),
     path('messages/<int:id>/', MessageAPIView.as_view(), name='message'),
     path('messages/', MessageAPIView.as_view(), name='messages'),
+    path('pv_rooms/<str:username>', PvRoomsAPIVIew.as_view(), name='pvrooms'),
 ]

@@ -1,7 +1,7 @@
 from django.urls import path, include
-from app.views import api_view
+from app.views import robo_hash
 
 urlpatterns = [
-    path('', api_view, name='api_view'),
     path('api/', include('app.api.urls')),
+    path('icons/<slug:slug>/', robo_hash, name='roboHash'),
 ]
