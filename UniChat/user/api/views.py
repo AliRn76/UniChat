@@ -38,16 +38,13 @@ class ProfileAPIView(GenericAPIView, RetrieveModelMixin, UpdateModelMixin):
 
     def get(self, request, username):
         # if username is not None:
-        result = self.detail(request)
+        result = self.retrieve(request)
         if result.status_code == 200:
             data = {"success": True}
             data.update(result.data)
             return Response(data)
         else:
-            data = {
-                "success": False,
-                "error": result.exception
-            }
+            data = {"success": False, "error": result.exception}
             return Response(data=data, status=result.status_code)
 
     ''' 
@@ -72,3 +69,4 @@ class ProfileAPIView(GenericAPIView, RetrieveModelMixin, UpdateModelMixin):
 
 #TODO: IsDeleted ro barashon hesab konm
 #TODO: baraye User ha field e isDeleted bzaram
+#TODO: age user Exist bood , error 403 bede(bayad queryset def beshe)

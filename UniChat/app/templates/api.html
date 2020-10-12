@@ -9,84 +9,218 @@
 <!------------------------------------------------------------------------------->
 
     <h2><p><small>[POST]</small>   <ins>user/api/signup/</ins></p></h2>
-    <pre><b>Send In Body:</b>
+    <pre><pre><b>Send In Body:</b>
         {
             "username":"USERNAME",
             "password":"PASSWORD"
         }
-
+</pre><pre>
 <b>Receive (Status Code: 200):</b>
         {
             "success": true,
             "username": "USERNAME",
             "token": "b29b9edd5101c692239cecc569586f4bf62d2863"
         }
-    </pre>
+    </pre></pre>
     <hr>
 <!------------------------------------------------------------------------------->
 
     <h2><p><small>[POST]</small>   <ins>user/api/login/</ins></p></h2>
-    <pre><b>Send In Body:</b>
+    <pre><pre><b>Send In Body:</b>
         {
             "username":"USERNAME",
             "password":"PASSWORD"
         }
-
+</pre><pre>
 <b>Receive (Status Code: 200):</b>
         {
             "token" : "b29b9edd5101c692239cecc569586f4bf62d2863"
         }
-    </pre>
+    </pre></pre>
     <hr>
 <!------------------------------------------------------------------------------->
 
-    <h2><p><small>[GET]</small>   <ins>api/messages/</ins></p></h2>
-    <pre><b>Send In Header:</b>
+    <h2><p><small>[GET]</small>   <ins>user/api/profile/USERNAME</ins></p></h2>
+    <pre><pre><b>Send In Header:</b>
+        {
+            "Authorization":"Token fc2fbb08bc9123fg9ad7ff67fe0df75e719b2f16"
+        }
+</pre><pre>
+<b>Receive (Status Code: 200):</b>
+        {
+            "success": true,
+            "username": "USERNAME",
+            "first_name": "Ali",
+            "last_name": "Rn",
+            "email": "alirn76@yahoo.com",
+            "instagram": "Ali_Rn_",
+            "telegram": "Al1_Rn",
+            "bio": "I'm just a programmer",
+            "relationship": false,
+            "phone_number": "+989037853055",
+            "birth_date": "2020-10-11",
+            "country": "Iran",
+            "city": "Tehran",
+            "job": "Programmer",
+            "favorite_sport": "Taekwondo",
+            "favorite_book": "Hunger Games",
+            "favorite_movie": "Step Up",
+            "favorite_tv_series": "Vikings",
+            "favorite_game": "Nothing now",
+            "favorite_to_travel": "Vasate Oghyanos Aram",
+            "favorite_music": "Never Love Again",
+            "background_color": null,
+            "font_color": null,
+            "background_opacity": 6
+        }
+    </pre></pre>
+    <hr>
+<!------------------------------------------------------------------------------->
+
+    <h2><p><small>[PUT]</small>   <ins>user/api/profile/USERNAME</ins></p></h2>
+    <pre><pre><b>Send In Header:</b>
         {
             "Authorization":"Token fc2fbb08bc9123fg9ad7ff67fe0df75e719b2f16"
         }
 
-<b>Receive:</b>
-        [
-            {
-                "": "",
-                "": "",
-                "": "",
-                "": ""
-            },
-            {
-                "": "",
-                "": "",
-                "": "",
-                "": ""
-            }
-        ]
-    </pre>
+<b>Send In Body:</b>
+        {
+            "username":"new_username",
+            "first_name": "new_name",
+            "last_name": "new_last_name",
+            "email": "",
+            "instagram": "",
+            "telegram": "",
+            "favorite_game": "Worms",
+            ...
+        }
+    </pre><pre>
+<b>Receive (Status Code: 200):</b>
+        {
+            "success": true,
+            "username": "new_username",
+            "first_name": "new_name",
+            "last_name": "new_last_name",
+            "email": "",
+            "instagram": "",
+            "telegram": "",
+            "bio": "I'm just a programmer",
+            "relationship": false,
+            "phone_number": "+989037853055",
+            "birth_date": "2020-10-11",
+            "country": "Iran",
+            "city": "Tehran",
+            "job": "Programmer",
+            "favorite_sport": "Taekwondo",
+            "favorite_book": "Hunger Games",
+            "favorite_movie": "Step Up",
+            "favorite_tv_series": "Vikings",
+            "favorite_game": "Worms",
+            "favorite_to_travel": "Vasate Oghyanos Aram",
+            "favorite_music": "Khaar (Ft. Yasna)",
+            "background_color": null,
+            "font_color": null,
+            "background_opacity": 6
+        }
+    </pre></pre>
     <hr>
 <!------------------------------------------------------------------------------->
 
-    <h2><p><small>[GET]</small>   <ins>api/messages/</ins></p></h2>
-    <pre><b>Send In Header:</b>
+    <h2><p><small>[GET]</small>   <ins>api/pv_rooms/USERNAME</ins></p></h2>
+    <pre><pre><b>Send In Header:</b>
+        {
+            "Authorization":"Token fc2fbb08bc9123fg9ad7ff67fe0df75e719b2f16"
+        }
+    </pre><pre>
+<b>Receive (Status Code: 200):</b>
+        {
+            "success": true,
+            "username": "USERNAME",
+            "results": [
+                {
+                    "room_id": 1,
+                    "last_message": "Bye Guys",
+                    "full_name": "Amir Nr",
+                    "profile_picture": "",
+                    "date": "2020-10-12T03:14:46.762703+03:30"
+                },
+                {
+                    "room_id": 2,
+                    "last_message": "Nice to meet you :)",
+                    "full_name": "Ali Rn",
+                    "profile_picture": "profile_pictures/HN.png",
+                    "date": "2020-10-12T03:57:27.603820+03:30"
+                },
+                ...
+            ]
+        }
+    </pre></pre>
+    <hr>
+<!------------------------------------------------------------------------------->
+
+    <h2><p><small>[]</small>   <ins></ins></p></h2>
+    <pre><pre><b>Send In Header:</b>
         {
             "Authorization":"Token fc2fbb08bc9123fg9ad7ff67fe0df75e719b2f16"
         }
 
-<b>Receive:</b>
-        [
-            {
-                "": "",
-                "": "",
-                "": "",
-                "": ""
-            },
-            {
-                "": "",
-                "": "",
-                "": "",
-                "": ""
-            }
-        ]
-    </pre>
+<b>Send In Body:</b>
+        {
+            "":"",
+            "": ""
+        }
+    </pre><pre>
+<b>Receive (Status Code: ):</b>
+        {
+            "": ,
+            "": "",
+            "": ""
+        }
+    </pre></pre>
+    <hr>
+<!------------------------------------------------------------------------------->
+
+    <h2><p><small>[]</small>   <ins></ins></p></h2>
+    <pre><pre><b>Send In Header:</b>
+        {
+            "Authorization":"Token fc2fbb08bc9123fg9ad7ff67fe0df75e719b2f16"
+        }
+
+<b>Send In Body:</b>
+        {
+            "":"",
+            "": ""
+        }
+    </pre><pre>
+<b>Receive (Status Code: ):</b>
+        {
+            "": ,
+            "": "",
+            "": ""
+        }
+    </pre></pre>
+    <hr>
+<!------------------------------------------------------------------------------->
+
+    <h2><p><small>[]</small>   <ins></ins></p></h2>
+    <pre><pre><b>Send In Header:</b>
+        {
+            "Authorization":"Token fc2fbb08bc9123fg9ad7ff67fe0df75e719b2f16"
+        }
+
+<b>Send In Body:</b>
+        {
+            "":"",
+            "": ""
+        }
+    </pre><pre>
+<b>Receive (Status Code: ):</b>
+        {
+            "": ,
+            "": "",
+            "": ""
+        }
+    </pre></pre>
     <hr>
 <!------------------------------------------------------------------------------->
 

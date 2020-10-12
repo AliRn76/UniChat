@@ -1,6 +1,9 @@
 from django.db import models
 from django.conf import settings
+from django.db.models import Q
+from rest_framework.exceptions import NotFound
 
+from user.models import MyUser
 
 User = settings.AUTH_USER_MODEL
 
@@ -76,3 +79,35 @@ class Score(models.Model):
     score           = models.BooleanField(db_column="Score")
 
 
+
+'''###################################### Utils #########################################'''
+
+def get_pv_rooms(username):
+    try:
+        MyUser.objects.get(username=username)
+    except MyUser.DoesNotExist:
+        raise NotFound('Username Does Not Exist')
+    _rooms = PvMember.objects.filter(user_id__username=username).values_list('pv_room_id__id')
+    rooms = [i[0] for i in _rooms]
+    ''' return [room_id, room_id , ...] '''
+    return rooms
+
+def get_pv_names(username):
+    rooms = get_pv_rooms(username)
+    _pv_names = PvMember.objects.filter(Q(pv_room_id__id__in=rooms) & ~Q(user_id__username=username))\
+        .values_list('user_id__first_name', 'user_id__last_name', 'user_id__profile_picture', 'pv_room_id__id')
+    ''' return [('first_name', 'last_name', 'profile_picture', 'room_id'), ...] '''
+    return _pv_names
+
+def get_pv_last_message(username):
+    rooms = get_pv_rooms(username)
+    _pv_last_message = Message.objects.filter(Q(is_deleted=False) & Q(pv_room_id__in=rooms))\
+        .values_list('text', 'pv_room_id', 'date_added').order_by('pv_room_id', '-date_added')
+    last_room = None
+    pv_last_message = []
+    for i in _pv_last_message:
+        if last_room != i[1]:
+            last_room = i[1]
+            pv_last_message.append(i)
+    ''' return [('last_message', room_id), ...] '''
+    return pv_last_message

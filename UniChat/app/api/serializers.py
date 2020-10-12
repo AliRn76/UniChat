@@ -11,7 +11,14 @@ class MessageSerializer(serializers.ModelSerializer):
 
 
 class PvRoomsSerializer(serializers.Serializer):
-    ''' return [('room_id', 'last_message', 'full_name', 'profile_picture', 'date'), ...] '''
+    room_id         = serializers.IntegerField()
+    last_message    = serializers.CharField(max_length=255)
+    full_name       = serializers.CharField(max_length=255)
+    profile_picture = serializers.CharField(max_length=255)
+    date            = serializers.DateTimeField()
 
 
 
+
+
+#TODO: PvRoomSerializer baadan bayad ModelSerializer beshe (Nested ...)
