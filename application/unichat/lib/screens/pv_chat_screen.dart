@@ -1,9 +1,17 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:popup_menu/popup_menu.dart';
 import 'package:unichat/screens/contact_profile_screen.dart';
 import 'package:clay_containers/clay_containers.dart';
 import 'package:unichat/utils/pv_chat_utils.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:http/http.dart';
+import 'package:unichat/widgets/pv_chat_input.dart';
+
+import 'package:web_socket_channel/io.dart';
+import 'package:web_socket_channel/status.dart' as status;
+import 'package:web_socket_channel/web_socket_channel.dart';
 
 class ChatScreen extends StatefulWidget {
   @override
@@ -14,6 +22,9 @@ class _ChatScreenState extends State<ChatScreen> {
   final TextEditingController _textController = TextEditingController();
   final GlobalKey popUpScreenKey = GlobalKey();
   final GlobalKey popUpUploadKey = GlobalKey();
+
+  final channel = IOWebSocketChannel.connect('ws://192.168.1.7:8000/last/');
+//  final channel = IOWebSocketChannel.connect('wss://echo.websocket.org');
 
 
 //  PopupMenu screen;
@@ -32,6 +43,7 @@ class _ChatScreenState extends State<ChatScreen> {
 //    _textController.addListener(_setTextBgColor);
   }
 
+  List<String> messageList = [];
 
   @override
   Widget build(BuildContext context) {
@@ -91,107 +103,88 @@ class _ChatScreenState extends State<ChatScreen> {
             ),
           ]
       ),
-      body: Container(
-//        width: double.infinity,
-//        height: double.infinity,
-        decoration: BoxDecoration(
-          color: Color(0xFFF2F2F2),
-//          color: Colors.lightGreen[100],
-//            gradient: LinearGradient(
-//                begin: Alignment.topLeft,
-//                end: Alignment.bottomRight,
-//                stops: [
-//                  0.3,
-//                  0.9,
-//                ],
-//                colors: [
-//                  Colors.cyan[300],
-//                  Color(0xfff9f9f9),
-//                ]
-//            )
-        ),
-        child: Stack(
-          children: [
-            ListView.builder(
-              padding: EdgeInsets.only(bottom: 40),
-              reverse: true,
-              itemCount: 40,
-              itemBuilder: (context, index) => _showMessages(index),
-            ),
-            Align(
-              alignment: Alignment(0, 1),
-              child: Container(
-                height: 45.0,
-                width: double.infinity,
+      body: StreamBuilder(
+          stream: channel.stream,
+          builder: (context, snapshot) {
+            if(snapshot.hasData)
+              messageList.insert(0, snapshot.data);
+            print(snapshot.connectionState);
+            return  Container(
                 decoration: BoxDecoration(
-                  color: typed ? Colors.white.withOpacity(1.0) : Colors.white.withOpacity(0.0),
-//                  border: Border(
-//                      top: BorderSide(color: Colors.black, width: 1.0)
-//                  ),
+                  color: Color(0xFFF2F2F2),
                 ),
-                child: Row(
+                child: Stack(
                   children: [
-                    IconButton(
-                      icon: Icon(Icons.insert_emoticon),
-                      color: iconColor,
-                      onPressed: (){
-                        print("Open Custom Emoji Keybord");
-                      },
+                    ListView.builder(
+                      padding: EdgeInsets.only(bottom: 40),
+                      reverse: true,
+                      itemCount: messageList.length,
+//                 itemBuilder: (context, index) => _showMessages(index),
+                      itemBuilder: (context, index) => _test_websocket(index, messageList[index]),
                     ),
-                    Flexible(
-                      child: Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: TextField(
-                          onTap: (){
-                            setState(() => typed = true);
-                          },
-                          expands: false,
-                          controller: _textController,
-                          autofocus: false,
-                          decoration: InputDecoration(
-                              border: InputBorder.none,
-                          ),
-                          maxLines: 1,
-                          onChanged: (text){
-                            if(text == '')
-                              setState(() => typed = false);
-                            else if(typed == false)
-                              setState(() => typed = true);
-                            print(text);
-                          },
-                          style: TextStyle(
-                            fontSize: 17.0,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                      )
-                    ),
-                    IconButton(
-                      icon: Icon(Icons.add_circle_outline),
-                      color: iconColor,
-                      key: popUpUploadKey,
-                      onPressed: _uploadOptions,
-                    ),
-                    GestureDetector(
-//                      onLongPressStart: _startPressMic,
-//                      onLongPressEnd: _endPressMic,
-                      child: Padding(
-                        padding: EdgeInsets.only(right: 10),
-                        child: Icon(
-                          Icons.mic,
-                          color: iconColor,
-                        ),
-                      ),
-                    )
+                    PvChatInput(channel:channel),
                   ],
-                ),
-              ),
-            ),
-          ],
-        ),
+                )
+            );
+          }
       ),
     );
   }
+
+  Widget _test_websocket(int index, String text){
+    return Stack(
+      children: [
+        Align(
+          alignment: Alignment(1, 1),
+          child: Container(
+              margin: EdgeInsets.fromLTRB(20.0, 0.0, 5.0, 14.0),
+              child: Stack(
+                children: [
+                  ConstrainedBox(
+                    constraints: BoxConstraints(minWidth: 60.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(15.0),
+                          border: Border.all(
+                            color: Colors.greenAccent[400],
+                            width: 0.5,
+                          ),
+                          color: Colors.greenAccent[100],
+                          boxShadow: [
+                            BoxShadow(
+                              offset: Offset(1.5, 1.5),
+                              blurRadius: 5.0,
+                              color: Colors.greenAccent[700],
+                            ),
+                          ]
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.all(13.0),
+                        child: Text(
+                          text != null ? text : "nothing",
+//                          "",
+                        ),
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    bottom: 0,
+                    right: 15,
+                    child:  ClayText(
+                      "00:00",
+                      emboss: false,
+                      size: 11.0,
+                      depth: 100,
+                    ),
+                  ),
+                ],
+              )
+          ),
+        ),
+      ],
+    );
+  }
+
 
   void _screenOptions(){
     PopupMenu menu = PopupMenu(

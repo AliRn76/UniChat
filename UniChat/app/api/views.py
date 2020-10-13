@@ -1,4 +1,4 @@
-from django.shortcuts import HttpResponse
+from django.shortcuts import HttpResponse, render
 from rest_framework.exceptions import NotFound
 from rest_framework.mixins import ListModelMixin, RetrieveModelMixin
 from rest_framework.generics import GenericAPIView
@@ -9,6 +9,10 @@ from django.db.models import Sum
 from app.models import Message, PvRoom, PvMember,get_pv_names, get_pv_last_message
 from app.api.serializers import MessageSerializer, PvRoomsSerializer
 from rest_framework.response import Response
+
+
+def test_ws(request):
+    return render(request, "test_ws.html", {})
 
 class MessageAPIView(GenericAPIView, ListModelMixin, RetrieveModelMixin):
     serializer_class    = MessageSerializer

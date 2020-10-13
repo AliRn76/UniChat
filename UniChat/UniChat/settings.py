@@ -25,7 +25,7 @@ SECRET_KEY = '-zko_hq7a6lqw+&olx93%_+0us@icvv6heyuzcno1&$w*8s59l'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -37,8 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'rest_framework',
     'rest_framework.authtoken',
+    'channels',
+
     'user',
     'app',
 ]
@@ -52,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
 
 ROOT_URLCONF = 'UniChat.urls'
 
@@ -70,6 +74,8 @@ TEMPLATES = [
         },
     },
 ]
+
+ASGI_APPLICATION = "UniChat.routing.application"
 
 WSGI_APPLICATION = 'UniChat.wsgi.application'
 
@@ -137,3 +143,12 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_ROOT = BASE_DIR / 'media'
 MEDIA_URL = '/media/'
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [("localhost", 6379)],
+        },
+    },
+}
