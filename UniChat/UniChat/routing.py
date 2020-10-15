@@ -11,7 +11,7 @@ application = ProtocolTypeRouter({
         AuthMiddlewareStack(
             URLRouter(
                 [
-                    url(r"^last/$", MoistureSensorConsumer),
+                    url(r"^pv_room/(?P<username>[\w.@+-]+)/$", MoistureSensorConsumer),
                 ]
             )
         )

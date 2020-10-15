@@ -17,22 +17,24 @@ from rest_framework.authtoken.models import Token
 
 
 class MyUserManager(BaseUserManager):
-    def create_user(self, username, password=None):
+    def create_user(self, username, is_male, password=None):
         if not username:
             raise ValueError('Users must have a username')
 
         user = self.model(
             username=username,
+            is_male=is_male,
         )
 
         user.set_password(password)
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, username, password=None):
+    def create_superuser(self, username, password=None, is_male=True):
         user = self.create_user(
             username,
             password=password,
+            is_male=is_male
         )
         user.is_admin = True
         user.save(using=self._db)
@@ -48,7 +50,7 @@ class MyUser(AbstractBaseUser):
     is_active           = models.BooleanField(default=True)
     date_joined         = models.DateTimeField(auto_now_add=True)
     last_login          = models.DateTimeField(blank=True, null=True)
-    is_male             = models.BooleanField(blank=True, null=True)
+    is_male             = models.BooleanField(default=True)
     profile_picture     = models.ImageField(upload_to='profile_pictures/', max_length=255, blank=True, null=True)
     email               = models.EmailField(verbose_name='email address', max_length=255, blank=True, null=True)
     instagram           = models.CharField(max_length=127, blank=True, null=True)

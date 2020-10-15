@@ -7,7 +7,7 @@ from rest_framework.response import Response
 from rest_framework.authtoken.models import Token
 from user.api.serializers import SignupUserSerializer, ProfileSerializer
 from user.models import MyUser
-
+from robohash import Robohash
 
 class SignupUserAPIView(GenericAPIView, CreateModelMixin):
     queryset            = MyUser.objects.all()
@@ -17,9 +17,13 @@ class SignupUserAPIView(GenericAPIView, CreateModelMixin):
     def post(self, request):
         result = self.create(request)
         if result.status_code == 201:
-            username    = result.data['username']
-            user        = MyUser.objects.get(username=username)
-            token       = Token.objects.get(user=user)
+            username                = result.data['username']
+            user                    = MyUser.objects.get(username=username)
+            is_male                 = user.is_male
+            profile_icon            = self.create_profile_icon(username, is_male)
+            user.profile_picture    = profile_icon
+            token                   = Token.objects.get(user=user)
+            user.save()
             data = {
                 "success": True,
                 "username": username,
@@ -28,6 +32,22 @@ class SignupUserAPIView(GenericAPIView, CreateModelMixin):
             return Response(data)
         else:
             return result
+
+    def create_profile_icon(self, username, is_male):
+        rh = Robohash(username)
+        if is_male:
+            set = '1'
+        else:
+            set = '4'
+        rh.assemble(roboset="set" + set)
+        image_url = "media/profiles-icon/" + username + ".png"
+        try:
+            image_data = open(image_url, "rb").read()
+        except:
+            with open(image_url, "wb") as icon:
+                rh.img.save(icon, format="png")
+        final_url = "profiles-icon/" + username + ".png"
+        return final_url
 
 
 class ProfileAPIView(GenericAPIView, RetrieveModelMixin, UpdateModelMixin):

@@ -23,7 +23,8 @@ class _ChatScreenState extends State<ChatScreen> {
   final GlobalKey popUpScreenKey = GlobalKey();
   final GlobalKey popUpUploadKey = GlobalKey();
 
-  final channel = IOWebSocketChannel.connect('ws://192.168.1.7:8000/last/');
+  final channel = IOWebSocketChannel.connect('ws://192.168.1.7:8000/pv_room/Admin/',
+      headers: {"Authorization": "Token 03541fdd9d9e3e86a43de43352eadf228b40d213"});
 //  final channel = IOWebSocketChannel.connect('wss://echo.websocket.org');
 
 
@@ -393,3 +394,5 @@ class _ChatScreenState extends State<ChatScreen> {
 //TODO: item ha dragble beshan , baraye Reply
 //TODO: _messagesOptions bug dare, 2 ta hamzaman mishe baz kard, baghiashonm mishe
 //TODO: vaghti zad roo message bejaye PopUpMenu mishe DraggableScrollableSheet estefade kard
+//TODO: is Typing ro baadan ADD konm
+//TODO: baade send , clear beshe

@@ -55,6 +55,12 @@ class PvRoom(models.Model):
     class Meta:
         db_table = 'PVRoom'
 
+    def pv_rooms(self, username):
+        _rooms = PvRoom.objects.filter(Q(user2_id__username=username) | Q(user1_id__username=username))\
+            .values_list('id')
+        rooms = [i[0] for i in _rooms]
+        return rooms
+
 
 class Message(models.Model):
     id                  = models.AutoField(db_column='ID', primary_key=True)

@@ -38,10 +38,7 @@ class PvRoomsAPIVIew(GenericAPIView, ListModelMixin):
     def get_queryset(self, *args, **kwargs):
         username = self.kwargs.get('username')
 
-        _rooms = PvRoom.objects.filter(Q(user2_id__username=username) | Q(user1_id__username=username))\
-            .values_list('id')
-        rooms = [i[0] for i in _rooms]
-        ''' rooms return [room_id, room_id, ...] '''
+        rooms = PvRoom.pv_rooms(username=username)
 
         __pv_names1 = PvRoom.objects.filter(Q(id__in=rooms) & ~Q(user1_id__username=username))\
             .values_list('id', 'user1_id__username', 'user1_id__first_name',
@@ -90,7 +87,7 @@ class PvRoomsAPIVIew(GenericAPIView, ListModelMixin):
         # print(self.get_queryset())
         result = self.list(request)
         if result.status_code == 200:
-            data = {"success": True, "username": username}
+            data = {"success": True}
             data.update({"results": result.data})
             return Response(data)
         else:
@@ -98,3 +95,6 @@ class PvRoomsAPIVIew(GenericAPIView, ListModelMixin):
             return Response(data=data, status=result.status_code)
 
 
+#TODO: Postman FIX beshe
+#TODO: Api.html Fix beshe
+#TODO: i_exact ro baadan tasmim bgiram, va emal konm to query ha

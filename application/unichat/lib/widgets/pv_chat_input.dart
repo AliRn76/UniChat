@@ -41,6 +41,7 @@ class _PvChatInputState extends State<PvChatInput> {
           children: [
             IconButton(
               icon: Icon(Icons.send),
+
               color: iconColor,
               onPressed: (){
                 widget.channel.sink.add(_textController.text);
