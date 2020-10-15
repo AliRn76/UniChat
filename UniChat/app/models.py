@@ -8,17 +8,6 @@ from user.models import MyUser
 User = settings.AUTH_USER_MODEL
 
 
-class PvRoom(models.Model):
-    id                  = models.AutoField(db_column='ID', primary_key=True)
-    date_created        = models.DateTimeField(db_column='DateCreated', auto_now_add=True)
-    last_message_date   = models.DateTimeField(db_column='LastMessageDate', blank=True, null=True)
-    is_deleted          = models.BooleanField(db_column='IsDeleted', default=False)
-    date_deleted        = models.DateTimeField(db_column='DateDeleted', blank=True, null=True)
-
-    class Meta:
-        db_table = 'PVRoom'
-
-
 class PublicRoom(models.Model):
     id                  = models.AutoField(db_column='ID', primary_key=True)
     member_count        = models.IntegerField(db_column='MemberCount', blank=True, null=True)
@@ -42,16 +31,29 @@ class PublicMember(models.Model):
         db_table = 'PublicMember'
 
 
-class PvMember(models.Model):
+class PvMemberInfo(models.Model):
     id              = models.AutoField(db_column='ID', primary_key=True)
-    pv_room_id      = models.ForeignKey(PvRoom, models.DO_NOTHING, db_column='PVRoomID')
-    user_id         = models.ForeignKey(User, models.DO_NOTHING, db_column='UserID')
     is_blocked      = models.BooleanField(db_column='IsBlocked', default=False)
     is_favorite     = models.BooleanField(db_column='IsFavorite', default=False)
+    is_deleted      = models.BooleanField(db_column='IsDeleted', default=False)
+    date_deleted    = models.DateTimeField(db_column='DateDeleted', blank=True, null=True)
     unread_count    = models.IntegerField(db_column='UnreadCount', default=0)
 
     class Meta:
         db_table = 'PVMember'
+
+
+class PvRoom(models.Model):
+    id                  = models.AutoField(db_column='ID', primary_key=True)
+    date_created        = models.DateTimeField(db_column='DateCreated', auto_now_add=True)
+    last_message_date   = models.DateTimeField(db_column='LastMessageDate', blank=True, null=True)
+    user1_id            = models.ForeignKey(User, models.DO_NOTHING, related_name='user1_id', db_column='User1ID', blank=True, null=True)
+    user2_id            = models.ForeignKey(User, models.DO_NOTHING, related_name='user2_id', db_column='User2ID', blank=True, null=True)
+    user1_info          = models.ForeignKey(PvMemberInfo, models.DO_NOTHING, related_name='user1_info',  db_column='User1Info', blank=True, null=True)
+    user2_info          = models.ForeignKey(PvMemberInfo, models.DO_NOTHING, related_name='user2_info',  db_column='User2Info', blank=True, null=True)
+
+    class Meta:
+        db_table = 'PVRoom'
 
 
 class Message(models.Model):
@@ -82,32 +84,4 @@ class Score(models.Model):
 
 '''###################################### Utils #########################################'''
 
-def get_pv_rooms(username):
-    try:
-        MyUser.objects.get(username=username)
-    except MyUser.DoesNotExist:
-        raise NotFound('Username Does Not Exist')
-    _rooms = PvMember.objects.filter(user_id__username=username).values_list('pv_room_id__id')
-    rooms = [i[0] for i in _rooms]
-    ''' return [room_id, room_id , ...] '''
-    return rooms
 
-def get_pv_names(username):
-    rooms = get_pv_rooms(username)
-    _pv_names = PvMember.objects.filter(Q(pv_room_id__id__in=rooms) & ~Q(user_id__username=username))\
-        .values_list('user_id__first_name', 'user_id__last_name', 'user_id__profile_picture', 'pv_room_id__id')
-    ''' return [('first_name', 'last_name', 'profile_picture', 'room_id'), ...] '''
-    return _pv_names
-
-def get_pv_last_message(username):
-    rooms = get_pv_rooms(username)
-    _pv_last_message = Message.objects.filter(Q(is_deleted=False) & Q(pv_room_id__in=rooms))\
-        .values_list('text', 'pv_room_id', 'date_added').order_by('pv_room_id', '-date_added')
-    last_room = None
-    pv_last_message = []
-    for i in _pv_last_message:
-        if last_room != i[1]:
-            last_room = i[1]
-            pv_last_message.append(i)
-    ''' return [('last_message', room_id), ...] '''
-    return pv_last_message

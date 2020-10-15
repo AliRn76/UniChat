@@ -1,10 +1,11 @@
 from django.contrib import admin
+from django.db.models import Q
 
-from .models import PvRoom, PublicRoom, PublicMember, PvMember, Message
+from .models import PvRoom, PublicRoom, PublicMember, Message, PvMemberInfo
 
 
 class PvRoomAdmin(admin.ModelAdmin):
-    list_display = ('get_users', 'id', 'date_created', 'last_message_date', 'is_deleted')
+    list_display = ('user1_id', 'user2_id', 'id', 'date_created', 'last_message_date')
     search_fields = ('pvmember__user_id__username', 'pvmember__user_id__instagram', 'pvmember__user_id__telegram')
     readonly_fields = ('last_message_date',)
 
@@ -12,22 +13,32 @@ class PvRoomAdmin(admin.ModelAdmin):
     list_filter = ()
     fieldsets = ()
 
-    def get_users(self, obj):
-        users = PvMember.objects.filter(pv_room_id=obj.id)
-        _users = []
-        for i in range(len(users)):
-            _users.append(users[i].user_id.username)
-        return _users
 
-    get_users.short_description = 'Users'
-    '''order dorost kar nmikone, bayad distinct rosh ejra beshe'''
-    # get_users.admin_order_field = 'pvmember__user_id__username'
+class PvMemberInfoAdmin(admin.ModelAdmin):
+    list_display = ('get_username', 'get_room_id', 'id', 'is_blocked', 'is_favorite', 'is_deleted', 'unread_count')
+    search_fields = ('user1_info__user1_id__username', 'user2_info__user2_id__username')
+    filter_horizontal = ()
+    list_filter = ()
+    fieldsets = ()
+    
+    def get_username(self, obj):
+        try:
+            username = PvRoom.objects.get(user1_info=obj.id).user1_id.username
+        except:
+            username = PvRoom.objects.get(user2_info=obj.id).user2_id.username
+        return username
+
+    def get_room_id(self, obj):
+        return PvRoom.objects.get(Q(user1_info=obj.id) | Q(user2_info=obj.id)).id
+
+    get_username.short_description = 'Username'
+
+    get_room_id.short_description = 'Room ID'
 
 
 class PublicRoomAdmin(admin.ModelAdmin):
     list_display = ('room_name', 'id', 'member_count', 'is_deleted')
     search_fields = ('room_name',)
-    # readonly_fields = ('',)
 
     filter_horizontal = ()
     list_filter = ()
@@ -46,45 +57,18 @@ class PublicMemberAdmin(admin.ModelAdmin):
     def get_room_name(self, obj):
         return obj.public_room_id.room_name
 
-    get_room_name.short_description = 'Room Name'
-    get_room_name.admin_order_field = 'public_room_id__room_name'
-
     def get_username(self, obj):
         return obj.user_id.username
+
+    get_room_name.short_description = 'Room Name'
+    get_room_name.admin_order_field = 'public_room_id__room_name'
 
     get_username.short_description = 'Username'
     get_username.admin_order_field = 'user_id__username'
 
 
-class PvMemberAdmin(admin.ModelAdmin):
-    list_display = ('get_first_username', 'get_second_username', 'id', 'unread_count', 'is_favorite')
-    search_fields = ('user_id__username',)
-    readonly_fields = ('unread_count',)
-
-    filter_horizontal = ()
-    list_filter = ()
-    fieldsets = ()
-
-    def get_first_username(self, obj):
-        return obj.user_id.username
-
-    get_first_username.short_description = 'First User'
-    get_first_username.admin_order_field = 'user_id__username'
-
-    def get_second_username(self, obj):
-        users = PvMember.objects.filter(pv_room_id=obj.pv_room_id)
-        second_user = None
-        for user in users:
-            if user.user_id.username is not obj.user_id.username:
-                second_user = user.user_id.username
-        return second_user
-
-    get_second_username.short_description = 'Second User'
-    # get_second_username.admin_order_field = ''
-
-
 class MessageAdmin(admin.ModelAdmin):
-    list_display = ('get_user', 'id', 'text', 'image', 'get_other_side', 'date_added', 'date_modified', 'is_deleted')
+    list_display = ('get_user', 'id', 'text', 'image', 'get_pv_id', 'get_public_id', 'date_added', 'date_modified', 'is_deleted')
     search_fields = ('user_id__username',)
     readonly_fields = ('date_added', 'date_modified')
 
@@ -95,26 +79,27 @@ class MessageAdmin(admin.ModelAdmin):
     def get_user(self, obj):
         return obj.user_id.username
 
+    def get_pv_id(self, obj):
+        return obj.pv_room_id.id
+
+    def get_public_id(self, obj):
+        try:
+            return obj.public_room_id.id
+        except:
+            return None
+
     get_user.short_description = 'User'
     get_user.admin_order_field = 'user_id__username'
 
-    def get_other_side(self, obj):
-        if obj.pv_room_id is not None:
-            users = PvMember.objects.filter(pv_room_id=obj.pv_room_id)
-            second_user = None
-            for user in users:
-                if user.user_id.username is not obj.user_id.username:
-                    second_user = user.user_id.username
-            return second_user
-        else:
-            return obj.public_room_id.room_name
+    get_pv_id.short_description = 'PV Room ID'
+    get_pv_id.admin_order_field = 'pv_room_id__id'
 
-    get_other_side.short_description = 'Message To'
-    get_other_side.admin_order_field = 'public_room_id__room_name'
+    get_public_id.short_description = 'Public Room ID'
+    get_public_id.admin_order_field = 'public_room_id__id'
 
 
 admin.site.register(PvRoom, PvRoomAdmin)
 admin.site.register(PublicRoom, PublicRoomAdmin)
 admin.site.register(PublicMember, PublicMemberAdmin)
-admin.site.register(PvMember, PvMemberAdmin)
+admin.site.register(PvMemberInfo, PvMemberInfoAdmin)
 admin.site.register(Message, MessageAdmin)
