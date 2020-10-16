@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:unichat/screens/home_screen.dart';
+import 'package:unichat/widgets/register_signup.dart';
 
 
 class SignupScreen extends StatefulWidget {
@@ -148,124 +149,7 @@ class _SignupScreenState extends State<SignupScreen> {
         ),
       )
     )
-      : isSignup ?  Scaffold(
-        body: SafeArea(
-          child: Padding(
-            padding: EdgeInsets.all(20.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "Create Account",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-
-                  ),
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    TextField(
-                      textInputAction: TextInputAction.done,
-                      onChanged: (value) => setState(() => username = value),
-                      cursorColor: kPrimaryColor,
-                      decoration: InputDecoration(
-                        icon: Icon(
-                          Icons.person,
-                          color: kPrimaryColor,
-                        ),
-                        hintText: "Username",
-                        labelText: "username",
-                        border: InputBorder.none,
-                      ),
-                    ),
-                    TextField(
-                      textInputAction: TextInputAction.done,
-                      obscureText: obscureText,
-//                    controller: usernameController,
-                      onChanged: (value) => setState(() => password = value),
-                      cursorColor: kPrimaryColor,
-                      decoration: InputDecoration(
-                        hintText: "Password",
-                        icon: Icon(
-                          Icons.lock,
-                          color: kPrimaryColor,
-                        ),
-                        suffixIcon: IconButton(
-                          icon: Icon(
-                            Icons.visibility,
-                            color: kPrimaryColor,
-                          ),
-                          onPressed: () => showPassword(),
-                        ),
-                        border: InputBorder.none,
-                      ),
-                    ),
-                    SizedBox(height: size.width * 0.07),
-                    Center(
-                      child: Container(
-                        width: size.width * 0.9,
-                        height: size.width * 0.13,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10.0),
-                          border: Border.all(),
-                        ),
-                        child: FlatButton(
-                          onPressed: (){
-                            print("Sign Up");
-                          },
-                          child: Text("Sign up"),
-                        ),
-                      ),
-                    ),
-                    SizedBox(height: size.width * 0.02),
-                    Row(
-                      children: [
-                        Flexible(
-                            flex: 4,
-                            child: Divider(thickness: 2,)
-                        ),
-                        Flexible(
-                            flex: 1,
-                            child: Padding(
-                              padding: EdgeInsets.all(8.0),
-                              child: Text("or"),
-                            )
-                        ),
-                        Flexible(
-                            flex: 4,
-                            child: Divider(thickness: 2,)
-                        ),
-                      ],
-                    ),
-                    Center(
-                      child: Container(
-                        width: size.width * 0.9,
-                        height: size.width * 0.13,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10.0),
-                          border: Border.all(),
-                        ),
-                        child: FlatButton(
-                          onPressed: (){
-                            setState(() {
-                              isLogin = true;
-                              isSignup = false;
-                            });
-                          },
-                          child: Text("Login"),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-        )
-    )
+      : isSignup ?  RegisterSignup()
         : Scaffold(
       body: SafeArea(
         child: Padding(

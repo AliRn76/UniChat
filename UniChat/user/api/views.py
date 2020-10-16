@@ -26,7 +26,6 @@ class SignupUserAPIView(GenericAPIView, CreateModelMixin):
             user.save()
             data = {
                 "success": True,
-                "username": username,
                 "token": str(token),
             }
             return Response(data)
@@ -86,7 +85,41 @@ class ProfileAPIView(GenericAPIView, RetrieveModelMixin, UpdateModelMixin):
             }
             return Response(data=data, status=result.status_code)
 
+class OtherProfileAPIView(GenericAPIView, RetrieveModelMixin, UpdateModelMixin):
+    queryset            = MyUser.objects.all()
+    serializer_class    = ProfileSerializer
+    permission_classes  = [IsAuthenticated]
+    lookup_field        = 'username'
 
+    def get(self, request, username):
+        # if username is not None:
+        result = self.retrieve(request)
+        if result.status_code == 200:
+            data = {"success": True}
+            data.update(result.data)
+            return Response(data)
+        else:
+            data = {"success": False, "error": result.exception}
+            return Response(data=data, status=result.status_code)
+
+    ''' 
+    Profile_Picture + Background_Image ro az inja upload mikonm 
+    def post(self, username):
+        pass
+    '''
+
+    def put(self, request, username):
+        result = self.update(request, username)
+        if result.status_code == 200:
+            data = {"success": True}
+            data.update(result.data)
+            return Response(data)
+        else:
+            data = {
+                "success": False,
+                "error": result.exception
+            }
+            return Response(data=data, status=result.status_code)
 #TODO: IsDeleted ro barashon hesab konm
 #TODO: baraye User ha field e isDeleted bzaram
 #TODO: age user Exist bood , error 403 bede(bayad queryset def beshe)

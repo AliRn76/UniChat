@@ -33,7 +33,7 @@ class DatabaseHelper{
   String col_favorite_sport       = "favorite_sport";
   String col_favorite_book        = "favorite_book";
   String col_favorite_movie       = "favorite_movie";
-  String col_favorite_tv_series   = "favorite_to_travel";
+  String col_favorite_tv_series   = "favorite_tv_series";
   String col_favorite_game        = "favorite_game";
   String col_favorite_to_travel   = "favorite_to_travel";
   String col_favorite_music       = "favorite_music";
@@ -85,7 +85,6 @@ class DatabaseHelper{
             '$col_bio TEXT,'
             '$col_instagram TEXT,'
             '$col_telegram TEXT,'
-            '$col_instagram TEXT,'
             '$col_birth_date TEXT,'
             '$col_relationship BIT,'
 
@@ -172,12 +171,15 @@ class DatabaseHelper{
   ///
   // Insert Token
   Future<List<Map<String, dynamic>>> insertToken(String token) async{
+    deleteToken();
     Database db = await this.database;
+    print("TOKEN: $token" );
     var result = await db.rawQuery(
         "Insert Into $tbl_token ($col_token)"
             "VALUES ('$token');"
     );
-    print("Insert Token Into DB Result: $result");
+    if(result.isNotEmpty)
+      print("DB Insert Token: $result");
     return result;
   }
 
@@ -187,7 +189,8 @@ class DatabaseHelper{
     var result = await db.rawQuery(
         "Select $col_token From $tbl_token"
     );
-    print("Select Token From DB Result: $result");
+    if(result.isNotEmpty)
+      print("DB Select Token: $result");
     return result;
   }
 
@@ -197,7 +200,8 @@ class DatabaseHelper{
     var result = await db.rawQuery(
         "Delete From $tbl_token"
     );
-    print("Delete Token From DB Result: $result");
+    if(result.isNotEmpty)
+      print("DB Delete Tokens: $result");
     return result;
   }
 }

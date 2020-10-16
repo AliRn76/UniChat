@@ -55,7 +55,7 @@ class PvRoom(models.Model):
     class Meta:
         db_table = 'PVRoom'
 
-    def pv_rooms(self, username):
+    def pv_rooms(username):
         _rooms = PvRoom.objects.filter(Q(user2_id__username=username) | Q(user1_id__username=username))\
             .values_list('id')
         rooms = [i[0] for i in _rooms]
