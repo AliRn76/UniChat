@@ -26,8 +26,8 @@ class _ProfileEditPage5State extends State<ProfileEditPage5> {
   Widget build(BuildContext context) {
     final ProfileDataProvider profileDataProvider = Provider.of<ProfileDataProvider>(context);
     Size size = MediaQuery.of(context).size;
-    Color backgroundColor = profileDataProvider.user.background_color;
-    Color fontColor = profileDataProvider.user.font_color;
+    Color backgroundColor = profileDataProvider.userProfile.background_color;
+    Color fontColor = profileDataProvider.userProfile.font_color;
 
     return Stack(
       children: <Widget>[

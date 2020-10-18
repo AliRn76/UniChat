@@ -26,8 +26,8 @@ class _ProfileEditPage4State extends State<ProfileEditPage4> {
     final ProfileStatesProvider profileStatesProvider = Provider.of<ProfileStatesProvider>(context);
     final ProfileDataProvider profileDataProvider = Provider.of<ProfileDataProvider>(context);
 
-    Color backgroundColor = profileDataProvider.user.background_color;
-    Color fontColor = profileDataProvider.user.font_color;
+    Color backgroundColor = profileDataProvider.userProfile.background_color;
+    Color fontColor = profileDataProvider.userProfile.font_color;
 
     return Stack(
       children: [
@@ -63,13 +63,13 @@ class _ProfileEditPage4State extends State<ProfileEditPage4> {
                   ),
                   Column(
                     children: [
-                      ProfileEditUtils.alignedText(context, profileDataProvider.user.favorite_sport),
-                      ProfileEditUtils.alignedText(context, profileDataProvider.user.favorite_book),
-                      ProfileEditUtils.alignedText(context, profileDataProvider.user.favorite_movie),
-                      ProfileEditUtils.alignedText(context, profileDataProvider.user.favorite_tv_series),
-                      ProfileEditUtils.alignedText(context, profileDataProvider.user.favorite_music),
-                      ProfileEditUtils.alignedText(context, profileDataProvider.user.favorite_game),
-                      ProfileEditUtils.alignedText(context, profileDataProvider.user.favorite_to_travel),
+                      ProfileEditUtils.alignedText(context, profileDataProvider.userProfile.favorite_sport),
+                      ProfileEditUtils.alignedText(context, profileDataProvider.userProfile.favorite_book),
+                      ProfileEditUtils.alignedText(context, profileDataProvider.userProfile.favorite_movie),
+                      ProfileEditUtils.alignedText(context, profileDataProvider.userProfile.favorite_tv_series),
+                      ProfileEditUtils.alignedText(context, profileDataProvider.userProfile.favorite_music),
+                      ProfileEditUtils.alignedText(context, profileDataProvider.userProfile.favorite_game),
+                      ProfileEditUtils.alignedText(context, profileDataProvider.userProfile.favorite_to_travel),
                     ],
                   ),
                 ],

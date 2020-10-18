@@ -30,7 +30,7 @@ class _ChatScreenState extends State<ChatScreen> {
 
 //  PopupMenu screeali2252
 
-  Color textControllerBackgroundColor = Colors.white.withOpacity(0.0);
+  Color textControllerBackgroundColor = Colors.transparent;
   Color iconColor = Colors.black;
   bool condi = true;
 //  bool itHasLike = false;
@@ -66,7 +66,7 @@ class _ChatScreenState extends State<ChatScreen> {
               );
             },
             child: Container(
-              color: Colors.white.withOpacity(0.0),
+              color: Colors.transparent,
               child: Row(
                 children: [
                   Container(
@@ -327,7 +327,7 @@ class _ChatScreenState extends State<ChatScreen> {
           ],
           secondaryActions: <Widget>[
             IconSlideAction(
-              color: Colors.yellow.withOpacity(0.0),
+              color: Colors.transparent,
               iconWidget: Icon(
                 Icons.insert_emoticon,
                 color: Colors.yellow[700],
@@ -336,7 +336,7 @@ class _ChatScreenState extends State<ChatScreen> {
               onTap: () => print('laughed'),
             ),
             IconSlideAction(
-              color: Colors.red.withOpacity(0.0),
+              color: Colors.transparent,
               iconWidget: Icon(
                 Icons.favorite,
                 color: Colors.red[700],

@@ -18,7 +18,7 @@ class _PvChatInputState extends State<PvChatInput> {
 //  final channel = IOWebSocketChannel.connect('ws://192.168.1.7:8000/last/');
 //  final channel = IOWebSocketChannel.connect('wss://echo.websocket.org');
 
-  Color textControllerBackgroundColor = Colors.white.withOpacity(0.0);
+  Color textControllerBackgroundColor = Colors.transparent;
   Color iconColor = Colors.black;
   bool condi = true;
 //  bool itHasLike = false;
@@ -35,7 +35,7 @@ class _PvChatInputState extends State<PvChatInput> {
         height: 45.0,
         width: double.infinity,
         decoration: BoxDecoration(
-          color: typed ? Colors.white.withOpacity(1.0) : Colors.white.withOpacity(0.0),
+          color: typed ? Colors.white.withOpacity(1.0) : Colors.transparent,
         ),
         child: Row(
           children: [

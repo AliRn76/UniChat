@@ -27,8 +27,8 @@ class _ProfileEditPage3State extends State<ProfileEditPage3> {
     final ProfileStatesProvider profileStatesProvider = Provider.of<ProfileStatesProvider>(context);
     final ProfileDataProvider profileDataProvider = Provider.of<ProfileDataProvider>(context);
 
-    Color backgroundColor = profileDataProvider.user.background_color;
-    Color fontColor = profileDataProvider.user.font_color;
+    Color backgroundColor = profileDataProvider.userProfile.background_color;
+    Color fontColor = profileDataProvider.userProfile.font_color;
 
     return Stack(
       children: [
@@ -66,10 +66,10 @@ class _ProfileEditPage3State extends State<ProfileEditPage3> {
                           onPressed: _openCupertinoCountryPicker,
                         ),
                       ),
-                      ProfileEditUtils.alignedText(context, profileDataProvider.user.city),
-                      ProfileEditUtils.alignedText(context, profileDataProvider.user.university),
-                      ProfileEditUtils.alignedText(context, profileDataProvider.user.field),
-                      ProfileEditUtils.alignedText(context, profileDataProvider.user.entrance_year.toString()),
+                      ProfileEditUtils.alignedText(context, profileDataProvider.userProfile.city),
+                      ProfileEditUtils.alignedText(context, profileDataProvider.userProfile.university),
+                      ProfileEditUtils.alignedText(context, profileDataProvider.userProfile.field),
+                      ProfileEditUtils.alignedText(context, profileDataProvider.userProfile.entrance_year.toString()),
                     ],
                   ),
                 ],

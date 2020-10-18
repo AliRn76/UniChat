@@ -79,7 +79,7 @@ Create Table Message(
 	IsDeleted boolean,
 	Image varchar(255),
 	SumScores int,
-	Foreign Key (PVID) References PVRoom (ID),
+	Foreign Key (PVRoomID) References PVRoom (ID),
 	Foreign Key (PublicRoomID) References PublicRoom (ID),
 	Foreign Key (UserID) References auth_user (id),
 	Foreign Key (MessageID) References Message (ID));

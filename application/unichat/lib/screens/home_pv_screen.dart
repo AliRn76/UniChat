@@ -33,6 +33,7 @@ class _PvScreenState extends State<PvScreen> {
   @override
   void initState(){
     super.initState();
+    print("\n-- PvScreen");
   }
 
 
@@ -82,7 +83,7 @@ class _PvScreenState extends State<PvScreen> {
 
                 secondaryActions: <Widget>[
                   IconSlideAction(
-                    color: Colors.yellow.withOpacity(0.0),
+                    color: Colors.transparent,
                     iconWidget: Icon(
                       Icons.volume_off,
                       color: Colors.blue[700],
@@ -91,7 +92,7 @@ class _PvScreenState extends State<PvScreen> {
                     onTap: () => print('mute'),
                   ),
                   IconSlideAction(
-                    color: Colors.red.withOpacity(0.0),
+                    color: Colors.transparent,
                     iconWidget: Icon(
                       Icons.star,
                       color: Colors.green[700],

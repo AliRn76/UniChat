@@ -9,7 +9,6 @@ import 'package:connectivity/connectivity.dart';
 class ConnectionProvider extends ChangeNotifier{
 
   ConnectionProvider(){
-//    initConnectivity();
     _invokeNetworkStatusListen();
   }
 
@@ -18,22 +17,6 @@ class ConnectionProvider extends ChangeNotifier{
 
   StreamSubscription<ConnectivityResult> get subscription => _subscription;
   bool get connection => _connection;
-
-
-  Future<void> initConnectivity() async {
-    ConnectivityResult result;
-    try {
-      result = await Connectivity().checkConnectivity();
-    } on PlatformException catch (e) {
-      print("Connectivity Error: ${e.toString()}");
-    }
-    print("init Connectivity Result: ${result.toString()}");
-    if(result.toString() == "ConnectivityResult.none")
-      _connection = false;
-    else
-      _connection = true;
-    notifyListeners();
-  }
 
 
   void _invokeNetworkStatusListen() async{

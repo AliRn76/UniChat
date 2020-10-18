@@ -10,7 +10,7 @@ class ProfileEditUtils{
   static transformedText(BuildContext context, String text){
     final ProfileDataProvider profileDataProvider = Provider.of<ProfileDataProvider>(context);
     Size size = MediaQuery.of(context).size;
-    Color backgroundColor = profileDataProvider.user.background_color;
+    Color backgroundColor = profileDataProvider.userProfile.background_color;
     return Transform.rotate(
       angle: -0.3,
       child: Container(
@@ -43,8 +43,8 @@ class ProfileEditUtils{
   static transformIconText(BuildContext context, IconData icon, String text){
     final ProfileDataProvider profileDataProvider = Provider.of<ProfileDataProvider>(context);
     Size size = MediaQuery.of(context).size;
-    Color backgroundColor = profileDataProvider.user.background_color;
-    Color fontColor = profileDataProvider.user.font_color;
+    Color backgroundColor = profileDataProvider.userProfile.background_color;
+    Color fontColor = profileDataProvider.userProfile.font_color;
     return Transform.rotate(
       angle: -0.3,
       child: Container(
@@ -84,7 +84,7 @@ class ProfileEditUtils{
   static transformImageText(BuildContext context, String image, String text){
     final ProfileDataProvider profileDataProvider = Provider.of<ProfileDataProvider>(context);
     Size size = MediaQuery.of(context).size;
-    Color backgroundColor = profileDataProvider.user.background_color;
+    Color backgroundColor = profileDataProvider.userProfile.background_color;
     return Transform.rotate(
       angle: -0.3,
       child: Container(
@@ -127,8 +127,8 @@ class ProfileEditUtils{
   static alignedText(BuildContext context, String text){
     final ProfileDataProvider profileDataProvider = Provider.of<ProfileDataProvider>(context);
     Size size = MediaQuery.of(context).size;
-    Color backgroundColor = profileDataProvider.user.background_color;
-    Color fontColor = profileDataProvider.user.font_color;
+    Color backgroundColor = profileDataProvider.userProfile.background_color;
+    Color fontColor = profileDataProvider.userProfile.font_color;
     return Container(
       width: size.width * 0.45,
       height: size.width * 0.07,
@@ -155,7 +155,7 @@ class ProfileEditUtils{
   static  pageNumber(BuildContext context, int page, StateSetter setState){
     final ProfileDataProvider profileDataProvider = Provider.of<ProfileDataProvider>(context);
     final ProfileStatesProvider profileStatesProvider = Provider.of<ProfileStatesProvider>(context);
-    Color backgroundColor = profileDataProvider.user.background_color;
+    Color backgroundColor = profileDataProvider.userProfile.background_color;
     return InvertColors(
       child: Align(
         alignment: Alignment(0, 1),

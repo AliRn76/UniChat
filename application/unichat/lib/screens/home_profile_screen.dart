@@ -27,6 +27,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   void initState(){
     super.initState();
+    print("\n-- ProfileScreen");
   }
 
   @override
@@ -34,7 +35,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     Size size = MediaQuery.of(context).size;
     final ProfileStatesProvider profileStateProvider = Provider.of<ProfileStatesProvider>(context);
     final ProfileDataProvider profileDataProvider = Provider.of<ProfileDataProvider>(context);
-    opacity = profileDataProvider.user.background_opacity;
+    opacity = profileDataProvider.userProfile.background_opacity;
 
     return Container(
       width: double.infinity,

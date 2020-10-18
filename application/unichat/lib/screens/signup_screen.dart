@@ -5,16 +5,17 @@ import 'package:http/http.dart';
 import 'package:provider/provider.dart';
 import 'package:unichat/providers/connection_provider.dart';
 import 'package:unichat/screens/home_screen.dart';
+import 'package:unichat/screens/login_screen.dart';
 import 'package:unichat/sqlite/database_helper.dart';
 import 'package:unichat/utils/requests_utils.dart';
 
 
-class RegisterSignup extends StatefulWidget {
+class SignupScreen extends StatefulWidget {
   @override
-  _RegisterSignupState createState() => _RegisterSignupState();
+  _SignupScreenState createState() => _SignupScreenState();
 }
 
-class _RegisterSignupState extends State<RegisterSignup> {
+class _SignupScreenState extends State<SignupScreen> {
   Color kPrimaryColor = Color(0xFF66c2ff);
 //  String password;
 //  String username;
@@ -22,8 +23,8 @@ class _RegisterSignupState extends State<RegisterSignup> {
   Color buttonColor = Color(0xFF66c2ff);
   bool obscureText = true;
 
-  bool isSignup = false;
-  bool isLogin = false;
+//  bool isSignup = false;
+//  bool isLogin = false;
 //  ButtonState buttonState = ButtonState.normal;
 
   TextEditingController usernameController = TextEditingController();
@@ -133,10 +134,10 @@ class _RegisterSignupState extends State<RegisterSignup> {
                         ),
                         child: FlatButton(
                           onPressed: (){
-//                            Navigator.pushReplacement(
-//                              context,
-//                              MaterialPageRoute(builder: (context) => LoginScreen()),
-//                            ),
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(builder: (context) => LoginScreen()),
+                            );
                           },
                           child: Text("Login"),
                         ),
@@ -160,7 +161,6 @@ class _RegisterSignupState extends State<RegisterSignup> {
 
   void signUp(connectionProvider) async{
     print("\n-- Sign Up");
-    var reqBody = Map<String, dynamic>();
     String username = usernameController.text;
     String password = passwordController.text;
 
@@ -179,45 +179,56 @@ class _RegisterSignupState extends State<RegisterSignup> {
       });
     }else{
       print("Username & Password Validated.");
+      var reqBody = Map<String, dynamic>();
       reqBody['username'] = username;
       reqBody['password'] = password;
 //      reqBody['is_male']  = true;
       String jsonBody = jsonEncode(reqBody);
-      Map<String, String> reqHeader = NORMAL_HEADER;
-      Response response = await post(SIGNUP_URL, body:jsonBody, headers: reqHeader);
-      var decodedResponse = jsonDecode(response.body);
-      print("Sing up Status: ${response.statusCode}");
-      print("Sing up Response: $decodedResponse");
-      List userError = decodedResponse["username"];
-      List passwordError = decodedResponse["password"];
 
-      if(response.statusCode == 200){
-        print("- Signed up Successfully");
-        String token = decodedResponse['token'];
-        await DatabaseHelper().insertToken(token);
-        Navigator.pushReplacement(context,
-          MaterialPageRoute(builder: (context) => HomeScreen()),
-        );
+      try{
+        Response response = await post(SIGNUP_URL, body:jsonBody, headers: NORMAL_HEADER);
+        var decodedResponse = jsonDecode(response.body);
+        print("Sing up Status: ${response.statusCode}");
+//        print("Sing up Response: $decodedResponse");
+        List userError = decodedResponse["username"];
+        List passwordError = decodedResponse["password"];
 
-      }else if(userError != null){
-        if(userError[0] == "my user with this username already exists."){
-          print("- Sign up Error: ${userError[0]}");
+        if(response.statusCode == 200){
+          print("- Signed up Successfully");
+          String token = decodedResponse['token'];
+          await DatabaseHelper().insertToken(token);
+          Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: (context) => HomeScreen()),
+          );
+
+        }else if(userError != null){
+          if(userError[0] == "my user with this username already exists."){
+            print("- Sign up Error: User with this username already exists.");
+          }
+
+        }else if(passwordError != null){
+          if(passwordError[0] == "This password is too common."){
+            print("- Sign up Error: ${passwordError[0]}");
+
+          }else if(passwordError[0] == "This password is entirely numeric."){
+            print("- Sign up Error: ${passwordError[0]}");
+
+          }else if(passwordError[0] == "This password is too short. It must contain at least 8 characters."){
+            print("- Sign up Error: ${passwordError[0]}");
+
+          }else if(passwordError[0] == "This password is too short. It must contain at least 8 characters."){
+            print("- Sign up Error: ${passwordError[0]}");
+
+          }else{
+            print("- Sign up Error: ${passwordError[0]}");
+
+          }
         }
 
-      }else if(passwordError != null){
-        if(passwordError[0] == "This password is too common."){
-          print("- Sign up Error: ${passwordError[0]}");
-
-        }else if(passwordError[0] == "This password is entirely numeric."){
-          print("- Sign up Error: ${passwordError[0]}");
-
-        }else if(passwordError[0] == "This password is too short. It must contain at least 8 characters."){
-          print("- Sign up Error: ${passwordError[0]}");
-
-        }else if(passwordError[0] == "This password is too short. It must contain at least 8 characters."){
-          print("- Sign up Error: ${passwordError[0]}");
-        }
+      }catch(e){
+        print("- Server Error $e");
       }
+
     }
   }
 }

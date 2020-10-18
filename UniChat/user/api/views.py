@@ -1,9 +1,9 @@
 
-from rest_framework.mixins import CreateModelMixin, RetrieveModelMixin, UpdateModelMixin
+from rest_framework.mixins import CreateModelMixin, RetrieveModelMixin, UpdateModelMixin, ListModelMixin
 from rest_framework.generics import GenericAPIView
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
-
+from rest_framework import status
 from rest_framework.authtoken.models import Token
 from user.api.serializers import SignupUserSerializer, ProfileSerializer
 from user.models import MyUser
@@ -49,22 +49,20 @@ class SignupUserAPIView(GenericAPIView, CreateModelMixin):
         return final_url
 
 
-class ProfileAPIView(GenericAPIView, RetrieveModelMixin, UpdateModelMixin):
-    queryset            = MyUser.objects.all()
+class ProfileAPIView(GenericAPIView, RetrieveModelMixin, UpdateModelMixin, ListModelMixin):
     serializer_class    = ProfileSerializer
     permission_classes  = [IsAuthenticated]
+    queryset            = MyUser.objects.all()
     lookup_field        = 'username'
 
-    def get(self, request, username):
-        # if username is not None:
-        result = self.retrieve(request)
-        if result.status_code == 200:
-            data = {"success": True}
-            data.update(result.data)
-            return Response(data)
+    def get(self, request, username=None):
+        if username is not None:
+            return self.retrieve(request)
+
         else:
-            data = {"success": False, "error": result.exception}
-            return Response(data=data, status=result.status_code)
+            obj = MyUser.objects.get(auth_token=request.auth)
+            serializer = ProfileSerializer(obj)
+            return Response(data=serializer.data, status=status.HTTP_200_OK)
 
     ''' 
     Profile_Picture + Background_Image ro az inja upload mikonm 
@@ -120,6 +118,7 @@ class OtherProfileAPIView(GenericAPIView, RetrieveModelMixin, UpdateModelMixin):
                 "error": result.exception
             }
             return Response(data=data, status=result.status_code)
+
 #TODO: IsDeleted ro barashon hesab konm
 #TODO: baraye User ha field e isDeleted bzaram
 #TODO: age user Exist bood , error 403 bede(bayad queryset def beshe)

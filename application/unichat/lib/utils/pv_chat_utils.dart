@@ -24,7 +24,7 @@ class PvChatUtils{
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15.0),
                         border: Border.all(
-                          color: seen ? Colors.white.withOpacity(0.0)
+                          color: seen ? Colors.transparent
                               : Colors.greenAccent[400],
                           width: 0.5,
                         ),
@@ -34,7 +34,7 @@ class PvChatUtils{
                                 offset: seen ? Offset(0.5, 0.5)
                                     : Offset(1.5, 1.5),
                                 blurRadius: seen ? 2.0 : 5.0,
-                                color: seen ? Colors.grey[700].withOpacity(0.0)
+                                color: seen ? Colors.transparent
                                     : Colors.greenAccent[700],
                             ),
                           ]
@@ -90,7 +90,7 @@ class PvChatUtils{
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15.0),
                         border: Border.all(
-                          color: seen ? Colors.white.withOpacity(0.0)
+                          color: seen ? Colors.transparent
                               : Colors.pink[300],
                           width: 0.5,
                         ),
@@ -100,7 +100,7 @@ class PvChatUtils{
                             offset: seen ? Offset(0.5, 0.5)
                                 : Offset(1.5, 1.5),
                             blurRadius: seen ? 2.0 : 5.0,
-                            color: seen ? Colors.grey[700].withOpacity(0.0)
+                            color: seen ? Colors.transparent
                                 : Colors.pink[700],
                           ),
                         ]

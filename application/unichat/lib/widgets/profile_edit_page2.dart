@@ -25,8 +25,8 @@ class _ProfileEditPage2State extends State<ProfileEditPage2> {
     final ProfileStatesProvider profileStatesProvider = Provider.of<ProfileStatesProvider>(context);
     final ProfileDataProvider profileDataProvider = Provider.of<ProfileDataProvider>(context);
 
-    Color backgroundColor = profileDataProvider.user.background_color;
-    Color fontColor = profileDataProvider.user.font_color;
+    Color backgroundColor = profileDataProvider.userProfile.background_color;
+    Color fontColor = profileDataProvider.userProfile.font_color;
 
     return Stack(
       children: [
@@ -83,7 +83,7 @@ class _ProfileEditPage2State extends State<ProfileEditPage2> {
                         border: Border(top: BorderSide(color: backgroundColor.withOpacity(1.0))),
                       ),
                       child: Text(
-                        profileDataProvider.user.bio,
+                        profileDataProvider.userProfile.bio,
                         maxLines: 3,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
@@ -94,11 +94,11 @@ class _ProfileEditPage2State extends State<ProfileEditPage2> {
                       ),
                     ),
                     SizedBox(height: size.width * 0.08),
-                    ProfileEditUtils.alignedText(context, profileDataProvider.user.instagram),
-                    ProfileEditUtils.alignedText(context, profileDataProvider.user.telegram),
+                    ProfileEditUtils.alignedText(context, profileDataProvider.userProfile.instagram),
+                    ProfileEditUtils.alignedText(context, profileDataProvider.userProfile.telegram),
                     SizedBox(height: size.width * 0.08),
-                    ProfileEditUtils.alignedText(context, profileDataProvider.user.birth_date.toString()),
-                    ProfileEditUtils.alignedText(context, profileDataProvider.user.telegram),
+                    ProfileEditUtils.alignedText(context, profileDataProvider.userProfile.birth_date.toString()),
+                    ProfileEditUtils.alignedText(context, profileDataProvider.userProfile.telegram),
                   ],
                 ),
               ],

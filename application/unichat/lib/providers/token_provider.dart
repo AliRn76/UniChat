@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:unichat/sqlite/database_helper.dart';
 import 'package:http/http.dart';
 
-class LoginProvider extends ChangeNotifier {
+class TokenProvider extends ChangeNotifier {
 
-  LoginProvider();
+  TokenProvider();
 
   String _token;
 

@@ -21,6 +21,13 @@ class _GroupScreenState extends State<GroupScreen> {
   Widget appbarTitle = Text("Group Chat", style: TextStyle(fontSize: 16.0, letterSpacing: 2.5));
 
   List<String> list = ['Ali', 'Erfan', 'Farhad', 'Nima', 'Ehsan', 'Mamad', 'Sadegh', 'Hamid'];
+
+  @override
+  void initState(){
+    super.initState();
+    print("\n-- GroupScreen");
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -151,7 +158,7 @@ class _GroupScreenState extends State<GroupScreen> {
           height: size.width * 0.15,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15.0),
-            color: Colors.greenAccent[400].withOpacity(0.0),
+            color: Colors.transparent,
           ),
           child: Stack(
             children: [
@@ -238,7 +245,7 @@ class _GroupScreenState extends State<GroupScreen> {
           height: size.width * 0.15,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15.0),
-            color: Colors.greenAccent[400].withOpacity(0.0),
+            color: Colors.transparent,
           ),
           child: Stack(
             children: [

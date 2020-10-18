@@ -8,8 +8,8 @@ class DatabaseHelper{
   static DatabaseHelper _databaseHelper;
   static Database _database;
 
-  /// Table User
-  String tbl_user                 = "user";
+  /// Table MyProfile
+  String tbl_my_profile           = "MyProfile";
   String col_id                   = "id";
   String col_username             = "username";
   String col_first_name           = "first_name";
@@ -74,7 +74,7 @@ class DatabaseHelper{
   // Create Tables
   void _createDB(Database db, int version) async{
     await db.execute(
-        'CREATE TABLE IF NOT EXISTS $tbl_user ('
+        'CREATE TABLE IF NOT EXISTS $tbl_my_profile ('
             '$col_id INTEGER PRIMARY KEY AUTOINCREMENT,'
             '$col_username TEXT,'
             '$col_first_name TEXT,'
@@ -111,24 +111,25 @@ class DatabaseHelper{
     );
   }
 
-/// Table User
+/// Table MyProfile
   ///
-  // Select Users
-  Future<List<Map<String, dynamic>>> selectUser() async{
+  // Select MyProfiles
+  Future<List<Map<String, dynamic>>> selectMyProfile() async{
     Database db = await this.database;
     var result = await db.rawQuery(
-        "Select * From $tbl_user"
+        "Select * From $tbl_my_profile;"
     );
-    print("Select User From DB Result: $result");
+    if(result.isNotEmpty)
+      print("DB Select MyProfile: $result");
     return result;
   }
-  // Insert User
-  Future<List<Map<String, dynamic>>> insertUser(User user) async{
-    deleteUsers();
+  // Insert MyProfile
+  Future<List<Map<String, dynamic>>> insertMyProfile(User user) async{
+    deleteMyProfile();
     Database db = await this.database;
     var result;
     result = await db.rawQuery(
-        "Insert Into $tbl_user"
+        "Insert Into $tbl_my_profile"
             "($col_username, $col_first_name, $col_last_name, $col_email, $col_phone_number, $col_profile_picture"
             "$col_bio, $col_instagram, $col_telegram, $col_birth_date, $col_relationship, "
             "$col_country, $col_city, $col_university, $col_field, $col_entrance_year, "
@@ -139,30 +140,33 @@ class DatabaseHelper{
             "'${user.country}', '${user.city}', '${user.university}', '${user.field}', ${user.entrance_year}, "
             "'${user.favorite_sport}', '${user.favorite_book}', '${user.favorite_movie}', '${user.favorite_tv_series}', '${user.favorite_game}', '${user.favorite_to_travel}', '${user.favorite_music}', '${user.background_color}', '${user.font_color}');"
     );
-    print("Insert User Into DB Result: $result");
+    if(result.isNotEmpty)
+      print("DB Insert MyProfile: $result");
     return result;
   }
-  // Delete Users
-  Future<List<Map<String, dynamic>>> deleteUsers() async{
+  // Delete MyProfiles
+  Future<List<Map<String, dynamic>>> deleteMyProfile() async{
     Database db = await this.database;
     var result = await db.rawQuery(
-        "Delete From $tbl_user;"
+        "Delete From $tbl_my_profile;"
     );
-    print("Delete User From DB Result: $result");
+    if(result.isNotEmpty)
+      print("DB Delete MyProfileDB: $result");
     return result;
   }
-  // Update User
-  Future<List<Map<String, dynamic>>> editItem(User user, int id) async{
+  // Update MyProfile
+  Future<List<Map<String, dynamic>>> updateMyProfile(User user, int id) async{
     Database db = await this.database;
     var result = await db.rawQuery(
-        "UPDATE $tbl_user "
+        "UPDATE $tbl_my_profile "
             "SET "
             "$col_username = '${user.username}', $col_first_name = '${user.first_name}', $col_last_name = '${user.last_name}', $col_email = '${user.email}', $col_phone_number = '${user.phone_number}', $col_profile_picture = '${user.profile_picture}', "
             "$col_bio = '${user.bio}', $col_instagram = '${user.instagram}', $col_telegram = '${user.telegram}', $col_birth_date = '${user.birth_date}', $col_relationship = '${user.relationship}', "
             "$col_country = '${user.country}', $col_city = '${user.city}', $col_university = '${user.university}', $col_field = '${user.field}', $col_entrance_year = ${user.entrance_year}, "
             "$col_favorite_sport = '${user.favorite_sport}', $col_favorite_book = '${user.favorite_book}', $col_favorite_movie = '${user.favorite_movie}', $col_favorite_tv_series = '${user.favorite_tv_series}', $col_favorite_game = '${user.favorite_game}', $col_favorite_to_travel = '${user.favorite_to_travel}', $col_favorite_music = '${user.favorite_music}', $col_background_color = '${user.background_color}', $col_font_color = '${user.font_color}'"
             "WHERE $col_id = '$id'; ");
-    print("Update User In DB Result: $result");
+    if(result.isNotEmpty)
+      print("DB Update MyProfileDB: $result");
     return result;
   }
 
@@ -173,7 +177,6 @@ class DatabaseHelper{
   Future<List<Map<String, dynamic>>> insertToken(String token) async{
     deleteToken();
     Database db = await this.database;
-    print("TOKEN: $token" );
     var result = await db.rawQuery(
         "Insert Into $tbl_token ($col_token)"
             "VALUES ('$token');"
@@ -189,8 +192,6 @@ class DatabaseHelper{
     var result = await db.rawQuery(
         "Select $col_token From $tbl_token"
     );
-    if(result.isNotEmpty)
-      print("DB Select Token: $result");
     return result;
   }
 

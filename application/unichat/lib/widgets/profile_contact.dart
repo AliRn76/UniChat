@@ -21,8 +21,8 @@ class _ProfileContactState extends State<ProfileContact> {
     final ProfileStatesProvider profileStateProvider = Provider.of<ProfileStatesProvider>(context);
     final ProfileDataProvider profileDataProvider = Provider.of<ProfileDataProvider>(context);
 
-    Color backgroundColor = profileDataProvider.user.background_color;
-    Color fontColor = profileDataProvider.user.font_color;
+    Color backgroundColor = profileDataProvider.userProfile.background_color;
+    Color fontColor = profileDataProvider.userProfile.font_color;
 
     return Stack(
       children: [

@@ -28,8 +28,8 @@ class _ProfileEditPage1State extends State<ProfileEditPage1> {
     final ProfileDataProvider profileDataProvider = Provider.of<ProfileDataProvider>(context);
 
     TextEditingController editName = TextEditingController();
-    Color backgroundColor = profileDataProvider.user.background_color;
-    Color fontColor = profileDataProvider.user.font_color;
+    Color backgroundColor = profileDataProvider.userProfile.background_color;
+    Color fontColor = profileDataProvider.userProfile.font_color;
 
     return Stack(
       children: [
@@ -79,10 +79,10 @@ class _ProfileEditPage1State extends State<ProfileEditPage1> {
                   ),
                   Column(
                     children: [
-                      ProfileEditUtils.alignedText(context, profileDataProvider.user.first_name + " " + profileDataProvider.user.last_name),
-                      ProfileEditUtils.alignedText(context, profileDataProvider.user.username),
-                      ProfileEditUtils.alignedText(context, profileDataProvider.user.phone_number),
-                      ProfileEditUtils.alignedText(context, profileDataProvider.user.email),
+                      ProfileEditUtils.alignedText(context, profileDataProvider.userProfile.first_name + " " + profileDataProvider.userProfile.last_name),
+                      ProfileEditUtils.alignedText(context, profileDataProvider.userProfile.username),
+                      ProfileEditUtils.alignedText(context, profileDataProvider.userProfile.phone_number),
+                      ProfileEditUtils.alignedText(context, profileDataProvider.userProfile.email),
                     ],
                   ),
                 ],

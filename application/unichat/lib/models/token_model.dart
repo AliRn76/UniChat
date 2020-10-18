@@ -1,8 +1,6 @@
 class User{
   String token;
-  User(
-      this.token,
-      );
+  User(this.token);
 
   User.fromJson(Map<String, dynamic> json){
     token = json['token'];

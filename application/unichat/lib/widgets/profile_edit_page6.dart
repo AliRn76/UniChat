@@ -32,7 +32,7 @@ class _ProfileEditPage6State extends State<ProfileEditPage6> {
     final ProfileStatesProvider profileStatesProvider = Provider.of<ProfileStatesProvider>(context);
     final ProfileDataProvider profileDataProvider = Provider.of<ProfileDataProvider>(context);
 
-    profileDataProvider.user.background_opacity == 6
+    profileDataProvider.userProfile.background_opacity == 6
         ? opacityCheckedValue = true : opacityCheckedValue = false;
 
 

@@ -32,7 +32,7 @@ class _ProfileEditState extends State<ProfileEdit> {
     final ProfileStatesProvider profileStatesProvider = Provider.of<ProfileStatesProvider>(context);
     final ProfileDataProvider profileDataProvider = Provider.of<ProfileDataProvider>(context);
 
-    Color backgroundColor = profileDataProvider.user.background_color;
+    Color backgroundColor = profileDataProvider.userProfile.background_color;
 
     return Stack(
       children: <Widget>[

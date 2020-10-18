@@ -12,7 +12,7 @@ class User{
   String bio;
   String instagram;
   String telegram;
-  DateTime birth_date;
+  String birth_date;
   bool relationship;
 
   String country;
