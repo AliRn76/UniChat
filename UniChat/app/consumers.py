@@ -10,7 +10,7 @@ from django.contrib.auth.models import AnonymousUser
 from django.db.models import Q
 from rest_framework.authtoken.models import Token
 
-from .models import Message, MyUser, PvRoom
+from .models import PvMessage, MyUser, PvRoom
 
 
 class MoistureSensorConsumer(AsyncConsumer):
@@ -57,15 +57,14 @@ class MoistureSensorConsumer(AsyncConsumer):
                 #     "text": text
                 # })
 
+    async def websocket_disconnect(self, event):
+        print("disconnect", event)
+
     async def send_chat_message(self, event):
         await self.send({
             "type": "websocket.send",
             "text": event['text']
         })
-
-    async def websocket_disconnect(self, event):
-        print("disconnect", event)
-
     @database_sync_to_async
     def get_user_from_token(self, token_key):
         token = Token.objects.get(key=token_key)

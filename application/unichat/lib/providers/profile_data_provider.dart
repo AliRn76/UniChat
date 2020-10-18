@@ -12,9 +12,9 @@ class ProfileDataProvider extends ChangeNotifier {
 //    selectUserProfile();
     getUserProfile();
   }
-
+//
 //  User _userProfile = User(
-//      "", "", "", "", "", "",
+//      "Admin", "Ali", "Rn", "", "", "",
 //      "", "", "","" , true,
 //      "", "", "", "", 0,
 //  "", "", "", "", "", "", "", "", Color(0xA3D1FF), Color(0x000000), "assets/images/nature-background.jpg", 6  );

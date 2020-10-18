@@ -9,13 +9,16 @@ import 'package:clay_containers/clay_containers.dart';
 class PvChatUtils{
 
   static messageMe(BuildContext context, String text, bool liked, bool seen){
+    Size size = MediaQuery.of(context).size;
     Color bgColor = Colors.greenAccent[100];
+//    double iconSize = size.width * 0.04;
+
     return Stack(
       children: [
         Align(
           alignment: Alignment(1, 1),
           child: Container(
-              margin: EdgeInsets.fromLTRB(20.0, 0.0, 5.0, 14.0),
+              margin: EdgeInsets.fromLTRB(30.0, 0.0, 5.0, 14.0),
               child: Stack(
                 children: [
                   ConstrainedBox(
@@ -49,7 +52,7 @@ class PvChatUtils{
                   ),
                   liked ? Positioned(
                     bottom: 0.5,
-                    right: 50.0,
+                    right: size.width * 0.14,
                     child: Icon(
                       Icons.favorite,
                       color: Colors.red[700],
@@ -58,7 +61,7 @@ class PvChatUtils{
                   ) : Text(''),
                   Positioned(
                     bottom: 0,
-                    right: 15,
+                    right: size.width * 0.04,
                     child:  ClayText(
                       "00:00",
                       emboss: seen ? true : false,
@@ -76,10 +79,12 @@ class PvChatUtils{
 
   static messageYou(BuildContext context, String text, bool liked, bool seen, StateSetter setState){
         Color bgColor = Colors.pink[100];
+        Size size = MediaQuery.of(context).size;
+        double iconSize = size.width * 0.04;
     return Stack(
       children: [
         Container(
-            margin: EdgeInsets.fromLTRB(5.0, 0.0, 20.0, 14.0),
+            margin: EdgeInsets.fromLTRB(5.0, 0.0, 30.0, 14.0),
             child: Stack(
 //                overflow: Overflow.visible,
               children: [
@@ -114,16 +119,16 @@ class PvChatUtils{
                 ),
                 liked ? Positioned(
                   bottom: 0.5,
-                  right: 50.0,
+                  right: size.width * 0.15,
                   child: Icon(
                     Icons.favorite,
                     color: Colors.red[700],
-                    size: 12.0,
+                    size: iconSize,
                   ),
                 ) : Text(''),
                 Positioned(
                   bottom: 0,
-                  right: 15,
+                  right: size.width * 0.04,
                   child:  ClayText(
                     "00:00",
                     emboss: seen ? true : false,

@@ -99,7 +99,7 @@ class _ProfileMainFavoritesState extends State<ProfileMainFavorites> {
 
   Widget _favoriteTextBuilder(String text, Color fontColor, Color backgroundColor){
     Size size = MediaQuery.of(context).size;
-
+    double fontSize = size.width * 0.045;
     return InkWell(
       onTap: (){
         showDialog(
@@ -164,6 +164,7 @@ class _ProfileMainFavoritesState extends State<ProfileMainFavorites> {
           overflow: TextOverflow.ellipsis,
           style: TextStyle(
             color: fontColor.withOpacity(1.0),
+            fontSize: fontSize,
           ),
         ),
       ),
@@ -172,7 +173,7 @@ class _ProfileMainFavoritesState extends State<ProfileMainFavorites> {
 
   Widget _favoriteIconBuilder(IconData icon, fontColor){
     Size size = MediaQuery.of(context).size;
-    double iconSize = 16.0;
+    double iconSize = size.width * 0.052;
 
     return Padding(
       padding: EdgeInsets.only(bottom: size.width * 0.06),

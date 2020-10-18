@@ -7,7 +7,7 @@ from django.db.models import Q
 from user.models import MyUser
 from django.db.models import Sum
 # from app.models import Message, PvRoom, get_pv_names, get_pv_last_message
-from app.models import Message, PvRoom
+from app.models import PvMessage, PvRoom
 from app.api.serializers import MessageSerializer, PvRoomsSerializer
 from rest_framework.response import Response
 
@@ -17,7 +17,7 @@ def test_ws(request):
 
 class MessageAPIView(GenericAPIView, ListModelMixin, RetrieveModelMixin):
     serializer_class    = MessageSerializer
-    queryset            = Message.objects.all()
+    queryset            = PvMessage.objects.all()
     permission_classes  = [AllowAny]
     lookup_field        = 'id'
 
@@ -53,7 +53,7 @@ class PvRoomsAPIVIew(GenericAPIView, ListModelMixin):
         pv_names = _pv_names1 + _pv_names2
         ''' pv_names return [(room_id, username, first_name, last_name, profile_picture), ...] '''
 
-        _pv_last_message = Message.objects.filter(Q(pv_room_id__in=rooms) & Q(is_deleted=False)) \
+        _pv_last_message = PvMessage.objects.filter(Q(pv_room_id__in=rooms) & Q(is_deleted=False)) \
             .values_list('pv_room_id', 'text', 'date_added').order_by('pv_room_id', '-date_added')
 
         last_room = None

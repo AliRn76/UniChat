@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.db.models import Q
 
-from .models import PvRoom, PublicRoom, PublicMember, Message, PvMemberInfo
+from .models import PvRoom, PublicRoom, PublicMember, PvMessage, PvMemberInfo
 
 
 class PvRoomAdmin(admin.ModelAdmin):
@@ -46,9 +46,9 @@ class PublicRoomAdmin(admin.ModelAdmin):
 
 
 class PublicMemberAdmin(admin.ModelAdmin):
-    list_display = ('get_room_name', 'id', 'get_username', 'unread_count', 'join_date')
+    list_display = ('get_room_name', 'id', 'get_username', 'unread_count', 'date_joined')
     search_fields = ('public_room_id__room_name', 'user_id__username')
-    readonly_fields = ('join_date', 'unread_count')
+    readonly_fields = ('date_joined', 'unread_count')
 
     filter_horizontal = ()
     list_filter = ()
@@ -102,4 +102,4 @@ admin.site.register(PvRoom, PvRoomAdmin)
 admin.site.register(PublicRoom, PublicRoomAdmin)
 admin.site.register(PublicMember, PublicMemberAdmin)
 admin.site.register(PvMemberInfo, PvMemberInfoAdmin)
-admin.site.register(Message, MessageAdmin)
+admin.site.register(PvMessage, MessageAdmin)

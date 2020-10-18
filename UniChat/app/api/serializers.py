@@ -1,12 +1,12 @@
 from rest_framework import serializers
 
-from app.models import Message
+from app.models import PvMessage
 from user.models import MyUser
 
 
 class MessageSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Message
+        model = PvMessage
         fields = '__all__'
 
 

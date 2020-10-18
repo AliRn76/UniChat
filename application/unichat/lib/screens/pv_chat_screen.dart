@@ -22,6 +22,7 @@ class _ChatScreenState extends State<ChatScreen> {
   final TextEditingController _textController = TextEditingController();
   final GlobalKey popUpScreenKey = GlobalKey();
   final GlobalKey popUpUploadKey = GlobalKey();
+//  final SlidableController slidableController = SlidableController();
 
   final channel = IOWebSocketChannel.connect('ws://192.168.1.7:8000/pv_room/Admin/',
       headers: {"Authorization": "Token 03541fdd9d9e3e86a43de43352eadf228b40d213"});
@@ -41,26 +42,29 @@ class _ChatScreenState extends State<ChatScreen> {
   @override
   void initState() {
     super.initState();
+
 //    _textController.addListener(_setTextBgColor);
   }
 
-  List<String> messageList = [
-    "Hello Guys",
-    "I'm Ok ",
-    "What do you think about this app , this is a test for long text  also It would be my honor if you tell me about this app",
-    "khob inam test kardim",
-    "dg che khabar",
-    "hi",
-    ":)",
-    ".",
-    "!",
-    "ok",
-    "hello again so ....",
-    "man daram miram ye film bbinm , ...",
-    "ok man ino ngah mikonm ta to bargardi ",
-    "cheghadr sakhte alaki type kardan",
-    "ke bkhad mani ham dashte bashe , hamash daram fekr mikonm ke chi bnvisam , vali subject khasi be zehnam nmirese",
-    "ok hamin fekr konm kafie felan",
+  List<Message> messageList = [
+    Message("ok", "me", false, false),
+    Message("!", "me", false, false),
+    Message("ke bkhad mani ham dashte bashe , hamash daram fekr mikonm ke chi bnvisam , vali subject khasi be zehnam nmirese", "me", false, false),
+    Message("Hello Guys", "me", true, true),
+    Message("I'm Ok ", "you", false, true),
+    Message("What do you think about this app , this is a test for long text  also It would be my honor if you tell me about this app", "me", true, true),
+    Message("khob inam test kardim", "you", true, true),
+    Message("dg che khabar", "me", false, true),
+    Message("hi", "you", false, true),
+    Message(".", "me", true, true),
+    Message("ok man ino ngah mikonm ta to bargardi ", "you", false, true),
+    Message(":)", "you", false, true),
+    Message("hello again so ....", "you", true, true),
+    Message("cheghadr sakhte alaki type kardan", "me", true, true),
+    Message("man daram miram ye film bbinm , ...", "me", false, true),
+    Message("ok hamin fekr konm kafie felan", "you", true, true),
+
+
   ];
 
   @override
@@ -89,7 +93,7 @@ class _ChatScreenState extends State<ChatScreen> {
                     height: size.width * 0.13,
                     width: size.width * 0.13,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(19.0),
+                      shape: BoxShape.circle,
                       image: DecorationImage(
                         image: AssetImage("assets/images/nature-background.jpg"),
                         fit: BoxFit.cover,
@@ -133,7 +137,7 @@ class _ChatScreenState extends State<ChatScreen> {
                 child: Stack(
                   children: [
                     ListView.builder(
-                      padding: EdgeInsets.only(bottom: 40),
+                      padding: EdgeInsets.only(top: 10, bottom: 40),
                       reverse: true,
                       itemCount: messageList.length,
 //                 itemBuilder: (context, index) => _showMessages(index),
@@ -314,13 +318,10 @@ class _ChatScreenState extends State<ChatScreen> {
 //      setState(() => typed = false): null;
 
 
-  Widget _showMessages(int index, text){
+  Widget _showMessages(int index, Message message){
     Size size = MediaQuery.of(context).size;
     final GlobalKey popUpMessageKey = GlobalKey();
-    if(index % 5 == 0)
-      condi = !condi;
-    if(condi){
-      index ++;
+    if(message.who == 'you'){
       return GestureDetector(
         key: popUpMessageKey,
         onTap: () => _messagesOptions(popUpMessageKey),
@@ -331,14 +332,16 @@ class _ChatScreenState extends State<ChatScreen> {
           print("add like on it");
         },
         child: Slidable(
+//          key: Key(message.text),
+//          controller: slidableController,
 //          actionPane: SlidableScrollActionPane(),
 //          actionPane: SlidableBehindActionPane(),
 //          actionPane: SlidableStrechActionPane(),
+
           actionPane: SlidableDrawerActionPane(),
           closeOnScroll: true,
           actionExtentRatio: 0.2,
-            child: index % 2 == 0 ? PvChatUtils.messageYou(context, text, false, false, setState)
-            : PvChatUtils.messageYou(context, text, true, true, setState),
+          child: PvChatUtils.messageYou(context, message.text, message.liked, message.seen, setState),
           actions: <Widget>[
             Text("Reply"),
           ],
@@ -390,16 +393,25 @@ class _ChatScreenState extends State<ChatScreen> {
       );
     }
     else{
-      index ++;
-      return index % 3 == 0 ? PvChatUtils.messageMe(context, text, false, false)
-          : index % 2 == 0 ? PvChatUtils.messageMe(context, text, false, true)
-          : PvChatUtils.messageMe(context, text, true, true);
+      return PvChatUtils.messageMe(context, message.text, message.liked, message.seen);
     }
 
   }
+
 }
 
-
+class Message{
+  String text;
+  String who;
+  bool liked;
+  bool seen;
+  Message(
+    this.text,
+    this.who,
+    this.liked,
+    this.seen
+  );
+}
 //TODO: Hero baraye profile pic + name Add konm
 //TODO: baraye PopupMenu color .withOpacity(0.5) bzaram
 //TODO: pm haye Contact bar asase background color esh bashe
