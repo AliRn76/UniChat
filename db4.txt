@@ -1,0 +1,185 @@
+Create Database UniChat;
+
+Create Table auth_user(
+	id int Not Null Primary Key Auto_Increment,
+	username varchar(150),
+	password varchar(127),
+	first_name varchar(30),
+	last_name varchar(150),
+	is_admin boolean,
+	is_active boolean,
+	date_joined datetime(6),
+	last_login datetime(6),
+	is_male boolean,
+	profile_picture varchar(255),
+	email varchar(254),
+	instagram varchar(150),
+	telegram varchar(150),
+	bio varchar(255),
+	relationship boolean,
+	phone_number varchar(32),
+	birth_date date,
+	country varchar(255),
+	city varchar(255),
+	university varchar(255),
+	field varchar(255),
+	entrance_year int,
+	job varchar(255),
+	favorite_sport varchar(255),
+	favorite_book varchar(255),
+	favorite_movie varchar(255),
+	favorite_tv_series varchar(255),
+	favorite_game varchar(255),
+	favorite_to_travel varchar(255),
+	favorite_music varchar(255),
+	background_color varchar(255),
+	font_color varchar(255),
+	background_image varchar(255),
+	background_opacity int);
+
+
+
+
+
+
+
+Create Table PvMemberInfo(
+	ID int Not Null Primary Key Auto_Increment,
+	IsBlocked boolean,
+	IsDeleted boolean,
+	IsFavorite boolean,
+	UnreadCount int,
+	DeletedDate date);
+
+Create Table PvRoom(
+	ID int Not Null Primary Key Auto_Increment,
+	DateCreated datetime,
+	LastMessageDate datetime,
+	User1ID int,
+	User2ID int,
+	User1Info int,
+	User2Info int,
+	Foreign Key (User1ID) References auth_user (id),
+	Foreign Key (User2ID) References auth_user (id),
+	Foreign Key (User1Info) References PvMemberInfo (ID),
+	Foreign Key (User2Info) References PvMemberInfo (ID));
+
+
+Create Table PvMessage(
+	ID int Not Null Primary Key Auto_Increment,
+	Text text,
+	DateAdded datetime,
+	DateModified datetime,
+	DateDeleted datetime,
+	IsDeleted boolean,
+	Image varchar(255),
+	LikedEmoji varchar(255),
+	IsReply boolean,
+	PVRoomID int,
+	UserID int,
+	PvMessageID int,
+	Foreign Key (PVRoomID) References PVRoom (ID),
+	Foreign Key (UserID) References auth_user (id),
+	Foreign Key (PvMessageID) References PvMessage (ID));
+
+
+
+
+
+
+
+Create Table PublicRoom(
+	ID int Not Null Primary Key Auto_Increment,
+	MemberCount int,
+	RoomName varchar(127),
+	IsDeleted boolean,
+	DateDeleted datetime);
+
+Create Table PublicMessage(
+	ID int Not Null Primary Key Auto_Increment,
+	Text text,
+	DateAdded datetime,
+	DateModified datetime,
+	DateDeleted datetime,
+	IsDeleted boolean,
+	Image varchar(255),
+	SumScores int,
+	IsReply boolean,
+	PublicRoomID int,
+	UserID int,
+	PublicMessageID int,
+	Foreign Key (PublicRoomID) References PublicRoom (ID),
+	Foreign Key (UserID) References auth_user (id),
+	Foreign Key (PublicMessageID) References PublicMessage (ID));
+
+Create Table PublicMember(
+	ID int Not Null Primary Key Auto_Increment,
+	UnreadCount int,
+	DateJoined date,
+	IsAdmin boolean,
+	PublicRoomID int,
+	UserID int,
+	Foreign Key (PublicRoomID) References PublicRoom (ID),
+	Foreign Key (UserID) References auth_user (ID));
+
+Create Table PublicMessageScore(
+	ID int Not Null Primary Key Auto_Increment,
+	UserID int,
+	PublicMessageID int,
+	Score boolean,
+	Foreign Key (UserID) References auth_user (id),
+	Foreign Key (PublicMessageID) References PublicMessage (ID));
+
+
+
+
+
+
+
+
+
+Create Table FavoriteRoom(
+	ID int Not Null Primary Key Auto_Increment,
+	RoomName varchar(255),
+	Field varchar(255),
+	MemberCount int,
+	IsDeleted boolean,
+	DateDeleted datetime);
+
+Create Table FavoriteMessage(
+	ID int Not Null Primary Key Auto_Increment,
+	Text text,
+	DateAdded datetime,
+	DateModified datetime,
+	DateDeleted datetime,
+	IsDeleted boolean,
+	Image varchar(255),
+	SumScores int,
+	IsReply boolean,
+	FavoriteRoomID int,
+	UserID int,
+	FavoriteMessageID int,
+	Foreign Key (UserID) References auth_user (id),
+	Foreign Key (FavoriteRoomID) References FavoriteRoom (ID),
+	Foreign Key (FavoriteMessageID) References FavoriteMessage (ID));
+
+Create Table FavoriteMember(
+	ID int Not Null Primary Key Auto_Increment,
+	UnreadCount int,
+	DateJoined date,
+	FavoriteRoomID int,
+	UserID int,
+	Foreign Key (FavoriteRoomID) References FavoriteRoom (ID),
+	Foreign Key (UserID) References auth_user (ID));
+
+Create Table FavoriteMessageScore(
+	ID int Not Null Primary Key Auto_Increment,
+	Score boolean,
+	UserID int,
+	FavoriteMessageID int,
+	Foreign Key (UserID) References auth_user (id),
+	Foreign Key (FavoriteMessageID) References FavoriteMessage (ID));
+
+
+
+

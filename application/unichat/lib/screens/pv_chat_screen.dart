@@ -44,7 +44,24 @@ class _ChatScreenState extends State<ChatScreen> {
 //    _textController.addListener(_setTextBgColor);
   }
 
-  List<String> messageList = [];
+  List<String> messageList = [
+    "Hello Guys",
+    "I'm Ok ",
+    "What do you think about this app , this is a test for long text  also It would be my honor if you tell me about this app",
+    "khob inam test kardim",
+    "dg che khabar",
+    "hi",
+    ":)",
+    ".",
+    "!",
+    "ok",
+    "hello again so ....",
+    "man daram miram ye film bbinm , ...",
+    "ok man ino ngah mikonm ta to bargardi ",
+    "cheghadr sakhte alaki type kardan",
+    "ke bkhad mani ham dashte bashe , hamash daram fekr mikonm ke chi bnvisam , vali subject khasi be zehnam nmirese",
+    "ok hamin fekr konm kafie felan",
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -54,14 +71,13 @@ class _ChatScreenState extends State<ChatScreen> {
 
     return Scaffold(
       appBar: AppBar(
-//          backgroundColor: Colors.cyan[300],
-          backgroundColor: Colors.white,
+          backgroundColor: Colors.cyan[300],
+//          backgroundColor: Colors.white,
           elevation: 3.0,
           centerTitle: true,
           title: GestureDetector(
             onTap: (){
-              Navigator.push(
-                context,
+              Navigator.push(context,
                 MaterialPageRoute(builder: (context) => ContactProfile()),
               );
             },
@@ -83,11 +99,11 @@ class _ChatScreenState extends State<ChatScreen> {
                   SizedBox(width: size.width * 0.04),
                   Flexible(
                     child: Text(
-                      "Farhad Farhad Farhad Farhad Farhad Farhad",
+                      "Farhad",
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
                       fontSize: 17.0,
-                      color: Colors.black
+//                      color: Colors.black
                     ),
                     ),
                   ),
@@ -99,7 +115,7 @@ class _ChatScreenState extends State<ChatScreen> {
             IconButton(
               key: popUpScreenKey,
               onPressed: _screenOptions,
-              color: Colors.black,
+//              color: Colors.black,
               icon: Icon(Icons.more_vert),
             ),
           ]
@@ -121,7 +137,8 @@ class _ChatScreenState extends State<ChatScreen> {
                       reverse: true,
                       itemCount: messageList.length,
 //                 itemBuilder: (context, index) => _showMessages(index),
-                      itemBuilder: (context, index) => _test_websocket(index, messageList[index]),
+//                      itemBuilder: (context, index) => _test_websocket(index, messageList[index]),
+                      itemBuilder: (context, index) => _showMessages(index, messageList[index]),
                     ),
                     PvChatInput(channel:channel),
                   ],
@@ -297,7 +314,7 @@ class _ChatScreenState extends State<ChatScreen> {
 //      setState(() => typed = false): null;
 
 
-  Widget _showMessages(int index){
+  Widget _showMessages(int index, text){
     Size size = MediaQuery.of(context).size;
     final GlobalKey popUpMessageKey = GlobalKey();
     if(index % 5 == 0)
@@ -320,8 +337,8 @@ class _ChatScreenState extends State<ChatScreen> {
           actionPane: SlidableDrawerActionPane(),
           closeOnScroll: true,
           actionExtentRatio: 0.2,
-            child: index % 2 == 0 ? PvChatUtils.messageYou(context, false, false, setState)
-            : PvChatUtils.messageYou(context, true, true, setState),
+            child: index % 2 == 0 ? PvChatUtils.messageYou(context, text, false, false, setState)
+            : PvChatUtils.messageYou(context, text, true, true, setState),
           actions: <Widget>[
             Text("Reply"),
           ],
@@ -374,9 +391,9 @@ class _ChatScreenState extends State<ChatScreen> {
     }
     else{
       index ++;
-      return index % 3 == 0 ? PvChatUtils.messageMe(context, false, false)
-          : index % 2 == 0 ? PvChatUtils.messageMe(context, false, true)
-          : PvChatUtils.messageMe(context, true, true);
+      return index % 3 == 0 ? PvChatUtils.messageMe(context, text, false, false)
+          : index % 2 == 0 ? PvChatUtils.messageMe(context, text, false, true)
+          : PvChatUtils.messageMe(context, text, true, true);
     }
 
   }

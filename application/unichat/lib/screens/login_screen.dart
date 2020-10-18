@@ -211,6 +211,11 @@ class _LoginScreenState extends State<LoginScreen> {
       }catch(e){
         print("- Server Error $e");
       }
+
+      Navigator.pushReplacement(context,
+        MaterialPageRoute(builder: (context) => HomeScreen()),
+      );
+
     }
 
 //    Navigator.pushReplacement(

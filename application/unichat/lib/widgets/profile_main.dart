@@ -110,6 +110,7 @@ class _ProfileMainState extends State<ProfileMain> {
             ),
           ),
         ),
+
         _optionBackground(2.0, 35.0, null, false, false, backgroundColor, fontColor),
         Positioned(
           top: -5.0,

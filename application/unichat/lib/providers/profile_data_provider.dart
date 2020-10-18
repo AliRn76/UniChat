@@ -13,12 +13,16 @@ class ProfileDataProvider extends ChangeNotifier {
     getUserProfile();
   }
 
+//  User _userProfile = User(
+//      "", "", "", "", "", "",
+//      "", "", "","" , true,
+//      "", "", "", "", 0,
+//  "", "", "", "", "", "", "", "", Color(0xA3D1FF), Color(0x000000), "assets/images/nature-background.jpg", 6  );
   User _userProfile = User(
-      "", "", "", "", "", "",
-      "", "", "","" , true,
-      "", "", "", "", 0,
-  "", "", "", "", "", "", "", "", Color(0xA3D1FF), Color(0x000000), "assets/images/nature-background.jpg", 6  );
-
+      "Admin", "Ali", "Rn", "alirn76@yahoo.com", "09037853055", "assets/images/Michael B Jordan.png",
+      "I'm Just a Programmer , What do you want to know about me , dm me :)", "Ali_Rn_", "Al1Rn", "2020-12-25", false,
+      "Iran", "Tehran", "IAU TNB", "IT", 1395,
+      "Programmer", "Taekwondo", "Harry Potter", "Warrior", "The Flash", "HoN", "No Where", "Dar Vaghe", Color(0xA3D1FF), Color(0x000000), "assets/images/nature-background.jpg", 6  );
 
   User get userProfile => _userProfile;
 
@@ -81,7 +85,7 @@ class ProfileDataProvider extends ChangeNotifier {
     if(_user.background_opacity == null)
       _user.background_opacity = 6;
 
-    _userProfile = _user;
+//    _userProfile = _user;
     notifyListeners();
   }
 

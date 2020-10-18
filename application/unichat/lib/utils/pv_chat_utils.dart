@@ -8,7 +8,7 @@ import 'package:clay_containers/clay_containers.dart';
 
 class PvChatUtils{
 
-  static messageMe(BuildContext context, bool liked, bool seen){
+  static messageMe(BuildContext context, String text, bool liked, bool seen){
     Color bgColor = Colors.greenAccent[100];
     return Stack(
       children: [
@@ -42,8 +42,7 @@ class PvChatUtils{
                       child: Padding(
                         padding: EdgeInsets.all(13.0),
                         child: Text(
-                        "Hello I'm Good abe \n  call youd d d d d d d d d d d d d f f f f f h",
-//                          "",
+                        text,
                         ),
                       ),
                     ),
@@ -75,7 +74,7 @@ class PvChatUtils{
     );
   }
 
-  static messageYou(BuildContext context, bool liked, bool seen, StateSetter setState){
+  static messageYou(BuildContext context, String text, bool liked, bool seen, StateSetter setState){
         Color bgColor = Colors.pink[100];
     return Stack(
       children: [
@@ -108,8 +107,7 @@ class PvChatUtils{
                     child: Padding(
                       padding: EdgeInsets.all(13.0),
                       child: Text(
-//                        "",
-                      "Hello Idoing babe \n tell me wh Idoing bab me wh Idoing ddd d d d d d d d d d dd d d d babe tell me wh",
+                        text,
                       ),
                     ),
                   ),

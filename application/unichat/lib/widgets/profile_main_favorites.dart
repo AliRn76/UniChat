@@ -1,4 +1,7 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
+import 'package:invert_colors/invert_colors.dart';
 import 'package:provider/provider.dart';
 import 'package:unichat/providers/profile_data_provider.dart';
 import 'package:unichat/providers/profile_states_provider.dart';
@@ -15,6 +18,7 @@ class _ProfileMainFavoritesState extends State<ProfileMainFavorites> {
     final ProfileDataProvider profileDataProvider = Provider.of<ProfileDataProvider>(context);
 
     Color fontColor = profileDataProvider.userProfile.font_color;
+    Color backgroundColor = profileDataProvider.userProfile.background_color;
 
 
 
@@ -63,28 +67,28 @@ class _ProfileMainFavoritesState extends State<ProfileMainFavorites> {
             children: [
 
               profileDataProvider.getBook() == '' ? SizedBox.shrink():
-              _favoriteTextBuilder(profileDataProvider.getBook(), fontColor),
+              _favoriteTextBuilder(profileDataProvider.getBook(), fontColor, backgroundColor),
 
               profileDataProvider.getMovie() == '' ? SizedBox.shrink():
-              _favoriteTextBuilder(profileDataProvider.getMovie(), fontColor),
+              _favoriteTextBuilder(profileDataProvider.getMovie(), fontColor, backgroundColor),
 
               profileDataProvider.getToTravel() == '' ? SizedBox.shrink():
-              _favoriteTextBuilder(profileDataProvider.getToTravel(), fontColor),
+              _favoriteTextBuilder(profileDataProvider.getToTravel(), fontColor, backgroundColor),
 
               profileDataProvider.getJob() == '' ? SizedBox.shrink():
-              _favoriteTextBuilder(profileDataProvider.getJob(), fontColor),
+              _favoriteTextBuilder(profileDataProvider.getJob(), fontColor, backgroundColor),
 
               profileDataProvider.getSport() == '' ? SizedBox.shrink():
-              _favoriteTextBuilder(profileDataProvider.getSport(), fontColor),
+              _favoriteTextBuilder(profileDataProvider.getSport(), fontColor, backgroundColor),
 
               profileDataProvider.getMovie() == '' ? SizedBox.shrink():
-              _favoriteTextBuilder(profileDataProvider.getMovie(), fontColor),
+              _favoriteTextBuilder(profileDataProvider.getMovie(), fontColor, backgroundColor),
 
               profileDataProvider.getTvSeries() == '' ? SizedBox.shrink():
-              _favoriteTextBuilder(profileDataProvider.getTvSeries(), fontColor),
+              _favoriteTextBuilder(profileDataProvider.getTvSeries(), fontColor, backgroundColor),
 
               profileDataProvider.getMusic() == '' ? SizedBox.shrink():
-              _favoriteTextBuilder(profileDataProvider.getMusic(), fontColor),
+              _favoriteTextBuilder(profileDataProvider.getMusic(), fontColor, backgroundColor),
             ],
           ),
         ),
@@ -93,17 +97,74 @@ class _ProfileMainFavoritesState extends State<ProfileMainFavorites> {
   }
 
 
-  Widget _favoriteTextBuilder(String text, fontColor){
+  Widget _favoriteTextBuilder(String text, Color fontColor, Color backgroundColor){
     Size size = MediaQuery.of(context).size;
 
-    return Padding(
-      padding: EdgeInsets.only(bottom: size.width * 0.06),
-      child: Text(
-        text,
-        maxLines: 1,
-        overflow: TextOverflow.ellipsis,
-        style: TextStyle(
-          color: fontColor.withOpacity(1.0),
+    return InkWell(
+      onTap: (){
+        showDialog(
+            context: context,
+            builder: (BuildContext context){
+              return BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: 6.0, sigmaY: 6.0),
+                child: AlertDialog(
+                  title: Text(
+                    text,
+                    textAlign: TextAlign.center,
+                  ),
+                  titleTextStyle: TextStyle(
+                    color: fontColor.withOpacity(1.0),
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  backgroundColor: backgroundColor.withOpacity(0.7),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20.0),
+                    side: BorderSide(width: 2, color: backgroundColor.withOpacity(1.0)),
+                  ),
+                  actions: [
+                    InvertColors(
+                      child: FlatButton(
+                        child: Text(
+                          "Cancel",
+                          style: TextStyle(color: backgroundColor.withOpacity(1.0)),
+                        ),
+                        onPressed: (){
+                          print("Cancel");
+                          Navigator.pop(context);
+                        },
+                      ),
+                    ),
+                    InvertColors(
+                      child: FlatButton(
+                        child: Text(
+                          "OK",
+                          style: TextStyle(color: backgroundColor.withOpacity(1.0)),
+                        ),
+                        onPressed: (){
+                          print("ok");
+                          Navigator.pop(context);
+                        },
+                      ),
+                    ),
+                  ],
+                  content: Text("Is in 125 Profile"),
+                ),
+              );
+            }
+        );
+      },
+
+      splashColor: Colors.black,
+      child: Padding(
+        padding: EdgeInsets.only(bottom: size.width * 0.06),
+        child: Text(
+          text,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+          style: TextStyle(
+            color: fontColor.withOpacity(1.0),
+          ),
         ),
       ),
     );
