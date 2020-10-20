@@ -4,14 +4,14 @@ class ProfileMainState{
   bool onSecurity;
   bool onSetting;
   bool onAboutUs;
-  bool onContact;
+  bool onChart;
 
   ProfileMainState(
       this.onEdit,
       this.onSecurity,
       this.onSetting,
       this.onAboutUs,
-      this.onContact,
+      this.onChart,
       );
 }
 

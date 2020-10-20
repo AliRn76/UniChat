@@ -6,14 +6,14 @@ import 'package:invert_colors/invert_colors.dart';
 import 'package:provider/provider.dart';
 import 'package:unichat/providers/profile_data_provider.dart';
 import 'package:unichat/providers/profile_states_provider.dart';
-import 'package:unichat/widgets/myArc.dart';
+import 'package:unichat/utils/myArc.dart';
 
-class ProfileContact extends StatefulWidget {
+class ProfileChart extends StatefulWidget {
   @override
-  _ProfileContactState createState() => _ProfileContactState();
+  _ProfileChartState createState() => _ProfileChartState();
 }
 
-class _ProfileContactState extends State<ProfileContact> {
+class _ProfileChartState extends State<ProfileChart> {
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +36,7 @@ class _ProfileContactState extends State<ProfileContact> {
           ),
           child: Center(
             child: Text(
-              "On Contact",
+              "On Chart",
             ),
           ),
         ),
@@ -62,7 +62,7 @@ class _ProfileContactState extends State<ProfileContact> {
               icon: Icon(Icons.close),
               onPressed: (){
                 setState(() {
-                  profileStateProvider.setContact(false);
+                  profileStateProvider.setChart(false);
                 });
                 print("Cancel");
               },
@@ -91,7 +91,7 @@ class _ProfileContactState extends State<ProfileContact> {
               icon: Icon(Icons.check),
               onPressed: (){
                 setState(() {
-                  profileStateProvider.setContact(false);
+                  profileStateProvider.setChart(false);
                 });
                 print("Done");
               },

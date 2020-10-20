@@ -16,13 +16,13 @@ class ProfileDataProvider extends ChangeNotifier {
 //  User _userProfile = User(
 //      "Admin", "Ali", "Rn", "", "", "",
 //      "", "", "","" , true,
-//      "", "", "", "", 0,
+//      "Iran", "Tehran", "IAU TNB", "IT", 1395,
 //  "", "", "", "", "", "", "", "", Color(0xA3D1FF), Color(0x000000), "assets/images/nature-background.jpg", 6  );
   User _userProfile = User(
-      "Admin", "Ali", "Rn", "alirn76@yahoo.com", "09037853055", "assets/images/Michael B Jordan.png",
+      "Fvrhvd", "Ali", "Rn", "alirn76@yahoo.com", "09037853055", "assets/images/Michael B Jordan.png",
       "I'm Just a Programmer , What do you want to know about me , dm me :)", "Ali_Rn_", "Al1Rn", "2020-12-25", false,
       "Iran", "Tehran", "IAU TNB", "IT", 1395,
-      "Programmer", "Taekwondo", "Harry Potter", "Warrior", "The Flash", "HoN", "No Where", "Dar Vaghe", Color(0xA3D1FF), Color(0x000000), "assets/images/nature-background.jpg", 6  );
+      "Programmer", "Taekwondo", "Harry Potter", "Warrior", "The Flash", "HoN", "No Where", "Megahit", Color(0xA3D1FF), Color(0x000000), "assets/images/nature-background.jpg", 6  );
 
   User get userProfile => _userProfile;
 
@@ -225,3 +225,5 @@ class ProfileDataProvider extends ChangeNotifier {
 
 
 //TODO: baghie ye provider ro baad az tamom kardan UI bzanam
+
+//TODO: jaye Telegram Twitter biad, + pintrest o ye chize dg

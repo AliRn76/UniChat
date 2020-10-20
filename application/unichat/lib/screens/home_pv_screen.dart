@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:provider/provider.dart';
 import 'package:unichat/providers/connection_provider.dart';
@@ -29,13 +30,23 @@ class _PvScreenState extends State<PvScreen> {
     ),
   );
 
+  ScrollController scrollController = ScrollController();
+  bool show = true;
 
   @override
-  void initState(){
+  void initState() {
     super.initState();
     print("\n-- PvScreen");
+    scrollController.addListener(() =>
+      setState(() =>
+        show = scrollController.position.userScrollDirection == ScrollDirection.forward));
   }
 
+  @override
+  void dispose() {
+    scrollController.removeListener(() {});
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -45,29 +56,14 @@ class _PvScreenState extends State<PvScreen> {
           elevation: 3.0,
           centerTitle: true,
           title: _setTitle(),
-          actions: [
-            _appbarActionButton()
-          ]
+          actions: [_appbarActionButton()]
       ),
       body: Container(
-//        width: double.infinity,
-//        height: double.infinity,
         decoration: BoxDecoration(
-//            gradient: LinearGradient(
-//                begin: Alignment.topLeft,
-//                end: Alignment.bottomRight,
-//                stops: [
-//                  0.3,
-//                  0.7,
-//                ],
-//                colors: [
-//                  Color(0xffe2aff3),
-//                  Color(0xfff9f9f9),
-//                ]
-//            )
         ),
         child: SafeArea(
           child: ListView.builder(
+            controller: scrollController,
             itemCount: 40,
             itemBuilder: (context, index){
 //              return _buildChatPreview(index);
@@ -130,6 +126,20 @@ class _PvScreenState extends State<PvScreen> {
           ),
         ),
       ),
+        floatingActionButton: Visibility(
+          visible: show,
+          child: FloatingActionButton(
+            elevation: 10.0,
+            backgroundColor: Color(0xbbe2aff3),
+            child: Icon(
+              Icons.perm_contact_calendar,
+              color: Colors.black,
+            ),
+            onPressed: () {
+              print("show contact");
+            },
+          ),
+        ),
     );
   }
 

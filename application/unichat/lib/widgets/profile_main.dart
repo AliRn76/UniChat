@@ -6,8 +6,10 @@ import 'package:invert_colors/invert_colors.dart';
 import 'package:provider/provider.dart';
 import 'package:unichat/providers/profile_data_provider.dart';
 import 'package:unichat/providers/profile_states_provider.dart';
+import 'package:unichat/screens/Profile_image.dart';
 import 'package:unichat/screens/first_screen.dart';
-import 'package:unichat/widgets/myArc.dart';
+import 'package:unichat/utils/profile_main_utils.dart';
+import 'package:unichat/utils/myArc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:unichat/widgets/profile_main_bio.dart';
 import 'package:unichat/widgets/profile_main_favorites.dart';
@@ -42,10 +44,7 @@ class _ProfileMainState extends State<ProfileMain> {
             borderRadius: BorderRadius.circular(15.0),
           ),
           child: Padding(
-            padding: EdgeInsets.fromLTRB(
-                size.width * 0.05, size.width * 0.10,
-                size.width * 0.05, size.width * 0.05
-            ),
+            padding: EdgeInsets.all(size.width * 0.05),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
@@ -53,16 +52,26 @@ class _ProfileMainState extends State<ProfileMain> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
-                    Container (
-                      height: size.width * 0.25,
-                      width: size.width * 0.25,
-                      margin: EdgeInsets.only(right: size.width * 0.03),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50),
-                        image: DecorationImage(
-                          image: AssetImage("assets/images/Michael B Jordan.png"),
-//                          image: NetworkImage(),
-                          fit: BoxFit.cover,
+                    InkWell(
+                      onTap: (){
+                        Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => ProfileImage())
+                        );
+                      },
+                      child: Hero(
+                        tag: "profile_picture",
+                        child: Container (
+                          height: size.width * 0.25,
+                          width: size.width * 0.25,
+                          margin: EdgeInsets.only(right: size.width * 0.03),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(50),
+                            image: DecorationImage(
+                              image: AssetImage("assets/images/Michael B Jordan.png"),
+//                            image: NetworkImage("assets/images/Michael B Jordan.png"),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
                         ),
                       ),
                     ),
@@ -70,7 +79,7 @@ class _ProfileMainState extends State<ProfileMain> {
                   ],
                 ),
                 Container(
-                  margin: EdgeInsets.only(top: size.width * 0.06),
+                  margin: EdgeInsets.only(top: size.width * 0.03),
                   padding: EdgeInsets.only(bottom: size.width * 0.02),
                   decoration: BoxDecoration(
                     border: Border(
@@ -98,9 +107,7 @@ class _ProfileMainState extends State<ProfileMain> {
                       ProfileMainBio(),
                       SizedBox(height: size.width * 0.04),
                       ProfileMainSocialMedia(),
-
-                      SizedBox(height: size.width * 0.06),
-
+                      SizedBox(height: size.width * 0.01),
                       ProfileMainFavorites(),
                       SizedBox(height: size.width * 0.04),
                     ],
@@ -111,7 +118,7 @@ class _ProfileMainState extends State<ProfileMain> {
           ),
         ),
 
-        _optionBackground(2.0, 35.0, null, false, false, backgroundColor, fontColor),
+        ProfileMainUtils.optionBackground(2.0, 35.0, null, false, false, backgroundColor, fontColor),
         Positioned(
           top: -5.0,
           right: 30.0,
@@ -131,7 +138,7 @@ class _ProfileMainState extends State<ProfileMain> {
             ),
           ),
         ),
-        _optionBackground(2.0, 80.0, null, false, false, backgroundColor, fontColor),
+        ProfileMainUtils.optionBackground(2.0, 80.0, null, false, false, backgroundColor, fontColor),
         Positioned(
           top: -5.0,
           right: 75.0,
@@ -150,7 +157,7 @@ class _ProfileMainState extends State<ProfileMain> {
           ),
         ),
 
-        _optionBackground(2.0, null, 35.0, false, false, backgroundColor, fontColor),
+        ProfileMainUtils.optionBackground(2.0, null, 35.0, false, false, backgroundColor, fontColor),
         Positioned(
           top: -5.0,
           left: 32.0,
@@ -168,7 +175,7 @@ class _ProfileMainState extends State<ProfileMain> {
             ),
           ),
         ),
-        _optionBackground(2.0, null, 80.0, false, false, backgroundColor, fontColor),
+        ProfileMainUtils.optionBackground(2.0, null, 80.0, false, false, backgroundColor, fontColor),
         Positioned(
           top: -5.0,
           left: 77.0,
@@ -187,7 +194,7 @@ class _ProfileMainState extends State<ProfileMain> {
           ),
         ),
 
-        _optionBackground(40.0, null, 3.0, true, false, backgroundColor, fontColor),
+        ProfileMainUtils.optionBackground(40.0, null, 3.0, true, false, backgroundColor, fontColor),
         Positioned(
           top: 35.0,
           left: -4.0,
@@ -210,7 +217,7 @@ class _ProfileMainState extends State<ProfileMain> {
             ),
           ),
         ),
-        _optionBackground(40.0, 3.0, null, false, true, backgroundColor, fontColor),
+        ProfileMainUtils.optionBackground(40.0, 3.0, null, false, true, backgroundColor, fontColor),
         Positioned(
           top: 38.0,
           right: -4.0,
@@ -218,11 +225,11 @@ class _ProfileMainState extends State<ProfileMain> {
             child: IconButton(
               color: backgroundColor.withOpacity(1.0),
               iconSize: iconSize,
-              icon: Icon(Icons.contact_phone),
+              icon: FaIcon(FontAwesomeIcons.solidChartBar),
               onPressed: (){
-                print("Contact");
+                print("Favorites Ranking");
                 setState(() {
-                  statesProvider.setContact(true);
+                  statesProvider.setChart(true);
                 });
               },
             ),
@@ -232,27 +239,7 @@ class _ProfileMainState extends State<ProfileMain> {
     );
   }
 
-  Widget _optionBackground(top, right, left, inLeft, inRight, backgroundColor, fontColor){
-    double buttonSizeWidth = 40;
-    double buttonSizeHeight= 42;
 
-    return Positioned(
-      top: top,
-      right: right,
-      left: left,
-      child: Transform.rotate(
-        angle: inLeft ? 4.71 :  inRight ? -4.71 : 0.0,
-        child: Container(
-          height: buttonSizeHeight,
-          width: buttonSizeWidth,
-          child: MyArc(
-            diameter: 300,
-            color: backgroundColor.withOpacity(0.3),
-          ),
-        ),
-      ),
-    );
-  }
 
 
 }

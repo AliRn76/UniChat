@@ -5,6 +5,7 @@ import 'package:invert_colors/invert_colors.dart';
 import 'package:provider/provider.dart';
 import 'package:unichat/providers/profile_data_provider.dart';
 import 'package:unichat/providers/profile_states_provider.dart';
+import 'package:unichat/utils/profile_main_utils.dart';
 
 class ProfileMainFavorites extends StatefulWidget {
   @override
@@ -63,9 +64,7 @@ class _ProfileMainFavoritesState extends State<ProfileMainFavorites> {
         Container(
           width: size.width * 0.62,
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-
               profileDataProvider.getBook() == '' ? SizedBox.shrink():
               _favoriteTextBuilder(profileDataProvider.getBook(), fontColor, backgroundColor),
 
@@ -99,72 +98,36 @@ class _ProfileMainFavoritesState extends State<ProfileMainFavorites> {
 
   Widget _favoriteTextBuilder(String text, Color fontColor, Color backgroundColor){
     Size size = MediaQuery.of(context).size;
-    double fontSize = size.width * 0.045;
+//    double fontSize = size.width * 0.045;
+    double fontSize = 14.0;
     return InkWell(
-      onTap: (){
+      onTap: () =>
         showDialog(
             context: context,
-            builder: (BuildContext context){
-              return BackdropFilter(
-                filter: ImageFilter.blur(sigmaX: 6.0, sigmaY: 6.0),
-                child: AlertDialog(
-                  title: Text(
-                    text,
-                    textAlign: TextAlign.center,
-                  ),
-                  titleTextStyle: TextStyle(
-                    color: fontColor.withOpacity(1.0),
-                    fontSize: 16.0,
-                    fontWeight: FontWeight.bold,
-                  ),
-                  backgroundColor: backgroundColor.withOpacity(0.7),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20.0),
-                    side: BorderSide(width: 2, color: backgroundColor.withOpacity(1.0)),
-                  ),
-                  actions: [
-                    InvertColors(
-                      child: FlatButton(
-                        child: Text(
-                          "Cancel",
-                          style: TextStyle(color: backgroundColor.withOpacity(1.0)),
-                        ),
-                        onPressed: (){
-                          print("Cancel");
-                          Navigator.pop(context);
-                        },
-                      ),
-                    ),
-                    InvertColors(
-                      child: FlatButton(
-                        child: Text(
-                          "OK",
-                          style: TextStyle(color: backgroundColor.withOpacity(1.0)),
-                        ),
-                        onPressed: (){
-                          print("ok");
-                          Navigator.pop(context);
-                        },
-                      ),
-                    ),
-                  ],
-                  content: Text("Is in 125 Profile"),
-                ),
-              );
-            }
-        );
-      },
-
+            builder: (BuildContext context) =>
+              ProfileMainUtils.alertDialog(context, text, fontColor, backgroundColor),
+        ),
       splashColor: Colors.black,
-      child: Padding(
-        padding: EdgeInsets.only(bottom: size.width * 0.06),
-        child: Text(
-          text,
-          maxLines: 1,
-          overflow: TextOverflow.ellipsis,
-          style: TextStyle(
-            color: fontColor.withOpacity(1.0),
-            fontSize: fontSize,
+      child: Container(
+        decoration: BoxDecoration(
+          border: Border(
+            bottom: BorderSide(width: 0.2),
+          ),
+        ),
+        child: Padding(
+          padding: EdgeInsets.only(bottom: size.width * 0.035, top: size.width * 0.035),
+          child: Container(
+            width: size.width * 0.62,
+            child: Text(
+              text,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+//                  textAlign: TextAlign.center,
+              style: TextStyle(
+                color: fontColor.withOpacity(1.0),
+                fontSize: fontSize,
+              ),
+            ),
           ),
         ),
       ),
@@ -173,10 +136,10 @@ class _ProfileMainFavoritesState extends State<ProfileMainFavorites> {
 
   Widget _favoriteIconBuilder(IconData icon, fontColor){
     Size size = MediaQuery.of(context).size;
-    double iconSize = size.width * 0.052;
-
+//    double iconSize = size.width * 0.052;
+    double iconSize = 16.0;
     return Padding(
-      padding: EdgeInsets.only(bottom: size.width * 0.06),
+      padding: EdgeInsets.only(bottom: size.width * 0.035, top: size.width * 0.035),
       child: Icon(
         icon,
         size: iconSize,

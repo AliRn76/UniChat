@@ -7,7 +7,7 @@ import 'package:unichat/widgets/profile_edit.dart';
 class ProfileStatesProvider extends ChangeNotifier {
 
   ProfileStatesProvider(){}
-  /// OnEdit, OnSecurity, OnSetting, OnAboutUs, OnContact
+  /// OnEdit, OnSecurity, OnSetting, OnAboutUs, OnChart
   ProfileMainState _profileMainState = ProfileMainState(false, false, false, false, false);
   /// Page1, Page2, Page3, Page4, Page5
   ProfileEditState _profileEditState = ProfileEditState(true, false, false, false, false, false);
@@ -52,8 +52,8 @@ class ProfileStatesProvider extends ChangeNotifier {
     _profileMainState.onAboutUs = value;
     notifyListeners();
   }
-  void setContact(bool value){
-    _profileMainState.onContact = value;
+  void setChart(bool value){
+    _profileMainState.onChart = value;
     notifyListeners();
   }
 

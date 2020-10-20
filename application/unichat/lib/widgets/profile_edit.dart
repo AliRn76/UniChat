@@ -6,9 +6,10 @@ import 'package:invert_colors/invert_colors.dart';
 import 'package:provider/provider.dart';
 import 'package:unichat/providers/profile_data_provider.dart';
 import 'package:unichat/providers/profile_states_provider.dart';
-import 'package:unichat/widgets/myArc.dart';
+import 'package:unichat/utils/myArc.dart';
 import 'package:country_pickers/country_pickers.dart';
 import 'package:country_pickers/country.dart';
+import 'package:unichat/utils/profile_main_utils.dart';
 import 'package:unichat/widgets/profile_edit_page6.dart';
 import 'package:unichat/widgets/profile_edit_page1.dart';
 import 'package:unichat/widgets/profile_edit_page2.dart';
@@ -33,13 +34,14 @@ class _ProfileEditState extends State<ProfileEdit> {
     final ProfileDataProvider profileDataProvider = Provider.of<ProfileDataProvider>(context);
 
     Color backgroundColor = profileDataProvider.userProfile.background_color;
+    Color fontColor = profileDataProvider.userProfile.font_color;
 
     return Stack(
       children: <Widget>[
         Container(
           width: size.width * 0.85,
           height: size.height * 0.70,
-          margin: EdgeInsets.only(top: 15),
+          margin: EdgeInsets.fromLTRB(22.0, 22.0, 22.0, 0.0),
           decoration: BoxDecoration(
             color: backgroundColor.withOpacity(0.3),
             borderRadius: BorderRadius.circular(15.0),
@@ -52,25 +54,14 @@ class _ProfileEditState extends State<ProfileEdit> {
               : profileStatesProvider.profileEditState.page6 ? ProfileEditPage6()
               : null,
         ),
+        ProfileMainUtils.optionBackground(2.0, 80.0, null, false, false, backgroundColor, fontColor),
         Positioned(
-          top: 0.0,
-          right: 64.0,
-          child: Container(
-            height: 30.0,
-            width: 30.0,
-            child: MyArc(
-              diameter: 300,
-              color: backgroundColor.withOpacity(0.3),
-            ),
-          ),
-        ),
-        Positioned(
-          top: -8.0,
-          right: 56.0,
+          top: -5.0,
+          right: 75.0,
           child: InvertColors(
             child: IconButton(
               color: backgroundColor.withOpacity(1.0),
-              iconSize: 20,
+              iconSize: 19,
               icon: Icon(Icons.close),
               onPressed: (){
                 setState(() {
@@ -88,25 +79,14 @@ class _ProfileEditState extends State<ProfileEdit> {
             ),
           ),
         ),
+        ProfileMainUtils.optionBackground(2.0, 35.0, null, false, false, backgroundColor, fontColor),
         Positioned(
-          top: 0.0,
-          right: 24.0,
-          child: Container(
-            height: 30.0,
-            width: 30.0,
-            child: MyArc(
-              diameter: 300,
-              color: backgroundColor.withOpacity(0.3),
-            ),
-          ),
-        ),
-        Positioned(
-          top: -8.0,
-          right: 16.0,
+          top: -5.0,
+          right: 30.0,
           child: InvertColors(
             child: IconButton(
               color: backgroundColor.withOpacity(1.0),
-              iconSize: 20,
+              iconSize: 19,
               icon: Icon(Icons.check),
               onPressed: (){
                 setState(() {

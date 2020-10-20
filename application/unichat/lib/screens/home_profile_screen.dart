@@ -5,7 +5,7 @@ import 'package:flutter_circle_color_picker/flutter_circle_color_picker.dart';
 import 'package:invert_colors/invert_colors.dart';
 import 'package:provider/provider.dart';
 import 'package:unichat/providers/profile_data_provider.dart';
-import 'package:unichat/widgets/myArc.dart';
+import 'package:unichat/utils/myArc.dart';
 import 'package:country_pickers/country_pickers.dart';
 import 'package:country_pickers/country.dart';
 import 'package:unichat/widgets/profile_aboutUs.dart';
@@ -53,7 +53,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               : profileStateProvider.profileState.onSecurity ? ProfileSecurity()
               : profileStateProvider.profileState.onSetting ? ProfileSetting()
               : profileStateProvider.profileState.onAboutUs ? ProfileAboutUs()
-              : profileStateProvider.profileState.onContact ? ProfileContact()
+              : profileStateProvider.profileState.onChart ? ProfileChart()
               : ProfileMain(),
         ),
       ),

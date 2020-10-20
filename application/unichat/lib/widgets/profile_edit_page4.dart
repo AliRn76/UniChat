@@ -7,7 +7,7 @@ import 'package:provider/provider.dart';
 import 'package:unichat/providers/profile_data_provider.dart';
 import 'package:unichat/providers/profile_states_provider.dart';
 import 'package:unichat/utils/profile_edit_utils.dart';
-import 'package:unichat/widgets/myArc.dart';
+import 'package:unichat/utils/myArc.dart';
 import 'package:country_pickers/country_pickers.dart';
 import 'package:country_pickers/country.dart';
 import 'package:unichat/widgets/profile_edit_page1.dart';
